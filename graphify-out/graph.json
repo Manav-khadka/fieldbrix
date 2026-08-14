@@ -195,7 +195,7 @@
       "source_file": "terraform/scripts/rollback-apps.sh",
       "source_location": "L1",
       "id": "terraform_scripts_rollback_apps_sh",
-      "community": 299,
+      "community": 305,
       "norm_label": "rollback-apps.sh"
     },
     {
@@ -5217,7 +5217,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L1",
       "id": "terraform_modules_dns_readme_md",
-      "community": 172,
+      "community": 30,
       "norm_label": "readme.md"
     },
     {
@@ -5226,7 +5226,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L1",
       "id": "dns_readme_modules_dns",
-      "community": 172,
+      "community": 30,
       "norm_label": "modules/dns/"
     },
     {
@@ -5235,7 +5235,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L5",
       "id": "dns_readme_what_this_creates",
-      "community": 172,
+      "community": 30,
       "norm_label": "what this creates"
     },
     {
@@ -5244,7 +5244,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L7",
       "id": "dns_readme_codeblock_1",
-      "community": 172,
+      "community": 30,
       "norm_label": "code:block1 (a record: api.fieldbrix.in \u2192 your static ec2 ip (proxied thr)"
     },
     {
@@ -5253,7 +5253,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L13",
       "id": "dns_readme_why_cloudflare_instead_of_route_53",
-      "community": 172,
+      "community": 30,
       "norm_label": "why cloudflare instead of route 53?"
     },
     {
@@ -5262,7 +5262,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L18",
       "id": "dns_readme_proxied_true_orange_cloud_icon",
-      "community": 172,
+      "community": 30,
       "norm_label": "proxied = true (orange cloud icon)"
     },
     {
@@ -5280,7 +5280,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L29",
       "id": "dns_readme_cloudflare_api_token",
-      "community": 172,
+      "community": 30,
       "norm_label": "cloudflare api token"
     },
     {
@@ -8731,6 +8731,78 @@
       "norm_label": "code:block111 (lines changed   action)"
     },
     {
+      "label": "production-operations.md",
+      "file_type": "document",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L1",
+      "id": "docs_production_operations_md",
+      "community": 296,
+      "norm_label": "production-operations.md"
+    },
+    {
+      "label": "Production operations runbook",
+      "file_type": "document",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L1",
+      "id": "docs_production_operations_production_operations_runbook",
+      "community": 296,
+      "norm_label": "production operations runbook"
+    },
+    {
+      "label": "Deploy",
+      "file_type": "document",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L7",
+      "id": "docs_production_operations_deploy",
+      "community": 296,
+      "norm_label": "deploy"
+    },
+    {
+      "label": "code:bash (set -a; source .env; set +a)",
+      "file_type": "document",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L11",
+      "id": "docs_production_operations_codeblock_1",
+      "community": 296,
+      "norm_label": "code:bash (set -a; source .env; set +a)"
+    },
+    {
+      "label": "Roll back application files",
+      "file_type": "document",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L20",
+      "id": "docs_production_operations_roll_back_application_files",
+      "community": 296,
+      "norm_label": "roll back application files"
+    },
+    {
+      "label": "code:bash (AWS_PROFILE=fieldbrix ./terraform/scripts/rollback-apps.sh p)",
+      "file_type": "document",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L25",
+      "id": "docs_production_operations_codeblock_2",
+      "community": 296,
+      "norm_label": "code:bash (aws_profile=fieldbrix ./terraform/scripts/rollback-apps.sh p)"
+    },
+    {
+      "label": "Restore rehearsal",
+      "file_type": "document",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L33",
+      "id": "docs_production_operations_restore_rehearsal",
+      "community": 296,
+      "norm_label": "restore rehearsal"
+    },
+    {
+      "label": "Alerts and Sentry",
+      "file_type": "document",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L45",
+      "id": "docs_production_operations_alerts_and_sentry",
+      "community": 296,
+      "norm_label": "alerts and sentry"
+    },
+    {
       "label": "CLIENT_USER_STORIES.md",
       "file_type": "document",
       "source_file": "docs/CLIENT_USER_STORIES.md",
@@ -8871,7 +8943,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L48",
       "id": "docs_tech_implementation_guide_part_a_universal_code_principles",
-      "community": 18,
+      "community": 14,
       "norm_label": "part a \u2014 universal code principles"
     },
     {
@@ -8880,7 +8952,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L50",
       "id": "docs_tech_implementation_guide_a1_solid",
-      "community": 18,
+      "community": 14,
       "norm_label": "a1. solid"
     },
     {
@@ -8889,7 +8961,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L54",
       "id": "docs_tech_implementation_guide_s_single_responsibility",
-      "community": 18,
+      "community": 14,
       "norm_label": "s \u2014 single responsibility"
     },
     {
@@ -8898,7 +8970,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L58",
       "id": "docs_tech_implementation_guide_codeblock_2",
-      "community": 18,
+      "community": 14,
       "norm_label": "code:typescript (// \u274c wrong \u2014 tasksservice does too many things)"
     },
     {
@@ -8907,7 +8979,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L96",
       "id": "docs_tech_implementation_guide_o_open_closed",
-      "community": 18,
+      "community": 14,
       "norm_label": "o \u2014 open/closed"
     },
     {
@@ -8916,7 +8988,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L100",
       "id": "docs_tech_implementation_guide_codeblock_3",
-      "community": 18,
+      "community": 14,
       "norm_label": "code:typescript (// \u274c wrong \u2014 adding a new channel requires editing this clas)"
     },
     {
@@ -8925,7 +8997,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L135",
       "id": "docs_tech_implementation_guide_l_liskov_substitution",
-      "community": 18,
+      "community": 14,
       "norm_label": "l \u2014 liskov substitution"
     },
     {
@@ -8934,7 +9006,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L139",
       "id": "docs_tech_implementation_guide_codeblock_4",
-      "community": 18,
+      "community": 14,
       "norm_label": "code:typescript (// \u274c wrong \u2014 throws where base class promises a return value)"
     },
     {
@@ -8943,7 +9015,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L157",
       "id": "docs_tech_implementation_guide_i_interface_segregation",
-      "community": 18,
+      "community": 14,
       "norm_label": "i \u2014 interface segregation"
     },
     {
@@ -8952,7 +9024,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L161",
       "id": "docs_tech_implementation_guide_codeblock_5",
-      "community": 18,
+      "community": 14,
       "norm_label": "code:typescript (// \u274c wrong \u2014 fat interface forces every implementor to stub )"
     },
     {
@@ -8961,7 +9033,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L178",
       "id": "docs_tech_implementation_guide_d_dependency_inversion",
-      "community": 18,
+      "community": 14,
       "norm_label": "d \u2014 dependency inversion"
     },
     {
@@ -8970,7 +9042,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L182",
       "id": "docs_tech_implementation_guide_codeblock_6",
-      "community": 18,
+      "community": 14,
       "norm_label": "code:typescript (// \u274c wrong \u2014 hardcoded concrete dependency)"
     },
     {
@@ -9753,7 +9825,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1497",
       "id": "docs_tech_implementation_guide_part_j_database_standards",
-      "community": 182,
+      "community": 212,
       "norm_label": "part j \u2014 database standards"
     },
     {
@@ -9762,7 +9834,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1499",
       "id": "docs_tech_implementation_guide_j1_migration_rules",
-      "community": 182,
+      "community": 212,
       "norm_label": "j1. migration rules"
     },
     {
@@ -9771,7 +9843,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1501",
       "id": "docs_tech_implementation_guide_codeblock_45",
-      "community": 182,
+      "community": 212,
       "norm_label": "code:sql (-- every migration:)"
     },
     {
@@ -9780,7 +9852,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1524",
       "id": "docs_tech_implementation_guide_j2_query_rules",
-      "community": 182,
+      "community": 212,
       "norm_label": "j2. query rules"
     },
     {
@@ -9789,7 +9861,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1526",
       "id": "docs_tech_implementation_guide_codeblock_46",
-      "community": 182,
+      "community": 212,
       "norm_label": "code:typescript (// rule p0: every prisma query includes tenantid in where)"
     },
     {
@@ -9924,7 +9996,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1704",
       "id": "docs_tech_implementation_guide_part_m_documentation_standards",
-      "community": 212,
+      "community": 304,
       "norm_label": "part m \u2014 documentation standards"
     },
     {
@@ -9933,7 +10005,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1706",
       "id": "docs_tech_implementation_guide_m1_comment_style",
-      "community": 212,
+      "community": 304,
       "norm_label": "m1. comment style"
     },
     {
@@ -9942,7 +10014,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1708",
       "id": "docs_tech_implementation_guide_codeblock_53",
-      "community": 212,
+      "community": 304,
       "norm_label": "code:typescript (// rule: comments explain why, not what. the code shows what)"
     },
     {
@@ -9951,7 +10023,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1732",
       "id": "docs_tech_implementation_guide_m2_tsdoc_on_all_public_service_methods",
-      "community": 212,
+      "community": 304,
       "norm_label": "m2. tsdoc on all public service methods"
     },
     {
@@ -9960,7 +10032,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1734",
       "id": "docs_tech_implementation_guide_codeblock_54",
-      "community": 212,
+      "community": 304,
       "norm_label": "code:typescript (/**)"
     },
     {
@@ -17056,6 +17128,15 @@
       "norm_label": "source nodes"
     },
     {
+      "label": "rollback-apps.sh",
+      "file_type": "code",
+      "source_file": "rollback-apps.sh",
+      "source_location": "L1",
+      "community": 299,
+      "norm_label": "rollback-apps.sh",
+      "id": "rollback_apps_sh"
+    },
+    {
       "label": "deploy-apps.sh",
       "file_type": "code",
       "source_file": "deploy-apps.sh",
@@ -19580,7 +19661,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L117",
-      "community": 194,
+      "community": 238,
       "norm_label": "step 5 \u2014 cloudflare setup (free dns + ssl)",
       "id": "terraform_local_setup_step_5_cloudflare_setup_free_dns_ssl"
     },
@@ -19589,7 +19670,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L119",
-      "community": 194,
+      "community": 238,
       "norm_label": "5a. sign up at cloudflare.com (free plan)",
       "id": "terraform_local_setup_5a_sign_up_at_cloudflare_com_free_plan"
     },
@@ -19598,7 +19679,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L120",
-      "community": 194,
+      "community": 238,
       "norm_label": "5b. add your domain (e.g., fieldbrix.in)",
       "id": "terraform_local_setup_5b_add_your_domain_e_g_fieldbrix_in"
     },
@@ -20030,7 +20111,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/modules/dns/README.md",
       "source_location": "L1",
-      "community": 172,
+      "community": 30,
       "norm_label": "readme.md",
       "id": "docs_terraform_modules_dns_readme_md"
     },
@@ -21318,7 +21399,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 296,
+      "community": 23,
       "norm_label": "mechanical verification beats agent judgment",
       "id": "docs_ai_agent_development_playbook_mechanical_verification"
     },
@@ -21344,7 +21425,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 18,
       "norm_label": "one source of truth, read by every tool",
       "id": "docs_ai_agent_development_playbook_one_source_of_truth"
     },
@@ -21357,7 +21438,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 296,
+      "community": 23,
       "norm_label": "the verification pyramid",
       "id": "docs_ai_agent_development_playbook_verification_pyramid"
     },
@@ -21461,7 +21542,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 296,
+      "community": 23,
       "norm_label": "automated_testing_strategy.md",
       "id": "docs_ai_agent_development_playbook_automated_testing_strategy"
     },
@@ -21474,7 +21555,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 296,
+      "community": 23,
       "norm_label": "tech_implementation_guide_fastapi.md",
       "id": "docs_ai_agent_development_playbook_tech_implementation_guide_fastapi"
     },
@@ -21487,7 +21568,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 296,
+      "community": 23,
       "norm_label": "engineering_handbook_fastapi.md",
       "id": "docs_ai_agent_development_playbook_engineering_handbook_fastapi"
     },
@@ -21526,7 +21607,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 18,
       "norm_label": "engineering_handbook*.md (p0/p1/p2 system)",
       "id": "docs_ai_agent_development_playbook_engineering_handbook"
     },
@@ -21539,7 +21620,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 18,
       "norm_label": "agents.md / claude.md pattern",
       "id": "docs_ai_agent_development_playbook_agents_md"
     },
@@ -21760,7 +21841,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 303,
       "norm_label": "modules/storage",
       "id": "storage_readme"
     },
@@ -21773,7 +21854,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 303,
       "norm_label": "s3 buckets (photos/pdfs/exports/web)",
       "id": "storage_readme_s3_buckets"
     },
@@ -21786,7 +21867,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 303,
       "norm_label": "presigned url upload pattern",
       "id": "storage_readme_presigned_url_upload"
     },
@@ -21799,7 +21880,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 18,
       "norm_label": "modules/compute",
       "id": "compute_readme"
     },
@@ -21812,7 +21893,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 18,
       "norm_label": "elastic ip (static ip)",
       "id": "compute_readme_elastic_ip"
     },
@@ -21825,7 +21906,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 18,
       "norm_label": "pgbouncer connection pooler",
       "id": "compute_readme_pgbouncer"
     },
@@ -21838,7 +21919,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 18,
       "norm_label": "imdsv2 enforcement",
       "id": "compute_readme_imdsv2"
     },
@@ -21851,7 +21932,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 302,
       "norm_label": "modules/queues",
       "id": "queues_readme"
     },
@@ -21864,7 +21945,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 302,
       "norm_label": "pdf-generation.fifo queue",
       "id": "queues_readme_pdf_generation_fifo"
     },
@@ -21877,7 +21958,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 302,
       "norm_label": "notifications.fifo queue",
       "id": "queues_readme_notifications_fifo"
     },
@@ -21890,7 +21971,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 302,
       "norm_label": "scheduler.fifo queue",
       "id": "queues_readme_scheduler_fifo"
     },
@@ -21903,7 +21984,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 302,
       "norm_label": "media-processing queue",
       "id": "queues_readme_media_processing"
     },
@@ -21916,7 +21997,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 302,
       "norm_label": "dead-letter queue (dlq)",
       "id": "queues_readme_dlq"
     },
@@ -22085,7 +22166,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 2,
       "norm_label": "react hook form + zod",
       "id": "frontend_readme_react_hook_form_zod"
     },
@@ -22098,7 +22179,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 2,
       "norm_label": "createtaskschema (shared zod schema)",
       "id": "frontend_readme_create_task_schema"
     },
@@ -22241,7 +22322,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 2,
       "norm_label": "validation pipes (class-validator)",
       "id": "backend_readme_pipes_validation"
     },
@@ -22397,7 +22478,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 2,
       "norm_label": "createtaskdto",
       "id": "backend_readme_create_task_dto"
     },
@@ -22501,7 +22582,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 303,
       "norm_label": "presigned url upload (mobile)",
       "id": "mobile_readme_presigned_url_upload"
     },
@@ -22605,7 +22686,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 18,
       "norm_label": "aws infrastructure reference",
       "id": "aws_readme"
     },
@@ -22618,7 +22699,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 18,
       "norm_label": "ec2 t4g.medium compute",
       "id": "aws_readme_ec2_compute"
     },
@@ -22644,7 +22725,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 18,
       "norm_label": "pgbouncer (aws doc)",
       "id": "aws_readme_pgbouncer"
     },
@@ -22657,7 +22738,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 303,
       "norm_label": "s3 object storage",
       "id": "aws_readme_s3_storage"
     },
@@ -22683,7 +22764,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 302,
       "norm_label": "sqs + lambda async layer",
       "id": "aws_readme_sqs_lambda_async"
     },
@@ -22709,7 +22790,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 18,
       "norm_label": "github actions ci/cd pipeline",
       "id": "aws_readme_cicd_github_actions"
     },
@@ -22722,7 +22803,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 18,
       "norm_label": "complete cost summary",
       "id": "aws_readme_cost_summary"
     }
@@ -22764,9 +22845,9 @@
       "source_file": "terraform/scripts/deploy-apps.sh",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "terraform_scripts_deploy_apps_sh",
-      "target": "scripts_deploy_apps_cleanup",
-      "confidence_score": 1.0
+      "target": "scripts_deploy_apps_cleanup"
     },
     {
       "relation": "defines",
@@ -22774,9 +22855,9 @@
       "source_file": "terraform/scripts/deploy-apps.sh",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "terraform_scripts_deploy_apps_sh",
-      "target": "scripts_deploy_apps_run_terraform",
-      "confidence_score": 1.0
+      "target": "scripts_deploy_apps_run_terraform"
     },
     {
       "relation": "defines",
@@ -33651,6 +33732,76 @@
       "confidence_score": 1.0,
       "source": "docs_engineering_handbook_19_6_pr_size_guide",
       "target": "docs_engineering_handbook_codeblock_112"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_production_operations_md",
+      "target": "docs_production_operations_production_operations_runbook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "docs_production_operations_production_operations_runbook",
+      "target": "docs_production_operations_deploy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "docs_production_operations_production_operations_runbook",
+      "target": "docs_production_operations_roll_back_application_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "docs_production_operations_production_operations_runbook",
+      "target": "docs_production_operations_restore_rehearsal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "docs_production_operations_production_operations_runbook",
+      "target": "docs_production_operations_alerts_and_sentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "docs_production_operations_deploy",
+      "target": "docs_production_operations_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/production-operations.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "docs_production_operations_roll_back_application_files",
+      "target": "docs_production_operations_codeblock_2",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -47037,5 +47188,5 @@
       "source_file": "docs/frontend/README.md"
     }
   ],
-  "built_at_commit": "dc56e9b0384821b9f206c196e03dd9e8eea18aba"
+  "built_at_commit": "b078496501256e22589e39cf57df6014df35f51d"
 }

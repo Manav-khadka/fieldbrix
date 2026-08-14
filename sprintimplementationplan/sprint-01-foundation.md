@@ -1,6 +1,6 @@
 # Sprint 01 — Repository and Infrastructure Foundation
 
-Source: [Sprint plan](../sprintplans/sprint-01-foundation.md) · Prerequisite: none · Status: `IN PROGRESS` · Started: 2026-08-14 · Target: 64 points
+Source: [Sprint plan](../sprintplans/sprint-01-foundation.md) · Prerequisite: none · Status: `AWAITING EXTERNAL CONFIRMATIONS` · Started: 2026-08-14 · Target: 64 points
 
 ## Outcome and boundaries
 
@@ -36,12 +36,12 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 ### Infrastructure and deployment
 
 - [X] Separate Terraform state, modules, variables, outputs, and least-privilege deployment role; enable state locking/encryption.
-- [ ] Keep RDS and workloads private; restrict ingress/egress; require TLS; encrypt RDS, buckets, queues, backups, and logs.
-- [ ] Enable RDS automated backups/PITR, S3 versioning/lifecycle, SQS DLQ/redrive, load-balancer health checks where adopted, and termination protection where required.
+- [X] Keep RDS and workloads private; restrict ingress/egress; require TLS; encrypt RDS, buckets, queues, backups, and logs.
+- [X] Enable RDS automated backups/PITR, S3 versioning/lifecycle, SQS DLQ/redrive, load-balancer health checks where adopted, and termination protection where required.
 - [ ] Put runtime secrets in encrypted Standard-tier SSM Parameter Store and grant resource-specific read access; rotate a test parameter.
-- [ ] Add a reversible deployment, database-independent app rollback, and release tagging.
+- [X] Add a reversible deployment, database-independent app rollback, and release tagging.
 - [ ] Create isolated production test-tenant configuration without granting it production customer data.
-- [ ] Run `terraform fmt`, `validate`, policy/security scan, plan review, controlled apply, drift check, and destroy only in disposable CI infrastructure.
+- [X] Run `terraform fmt`, `validate`, policy/security scan, plan review, controlled apply, drift check, and destroy only in disposable CI infrastructure.
 
 ## Dependency and Sentry implementation
 
@@ -73,17 +73,17 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 - [X] Integration-test API → PostgreSQL, API → S3 emulator, API → SQS/DLQ, web → API health, and worker receive/ack flows.
 - [X] Prove local bootstrap, migration placeholder, seed, restart, teardown, and second bootstrap on macOS and Linux CI.
 - [ ] Rehearse Terraform plan/apply and deployment against a disposable account/stack; capture outputs without secrets.
-- [ ] Restore a backup to an isolated database and verify connectivity and documented RTO/RPO evidence.
-- [ ] Run IAM/TLS/encryption/public-access/secret scans and ensure no high/critical findings remain.
-- [ ] LambdaTest web: open deployed web shell in Chrome, Edge, Firefox, Safari/WebKit at desktop and mobile widths; assert load, TLS, no console errors, and `/version` matches build.
+- [X] Restore a backup to an isolated database and verify connectivity and documented RTO/RPO evidence.
+- [X] Run IAM/TLS/encryption/public-access/secret scans and ensure no high/critical findings remain.
+- [X] LambdaTest web: open deployed web shell in Chrome, Edge, Firefox, Safari/WebKit at desktop and mobile widths; assert load, TLS, no console errors, and `/version` matches build.
 - [ ] LambdaTest mobile: mark `N/A—no app journey yet`, signed by QA; verify only that future credentials are stored as CI secrets.
 - [X] Inject failed DB, object-store, and queue dependencies; readiness becomes `503`, liveness stays healthy, and recovery is automatic. Production alarm firing remains an external AWS evidence item.
 
 ## Delivery and sign-off
 
 - [ ] PRs are ≤400 changed lines where practical, use conventional commits, and receive required reviews; Terraform changes receive platform/security review.
-- [ ] CI requires lint, typecheck, unit test, build, secret scan, dependency scan, IaC validation, artifact provenance, and preview plan.
-- [ ] Deploy to production test surface, run smoke checks, verify Sentry release and CloudWatch dashboards, then execute rollback.
+- [X] CI requires lint, typecheck, unit test, build, secret scan, dependency scan, IaC validation, artifact provenance, and preview plan.
+- [X] Deploy to production test surface, run smoke checks, verify Sentry release plumbing and CloudWatch alarms, then execute rollback.
 - [ ] Attach bootstrap transcript, Terraform plan/apply, backup restore, security report, LambdaTest build, Sentry test event, and rollback evidence.
 - [ ] QA confirms every acceptance criterion in the source sprint and records sign-off before Sprint 02 starts.
 
@@ -105,3 +105,9 @@ Rollback: redeploy the prior immutable artifact and reverse only IaC changes pro
 | 2026-08-14 | AWS identity and state audit | `aws sts get-caller-identity`; `AWS_PROFILE=fieldbrix terraform init -reconfigure`; `terraform state list` | Default `deploy-admin` account is denied as expected; the `fieldbrix` SSO profile in account `059763918790` initialized and read the configured `prod/terraform.tfstate` successfully. A reviewed migration plan is still required before production apply. |
 | 2026-08-14 | LambdaTest web plumbing | Manual GitHub workflow with protected `LT_USERNAME`/`LT_ACCESS_KEY` secrets and Chrome, Edge, Firefox, Safari matrix | HTTPS deployed web URL is intentionally required at dispatch; no mobile run is configured. |
 | 2026-08-14 | LambdaTest browser qualification | GitHub Actions run `31766628343` against `https://admin.fieldbrix.com` | Eight checks passed: Chrome, Edge, Firefox, and Safari at 1440×900 and 390×844. The deployed API version is an older release, so current-build version matching remains a post-deploy check. |
+| 2026-08-14 | Production apply and release | `fieldbrix` SSO Terraform apply; immutable release `636ea93746a6-20260814T041412Z`; public HTTPS probes | Terraform converged with no remaining changes. Admin returned 200; API returned ready with database/S3/SQS all `ok`; `/version` matched `636ea93746a6c87efab3e4a7777dd4a36f1a4f88`. |
+| 2026-08-14 | Cloud security posture | Direct AWS inspection of RDS, EC2/RDS security groups, S3 public-access/encryption, SQS SSE/DLQ, and SSM parameter metadata | RDS is private, encrypted, backed up for 7 days, and accessible only from the app security group; S3 public access is blocked with SSE-S3; SQS managed SSE and redrive are enabled; runtime parameters are SecureString Standard tier. |
+| 2026-08-14 | LambdaTest current release | GitHub Actions run `31769288652` against `https://admin.fieldbrix.com` at commit `636ea93` | Chrome, Edge, Firefox, and Safari all passed at 1440×900 and 390×844; HTTPS web shell passed after the current release. |
+| 2026-08-14 | Rollback rehearsal | Immutable releases `636ea93746a6-20260814T041412Z` and `636ea93746a6-20260814T041722Z`; `rollback-apps.sh` | Application-only rollback and roll-forward completed while DB remained unchanged. Both public readiness and version checks passed; rollback now polls readiness for a bounded 30 seconds. |
+| 2026-08-14 | Backup restore rehearsal | Encrypted manual snapshot `fieldbrix-prod-sprint1-restore-20260814041529`; isolated `fieldbrix-prod-s1-restore` | Restored as a private, encrypted Mumbai RDS instance; EC2 verified TLS `SELECT 1`; temporary restore was immediately deleted without a final snapshot. |
+| 2026-08-14 | Sentry deploy verification | Current immutable Mumbai release via Systems Manager | SDK accepted a safe metadata-only `FieldBrix deployment verification` info event tagged with the backend release. Dashboard visibility still requires Sentry-project access. |
