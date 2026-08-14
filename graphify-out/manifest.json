@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/App.tsx": {
-    "mtime": 1786677390.0624788,
-    "ast_hash": "8790c4d1c5f06df6d37642e1801b1420",
+    "mtime": 1786682930.169133,
+    "ast_hash": "304445126136d923b6ad889f068bc10b",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/main.tsx": {
@@ -115,8 +115,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/package.json": {
-    "mtime": 1786674239.0729427,
-    "ast_hash": "46f059fdf0839a4e2b45a6ec6d26b3f7",
+    "mtime": 1786686017.3162963,
+    "ast_hash": "2da5e3ae1ba094dcefad7a54fa012d59",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/tsconfig.build.json": {
@@ -145,18 +145,18 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/main.ts": {
-    "mtime": 1786674378.2278209,
-    "ast_hash": "7e137b687797fc25e0a9f8ab21a417ea",
+    "mtime": 1786688422.6616273,
+    "ast_hash": "bff6be398681c3bd122b0124bf269bb1",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.service.ts": {
-    "mtime": 1786674378.1985006,
-    "ast_hash": "f15d2e95e9e2d27adf91440f87b7ec32",
+    "mtime": 1786693934.5425653,
+    "ast_hash": "e0bb462da5ad1aa0eaf2c513866890cf",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.module.ts": {
-    "mtime": 1786676708.4431136,
-    "ast_hash": "43b924d74028f57f0be6f2efa091ca3f",
+    "mtime": 1786692714.2904432,
+    "ast_hash": "1571d6aaa41f925d1e6ae0ac1094127d",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.controller.spec.ts": {
@@ -165,8 +165,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.controller.ts": {
-    "mtime": 1786680624.2487392,
-    "ast_hash": "bd1d8382a321e3483eb06d01d9387741",
+    "mtime": 1786683383.190376,
+    "ast_hash": "e41a3fed431362280c554bd04f1df65c",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.claude/settings.json": {
@@ -1070,8 +1070,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/config/environment.ts": {
-    "mtime": 1786674420.8117337,
-    "ast_hash": "df94f14c2461d94fd49fda60baf365b5",
+    "mtime": 1786684802.0784602,
+    "ast_hash": "a53244d396e61cbeb71b18aa0a97d672",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/config/environment.spec.ts": {
@@ -1080,8 +1080,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/health/dependency-health.service.ts": {
-    "mtime": 1786675903.6034284,
-    "ast_hash": "ea5c242c16692543a729d95ae0f48525",
+    "mtime": 1786688374.1558583,
+    "ast_hash": "2b85386b3b5c5c92d274ea31a0233b9c",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/observability/sentry.ts": {
@@ -1232,6 +1232,451 @@
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/onboarding.md": {
     "mtime": 1786681692.9592774,
     "ast_hash": "ea6f1e03bd610c22ed083fef37b4dad6",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/003-sprints-02-05.sql": {
+    "mtime": 1786683531.367829,
+    "ast_hash": "a483b2e67d451f1742caa0b534a76e90",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/auth/auth.module.ts": {
+    "mtime": 1786687788.0802534,
+    "ast_hash": "80f6ea29c09c353396fc55492c558c5e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/auth/auth/auth.controller.ts": {
+    "mtime": 1786688528.0910008,
+    "ast_hash": "50cf2c27edbd5474c2d7b992c5c72eb2",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/auth/auth/auth.service.ts": {
+    "mtime": 1786688528.0917728,
+    "ast_hash": "7f7fdbf26ec894ad0fa6eab8ca418f79",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/platform/platform.module.ts": {
+    "mtime": 1786689956.5093594,
+    "ast_hash": "c04e4547fa97cb4517c46195750c263c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/platform/platform/platform.service.ts": {
+    "mtime": 1786694941.917869,
+    "ast_hash": "2a67f2052023697b21903e437bc27b45",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/platform/platform/platform.controller.ts": {
+    "mtime": 1786688602.4113386,
+    "ast_hash": "711912fc4983305d2e0ea80c70ea0bd5",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/administration.module.ts": {
+    "mtime": 1786683834.3802466,
+    "ast_hash": "56248988f518547b9c228be6a19b181b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/administration/administration.service.ts": {
+    "mtime": 1786693961.8790214,
+    "ast_hash": "bd64ab30c8262b4eac9f27da6153452d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/administration/administration.controller.ts": {
+    "mtime": 1786693961.879465,
+    "ast_hash": "deaced87cb4e814034ad78728c723436",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/authorization.module.ts": {
+    "mtime": 1786683830.604486,
+    "ast_hash": "8f7d7434fb872352f74314c31dcb2eb3",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/authorization/authorization.service.ts": {
+    "mtime": 1786693770.859145,
+    "ast_hash": "272cdf313a7865734064ff853e8a3208",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/authorization/authorization.controller.ts": {
+    "mtime": 1786693770.859606,
+    "ast_hash": "08461386f3c8bbd418049a2b0fd1d7cd",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/database/database.module.ts": {
+    "mtime": 1786683959.8773425,
+    "ast_hash": "6142fa47db264b0a46d1eef6b160a212",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/database/database/database.service.ts": {
+    "mtime": 1786689920.6947083,
+    "ast_hash": "a8c8514b128c6e3c55ed6d9bf5532edc",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/idempotency/idempotency.module.ts": {
+    "mtime": 1786685947.0648603,
+    "ast_hash": "e0b1deae7f19cbb737bb8ff3c30ddcf0",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/idempotency/idempotency/idempotency.service.ts": {
+    "mtime": 1786691197.4457908,
+    "ast_hash": "ab75bc90447fb3492ec0e74ada516bf7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/storage/storage.module.ts": {
+    "mtime": 1786683109.4771054,
+    "ast_hash": "88daf3fa523f97567613bbdd81a8e928",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/storage/storage/storage.service.ts": {
+    "mtime": 1786688141.2583196,
+    "ast_hash": "6d944a6b8c16bea4708ff5da465a445f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tenant-context/tenant-context.module.ts": {
+    "mtime": 1786683123.6980987,
+    "ast_hash": "a7f31d153fbc4a39cd3bac6398a6c55e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tenant-context/tenant-context/tenant-context.service.ts": {
+    "mtime": 1786692714.2895231,
+    "ast_hash": "e68f718bc50b5d0fb98d3be9071152f1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/queue/queue.module.ts": {
+    "mtime": 1786687891.2407334,
+    "ast_hash": "beee8184172555452785343a0db08872",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/queue/queue/queue.service.ts": {
+    "mtime": 1786691241.8547537,
+    "ast_hash": "51e201f383c671a993978d5e96f0c8dd",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/decorators/permission.decorator/permission.decorator.ts": {
+    "mtime": 1786685638.9939823,
+    "ast_hash": "3226818b5d3ca1e296fa6c3281a1b3ed",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/guards/permission/permission.guard.ts": {
+    "mtime": 1786685628.871251,
+    "ast_hash": "898eba74c69d89da7be576048441bfa7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/platform/platform.repository/platform.repository.ts": {
+    "mtime": 1786694909.7375147,
+    "ast_hash": "0f78566079fd5df77fc0c9dbb5cfd7d6",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/migration-inventory-sprints-02-05.md": {
+    "mtime": 1786694600.802481,
+    "ast_hash": "7f3f3f90fcfc7cb18214cebf956f6bfb",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/004-sprint-04-rbac-seed.sql": {
+    "mtime": 1786684611.452956,
+    "ast_hash": "8528da2b81df40a3479158070bda6d9c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/guards/platform-admin/platform-admin.guard.ts": {
+    "mtime": 1786689956.5096002,
+    "ast_hash": "4cda7e13f5c8bb95b362f0cc816801a2",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/platform/guards/rate-limit/rate-limit.guard.ts": {
+    "mtime": 1786686069.3436167,
+    "ast_hash": "0c91fecc00bc12cb6245f5ae3e254a2c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/auth/dto/login.dto/login.dto.ts": {
+    "mtime": 1786686128.648397,
+    "ast_hash": "6619490e72b3b8022b2edb8a3bc23d7e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/invite-user.dto/invite-user.dto.ts": {
+    "mtime": 1786684172.00824,
+    "ast_hash": "0d34d7b6d06453ea999282986651d700",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/company-settings.dto/company-settings.dto.ts": {
+    "mtime": 1786684172.0079575,
+    "ast_hash": "cbb4d6c6685395154adf0f5eb5eba8a5",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/create-team.dto/create-team.dto.ts": {
+    "mtime": 1786684172.0087838,
+    "ast_hash": "bebb285085bcab0112febca116e62ef5",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/create-branch.dto/create-branch.dto.ts": {
+    "mtime": 1786684172.008511,
+    "ast_hash": "2839c14e2f9210ebdf33e35c7c004cb8",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/dto/update-role-permissions.dto/update-role-permissions.dto.ts": {
+    "mtime": 1786688079.827132,
+    "ast_hash": "f7b44de07770b150d4b39cd0e4d2c6ce",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/dto/create-role.dto/create-role.dto.ts": {
+    "mtime": 1786684172.0069294,
+    "ast_hash": "5d527f1846833183a536e70482154080",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/notifications/notifications.module.ts": {
+    "mtime": 1786685482.5585878,
+    "ast_hash": "3102539033dbce47d6d7eb5b3261bf80",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/notifications/notifications/notifications.service.ts": {
+    "mtime": 1786685494.8573973,
+    "ast_hash": "c167abc520cae8b5b4af3323cfe3420a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/auth/dto/device-registration.dto/device-registration.dto.ts": {
+    "mtime": 1786684847.8938067,
+    "ast_hash": "fc6be1d1b53fcfcfea42d0ff70b319c4",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/005-runtime-roles.sql": {
+    "mtime": 1786684873.5106435,
+    "ast_hash": "5feffd5105679be1c5134afffc11b98a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/tenant-limits.dto/tenant-limits.dto.ts": {
+    "mtime": 1786685046.4039943,
+    "ast_hash": "a6e0d0365c2b20e01141233e6c426d16",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/update-tenant.dto/update-tenant.dto.ts": {
+    "mtime": 1786685046.4031348,
+    "ast_hash": "fca3649b731a366b9b6845f0ec4627f1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/create-tenant.dto/create-tenant.dto.ts": {
+    "mtime": 1786685046.4025266,
+    "ast_hash": "d955f4a3440586fc29b012555620f488",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/tenant-reason.dto/tenant-reason.dto.ts": {
+    "mtime": 1786685046.4046926,
+    "ast_hash": "d350fd76e408d9c9421f12367afa0485",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/auth/dto/tenant-context.dto/tenant-context.dto.ts": {
+    "mtime": 1786685222.8462827,
+    "ast_hash": "7474b75396a3b9517e82f38cff11b26a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/auth/dto/invitation-accept.dto/invitation-accept.dto.ts": {
+    "mtime": 1786685215.3289294,
+    "ast_hash": "59b8303d68ae0a75d1b8d638d3b74b85",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/dto/assign-roles.dto/assign-roles.dto.ts": {
+    "mtime": 1786685222.847313,
+    "ast_hash": "f57fe3e467394aedb82f1c2ee1a71e50",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/dto/destructive-execution.dto/destructive-execution.dto.ts": {
+    "mtime": 1786685215.3320704,
+    "ast_hash": "c262503bd05281b0f3344e644e09cdfe",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/dto/god-session.dto/god-session.dto.ts": {
+    "mtime": 1786685222.848658,
+    "ast_hash": "51d00956e047945989b81917576b0454",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/dto/destructive-request.dto/destructive-request.dto.ts": {
+    "mtime": 1786689559.6386535,
+    "ast_hash": "60bf8208ba110b39c857e7402701e2da",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/assign-skills.dto/assign-skills.dto.ts": {
+    "mtime": 1786685287.5292592,
+    "ast_hash": "1e5daee56b1b8ffd5ef7c3dba76e6a8a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/support-note.dto/support-note.dto.ts": {
+    "mtime": 1786685287.5301952,
+    "ast_hash": "ad8fd55fa52c860ba69b945f70644396",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/update-user.dto/update-user.dto.ts": {
+    "mtime": 1786685287.5271535,
+    "ast_hash": "16985bdb8ee0b346774ed4e127bd10cb",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/update-branch.dto/update-branch.dto.ts": {
+    "mtime": 1786685287.5306845,
+    "ast_hash": "b0290da018eec5e67f1dd711cbe5e94b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/create-skill.dto/create-skill.dto.ts": {
+    "mtime": 1786685287.5282362,
+    "ast_hash": "2efeb5b426fcea541f759633eeb57a47",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/update-team.dto/update-team.dto.ts": {
+    "mtime": 1786685287.5315154,
+    "ast_hash": "29a0c3bf3191b50fe28b11d6fd6c0a3f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/006-sprint-03-authentication.sql": {
+    "mtime": 1786685571.9643555,
+    "ast_hash": "0d2ce22adb6edde8c47b7a7128b04a5c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/workers/pdf-worker/pdf-worker.module.ts": {
+    "mtime": 1786685416.37159,
+    "ast_hash": "cd8ca879861a158230069ec72233af43",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/workers/pdf-worker/pdf-worker.service.ts": {
+    "mtime": 1786685416.3710382,
+    "ast_hash": "59b70b3326418e936ca3193f5278e261",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/notifications/adapters/temporary-email.adapter/temporary-email.adapter.ts": {
+    "mtime": 1786685472.7171872,
+    "ast_hash": "f696e75828db40d0e423c0fbf98ad762",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/notifications/ports/notification-delivery.port/notification-delivery.port.ts": {
+    "mtime": 1786685472.7167387,
+    "ast_hash": "52b4de6f8c8974c687b1c1fcb8d5f71b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/007-sprint-05-support-permission.sql": {
+    "mtime": 1786685673.0270624,
+    "ast_hash": "683a23f2288e3ba141204fd6adf5e0ed",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/008-sprint-04-role-grant-scopes.sql": {
+    "mtime": 1786685706.9775648,
+    "ast_hash": "c70eba4aa2ed34e79eede336184c5cb3",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/009-sprint-04-god-mode.sql": {
+    "mtime": 1786685760.4976432,
+    "ast_hash": "05a20dc8cc00c05af4ed4d8941730e55",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/010-sprint-05-administration.sql": {
+    "mtime": 1786685797.8805025,
+    "ast_hash": "630a86dd659e959995d0d4228d6f9cae",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/011-sprint-02-outbox-jobs.sql": {
+    "mtime": 1786685832.9602993,
+    "ast_hash": "9857cd490bda9d22940b9f02662d186e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/platform/dto/audit-query.dto/audit-query.dto.ts": {
+    "mtime": 1786686846.4836893,
+    "ast_hash": "127ff73cf6db0d6fd9ceda5949f66b4a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/platform/dto/complete-upload.dto/complete-upload.dto.ts": {
+    "mtime": 1786688441.57238,
+    "ast_hash": "a39e41337746c532fcc3b3eb13b9fbfb",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/platform/dto/upload-intent.dto/upload-intent.dto.ts": {
+    "mtime": 1786688441.5718405,
+    "ast_hash": "77a8ac5ea541db3ab5a657e18cbc76c9",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/012-sprint-02-file-metadata.sql": {
+    "mtime": 1786686953.88416,
+    "ast_hash": "2739e8b5b44991b03e11c2c51596bd5b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/013-runtime-role-grants-sprints-03-05.sql": {
+    "mtime": 1786687076.7399836,
+    "ast_hash": "caf82962363be87e304d01479c7f5991",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/dto/permission-grant.dto/permission-grant.dto.ts": {
+    "mtime": 1786687277.8053846,
+    "ast_hash": "f2192718cc7353aab197a1d974432e84",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/list-users-query.dto/list-users-query.dto.ts": {
+    "mtime": 1786688006.2323563,
+    "ast_hash": "8e67a857b1347c4a71dfd2001c3f07d7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/list-tenants-query.dto/list-tenants-query.dto.ts": {
+    "mtime": 1786688666.6363168,
+    "ast_hash": "1d89a0621183d9c335091e272b5bc57f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/list-directory-query.dto/list-directory-query.dto.ts": {
+    "mtime": 1786688716.8287,
+    "ast_hash": "715db4e88d2bc18dc56952356122667d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/014-god-session-activity.sql": {
+    "mtime": 1786689461.5316806,
+    "ast_hash": "68707bbeac5c0a080fa720f8682203ba",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/015-audit-append-only.sql": {
+    "mtime": 1786689611.1138952,
+    "ast_hash": "f4096a51d8cc57a9bff4dea2ce03aff4",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/017-membership-runtime-grants.sql": {
+    "mtime": 1786690080.728645,
+    "ast_hash": "fd5d029e04b99dfcea2f6206909b6c5a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/016-administration-memberships.sql": {
+    "mtime": 1786690062.9816713,
+    "ast_hash": "32d15153697b942c867f91ad5615c957",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/administration/dto/membership.dto/membership.dto.ts": {
+    "mtime": 1786690118.48343,
+    "ast_hash": "4276effe7e7f23226a8679a46441d15a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/018-invitation-cancellation.sql": {
+    "mtime": 1786690508.3230217,
+    "ast_hash": "24bb9e1cdb14a196ffeadec12e03d169",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/019-public-invitation-lookup.sql": {
+    "mtime": 1786692638.8413398,
+    "ast_hash": "39afab7ac94ae60a32d234f4be55894c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/http/tenant-context-cleanup.interceptor.ts": {
+    "mtime": 1786692714.2899787,
+    "ast_hash": "a2b0b8f2a4b23e35dab0d7e2e624250e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/020-user-tenant-memberships.sql": {
+    "mtime": 1786692879.9972374,
+    "ast_hash": "5d3f1ea1b062388ac12e231545c9dded",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/021-public-user-login-lookup.sql": {
+    "mtime": 1786693229.7207294,
+    "ast_hash": "4fd57d969182b03f78bf970eeff73154",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/authorization/dto/update-role.dto/update-role.dto.ts": {
+    "mtime": 1786693770.8586757,
+    "ast_hash": "5b18eceb5d9bd296bc34caa2b84ac7cd",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/022-role-metadata-permission.sql": {
+    "mtime": 1786693803.4456503,
+    "ast_hash": "4caf1bfbd7b7c9ed465c66656ac96486",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/024-public-refresh-session-lookup.sql": {
+    "mtime": 1786694600.8018494,
+    "ast_hash": "7ec671e22135281b03b80e3656f40fd2",
     "semantic_hash": ""
   }
 }

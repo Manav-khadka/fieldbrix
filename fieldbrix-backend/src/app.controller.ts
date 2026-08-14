@@ -25,6 +25,11 @@ export class AppController {
     return this.appService.getVersion();
   }
 
+  @Get('openapi.json')
+  getOpenApi() {
+    return this.appService.getOpenApi();
+  }
+
   // Deliberately unavailable unless a local verification session opts in.
   // It is never enabled in production.
   @Get('debug-sentry')

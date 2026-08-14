@@ -9,6 +9,18 @@ import { DependencyHealthService } from './health/dependency-health.service';
 import { CorrelationIdMiddleware } from './http/correlation-id.middleware';
 import { HttpExceptionEnvelopeFilter } from './http/http-exception.filter';
 import { ResponseEnvelopeInterceptor } from './http/response-envelope.interceptor';
+import { TenantContextCleanupInterceptor } from './http/tenant-context-cleanup.interceptor';
+import { AuthModule } from './modules/auth/auth.module';
+import { AuthorizationModule } from './modules/authorization/authorization.module';
+import { AdministrationModule } from './modules/administration/administration.module';
+import { PlatformModule } from './modules/platform/platform.module';
+import { DatabaseModule } from './modules/database/database.module';
+import { IdempotencyModule } from './modules/idempotency/idempotency.module';
+import { StorageModule } from './modules/storage/storage.module';
+import { QueueModule } from './modules/queue/queue.module';
+import { TenantContextModule } from './modules/tenant-context/tenant-context.module';
+import { NotificationsModule } from './modules/notifications/notifications.module';
+import { PdfWorkerModule } from './workers/pdf-worker/pdf-worker.module';
 
 @Module({
   imports: [
@@ -18,12 +30,24 @@ import { ResponseEnvelopeInterceptor } from './http/response-envelope.intercepto
       isGlobal: true,
       validate: validateEnvironment,
     }),
+    AuthModule,
+    AuthorizationModule,
+    AdministrationModule,
+    PlatformModule,
+    DatabaseModule,
+    IdempotencyModule,
+    StorageModule,
+    QueueModule,
+    TenantContextModule,
+    NotificationsModule,
+    PdfWorkerModule,
   ],
   controllers: [AppController],
   providers: [
     AppService,
     DependencyHealthService,
     { provide: APP_INTERCEPTOR, useClass: ResponseEnvelopeInterceptor },
+    { provide: APP_INTERCEPTOR, useClass: TenantContextCleanupInterceptor },
     { provide: APP_FILTER, useClass: HttpExceptionEnvelopeFilter },
   ],
 })
