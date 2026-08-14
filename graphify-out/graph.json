@@ -157,7 +157,7 @@
       "label": "cleanup()",
       "file_type": "code",
       "source_file": "terraform/scripts/deploy-apps.sh",
-      "source_location": "L39",
+      "source_location": "L40",
       "id": "scripts_deploy_apps_cleanup",
       "community": 185,
       "norm_label": "cleanup()"
@@ -166,7 +166,7 @@
       "label": "run_terraform()",
       "file_type": "code",
       "source_file": "terraform/scripts/deploy-apps.sh",
-      "source_location": "L45",
+      "source_location": "L46",
       "id": "scripts_deploy_apps_run_terraform",
       "community": 185,
       "norm_label": "run_terraform()"
@@ -8475,7 +8475,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2812",
       "id": "docs_engineering_handbook_codeblock_98",
-      "community": 173,
+      "community": 181,
       "norm_label": "code:block98 (feature/fos-{ticket}-{description}      feature/fos-142-task)"
     },
     {
@@ -8808,7 +8808,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1",
       "id": "docs_tech_implementation_guide_md",
-      "community": 210,
+      "community": 212,
       "norm_label": "tech_implementation_guide.md"
     },
     {
@@ -9969,7 +9969,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1756",
       "id": "docs_tech_implementation_guide_part_n_security_rules_all_p0_non_negotiable",
-      "community": 210,
+      "community": 212,
       "norm_label": "part n \u2014 security rules (all p0, non-negotiable)"
     },
     {
@@ -9978,7 +9978,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1758",
       "id": "docs_tech_implementation_guide_codeblock_55",
-      "community": 210,
+      "community": 212,
       "norm_label": "code:block55 (n1.  tenantid comes from jwt only. never from request body, )"
     },
     {
@@ -26469,9 +26469,9 @@
       "source_file": "scripts/lambdatest/web-smoke.mjs",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_lambdatest_web_smoke_mjs",
-      "target": "lambdatest_web_smoke_width_height",
-      "confidence_score": 1.0
+      "target": "lambdatest_web_smoke_width_height"
     },
     {
       "relation": "contains",
@@ -47008,5 +47008,5 @@
       "source_file": "docs/frontend/README.md"
     }
   ],
-  "built_at_commit": "407c4a9234ae4ecb1454f1f3b831a56f6926661d"
+  "built_at_commit": "7cbe96a698742733b522b618c086f17e3fadcf17"
 }

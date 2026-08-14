@@ -64,6 +64,7 @@ jobs:
           SENTRY_WEB_PROJECT: ${{ vars.SENTRY_WEB_PROJECT }}
           SENTRY_BACKEND_PROJECT: ${{ vars.SENTRY_BACKEND_PROJECT }}
           WEB_SENTRY_DSN: ${{ secrets.PROD_WEB_SENTRY_DSN }}
+          BACKEND_SENTRY_DSN: ${{ secrets.PROD_BACKEND_SENTRY_DSN }}
         run: ./terraform/scripts/deploy-apps.sh "${{ inputs.environment }}"
       - name: Record deployment evidence
         if: success()
