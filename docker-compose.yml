@@ -1,0 +1,111 @@
+name: fieldbrix
+
+services:
+  postgres:
+    image: postgres:16.6-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-fieldbrix}
+      POSTGRES_USER: ${POSTGRES_USER:-fieldbrix}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fieldbrix_local_only}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - fieldbrix_postgres:/var/lib/postgresql/data
+      - ./local/postgres/init:/docker-entrypoint-initdb.d:ro
+
+  localstack:
+    image: localstack/localstack:3.8.1
+    environment:
+      SERVICES: s3,sqs
+      AWS_DEFAULT_REGION: ap-south-1
+      DEBUG: "0"
+    healthcheck:
+      test: ["CMD-SHELL", "awslocal s3api list-buckets >/dev/null 2>&1"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    ports:
+      - "${LOCALSTACK_PORT:-4566}:4566"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./local/localstack/init:/etc/localstack/init/ready.d:ro
+
+  api:
+    build:
+      context: ./fieldbrix-backend
+      dockerfile: Dockerfile
+      target: development
+    environment:
+      NODE_ENV: development
+      APP_ENV: local
+      PORT: 3000
+      APP_VERSION: 0.0.1-local
+      APP_COMMIT_SHA: local
+      APP_BUILD_TIME: ""
+      LOG_LEVEL: debug
+      ADMIN_ORIGIN: http://localhost:${WEB_PORT:-5173}
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${POSTGRES_DB:-fieldbrix}
+      DB_USER: ${POSTGRES_USER:-fieldbrix}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-fieldbrix_local_only}
+      AWS_REGION: ap-south-1
+      AWS_ENDPOINT_URL: http://localstack:4566
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+      S3_BUCKET: fieldbrix-local-uploads
+      SQS_QUEUE_URL: http://localstack:4566/000000000000/fieldbrix-local-jobs
+    command: pnpm start:dev
+    depends_on:
+      postgres:
+        condition: service_healthy
+      localstack:
+        condition: service_healthy
+    ports:
+      - "${API_PORT:-3000}:3000"
+    volumes:
+      - ./fieldbrix-backend:/workspace
+      - backend_node_modules:/workspace/node_modules
+
+  web:
+    build:
+      context: ./fieldbrix-frontend
+      dockerfile: Dockerfile
+      target: development
+    environment:
+      VITE_APP_ENV: local
+      VITE_API_BASE_URL: http://localhost:${API_PORT:-3000}
+      VITE_APP_VERSION: 0.0.1-local
+    command: pnpm dev --host 0.0.0.0
+    depends_on:
+      api:
+        condition: service_started
+    ports:
+      - "${WEB_PORT:-5173}:5173"
+    volumes:
+      - ./fieldbrix-frontend:/workspace
+      - frontend_node_modules:/workspace/node_modules
+
+  queue-worker:
+    build:
+      context: ./lambdas/worker
+    environment:
+      AWS_REGION: ap-south-1
+      AWS_ENDPOINT_URL: http://localstack:4566
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+      SQS_QUEUE_URL: http://localstack:4566/000000000000/fieldbrix-local-jobs
+      LOG_LEVEL: INFO
+    depends_on:
+      localstack:
+        condition: service_healthy
+
+volumes:
+  fieldbrix_postgres:
+  backend_node_modules:
+  frontend_node_modules:

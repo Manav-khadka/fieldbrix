@@ -34,3 +34,6 @@ cors_allowed_origins = [
 
 # Keep false for the disposable bootstrap. Enable before storing durable data.
 protect_database = false
+
+# Required: recipient must confirm the SNS subscription after apply.
+alert_email = "ops@example.com"

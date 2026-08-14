@@ -47,3 +47,11 @@ module "compute" {
   api_domain              = var.api_domain
   tls_contact_email       = var.tls_contact_email
 }
+
+module "monitoring" {
+  source          = "../../modules/monitoring"
+  env             = var.env
+  ec2_instance_id = module.compute.instance_id
+  db_identifier   = "fieldbrix-${var.env}"
+  alert_email     = var.alert_email
+}

@@ -1,4 +1,4 @@
-# ADR-0001: Umbrella repository and service ownership
+# ADR-0001: Single repository and service ownership
 
 - Status: Accepted
 - Date: 2026-08-14
@@ -6,50 +6,43 @@
 
 ## Context
 
-FieldBrix has independently published backend, frontend, and mobile
-repositories plus an umbrella repository containing product documents, sprint
-evidence, and Terraform. Duplicate working checkouts exist locally, so a path
-must not be treated as authoritative merely because it is present on disk.
+FieldBrix previously had independently published application repositories and
+an umbrella repository. That created duplicate checkouts and made it possible
+for CI to validate a different copy from the one a developer edited.
 
-The implementation guide describes a logical monorepo layout. The current Git
-boundary is intentionally a polyrepo: each application must retain independent
-history and CI while the umbrella repository records a tested combination.
+The implementation guide describes a logical monorepo layout. A single Git
+repository makes that layout concrete and ensures one commit represents the
+whole compatible platform.
 
 ## Decision
 
-1. The standalone repositories remain the source of truth for application
-   code: `fieldbrix-backend`, `fieldbrix-frontend`, and `fieldbrix-mobile`.
-2. The umbrella repository integrates them only through the paths declared in
-   `.gitmodules`: `apps/backend`, `apps/frontend`, and `apps/mobile`.
-3. Application changes are committed and validated in their owning repository.
-   The umbrella repository then advances the corresponding gitlink to the
-   reviewed commit. Application source is never copied into umbrella history.
-4. `terraform/` owns AWS state configuration, reusable modules, operational
-   scripts, and infrastructure CI. It follows a standalone-repository layout;
-   its GitHub remote/submodule registration must be completed before Sprint 01
-   infrastructure CI can be enforced as a required check.
-5. The umbrella repository owns cross-repository documentation, sprint plans,
-   acceptance evidence, and integration orchestration.
-6. Toolchains are pinned by their owning repositories. The initial foundation
-   baseline is Node.js 24 with pnpm 10.29.3, Flutter 3.41.7/Dart 3.11.5,
-   Python 3.14.5 for operational helpers, and Terraform 1.15.8.
+1. The root `fieldbrix` repository is the only Git repository used for normal
+   development and deployment.
+2. Application source is tracked directly at `fieldbrix-backend/`,
+   `fieldbrix-frontend/`, and `fieldbrix_app/`. No nested `.git` directories,
+   Git submodules, or `apps/` integration copies are allowed.
+3. `terraform/` owns AWS state configuration, reusable modules, operational
+   scripts, and infrastructure CI inside the same root repository.
+4. The root repository owns application CI, documentation, sprint evidence,
+   integration orchestration, and deployment manifests.
+5. Toolchains are pinned by their owning application directories. The initial
+   foundation baseline is Node.js 24 with pnpm 10.29.3, Flutter 3.41.7/Dart
+   3.11.5, Python 3.14.5 for operational helpers, and Terraform 1.15.8.
 
 ## Ownership
 
 | Boundary | Owner | Required validation |
 |---|---|---|
-| `fieldbrix-backend` / `apps/backend` | Backend | lint, typecheck, unit, e2e, build |
-| `fieldbrix-frontend` / `apps/frontend` | Frontend | lint, typecheck, test, build |
-| `fieldbrix-mobile` / `apps/mobile` | Mobile | analyze, test, platform builds |
+| `fieldbrix-backend/` | Backend | lint, typecheck, unit, e2e, build |
+| `fieldbrix-frontend/` | Frontend | lint, typecheck, test, build |
+| `fieldbrix_app/` | Mobile | analyze, test, platform builds |
 | `terraform/` | Platform | fmt, offline validate, security scan, reviewed plan |
-| umbrella docs and evidence | Platform/QA | link and acceptance-evidence review |
+| root docs and evidence | Platform/QA | link and acceptance-evidence review |
 
 ## Consequences
 
-- A root clone becomes reproducible after `git submodule update --init --recursive`.
-- Cross-repository atomic commits are not possible; compatibility changes must
-  be sequenced and the umbrella gitlinks updated last.
-- Local top-level clones such as `fieldbrix-backend/` may be used as publishing
-  worktrees, but `.gitmodules` remains the authority for umbrella integration.
-- Terraform remote registration is an explicit Sprint 01 blocker, not an
-  implicit assumption hidden in local directory structure.
+- A root clone contains all application and infrastructure source needed for
+  local development and CI.
+- Platform changes can be committed atomically and reviewed as one release.
+- Former standalone histories are preserved outside the working tree as
+  migration backups; the root repository is authoritative going forward.

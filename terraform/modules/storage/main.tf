@@ -5,23 +5,25 @@ locals {
 }
 
 resource "aws_s3_bucket" "photos" {
-  bucket        = "${local.bucket_prefix}-photos"
-  force_destroy = true
+  bucket = "${local.bucket_prefix}-photos"
+  # Stateful customer data must never be deleted as a side effect of an IaC change.
+  force_destroy = false
   tags          = { Env = var.env }
 }
 resource "aws_s3_bucket" "pdfs" {
   bucket        = "${local.bucket_prefix}-pdfs"
-  force_destroy = true
+  force_destroy = false
   tags          = { Env = var.env }
 }
 resource "aws_s3_bucket" "exports" {
   bucket        = "${local.bucket_prefix}-exports"
-  force_destroy = true
+  force_destroy = false
   tags          = { Env = var.env }
 }
 resource "aws_s3_bucket" "web" {
-  bucket        = "${local.bucket_prefix}-deployments"
-  force_destroy = true
+  bucket = "${local.bucket_prefix}-deployments"
+  # Deployment versions are retained so a release can be rolled back safely.
+  force_destroy = false
   tags          = { Env = var.env }
 }
 
@@ -81,9 +83,16 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "web" {
   }
 }
 
-# Versioning on web bucket (easy rollback of SPA deploys)
-resource "aws_s3_bucket_versioning" "web" {
-  bucket = aws_s3_bucket.web.id
+# Versioning protects user data and makes SPA deploys reversible.
+resource "aws_s3_bucket_versioning" "all" {
+  for_each = {
+    photos  = aws_s3_bucket.photos.id
+    pdfs    = aws_s3_bucket.pdfs.id
+    exports = aws_s3_bucket.exports.id
+    web     = aws_s3_bucket.web.id
+  }
+
+  bucket = each.value
   versioning_configuration { status = "Enabled" }
 }
 
@@ -113,6 +122,17 @@ resource "aws_s3_bucket_lifecycle_configuration" "exports" {
     status = "Enabled"
     filter {}
     expiration { days = 30 }
+  }
+}
+
+# Retain recent deployment versions for rollback, then expire stale noncurrent assets.
+resource "aws_s3_bucket_lifecycle_configuration" "web" {
+  bucket = aws_s3_bucket.web.id
+  rule {
+    id     = "retain-rollback-versions"
+    status = "Enabled"
+    filter {}
+    noncurrent_version_expiration { noncurrent_days = 90 }
   }
 }
 

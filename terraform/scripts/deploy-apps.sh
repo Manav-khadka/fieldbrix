@@ -10,8 +10,8 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 TF_DIR="${ROOT_DIR}/terraform/environments/${DEPLOY_ENV}"
 
-BACKEND_DIR=${FIELDBRIX_BACKEND_DIR:-${ROOT_DIR}/apps/backend}
-FRONTEND_DIR=${FIELDBRIX_FRONTEND_DIR:-${ROOT_DIR}/apps/frontend}
+BACKEND_DIR=${FIELDBRIX_BACKEND_DIR:-${ROOT_DIR}/fieldbrix-backend}
+FRONTEND_DIR=${FIELDBRIX_FRONTEND_DIR:-${ROOT_DIR}/fieldbrix-frontend}
 
 for command_name in aws curl git jq pnpm tar terraform; do
   command -v "${command_name}" >/dev/null || {

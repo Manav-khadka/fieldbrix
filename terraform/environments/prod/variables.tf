@@ -51,3 +51,13 @@ variable "protect_database" {
   default     = false
   description = "Enable deletion protection and final snapshots after the disposable bootstrap phase."
 }
+
+variable "alert_email" {
+  type        = string
+  description = "Operations email for CloudWatch and billing alerts. AWS requires recipient confirmation."
+
+  validation {
+    condition     = can(regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", var.alert_email))
+    error_message = "alert_email must be a valid email address."
+  }
+}

@@ -10,7 +10,7 @@ on:
         type: choice
         options: [prod]
       confirm:
-        description: I reviewed the pinned submodule commits and want to deploy them
+        description: I reviewed the umbrella commit and want to deploy it
         required: true
         default: false
         type: boolean
@@ -31,9 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          submodules: recursive
           fetch-depth: 0
-          token: ${{ secrets.SUBMODULES_TOKEN }}
       - uses: pnpm/action-setup@v6
         with:
           version: 10.29.3
@@ -43,8 +41,8 @@ jobs:
           node-version: 24
           cache: pnpm
           cache-dependency-path: |
-            apps/backend/pnpm-lock.yaml
-            apps/frontend/pnpm-lock.yaml
+            fieldbrix-backend/pnpm-lock.yaml
+            fieldbrix-frontend/pnpm-lock.yaml
       - uses: hashicorp/setup-terraform@v4
         with:
           terraform_version: 1.15.8
@@ -59,8 +57,8 @@ jobs:
       - name: Build, deploy, and verify
         env:
           RELEASE_COMMIT_SHA: ${{ github.sha }}
-          FIELDBRIX_BACKEND_DIR: ${{ github.workspace }}/apps/backend
-          FIELDBRIX_FRONTEND_DIR: ${{ github.workspace }}/apps/frontend
+          FIELDBRIX_BACKEND_DIR: ${{ github.workspace }}/fieldbrix-backend
+          FIELDBRIX_FRONTEND_DIR: ${{ github.workspace }}/fieldbrix-frontend
         run: ./terraform/scripts/deploy-apps.sh "${{ inputs.environment }}"
       - name: Record deployment evidence
         if: success()
@@ -69,6 +67,6 @@ jobs:
             echo "## FieldBrix deployment"
             echo "- Environment: ${{ inputs.environment }}"
             echo "- Umbrella commit: \`${{ github.sha }}\`"
-            echo "- Backend commit: \`$(git -C apps/backend rev-parse HEAD)\`"
-            echo "- Frontend commit: \`$(git -C apps/frontend rev-parse HEAD)\`"
+            echo "- Backend: tracked in umbrella commit"
+            echo "- Frontend: tracked in umbrella commit"
           } >> "${GITHUB_STEP_SUMMARY}"

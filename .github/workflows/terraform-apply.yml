@@ -38,10 +38,13 @@ jobs:
         working-directory: terraform/environments/prod
         env:
           AMI_ID: ${{ secrets.PROD_AMI_ID }}
+          ALERT_EMAIL: ${{ secrets.PROD_ALERT_EMAIL }}
         run: |
           test -n "${AMI_ID}"
+          test -n "${ALERT_EMAIL}"
           cp terraform.tfvars.example terraform.tfvars
           sed -i "s/ami-REPLACE_WITH_CURRENT_AMI/${AMI_ID}/" terraform.tfvars
+          sed -i "s/ops@example.com/${ALERT_EMAIL}/" terraform.tfvars
       - name: Initialize remote state
         working-directory: terraform/environments/prod
         run: terraform init -input=false
