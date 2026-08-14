@@ -1,6 +1,6 @@
 # Sprint 09 — Workflow Governance and Templates
 
-Source: [Sprint plan](../sprintplans/sprint-09-workflow-governance.md) · Prerequisite: Sprint 08 QA sign-off · Status: `NOT STARTED` · Target: 64 points
+Source: [Sprint plan](../sprintplans/sprint-09-workflow-governance.md) · Prerequisite: Sprint 08 QA sign-off · Status: `IN PROGRESS` · Target: 64 points
 
 ## Outcome and immutable model
 
@@ -21,14 +21,14 @@ Admins govern DRAFT → PUBLISHED → ARCHIVED workflow lifecycles, duplicate te
 
 ## Implementation checklist
 
-- [ ] Add immutable version tables/content hash and DB guards preventing update/delete of published snapshots.
+- [x] Add immutable version tables/content hash and DB guards preventing update/delete of published snapshots. (Verified: `workflow_versions`, SHA-256 content hash, immutable trigger, and migration execution.)
 - [ ] Publish in one transaction: validate, lock draft/revision, materialize normalized snapshot, increment version, set current pointer, audit/outbox.
 - [ ] Reject concurrent/stale/double publish deterministically; idempotent replay returns original version.
 - [ ] Make archive block new assignment while preserving view/report execution of pinned versions.
 - [ ] Duplicate produces new IDs and rewrites every internal reference/rule; never shares mutable children.
 - [ ] Build catalogue/version timeline/diff/publish/archive/template UI with impact summary and accessible confirmation.
 - [ ] Define platform template ownership and god-mode behavior separately from tenant role grants.
-- [ ] Add task-version foreign-key contract and resolver service for Sprint 10.
+- [x] Add task-version foreign-key contract and resolver service for Sprint 10. (Verified: task creation validates published version ownership and the task/workflow-version FK is declared in the security migration.)
 
 ## Dependency and Sentry implementation
 

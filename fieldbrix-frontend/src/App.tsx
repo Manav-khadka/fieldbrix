@@ -1,6 +1,7 @@
 import "./App.css";
 import { useCallback, useEffect, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
+import { Operations } from "./components/Operations";
 
 const api =
   import.meta.env.VITE_API_URL ??
@@ -19,7 +20,8 @@ type View =
   | "roles"
   | "security"
   | "files"
-  | "sessions";
+  | "sessions"
+  | "operations";
 type Tenant = {
   id: string;
   name: string;
@@ -53,6 +55,7 @@ type Session = { id: string; userId: string };
 
 const navigation: Array<[View, string, string, string]> = [
   ["overview", "Overview", "✦", "Workspace pulse"],
+  ["operations" as View, "Operations", "◌", "Master data & work"],
   ["tenants", "Tenants", "⌂", "Lifecycle & limits"],
   ["company", "Company", "▦", "Settings & structure"],
   ["people", "People", "◎", "Users & invitations"],
@@ -328,6 +331,7 @@ function App() {
             notify={setNotice}
           />
         )}
+        {view === ("operations" as View) && <Operations request={request} notify={setNotice} />}
       </main>
     </div>
   );

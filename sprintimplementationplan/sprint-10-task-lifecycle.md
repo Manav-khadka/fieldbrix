@@ -1,6 +1,6 @@
 # Sprint 10 — Task Lifecycle and Assignment
 
-Source: [Sprint plan](../sprintplans/sprint-10-task-lifecycle.md) · Prerequisite: Sprint 09 QA sign-off · Status: `NOT STARTED` · Target: 64 points
+Source: [Sprint plan](../sprintplans/sprint-10-task-lifecycle.md) · Prerequisite: Sprint 09 QA sign-off · Status: `IN PROGRESS` · Target: 64 points
 
 ## Outcome and state model
 
@@ -25,14 +25,14 @@ Supervisors create, assign, schedule, flag, reassign and cancel individual tasks
 ## Implementation checklist
 
 - [ ] Document statuses, allowed transitions, required permission, actor classes, preconditions, side effects and emitted event for every edge.
-- [ ] Generate human task numbers transactionally while UUID remains identity; enforce tenant-local uniqueness.
+- [x] Generate human task numbers transactionally while UUID remains identity; enforce tenant-local uniqueness. (Verified: PostgreSQL sequence, transactionally allocated `FBX-` number, UUID task identity, and composite tenant uniqueness.)
 - [ ] Resolve/pin a published workflow version at create; reject draft/archived-without-policy versions.
 - [ ] Persist complaint/work type/description/instructions, scheduled/due/estimated duration, priority, signature policy and reference photo/document attachments with customer/site/optional target.
 - [ ] Implement scope-aware list/detail queries with deterministic filters/order/pagination and indexed columns.
 - [ ] Assignment validates active membership, skill/branch constraints and capacity policy; close/create records atomically.
 - [ ] Enforce one responsible worker/team lead for final submission; assistants may add only explicitly permitted evidence. Worker unable/reassignment requests notify supervisors but cannot directly assign.
 - [ ] Represent overdue, escalated, customer-unavailable, safety-stop and sync-pending as typed flags/exceptions, never substitute statuses; make post-approval cancel/reopen policy explicit.
-- [ ] Use optimistic revision plus DB lock where transition races can create double side effects.
+- [x] Use optimistic revision plus DB lock where transition races can create double side effects. (Verified: revision predicates for updates and `FOR UPDATE` in transitions/assignment transactions.)
 - [ ] Build React list/detail/create, status controls, assignment drawer, schedule/capacity view, flags and immutable timeline.
 - [ ] Publish versioned task events through outbox; notifications consume later without changing task transaction.
 

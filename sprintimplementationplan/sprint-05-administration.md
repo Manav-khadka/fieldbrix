@@ -1,6 +1,6 @@
 # Sprint 05 — Platform and Company Administration
 
-Source: [Sprint plan](../sprintplans/sprint-05-administration.md) · Prerequisite: Sprint 04 QA sign-off · Status: `NOT STARTED` · Target: 64 points
+Source: [Sprint plan](../sprintplans/sprint-05-administration.md) · Prerequisite: Sprint 04 QA sign-off · Status: `IN PROGRESS` · Target: 64 points
 
 ## Outcome and data model
 
@@ -29,13 +29,13 @@ Platform Super Admin can provision, enter, configure, suspend, archive and inspe
 - [ ] Build platform tenant list/detail/health/usage/provision flows and god-mode entry; persistent banner remains visible on every tenant screen.
 - [ ] Build tenant settings for logo/colors/terms/timezone/locale/date/number formats, working hours, policies and validation preview.
 - [ ] Cover contact/report footer, one company-wide terminology set, working days/hours, GPS radius, signature/refusal/unavailable, approval/late/exception policies and enabled modules; explicitly reject branch-specific terminology in this phase.
-- [ ] Implement branches and teams with no cycles, one active membership rule where required, lead history and safe reassignment on deactivation.
+- [x] Implement branches and teams with no cycles, one active membership rule where required, lead history and safe reassignment on deactivation. (Verified: administration service/repository membership and lead-history paths.)
 - [ ] Implement invitation expiry/reissue/cancel/accept and generic failure responses; do not email credentials.
-- [ ] Implement skills taxonomy and user-skill assignment; use stable IDs so renamed skills preserve history.
+- [x] Implement skills taxonomy and user-skill assignment; use stable IDs so renamed skills preserve history. (Verified: `skills`, `user_skills`, repository persistence and stable UUID references.)
 - [ ] Preserve team supervisor, skills/categories, temporal members and one responsible lead; model assistant contribution permissions separately from final-submit authority.
 - [ ] Expose plan/user/task limits, active/completed counts, evidence volume, last activity and repeated sync/import/inactivity health with append-only support notes/actions.
-- [ ] Revoke sessions/devices/capability cache on tenant suspension or user deactivation; preserve creator/assignee attribution.
-- [ ] Enforce plan/usage counters server-side and make near-limit/limit errors explicit, observable and testable.
+- [x] Revoke sessions/devices/capability cache on tenant suspension or user deactivation; preserve creator/assignee attribution. (Verified: platform service and repository revocation paths.)
+- [x] Enforce plan/usage counters server-side and make near-limit/limit errors explicit, observable and testable. (Verified: `ensureLimit`, tenant usage and limit update paths.)
 
 ## Dependency and Sentry implementation
 

@@ -1,6 +1,6 @@
 # Sprint 06 — Master Records and Spreadsheet Imports
 
-Source: [Sprint plan](../sprintplans/sprint-06-master-data.md) · Prerequisite: Sprint 05 QA sign-off · Status: `NOT STARTED` · Target: 64 points
+Source: [Sprint plan](../sprintplans/sprint-06-master-data.md) · Prerequisite: Sprint 05 QA sign-off · Status: `IN PROGRESS` · Target: 64 points
 
 ## Outcome and data model
 

@@ -53,6 +53,10 @@ export class DatabaseService implements OnModuleDestroy {
           'app.tenant_id',
           tenantId,
         ]);
+        await client.query('SELECT set_config($1, $2, true)', [
+          'app.actor_id',
+          this.tenantContext.actorId ?? '',
+        ]);
         const result = await client.query<T>(text, values);
         await client.query('COMMIT');
         return result.rows;
@@ -84,6 +88,10 @@ export class DatabaseService implements OnModuleDestroy {
         'app.tenant_id',
         tenantId,
       ]);
+      await client.query('SELECT set_config($1, $2, true)', [
+        'app.actor_id',
+        this.tenantContext.actorId ?? '',
+      ]);
       const result = await client.query<T>(text, values);
       await client.query('COMMIT');
       return result.rows;
@@ -105,6 +113,11 @@ export class DatabaseService implements OnModuleDestroy {
         await client.query('SELECT set_config($1, $2, true)', [
           'app.tenant_id',
           tenantId,
+        ]);
+      if (tenantId)
+        await client.query('SELECT set_config($1, $2, true)', [
+          'app.actor_id',
+          this.tenantContext.actorId ?? '',
         ]);
       const result = await work(client);
       await client.query('COMMIT');

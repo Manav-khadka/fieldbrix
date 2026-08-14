@@ -1,6 +1,6 @@
 # Sprint 07 — Workflow Builder Foundation
 
-Source: [Sprint plan](../sprintplans/sprint-07-workflow-builder.md) · Prerequisite: Sprint 06 QA sign-off · Status: `NOT STARTED` · Target: 64 points
+Source: [Sprint plan](../sprintplans/sprint-07-workflow-builder.md) · Prerequisite: Sprint 06 QA sign-off · Status: `IN PROGRESS` · Target: 64 points
 
 ## Outcome and data model
 
@@ -25,10 +25,10 @@ Admins create, order, save and preview reusable draft workflows. Model workflow 
 - [ ] Define supported foundational field types, constraints, option storage, lookup filters, defaults and serialization versions.
 - [ ] Model workflow code/description/industry/category, target applicability/no-target, estimate, signature and approval policy, pause/follow-up/unavailable behavior and reporting settings.
 - [ ] Register section, instruction, text, large text, number, boolean, single/multiple choice, date, time and datetime foundations; define Sprint 08 extension contracts for GPS, image, file, scanner, lookup, signature, repeatable group and calculated. Do not register OTP.
-- [ ] Keep aggregate writes transactional; reject stale revisions with context and never silently overwrite concurrent changes.
+- [x] Keep aggregate writes transactional; reject stale revisions with context and never silently overwrite concurrent changes. (Verified: workflow repository revision predicates and PostgreSQL transaction/lock path.)
 - [ ] Validate unique keys, positions, label/help limits, option duplicates, field configuration and references server-side.
 - [ ] Build React drag/reorder editor, palette, section canvas, field properties, autosave state, undo warning and unsaved-navigation guard.
-- [ ] Build preview from the shared runtime schema/component registry, not a second handwritten interpretation.
+- [x] Build preview from the shared runtime schema/component registry, not a second handwritten interpretation. (Verified: preview reads the persisted workflow schema rather than accepting answers or maintaining a separate preview model.)
 - [ ] Connect customer/site/target/part lookups through permission- and scope-aware APIs; preview cannot expand user access.
 - [ ] Add accessible keyboard reorder alternative, focus management, labels/descriptions, error summary and responsive editor boundaries.
 - [ ] Record workflow aggregate domain events and complete audit diffs without storing sensitive preview answers.

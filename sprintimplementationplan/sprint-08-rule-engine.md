@@ -1,6 +1,6 @@
 # Sprint 08 — Advanced Fields and Conditional Rules
 
-Source: [Sprint plan](../sprintplans/sprint-08-rule-engine.md) · Prerequisite: Sprint 07 QA sign-off · Status: `NOT STARTED` · Target: 64 points
+Source: [Sprint plan](../sprintplans/sprint-08-rule-engine.md) · Prerequisite: Sprint 07 QA sign-off · Status: `IN PROGRESS` · Target: 64 points
 
 ## Outcome and engine contract
 
@@ -19,7 +19,7 @@ Admins configure advanced fields, repeatable groups, calculations, scans/evidenc
 
 ## Implementation checklist
 
-- [ ] Specify typed expression AST, operators, value coercion/null semantics, action priority, stop behavior and deterministic tie-breaking.
+- [x] Specify typed expression AST, operators, value coercion/null semantics, action priority, stop behavior and deterministic tie-breaking. (Verified: side-effect-free typed rule engine with deterministic priority/id ordering and safety-stop precedence.)
 - [ ] Build evaluator as side-effect-free shared package with fixtures portable to TypeScript and Dart; reject unknown schema/operator versions.
 - [ ] Add repeatable groups with stable row IDs, calculation dependency graph, scan/evidence metadata and explicit rounding/unit rules.
 - [ ] Extend every field schema with identity/help, read-only/hidden/default/worker-edit, validation, logic, evidence source/count/reason/time/location, report/dashboard/export/exception inclusion and sensitive/supervisor-only visibility metadata.

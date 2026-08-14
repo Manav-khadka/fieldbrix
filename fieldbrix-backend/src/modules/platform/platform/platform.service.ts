@@ -96,6 +96,34 @@ export class PlatformService {
     'iam.roles.configure',
     'audit.events.view',
     'platform.support.notes',
+    'master.customers.view',
+    'master.customers.create',
+    'master.customers.edit',
+    'master.sites.view',
+    'master.sites.create',
+    'master.sites.edit',
+    'master.targets.view',
+    'master.targets.create',
+    'master.targets.edit',
+    'master.parts.view',
+    'master.parts.create',
+    'master.parts.edit',
+    'master.imports.view',
+    'master.imports.create',
+    'master.imports.commit',
+    'workflows.view',
+    'workflows.create',
+    'workflows.edit',
+    'workflows.publish',
+    'workflows.archive',
+    'tasks.view',
+    'tasks.create',
+    'tasks.edit',
+    'tasks.assign',
+    'tasks.cancel',
+    'tasks.reopen',
+    'tasks.request_action',
+    'tasks.history.view',
   ];
   private capabilityRevision = 1;
   readonly tenants: Tenant[] = [
@@ -249,10 +277,8 @@ export class PlatformService {
         candidate.email.toLowerCase() === normalized ||
         candidate.id === identifier,
     );
-    if (!user) {
-      const persisted = await this.repository.findUserForLogin(normalized);
-      if (persisted) user = { ...persisted, roles: [] };
-    }
+    const persisted = await this.repository.findUserForLogin(normalized);
+    if (persisted) user = { ...persisted, roles: [] };
     if (user && !user.lockedUntil && /^[0-9a-f-]{36}$/i.test(user.id)) {
       const persisted = await (
         user && /^[0-9a-f-]{36}$/i.test(user.tenantId)

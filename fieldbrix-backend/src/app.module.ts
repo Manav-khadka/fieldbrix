@@ -21,6 +21,7 @@ import { QueueModule } from './modules/queue/queue.module';
 import { TenantContextModule } from './modules/tenant-context/tenant-context.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
 import { PdfWorkerModule } from './workers/pdf-worker/pdf-worker.module';
+import { OperationsModule } from './modules/operations/operations.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { PdfWorkerModule } from './workers/pdf-worker/pdf-worker.module';
     TenantContextModule,
     NotificationsModule,
     PdfWorkerModule,
+    OperationsModule,
   ],
   controllers: [AppController],
   providers: [
