@@ -469,19 +469,19 @@
       "norm_label": "check_rds()"
     },
     {
-      "label": "check_runtime_secret()",
+      "label": "check_runtime_parameters()",
       "file_type": "code",
       "source_file": "terraform/scripts/python/health_check.py",
       "source_location": "L83",
-      "id": "python_health_check_check_runtime_secret",
+      "id": "python_health_check_check_runtime_parameters",
       "community": 183,
-      "norm_label": "check_runtime_secret()"
+      "norm_label": "check_runtime_parameters()"
     },
     {
       "label": "check_sqs()",
       "file_type": "code",
       "source_file": "terraform/scripts/python/health_check.py",
-      "source_location": "L92",
+      "source_location": "L96",
       "id": "python_health_check_check_sqs",
       "community": 183,
       "norm_label": "check_sqs()"
@@ -490,7 +490,7 @@
       "label": "check_s3()",
       "file_type": "code",
       "source_file": "terraform/scripts/python/health_check.py",
-      "source_location": "L109",
+      "source_location": "L113",
       "id": "python_health_check_check_s3",
       "community": 183,
       "norm_label": "check_s3()"
@@ -499,7 +499,7 @@
       "label": "check_eip()",
       "file_type": "code",
       "source_file": "terraform/scripts/python/health_check.py",
-      "source_location": "L122",
+      "source_location": "L126",
       "id": "python_health_check_check_eip",
       "community": 183,
       "norm_label": "check_eip()"
@@ -7989,7 +7989,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2150",
       "id": "docs_engineering_handbook_codeblock_74",
-      "community": 11,
+      "community": 13,
       "norm_label": "code:block74 (sdk           : flutter stable pinned by ci and the reposito)"
     },
     {
@@ -8232,7 +8232,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2540",
       "id": "docs_engineering_handbook_part_11_mobile_code_standards",
-      "community": 30,
+      "community": 11,
       "norm_label": "part 11 \u2014 mobile code standards"
     },
     {
@@ -8241,7 +8241,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2542",
       "id": "docs_engineering_handbook_11_1_widget_rules",
-      "community": 30,
+      "community": 11,
       "norm_label": "11.1 widget rules"
     },
     {
@@ -8259,7 +8259,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2571",
       "id": "docs_engineering_handbook_11_2_riverpod_providers",
-      "community": 30,
+      "community": 11,
       "norm_label": "11.2 riverpod providers"
     },
     {
@@ -8268,7 +8268,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2573",
       "id": "docs_engineering_handbook_codeblock_89",
-      "community": 30,
+      "community": 11,
       "norm_label": "code:dart (// declare at file top-level \u2014 never inside a widget or meth)"
     },
     {
@@ -8277,7 +8277,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2589",
       "id": "docs_engineering_handbook_11_3_offline_first_rule",
-      "community": 30,
+      "community": 11,
       "norm_label": "11.3 offline-first rule"
     },
     {
@@ -8286,7 +8286,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2591",
       "id": "docs_engineering_handbook_codeblock_90",
-      "community": 30,
+      "community": 11,
       "norm_label": "code:dart (// rule p0: every user action that mutates data must:)"
     },
     {
@@ -8295,7 +8295,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2618",
       "id": "docs_engineering_handbook_11_4_flutter_api_client",
-      "community": 30,
+      "community": 11,
       "norm_label": "11.4 flutter api client"
     },
     {
@@ -8304,7 +8304,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2620",
       "id": "docs_engineering_handbook_codeblock_91",
-      "community": 30,
+      "community": 11,
       "norm_label": "code:dart (// mirrors the server envelope exactly)"
     },
     {
@@ -8313,7 +8313,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2642",
       "id": "docs_engineering_handbook_11_5_naming_conventions_flutter",
-      "community": 30,
+      "community": 11,
       "norm_label": "11.5 naming conventions \u2014 flutter"
     },
     {
@@ -8322,7 +8322,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2644",
       "id": "docs_engineering_handbook_codeblock_92",
-      "community": 30,
+      "community": 11,
       "norm_label": "code:block92 (files      : snake_case.dart             task_card.dart  tas)"
     },
     {
@@ -8349,7 +8349,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2660",
       "id": "docs_engineering_handbook_codeblock_93",
-      "community": 30,
+      "community": 11,
       "norm_label": "code:block93 (runtime       : python 3.12)"
     },
     {
@@ -8403,7 +8403,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2745",
       "id": "docs_engineering_handbook_part_14_testing_standards",
-      "community": 296,
+      "community": 181,
       "norm_label": "part 14 \u2014 testing standards"
     },
     {
@@ -8412,7 +8412,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2747",
       "id": "docs_engineering_handbook_14_1_test_structure_aaa_arrange_act_assert",
-      "community": 296,
+      "community": 181,
       "norm_label": "14.1 test structure \u2014 aaa (arrange, act, assert)"
     },
     {
@@ -8430,7 +8430,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2787",
       "id": "docs_engineering_handbook_14_2_coverage_requirements",
-      "community": 296,
+      "community": 181,
       "norm_label": "14.2 coverage requirements"
     },
     {
@@ -8439,7 +8439,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2789",
       "id": "docs_engineering_handbook_codeblock_97",
-      "community": 296,
+      "community": 181,
       "norm_label": "code:block97 (unit tests (services, repositories)    : minimum 80% line co)"
     },
     {
@@ -8466,7 +8466,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2812",
       "id": "docs_engineering_handbook_codeblock_98",
-      "community": 296,
+      "community": 173,
       "norm_label": "code:block98 (feature/fos-{ticket}-{description}      feature/fos-142-task)"
     },
     {
@@ -8799,7 +8799,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1",
       "id": "docs_tech_implementation_guide_md",
-      "community": 182,
+      "community": 210,
       "norm_label": "tech_implementation_guide.md"
     },
     {
@@ -9960,7 +9960,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1756",
       "id": "docs_tech_implementation_guide_part_n_security_rules_all_p0_non_negotiable",
-      "community": 182,
+      "community": 210,
       "norm_label": "part n \u2014 security rules (all p0, non-negotiable)"
     },
     {
@@ -9969,7 +9969,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1758",
       "id": "docs_tech_implementation_guide_codeblock_55",
-      "community": 182,
+      "community": 210,
       "norm_label": "code:block55 (n1.  tenantid comes from jwt only. never from request body, )"
     },
     {
@@ -17047,6 +17047,15 @@
       "norm_label": "source nodes"
     },
     {
+      "label": "check_runtime_secret()",
+      "file_type": "code",
+      "source_file": "terraform/scripts/python/health_check.py",
+      "source_location": "L83",
+      "community": 183,
+      "norm_label": "check_runtime_secret()",
+      "id": "python_health_check_check_runtime_secret"
+    },
+    {
       "label": "web-smoke.mjs",
       "file_type": "code",
       "source_file": "web-smoke.mjs",
@@ -19715,7 +19724,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L337",
-      "community": 4,
+      "community": 30,
       "norm_label": "step 13 \u2014 stop/start to save money (important)",
       "id": "terraform_local_setup_step_13_stop_start_to_save_money_important"
     },
@@ -19724,7 +19733,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L342",
-      "community": 4,
+      "community": 30,
       "norm_label": "code:bash (# stop before sleeping (~saves $14/month if done nightly + w)",
       "id": "terraform_local_setup_codeblock_18"
     },
@@ -19733,7 +19742,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L359",
-      "community": 4,
+      "community": 30,
       "norm_label": "code:block19 (always on:              ~$31/month  \u2192  $100 lasts about 3.2 )",
       "id": "terraform_local_setup_codeblock_19"
     },
@@ -23102,7 +23111,7 @@
       "source_location": "L83",
       "weight": 1.0,
       "source": "terraform_scripts_python_health_check_py",
-      "target": "python_health_check_check_runtime_secret",
+      "target": "python_health_check_check_runtime_parameters",
       "confidence_score": 1.0
     },
     {
@@ -23134,6 +23143,16 @@
       "confidence_score": 1.0,
       "source": "terraform_scripts_python_health_check_py",
       "target": "python_health_check_check_eip"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "terraform/scripts/python/health_check.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "terraform_scripts_python_health_check_py",
+      "target": "python_health_check_check_runtime_secret"
     },
     {
       "relation": "contains",
@@ -23175,7 +23194,7 @@
       "source_location": "L33",
       "weight": 1.0,
       "source": "python_health_check_main",
-      "target": "python_health_check_check_runtime_secret",
+      "target": "python_health_check_check_runtime_parameters",
       "confidence_score": 1.0
     },
     {
@@ -23210,6 +23229,17 @@
       "confidence_score": 1.0,
       "source": "python_health_check_main",
       "target": "python_health_check_check_eip"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "terraform/scripts/python/health_check.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "python_health_check_main",
+      "target": "python_health_check_check_runtime_secret"
     },
     {
       "relation": "calls",
@@ -24011,9 +24041,9 @@
       "source_file": "fieldbrix-frontend/src/App.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_frontend_src_app_tsx",
-      "target": "fieldbrix_frontend_src_components_sentrytestbutton_tsx",
-      "confidence_score": 1.0
+      "target": "fieldbrix_frontend_src_components_sentrytestbutton_tsx"
     },
     {
       "relation": "imports",
@@ -24022,9 +24052,9 @@
       "source_file": "fieldbrix-frontend/src/App.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_frontend_src_app_tsx",
-      "target": "components_sentrytestbutton_sentrytestbutton",
-      "confidence_score": 1.0
+      "target": "components_sentrytestbutton_sentrytestbutton"
     },
     {
       "relation": "contains",
@@ -24137,9 +24167,9 @@
       "source_file": "fieldbrix-frontend/src/components/SentryTestButton.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_frontend_src_components_sentrytestbutton_tsx",
-      "target": "components_sentrytestbutton_sentrytestbutton",
-      "confidence_score": 1.0
+      "target": "components_sentrytestbutton_sentrytestbutton"
     },
     {
       "relation": "imports_from",
@@ -26410,9 +26440,9 @@
       "source_file": "scripts/lambdatest/web-smoke.mjs",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_lambdatest_web_smoke_mjs",
-      "target": "lambdatest_web_smoke_required",
-      "confidence_score": 1.0
+      "target": "lambdatest_web_smoke_required"
     },
     {
       "relation": "contains",
@@ -26420,9 +26450,9 @@
       "source_file": "scripts/lambdatest/web-smoke.mjs",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_lambdatest_web_smoke_mjs",
-      "target": "lambdatest_web_smoke_targeturl",
-      "confidence_score": 1.0
+      "target": "lambdatest_web_smoke_targeturl"
     },
     {
       "relation": "contains",
@@ -26430,9 +26460,9 @@
       "source_file": "scripts/lambdatest/web-smoke.mjs",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_lambdatest_web_smoke_mjs",
-      "target": "lambdatest_web_smoke_webdriver",
-      "confidence_score": 1.0
+      "target": "lambdatest_web_smoke_webdriver"
     },
     {
       "relation": "contains",
@@ -26440,9 +26470,9 @@
       "source_file": "scripts/lambdatest/web-smoke.mjs",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_lambdatest_web_smoke_mjs",
-      "target": "lambdatest_web_smoke_severeerrors",
-      "confidence_score": 1.0
+      "target": "lambdatest_web_smoke_severeerrors"
     },
     {
       "relation": "contains",
@@ -27630,9 +27660,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sentry_setup_md",
-      "target": "fieldbrix_sentry_setup_fieldbrix_sentry_integration_setup",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_fieldbrix_sentry_integration_setup"
     },
     {
       "relation": "contains",
@@ -27640,9 +27670,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_fieldbrix_sentry_integration_setup",
-      "target": "fieldbrix_sentry_setup_overview",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_overview"
     },
     {
       "relation": "contains",
@@ -27650,9 +27680,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_fieldbrix_sentry_integration_setup",
-      "target": "fieldbrix_sentry_setup_sentry_projects",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_sentry_projects"
     },
     {
       "relation": "contains",
@@ -27660,9 +27690,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_fieldbrix_sentry_integration_setup",
-      "target": "fieldbrix_sentry_setup_configuration_status",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_configuration_status"
     },
     {
       "relation": "contains",
@@ -27670,9 +27700,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_fieldbrix_sentry_integration_setup",
-      "target": "fieldbrix_sentry_setup_testing_the_integration",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_testing_the_integration"
     },
     {
       "relation": "contains",
@@ -27680,9 +27710,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_fieldbrix_sentry_integration_setup",
-      "target": "fieldbrix_sentry_setup_features_configured",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_features_configured"
     },
     {
       "relation": "contains",
@@ -27690,9 +27720,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_fieldbrix_sentry_integration_setup",
-      "target": "fieldbrix_sentry_setup_verification_checklist",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_verification_checklist"
     },
     {
       "relation": "contains",
@@ -27700,9 +27730,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L159",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_fieldbrix_sentry_integration_setup",
-      "target": "fieldbrix_sentry_setup_next_steps",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_next_steps"
     },
     {
       "relation": "contains",
@@ -27710,9 +27740,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L168",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_fieldbrix_sentry_integration_setup",
-      "target": "fieldbrix_sentry_setup_documentation_references",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_documentation_references"
     },
     {
       "relation": "contains",
@@ -27720,9 +27750,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_configuration_status",
-      "target": "fieldbrix_sentry_setup_frontend_react_vite",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_frontend_react_vite"
     },
     {
       "relation": "contains",
@@ -27730,9 +27760,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_configuration_status",
-      "target": "fieldbrix_sentry_setup_backend_nestjs",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_backend_nestjs"
     },
     {
       "relation": "contains",
@@ -27740,9 +27770,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_configuration_status",
-      "target": "fieldbrix_sentry_setup_mobile_flutter",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_mobile_flutter"
     },
     {
       "relation": "contains",
@@ -27750,9 +27780,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_frontend_react_vite",
-      "target": "fieldbrix_sentry_setup_codeblock_1",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_codeblock_1"
     },
     {
       "relation": "contains",
@@ -27760,9 +27790,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_backend_nestjs",
-      "target": "fieldbrix_sentry_setup_codeblock_2",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_codeblock_2"
     },
     {
       "relation": "contains",
@@ -27770,9 +27800,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_mobile_flutter",
-      "target": "fieldbrix_sentry_setup_codeblock_3",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_codeblock_3"
     },
     {
       "relation": "contains",
@@ -27780,9 +27810,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_testing_the_integration",
-      "target": "fieldbrix_sentry_setup_backend_error_test",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_backend_error_test"
     },
     {
       "relation": "contains",
@@ -27790,9 +27820,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_testing_the_integration",
-      "target": "fieldbrix_sentry_setup_frontend_error_test",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_frontend_error_test"
     },
     {
       "relation": "contains",
@@ -27800,9 +27830,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L116",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_testing_the_integration",
-      "target": "fieldbrix_sentry_setup_mobile_error_test",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_mobile_error_test"
     },
     {
       "relation": "contains",
@@ -27810,9 +27840,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_backend_error_test",
-      "target": "fieldbrix_sentry_setup_codeblock_4",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_codeblock_4"
     },
     {
       "relation": "contains",
@@ -27820,9 +27850,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_frontend_error_test",
-      "target": "fieldbrix_sentry_setup_codeblock_5",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_codeblock_5"
     },
     {
       "relation": "contains",
@@ -27830,9 +27860,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_mobile_error_test",
-      "target": "fieldbrix_sentry_setup_codeblock_6",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_codeblock_6"
     },
     {
       "relation": "contains",
@@ -27840,9 +27870,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_features_configured",
-      "target": "fieldbrix_sentry_setup_error_tracking",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_error_tracking"
     },
     {
       "relation": "contains",
@@ -27850,9 +27880,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_features_configured",
-      "target": "fieldbrix_sentry_setup_privacy_security",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_privacy_security"
     },
     {
       "relation": "contains",
@@ -27860,9 +27890,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L140",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_features_configured",
-      "target": "fieldbrix_sentry_setup_performance_monitoring",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_performance_monitoring"
     },
     {
       "relation": "contains",
@@ -27870,9 +27900,9 @@
       "source_file": "SENTRY_SETUP.md",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "fieldbrix_sentry_setup_features_configured",
-      "target": "fieldbrix_sentry_setup_error_boundaries_frontend",
-      "confidence_score": 1.0
+      "target": "fieldbrix_sentry_setup_error_boundaries_frontend"
     },
     {
       "relation": "contains",
@@ -46959,5 +46989,5 @@
       "source_file": "docs/frontend/README.md"
     }
   ],
-  "built_at_commit": "8af9ea417fedfe2d8f052eb0ab551cbc11c5f0bd"
+  "built_at_commit": "49d696a6aafd0674ee3bf7b8f9a3ddb2309a6dd6"
 }

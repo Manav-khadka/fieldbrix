@@ -26,35 +26,17 @@ module "database" {
   database_password = var.database_password
 }
 
-resource "aws_kms_key" "runtime_secrets" {
-  description             = "FieldBrix ${var.env} runtime secret encryption"
-  deletion_window_in_days = 30
-  enable_key_rotation     = true
-}
-
-resource "aws_kms_alias" "runtime_secrets" {
-  name          = "alias/fieldbrix-${var.env}-runtime-secrets"
-  target_key_id = aws_kms_key.runtime_secrets.key_id
-}
-
-resource "aws_secretsmanager_secret" "runtime" {
-  name                    = "fieldbrix/${var.env}/runtime"
-  description             = "FieldBrix runtime database and service secrets"
-  kms_key_id              = aws_kms_key.runtime_secrets.arn
-  recovery_window_in_days = 30
-}
-
-resource "aws_secretsmanager_secret_version" "runtime" {
-  secret_id = aws_secretsmanager_secret.runtime.id
-  secret_string = jsonencode({
-    DB_PASSWORD = var.database_password
-    SENTRY_DSN  = var.backend_sentry_dsn
-  })
+resource "aws_ssm_parameter" "backend_sentry_dsn" {
+  name        = "/fieldbrix/${var.env}/sentry_dsn"
+  description = "FieldBrix NestJS Sentry DSN"
+  type        = "SecureString"
+  tier        = "Standard"
+  value       = var.backend_sentry_dsn
 
   lifecycle {
-    # Operators rotate non-database runtime values through Secrets Manager;
-    # Terraform must not overwrite that rotated secret on later applies.
-    ignore_changes = [secret_string]
+    # A CI-protected variable is the source of truth. Avoid unexpected updates
+    # from routine infrastructure applies once the parameter has been created.
+    ignore_changes = [value]
   }
 }
 
@@ -64,23 +46,27 @@ module "queues" {
 }
 
 module "compute" {
-  source                  = "../../modules/compute"
-  env                     = var.env
-  region                  = var.region
-  ami_id                  = var.ami_id
-  instance_type           = var.ec2_instance_type
-  subnet_id               = module.networking.public_subnet_a
-  ec2_sg_id               = module.networking.ec2_sg_id
-  application_bucket_arns = module.storage.application_bucket_arns
-  deployment_bucket_arn   = module.storage.web_bucket_arn
-  queue_arns              = module.queues.all_queue_arns
-  rds_address             = module.database.address
-  rds_port                = module.database.port
-  admin_domain            = var.admin_domain
-  api_domain              = var.api_domain
-  tls_contact_email       = var.tls_contact_email
-  runtime_secret_arn      = aws_secretsmanager_secret.runtime.arn
-  runtime_kms_key_arn     = aws_kms_key.runtime_secrets.arn
+  source                           = "../../modules/compute"
+  env                              = var.env
+  region                           = var.region
+  ami_id                           = var.ami_id
+  instance_type                    = var.ec2_instance_type
+  subnet_id                        = module.networking.public_subnet_a
+  ec2_sg_id                        = module.networking.ec2_sg_id
+  application_bucket_arns          = module.storage.application_bucket_arns
+  deployment_bucket_arn            = module.storage.web_bucket_arn
+  queue_arns                       = module.queues.all_queue_arns
+  rds_address                      = module.database.address
+  rds_port                         = module.database.port
+  admin_domain                     = var.admin_domain
+  api_domain                       = var.api_domain
+  tls_contact_email                = var.tls_contact_email
+  database_password_parameter_name = "/fieldbrix/${var.env}/db_password"
+  sentry_dsn_parameter_name        = aws_ssm_parameter.backend_sentry_dsn.name
+  runtime_parameter_arns = [
+    "arn:aws:ssm:${var.region}:*:parameter/fieldbrix/${var.env}/db_password",
+    aws_ssm_parameter.backend_sentry_dsn.arn,
+  ]
 }
 
 module "monitoring" {

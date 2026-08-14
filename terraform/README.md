@@ -58,7 +58,7 @@ Internet -> Elastic IP -> nginx HTTPS on EC2 t4g.small
                                                      `-> private RDS PostgreSQL 18.4
 
 Private S3 -> release artifacts, photos, PDFs, and exports
-AWS Secrets Manager -> runtime credential
+SSM Parameter Store -> encrypted runtime credentials
 Systems Manager -> administrative and deployment commands
 ```
 

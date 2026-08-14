@@ -1765,7 +1765,7 @@ N6.  TOTP secrets and third-party credentials: AES-256-GCM encrypted at rest.
 N7.  PII fields flagged in schema (is_pii column). Masked in responses by role via interceptor.
 N8.  Audit log entry written for every mutation. AuditInterceptor is non-removable.
 N9.  Rate limiting per tenant at API gateway. No tenant can starve others (noisy-neighbor protection).
-N10. No secrets in code. All from environment variables or AWS Secrets Manager.
+N10. No secrets in code. All from environment variables or encrypted AWS SSM Parameter Store.
 N11. No console.log() with user data in production. Structured JSON logs only (Winston).
 N12. Dependencies are reviewed monthly and by weekly automated update PRs. Use the latest mutually compatible stable, non-deprecated, approved open-source release; commit lockfiles. Paid/premium frontend runtime packages are prohibited. A vulnerable, deprecated, retracted or discontinued direct dependency blocks merge/release unless Security records a time-bounded exception. Critical fixes are triaged immediately and patched within 72 hours.
 N13. Impersonation: both support agent ID and target tenant logged to audit trail on every action.

@@ -25,7 +25,7 @@ deployment-branch protection for `main`. Configure these Actions secrets:
 | `AWS_TERRAFORM_ROLE_ARN` | Repository secret; Terraform plan/apply through GitHub OIDC |
 | `PROD_AMI_ID` | Repository secret; non-secret AMI input written to the ignored CI tfvars file |
 | `PROD_DB_PASSWORD` | Repository secret; RDS password written only to the ephemeral CI tfvars file |
-| `PROD_BACKEND_SENTRY_DSN` | Repository secret; written only to the KMS-encrypted runtime secret during Terraform apply |
+| `PROD_BACKEND_SENTRY_DSN` | Repository secret; written only to an encrypted Standard-tier SSM parameter during Terraform apply |
 | `PROD_WEB_SENTRY_DSN` | Repository secret; injected into the Vite build, never into server runtime state |
 | `SENTRY_AUTH_TOKEN` | `production` environment secret; optional source-map upload token, never exposed to app runtime |
 | `AWS_DEPLOY_ROLE_ARN` | `production` environment secret; S3 upload, SSM deployment, and read-only Terraform outputs |

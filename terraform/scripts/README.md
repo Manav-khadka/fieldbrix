@@ -6,7 +6,7 @@ Operations scripts for managing the Fieldbrix infrastructure.
 |--------|---------|
 | `aws-login.sh` | Log in with AWS SSO when needed and verify the temporary STS identity |
 | `bootstrap.sh` | One-time: create versioned encrypted S3 state storage with native S3 locking |
-| `secrets-init.sh` | Update the Terraform-managed Secrets Manager runtime secret after protected provisioning |
+| `secrets-init.sh` | Create or update encrypted Standard-tier SSM runtime parameters |
 | `plan.sh <env>` | Dry run — see what Terraform will change |
 | `apply.sh <env>` | Apply the plan — create/update infrastructure |
 | `deploy-apps.sh <env>` | Build, test, upload, and activate the React + NestJS release through S3 and SSM |

@@ -30,7 +30,7 @@ def main(env, region, profile):
     checks = [
         ('EC2 instance',   *check_ec2(session, env)),
         ('RDS PostgreSQL', *check_rds(session, env)),
-        ('Runtime secret', *check_runtime_secret(session, env)),
+        ('Runtime parameters', *check_runtime_parameters(session, env)),
         ('SQS queues',     *check_sqs(session, env)),
         ('S3 buckets',     *check_s3(session, env)),
         ('Static IP',      *check_eip(session, env)),
@@ -80,12 +80,16 @@ def check_rds(session, env):
     except Exception as e: return False, str(e)
 
 
-def check_runtime_secret(session, env):
+def check_runtime_parameters(session, env):
     try:
-        secret = session.client('secretsmanager').describe_secret(
-            SecretId=f'fieldbrix/{env}/runtime'
+        result = session.client('ssm').get_parameters(
+            Names=[f'/fieldbrix/{env}/db_password', f'/fieldbrix/{env}/sentry_dsn'],
+            WithDecryption=False,
         )
-        return True, f"Present — last changed {secret['LastChangedDate'].isoformat()}"
+        missing = result.get('InvalidParameters', [])
+        if missing:
+            return False, f"Missing: {', '.join(missing)}"
+        return True, 'Database password and Sentry DSN parameters present'
     except Exception as e: return False, str(e)
 
 

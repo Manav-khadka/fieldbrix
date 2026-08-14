@@ -59,7 +59,7 @@ resource "aws_db_instance" "postgres" {
   tags = { Name = "fieldbrix-${var.env}-postgres", Env = var.env }
 
   lifecycle {
-    # Runtime secret rotation is handled through Secrets Manager and must not
+    # Runtime parameter rotation is handled through SSM and must not
     # reset the database password on routine infrastructure applies.
     ignore_changes = [password]
   }

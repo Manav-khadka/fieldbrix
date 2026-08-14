@@ -74,7 +74,7 @@ Status values: `NOT STARTED` · `IN PROGRESS` · `BLOCKED` · `IN QA` · `DONE`
 - [ ] Every tenant-scoped repository query filters by `tenantId`; RLS is enabled and forced.
 - [ ] God mode is a separate platform authorization path and cannot be cloned, assigned, or denied by tenant roles.
 - [ ] Irreversible god-mode actions require a second, different authorized platform administrator.
-- [ ] Secrets are stored in AWS Secrets Manager or encrypted with AES-256-GCM; no saved secret is returned by an API.
+- [ ] Secrets are stored in encrypted AWS SSM Parameter Store or encrypted with AES-256-GCM; no saved secret is returned by an API.
 - [ ] Operational logs and audit records are implemented as separate systems.
 - [ ] Sentry events, logs, traces, screenshots, and test artifacts contain no passwords, tokens, credentials, presigned URLs, or unmasked PII.
 - [ ] Every changed dependency has owner/sprint need, latest-compatible-stable/deprecation/peer/license/advisory evidence and a committed lockfile; `react-data-grid@7.0.0-beta.61` is the sole exact-pinned prerelease exception.

@@ -5,7 +5,7 @@ RDS PostgreSQL 16 — managed, automated backups, encrypted.
 ## Password management
 
 The DB password is supplied to protected CI as `PROD_DB_PASSWORD`, stored in
-AWS Secrets Manager with a dedicated KMS key, and read by the application using
+encrypted Standard-tier SSM Parameter Store, and read by the application using
 resource-scoped IAM. Never place it in `terraform.tfvars`, code, or logs.
 
 ## Stop/start behaviour

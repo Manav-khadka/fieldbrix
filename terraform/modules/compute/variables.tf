@@ -27,5 +27,6 @@ variable "tls_contact_email" {
     error_message = "tls_contact_email must be empty or a valid email address."
   }
 }
-variable "runtime_secret_arn" { type = string }
-variable "runtime_kms_key_arn" { type = string }
+variable "database_password_parameter_name" { type = string }
+variable "sentry_dsn_parameter_name" { type = string }
+variable "runtime_parameter_arns" { type = list(string) }

@@ -1,11 +1,13 @@
-# Cloudflare API token is kept in Secrets Manager; this optional module is not
+# Cloudflare API token is kept in encrypted Standard-tier SSM Parameter Store;
+# this optional module is not
 # part of the current Sprint 01 apply path because DNS stays operator-managed.
-data "aws_secretsmanager_secret_version" "cf_token" {
-  secret_id = "fieldbrix/${var.env}/cloudflare"
+data "aws_ssm_parameter" "cf_token" {
+  name            = "/fieldbrix/${var.env}/cloudflare_token"
+  with_decryption = true
 }
 
 provider "cloudflare" {
-  api_token = jsondecode(data.aws_secretsmanager_secret_version.cf_token.secret_string).API_TOKEN
+  api_token = data.aws_ssm_parameter.cf_token.value
 }
 
 # api.fieldbrix.in → EC2 static IP

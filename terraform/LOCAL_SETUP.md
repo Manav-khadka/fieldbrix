@@ -59,8 +59,8 @@ The production backend uses the encrypted, versioned S3 bucket declared in
 
 ## 4. Create runtime secrets
 
-Runtime values are prompted interactively and stored as a KMS-encrypted AWS
-Secrets Manager secret; they do not belong in Terraform variables or Git:
+Runtime values are prompted interactively and stored as encrypted Standard-tier
+SSM SecureString parameters; they do not belong in Terraform variables or Git:
 
 ```bash
 ./scripts/secrets-init.sh prod

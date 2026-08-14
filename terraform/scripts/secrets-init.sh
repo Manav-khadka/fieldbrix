@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Creates or updates the one runtime secret consumed by the production instance.
+# Creates or updates the encrypted SSM runtime parameters consumed by production.
 # Usage: ./scripts/secrets-init.sh <env>
 set -euo pipefail
 
 ENVIRONMENT=${1:?Usage: secrets-init.sh <env>}
 REGION=${AWS_REGION:-ap-south-1}
-SECRET_ID="fieldbrix/${ENVIRONMENT}/runtime"
+DB_PARAMETER="/fieldbrix/${ENVIRONMENT}/db_password"
 
 read -rsp "RDS password for ${ENVIRONMENT}: " DATABASE_PASSWORD
 printf '\n'
@@ -14,18 +14,14 @@ test -n "${DATABASE_PASSWORD}" || {
   exit 1
 }
 
-SECRET_JSON=$(jq -cn --arg password "${DATABASE_PASSWORD}" '{DB_PASSWORD: $password}')
-
-if aws secretsmanager describe-secret --secret-id "${SECRET_ID}" --region "${REGION}" >/dev/null 2>&1; then
-  aws secretsmanager put-secret-value \
-    --secret-id "${SECRET_ID}" \
-    --secret-string "${SECRET_JSON}" \
-    --region "${REGION}" >/dev/null
-  echo "Updated ${SECRET_ID}."
-else
-  echo "Secret ${SECRET_ID} is Terraform-managed; apply Terraform before initializing it." >&2
-  exit 1
-fi
+aws ssm put-parameter \
+  --name "${DB_PARAMETER}" \
+  --type SecureString \
+  --value "${DATABASE_PASSWORD}" \
+  --overwrite \
+  --tier Standard \
+  --region "${REGION}" >/dev/null
+echo "Updated ${DB_PARAMETER}."
 
 echo "Do not print the secret value. Verify only its metadata with:"
-echo "aws secretsmanager describe-secret --secret-id ${SECRET_ID} --region ${REGION}"
+echo "aws ssm get-parameter --name ${DB_PARAMETER} --region ${REGION}"

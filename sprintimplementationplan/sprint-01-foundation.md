@@ -10,7 +10,7 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 
 - Target workspace: `fieldbrix-backend/`, `fieldbrix-frontend/`, `fieldbrix_app/`, `lambdas/`, `terraform/`, and `docs/` tracked directly in one umbrella repository. Each runtime retains its appropriate lockfile; root CI validates the compatible set.
 - Local stack: PostgreSQL, LocalStack-compatible S3/SQS/DLQ, API/web shells, queue worker, deterministic seed, and health probes.
-- Production IaC: VPC/private subnets, load balancer/EC2 where adopted, RDS PostgreSQL, S3 deployment artifacts, SQS/DLQ, IAM, KMS, Secrets Manager, CloudWatch, and backup/restore configuration. DNS remains with Cloudflare; AWS Certificate Manager, Route 53, CloudFront, and autoscaling are out of scope.
+- Production IaC: VPC/private subnets, load balancer/EC2 where adopted, RDS PostgreSQL, S3 deployment artifacts, SQS/DLQ, IAM, encrypted Standard-tier SSM Parameter Store, CloudWatch, and backup/restore configuration. DNS remains with Cloudflare; AWS Certificate Manager, Route 53, CloudFront, and autoscaling are out of scope.
 - CI artifacts: immutable application version/commit SHA, Terraform plan, test reports, SBOM, secret/dependency scan, and deploy manifest.
 
 ## Initial operational contracts
@@ -38,7 +38,7 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 - [X] Separate Terraform state, modules, variables, outputs, and least-privilege deployment role; enable state locking/encryption.
 - [ ] Keep RDS and workloads private; restrict ingress/egress; require TLS; encrypt RDS, buckets, queues, backups, and logs.
 - [ ] Enable RDS automated backups/PITR, S3 versioning/lifecycle, SQS DLQ/redrive, load-balancer health checks where adopted, and termination protection where required.
-- [ ] Put runtime secrets in Secrets Manager and grant resource-specific read access; rotate a test secret.
+- [ ] Put runtime secrets in encrypted Standard-tier SSM Parameter Store and grant resource-specific read access; rotate a test parameter.
 - [ ] Add a reversible deployment, database-independent app rollback, and release tagging.
 - [ ] Create isolated production test-tenant configuration without granting it production customer data.
 - [ ] Run `terraform fmt`, `validate`, policy/security scan, plan review, controlled apply, drift check, and destroy only in disposable CI infrastructure.
