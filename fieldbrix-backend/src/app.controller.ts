@@ -30,6 +30,7 @@ export class AppController {
   @Get('debug-sentry')
   triggerSentryVerification() {
     if (
+      process.env.NODE_ENV !== 'development' ||
       process.env.SENTRY_DEBUG_ENDPOINT !== 'true' ||
       process.env.APP_ENV === 'production'
     ) {
