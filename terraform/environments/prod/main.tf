@@ -70,7 +70,11 @@ module "compute" {
 }
 
 module "monitoring" {
-  source          = "../../modules/monitoring"
+  source = "../../modules/monitoring"
+  providers = {
+    aws           = aws
+    aws.us_east_1 = aws.us_east_1
+  }
   env             = var.env
   ec2_instance_id = module.compute.instance_id
   db_identifier   = "fieldbrix-${var.env}"

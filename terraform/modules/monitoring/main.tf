@@ -1,7 +1,12 @@
-# Billing alarms require us-east-1
-provider "aws" {
-  alias  = "us_east_1"
-  region = "us-east-1"
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      configuration_aliases = [
+        aws.us_east_1,
+      ]
+    }
+  }
 }
 
 resource "aws_sns_topic" "alerts" {
@@ -15,6 +20,21 @@ resource "aws_sns_topic_subscription" "email" {
   # You will receive a confirmation email — click the link to activate
 }
 
+# AWS/Billing metrics and their CloudWatch alarms are available only in
+# us-east-1, so their notification topic must also live there.
+resource "aws_sns_topic" "billing_alerts" {
+  provider = aws.us_east_1
+  name     = "fieldbrix-${var.env}-billing-alerts"
+}
+
+resource "aws_sns_topic_subscription" "billing_email" {
+  provider  = aws.us_east_1
+  topic_arn = aws_sns_topic.billing_alerts.arn
+  protocol  = "email"
+  endpoint  = var.alert_email
+  # You will receive a confirmation email — click the link to activate.
+}
+
 resource "aws_cloudwatch_metric_alarm" "billing_50" {
   provider            = aws.us_east_1
   alarm_name          = "fieldbrix-billing-50usd"
@@ -26,7 +46,7 @@ resource "aws_cloudwatch_metric_alarm" "billing_50" {
   statistic           = "Maximum"
   threshold           = 50
   alarm_description   = "AWS spend > $50 — 25% of $200 credits used"
-  alarm_actions       = [aws_sns_topic.alerts.arn]
+  alarm_actions       = [aws_sns_topic.billing_alerts.arn]
   dimensions          = { Currency = "USD" }
 }
 
@@ -41,7 +61,7 @@ resource "aws_cloudwatch_metric_alarm" "billing_90" {
   statistic           = "Maximum"
   threshold           = 90
   alarm_description   = "AWS spend > $90 — credits nearly gone, add payment method NOW"
-  alarm_actions       = [aws_sns_topic.alerts.arn]
+  alarm_actions       = [aws_sns_topic.billing_alerts.arn]
   dimensions          = { Currency = "USD" }
 }
 

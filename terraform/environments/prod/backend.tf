@@ -26,3 +26,16 @@ provider "aws" {
     }
   }
 }
+
+# AWS billing metrics are published only in us-east-1.
+provider "aws" {
+  alias  = "us_east_1"
+  region = "us-east-1"
+  default_tags {
+    tags = {
+      Project     = "fieldbrix"
+      Environment = var.env
+      ManagedBy   = "terraform"
+    }
+  }
+}
