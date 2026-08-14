@@ -3010,16 +3010,25 @@
       "label": "targetUrl",
       "file_type": "code",
       "source_file": "scripts/lambdatest/web-smoke.mjs",
-      "source_location": "L17",
+      "source_location": "L18",
       "id": "lambdatest_web_smoke_targeturl",
       "community": 209,
       "norm_label": "targeturl"
     },
     {
+      "label": "[width, height]",
+      "file_type": "code",
+      "source_file": "scripts/lambdatest/web-smoke.mjs",
+      "source_location": "L26",
+      "id": "lambdatest_web_smoke_width_height",
+      "community": 209,
+      "norm_label": "[width, height]"
+    },
+    {
       "label": "webdriver()",
       "file_type": "code",
       "source_file": "scripts/lambdatest/web-smoke.mjs",
-      "source_location": "L27",
+      "source_location": "L33",
       "id": "lambdatest_web_smoke_webdriver",
       "community": 209,
       "norm_label": "webdriver()"
@@ -3028,7 +3037,7 @@
       "label": "severeErrors",
       "file_type": "code",
       "source_file": "scripts/lambdatest/web-smoke.mjs",
-      "source_location": "L95",
+      "source_location": "L106",
       "id": "lambdatest_web_smoke_severeerrors",
       "community": 209,
       "norm_label": "severeerrors"
@@ -5208,7 +5217,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L1",
       "id": "terraform_modules_dns_readme_md",
-      "community": 172,
+      "community": 18,
       "norm_label": "readme.md"
     },
     {
@@ -5217,7 +5226,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L1",
       "id": "dns_readme_modules_dns",
-      "community": 172,
+      "community": 18,
       "norm_label": "modules/dns/"
     },
     {
@@ -5226,7 +5235,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L5",
       "id": "dns_readme_what_this_creates",
-      "community": 172,
+      "community": 18,
       "norm_label": "what this creates"
     },
     {
@@ -5235,7 +5244,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L7",
       "id": "dns_readme_codeblock_1",
-      "community": 172,
+      "community": 18,
       "norm_label": "code:block1 (a record: api.fieldbrix.in \u2192 your static ec2 ip (proxied thr)"
     },
     {
@@ -5244,7 +5253,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L13",
       "id": "dns_readme_why_cloudflare_instead_of_route_53",
-      "community": 172,
+      "community": 18,
       "norm_label": "why cloudflare instead of route 53?"
     },
     {
@@ -5253,7 +5262,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L18",
       "id": "dns_readme_proxied_true_orange_cloud_icon",
-      "community": 172,
+      "community": 18,
       "norm_label": "proxied = true (orange cloud icon)"
     },
     {
@@ -5271,7 +5280,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L29",
       "id": "dns_readme_cloudflare_api_token",
-      "community": 172,
+      "community": 18,
       "norm_label": "cloudflare api token"
     },
     {
@@ -19724,7 +19733,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L337",
-      "community": 30,
+      "community": 4,
       "norm_label": "step 13 \u2014 stop/start to save money (important)",
       "id": "terraform_local_setup_step_13_stop_start_to_save_money_important"
     },
@@ -19733,7 +19742,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L342",
-      "community": 30,
+      "community": 4,
       "norm_label": "code:bash (# stop before sleeping (~saves $14/month if done nightly + w)",
       "id": "terraform_local_setup_codeblock_18"
     },
@@ -19742,7 +19751,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L359",
-      "community": 30,
+      "community": 4,
       "norm_label": "code:block19 (always on:              ~$31/month  \u2192  $100 lasts about 3.2 )",
       "id": "terraform_local_setup_codeblock_19"
     },
@@ -20012,7 +20021,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/modules/dns/README.md",
       "source_location": "L1",
-      "community": 172,
+      "community": 18,
       "norm_label": "readme.md",
       "id": "docs_terraform_modules_dns_readme_md"
     },
@@ -21742,7 +21751,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 296,
       "norm_label": "modules/storage",
       "id": "storage_readme"
     },
@@ -21755,7 +21764,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 296,
       "norm_label": "s3 buckets (photos/pdfs/exports/web)",
       "id": "storage_readme_s3_buckets"
     },
@@ -21768,7 +21777,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 296,
       "norm_label": "presigned url upload pattern",
       "id": "storage_readme_presigned_url_upload"
     },
@@ -21781,7 +21790,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 266,
       "norm_label": "modules/compute",
       "id": "compute_readme"
     },
@@ -21794,7 +21803,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 266,
       "norm_label": "elastic ip (static ip)",
       "id": "compute_readme_elastic_ip"
     },
@@ -21807,7 +21816,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 266,
       "norm_label": "pgbouncer connection pooler",
       "id": "compute_readme_pgbouncer"
     },
@@ -21820,7 +21829,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 266,
       "norm_label": "imdsv2 enforcement",
       "id": "compute_readme_imdsv2"
     },
@@ -21833,7 +21842,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 30,
       "norm_label": "modules/queues",
       "id": "queues_readme"
     },
@@ -21846,7 +21855,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 30,
       "norm_label": "pdf-generation.fifo queue",
       "id": "queues_readme_pdf_generation_fifo"
     },
@@ -21859,7 +21868,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 30,
       "norm_label": "notifications.fifo queue",
       "id": "queues_readme_notifications_fifo"
     },
@@ -21872,7 +21881,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 30,
       "norm_label": "scheduler.fifo queue",
       "id": "queues_readme_scheduler_fifo"
     },
@@ -21885,7 +21894,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 30,
       "norm_label": "media-processing queue",
       "id": "queues_readme_media_processing"
     },
@@ -21898,7 +21907,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 30,
       "norm_label": "dead-letter queue (dlq)",
       "id": "queues_readme_dlq"
     },
@@ -22067,7 +22076,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 18,
+      "community": 2,
       "norm_label": "react hook form + zod",
       "id": "frontend_readme_react_hook_form_zod"
     },
@@ -22080,7 +22089,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 18,
+      "community": 2,
       "norm_label": "createtaskschema (shared zod schema)",
       "id": "frontend_readme_create_task_schema"
     },
@@ -22223,7 +22232,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 18,
+      "community": 2,
       "norm_label": "validation pipes (class-validator)",
       "id": "backend_readme_pipes_validation"
     },
@@ -22379,7 +22388,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 18,
+      "community": 2,
       "norm_label": "createtaskdto",
       "id": "backend_readme_create_task_dto"
     },
@@ -22444,7 +22453,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 160,
       "norm_label": "powersync offline sync (client)",
       "id": "mobile_readme_powersync"
     },
@@ -22483,7 +22492,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 296,
       "norm_label": "presigned url upload (mobile)",
       "id": "mobile_readme_presigned_url_upload"
     },
@@ -22587,7 +22596,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 266,
       "norm_label": "aws infrastructure reference",
       "id": "aws_readme"
     },
@@ -22600,7 +22609,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 266,
       "norm_label": "ec2 t4g.medium compute",
       "id": "aws_readme_ec2_compute"
     },
@@ -22626,7 +22635,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 266,
       "norm_label": "pgbouncer (aws doc)",
       "id": "aws_readme_pgbouncer"
     },
@@ -22639,7 +22648,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 296,
       "norm_label": "s3 object storage",
       "id": "aws_readme_s3_storage"
     },
@@ -22665,7 +22674,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 30,
       "norm_label": "sqs + lambda async layer",
       "id": "aws_readme_sqs_lambda_async"
     },
@@ -22678,7 +22687,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 160,
       "norm_label": "powersync (self-hosted sync engine)",
       "id": "aws_readme_powersync"
     },
@@ -22691,7 +22700,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 266,
       "norm_label": "github actions ci/cd pipeline",
       "id": "aws_readme_cicd_github_actions"
     },
@@ -22704,7 +22713,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 266,
       "norm_label": "complete cost summary",
       "id": "aws_readme_cost_summary"
     }
@@ -23110,9 +23119,9 @@
       "source_file": "terraform/scripts/python/health_check.py",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "terraform_scripts_python_health_check_py",
-      "target": "python_health_check_check_runtime_parameters",
-      "confidence_score": 1.0
+      "target": "python_health_check_check_runtime_parameters"
     },
     {
       "relation": "contains",
@@ -23193,9 +23202,9 @@
       "source_file": "terraform/scripts/python/health_check.py",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "python_health_check_main",
-      "target": "python_health_check_check_runtime_parameters",
-      "confidence_score": 1.0
+      "target": "python_health_check_check_runtime_parameters"
     },
     {
       "relation": "calls",
@@ -26453,6 +26462,16 @@
       "confidence_score": 1.0,
       "source": "scripts_lambdatest_web_smoke_mjs",
       "target": "lambdatest_web_smoke_targeturl"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/lambdatest/web-smoke.mjs",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "scripts_lambdatest_web_smoke_mjs",
+      "target": "lambdatest_web_smoke_width_height",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -46989,5 +47008,5 @@
       "source_file": "docs/frontend/README.md"
     }
   ],
-  "built_at_commit": "49d696a6aafd0674ee3bf7b8f9a3ddb2309a6dd6"
+  "built_at_commit": "407c4a9234ae4ecb1454f1f3b831a56f6926661d"
 }

@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   browser-smoke:
-    name: ${{ matrix.browser }} on ${{ matrix.platform }}
+    name: ${{ matrix.browser }} ${{ matrix.viewport }} on ${{ matrix.platform }}
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
@@ -21,12 +21,28 @@ jobs:
         include:
           - browser: chrome
             platform: Windows 11
+            viewport: 1440x900
+          - browser: chrome
+            platform: Windows 11
+            viewport: 390x844
           - browser: MicrosoftEdge
             platform: Windows 11
+            viewport: 1440x900
+          - browser: MicrosoftEdge
+            platform: Windows 11
+            viewport: 390x844
           - browser: firefox
             platform: Windows 11
+            viewport: 1440x900
+          - browser: firefox
+            platform: Windows 11
+            viewport: 390x844
           - browser: Safari
             platform: macOS Ventura
+            viewport: 1440x900
+          - browser: Safari
+            platform: macOS Ventura
+            viewport: 390x844
     steps:
       - uses: actions/checkout@v4
 
@@ -41,4 +57,5 @@ jobs:
           LT_WEB_URL: ${{ inputs.web_url }}
           LT_BROWSER: ${{ matrix.browser }}
           LT_PLATFORM: ${{ matrix.platform }}
+          LT_VIEWPORT: ${{ matrix.viewport }}
         run: node scripts/lambdatest/web-smoke.mjs

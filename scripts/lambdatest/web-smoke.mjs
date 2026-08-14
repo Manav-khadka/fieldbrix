@@ -4,6 +4,7 @@ const required = [
   'LT_WEB_URL',
   'LT_BROWSER',
   'LT_PLATFORM',
+  'LT_VIEWPORT',
 ];
 
 for (const name of required) {
@@ -21,6 +22,11 @@ if (targetUrl.protocol !== 'https:') {
 
 const browser = process.env.LT_BROWSER;
 const platform = process.env.LT_PLATFORM;
+const viewport = process.env.LT_VIEWPORT;
+const [width, height] = viewport.split('x').map(Number);
+if (!Number.isInteger(width) || !Number.isInteger(height)) {
+  throw new Error('LT_VIEWPORT must be formatted as <width>x<height>');
+}
 const baseUrl = 'https://hub.lambdatest.com/wd/hub';
 const auth = `Basic ${Buffer.from(`${username}:${accessKey}`).toString('base64')}`;
 
@@ -69,6 +75,11 @@ try {
   sessionId = session.sessionId;
   if (!sessionId) throw new Error('LambdaTest did not return a session ID');
 
+  await webdriver(`/session/${sessionId}/window/rect`, 'POST', {
+    width,
+    height,
+  });
+
   await webdriver(`/session/${sessionId}/url`, 'POST', { url: targetUrl.href });
   const state = await webdriver(`/session/${sessionId}/execute/sync`, 'POST', {
     script: 'return { readyState: document.readyState, url: location.href, title: document.title };',
@@ -112,6 +123,7 @@ try {
       event: 'lambdatest.web_smoke_passed',
       browser,
       platform,
+      viewport,
       url: state.url,
       title: state.title,
       consoleCheck,
