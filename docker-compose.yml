@@ -60,6 +60,9 @@ services:
       AWS_SECRET_ACCESS_KEY: test
       S3_BUCKET: fieldbrix-local-uploads
       SQS_QUEUE_URL: http://localstack:4566/000000000000/fieldbrix-local-jobs
+      SENTRY_DSN: ${BACKEND_SENTRY_DSN:-}
+      SENTRY_ENVIRONMENT: local
+      SENTRY_RELEASE: fieldbrix-backend@local
     command: pnpm start:dev
     depends_on:
       postgres:
@@ -81,6 +84,9 @@ services:
       VITE_APP_ENV: local
       VITE_API_BASE_URL: http://localhost:${API_PORT:-3000}
       VITE_APP_VERSION: 0.0.1-local
+      VITE_SENTRY_DSN: ${WEB_SENTRY_DSN:-}
+      VITE_SENTRY_ENVIRONMENT: local
+      VITE_SENTRY_RELEASE: fieldbrix-web@local
     command: pnpm dev --host 0.0.0.0
     depends_on:
       api:

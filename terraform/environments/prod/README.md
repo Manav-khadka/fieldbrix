@@ -18,7 +18,13 @@ Run Terraform with profile `fieldbrix`:
 ../../scripts/deploy-apps.sh prod
 ```
 
-Initial certificate issuance requires both public DNS A records to resolve to
+The backend bucket/key are `fieldbrix-tfstate-059763918790` and
+`prod/terraform.tfstate`. A `403` means Terraform was run with the wrong AWS
+identity (typically the `default` profile), not that the state path changed.
+Run `source ../../aws.env.local` or use the wrapper scripts above so the
+`fieldbrix` profile is selected before `terraform init -reconfigure`.
+
+Initial certificate issuance requires both Cloudflare-managed public DNS A records to resolve to
 `static_ip`. New instances retry issuance automatically if DNS is not ready;
 `configure-tls.sh` applies and verifies the same setup on an existing instance.
 

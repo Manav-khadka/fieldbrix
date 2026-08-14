@@ -57,10 +57,10 @@ source aws.env.local
 The production backend uses the encrypted, versioned S3 bucket declared in
 `environments/prod/backend.tf` with native S3 state locking.
 
-## 4. Create runtime parameters
+## 4. Create runtime secrets
 
-Runtime values are prompted interactively and stored as encrypted SSM
-parameters; they do not belong in Terraform variables or Git:
+Runtime values are prompted interactively and stored as a KMS-encrypted AWS
+Secrets Manager secret; they do not belong in Terraform variables or Git:
 
 ```bash
 ./scripts/secrets-init.sh prod
@@ -108,8 +108,8 @@ Never use `terraform destroy` as an application rollback shortcut.
 
 ## 7. DNS, TLS, and application deployment
 
-Read the static IP after apply, create the documented A records, and wait for
-both names to resolve:
+Read the static IP after apply, create the documented DNS A records in
+Cloudflare, and wait for both names to resolve:
 
 ```bash
 terraform -chdir=environments/prod output static_ip
