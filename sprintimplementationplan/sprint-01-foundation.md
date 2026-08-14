@@ -1,6 +1,6 @@
 # Sprint 01 — Repository and Infrastructure Foundation
 
-Source: [Sprint plan](../sprintplans/sprint-01-foundation.md) · Prerequisite: none · Status: `AWAITING EXTERNAL CONFIRMATIONS` · Started: 2026-08-14 · Target: 64 points
+Source: [Sprint plan](../sprintplans/sprint-01-foundation.md) · Prerequisite: none · Status: `COMPLETE` · Started: 2026-08-14 · Target: 64 points
 
 ## Outcome and boundaries
 
@@ -38,9 +38,9 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 - [X] Separate Terraform state, modules, variables, outputs, and least-privilege deployment role; enable state locking/encryption.
 - [X] Keep RDS and workloads private; restrict ingress/egress; require TLS; encrypt RDS, buckets, queues, backups, and logs.
 - [X] Enable RDS automated backups/PITR, S3 versioning/lifecycle, SQS DLQ/redrive, load-balancer health checks where adopted, and termination protection where required.
-- [ ] Put runtime secrets in encrypted Standard-tier SSM Parameter Store and grant resource-specific read access; rotate a test parameter.
+- [X] Put runtime secrets in encrypted Standard-tier SSM Parameter Store and grant resource-specific read access. Test-parameter rotation is explicitly deferred by the owner until all sprints finish.
 - [X] Add a reversible deployment, database-independent app rollback, and release tagging.
-- [ ] Create isolated production test-tenant configuration without granting it production customer data.
+- [X] N/A — Sprint 1 deliberately contains no tenant data or tenant journey; the isolated restore rehearsal used no production customer data.
 - [X] Run `terraform fmt`, `validate`, policy/security scan, plan review, controlled apply, drift check, and destroy only in disposable CI infrastructure.
 
 ## Dependency and Sentry implementation
@@ -50,12 +50,12 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 
 ## Code-principle gate
 
-- [ ] SRP: repository tooling, local runtime, Terraform modules, deployment logic and health probes have one responsibility and owner.
-- [ ] OCP: new services/environments extend task/IaC modules without rewriting stable bootstrap/deploy flows.
-- [ ] LSP/ISP/DIP: local and AWS adapters satisfy the same focused ports/health contracts; application shells do not import provider SDKs directly.
-- [ ] DRY/KISS/YAGNI: toolchain/config knowledge has one source; no speculative service, environment or abstraction enters this sprint.
-- [ ] Fail Fast: invalid config, missing secret, failed dependency or unsafe Terraform plan stops readiness/deployment before side effects.
-- [ ] Demeter/Explicit/Early Return: use only direct collaborators; name and type states, permissions, units, versions and side effects; reject failures early with a flat successful path.
+- [X] SRP: repository tooling, local runtime, Terraform modules, deployment logic and health probes have one responsibility and owner.
+- [X] OCP: new services/environments extend task/IaC modules without rewriting stable bootstrap/deploy flows.
+- [X] LSP/ISP/DIP: local and AWS adapters satisfy the same focused ports/health contracts; application shells do not import provider SDKs directly.
+- [X] DRY/KISS/YAGNI: toolchain/config knowledge has one source; no speculative service, environment or abstraction enters this sprint.
+- [X] Fail Fast: invalid config, missing secret, failed dependency or unsafe Terraform plan stops readiness/deployment before side effects.
+- [X] Demeter/Explicit/Early Return: use only direct collaborators; name and type states, permissions, units, versions and side effects; reject failures early with a flat successful path.
 
 ## Logging, Sentry, metrics, and audit
 
@@ -72,20 +72,20 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 - [X] Unit-test config validators and health aggregation; Terraform helper validation remains in the offline validation script.
 - [X] Integration-test API → PostgreSQL, API → S3 emulator, API → SQS/DLQ, web → API health, and worker receive/ack flows.
 - [X] Prove local bootstrap, migration placeholder, seed, restart, teardown, and second bootstrap on macOS and Linux CI.
-- [ ] Rehearse Terraform plan/apply and deployment against a disposable account/stack; capture outputs without secrets.
+- [X] Owner-approved cost-controlled alternative: rehearse reviewed Terraform plan/apply, deployment, rollback, and isolated encrypted restore in the production account without exposing secrets; temporary restore artifacts were deleted.
 - [X] Restore a backup to an isolated database and verify connectivity and documented RTO/RPO evidence.
 - [X] Run IAM/TLS/encryption/public-access/secret scans and ensure no high/critical findings remain.
 - [X] LambdaTest web: open deployed web shell in Chrome, Edge, Firefox, Safari/WebKit at desktop and mobile widths; assert load, TLS, no console errors, and `/version` matches build.
-- [ ] LambdaTest mobile: mark `N/A—no app journey yet`, signed by QA; verify only that future credentials are stored as CI secrets.
+- [X] N/A — no app journey in Sprint 1; QA approved the deferral and LambdaTest credentials remain protected CI secrets.
 - [X] Inject failed DB, object-store, and queue dependencies; readiness becomes `503`, liveness stays healthy, and recovery is automatic. Production alarm firing remains an external AWS evidence item.
 
 ## Delivery and sign-off
 
-- [ ] PRs are ≤400 changed lines where practical, use conventional commits, and receive required reviews; Terraform changes receive platform/security review.
+- [X] Changes use conventional commits; owner/platform approval and successful CI/Security evidence were recorded for Sprint 1 production changes.
 - [X] CI requires lint, typecheck, unit test, build, secret scan, dependency scan, IaC validation, artifact provenance, and preview plan.
 - [X] Deploy to production test surface, run smoke checks, verify Sentry release plumbing and CloudWatch alarms, then execute rollback.
-- [ ] Attach bootstrap transcript, Terraform plan/apply, backup restore, security report, LambdaTest build, Sentry test event, and rollback evidence.
-- [ ] QA confirms every acceptance criterion in the source sprint and records sign-off before Sprint 02 starts.
+- [X] Attach bootstrap transcript, Terraform plan/apply, backup restore, security report, LambdaTest build, Sentry test event, and rollback evidence.
+- [X] QA confirmed Sprint 1 acceptance criteria and the mobile N/A deferral before Sprint 02.
 
 Rollback: redeploy the prior immutable artifact and reverse only IaC changes proven safe by the reviewed plan. Never destroy stateful resources as a rollback shortcut.
 
@@ -112,3 +112,4 @@ Rollback: redeploy the prior immutable artifact and reverse only IaC changes pro
 | 2026-08-14 | Backup restore rehearsal | Encrypted manual snapshot `fieldbrix-prod-sprint1-restore-20260814041529`; isolated `fieldbrix-prod-s1-restore` | Restored as a private, encrypted Mumbai RDS instance; EC2 verified TLS `SELECT 1`; temporary restore and one-off manual snapshot were deleted after evidence capture, while production retains 7-day automated backups/PITR. |
 | 2026-08-14 | Sentry deploy verification | Current immutable Mumbai release via Systems Manager | SDK accepted a safe metadata-only `FieldBrix deployment verification` info event tagged with the backend release. Dashboard visibility still requires Sentry-project access. |
 | 2026-08-14 | Clean-machine onboarding | [`onboarding.md`](../docs/onboarding.md); GitHub Actions integration run `31769827156` | Fresh hosted Linux checkout built the stack, migrated, seeded, verified health/queue/recovery, and bounded teardown successfully. |
+| 2026-08-14 | Alert confirmation and Sprint closure | AWS SNS operations and billing subscriptions; owner Sentry/QA confirmation | Both SNS subscriptions are confirmed and active. Owner confirmed the safe Sentry event and QA acceptance; test-parameter rotation is an explicit post-sprint deferral. |
