@@ -57,6 +57,14 @@ $ pnpm run test:e2e
 $ pnpm run test:cov
 ```
 
+## Sentry verification
+
+The SDK is initialized before Nest starts and reports unhandled exceptions from
+the global HTTP envelope filter. Keep `SENTRY_DSN` outside Git. For a local
+one-time check only, set `SENTRY_DEBUG_ENDPOINT=true` and request
+`GET /debug-sentry`; it returns `500` and sends a test event. The route is
+disabled by default and always unavailable when `APP_ENV=production`.
+
 ## Deployment
 
 When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.

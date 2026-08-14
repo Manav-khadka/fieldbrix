@@ -1,16 +1,16 @@
 # Graph Report - fieldbrix  (2026-08-14)
 
 ## Corpus Check
-- 198 files · ~130,207 words
+- 198 files · ~130,352 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2401 nodes · 2365 edges · 303 communities (253 shown, 50 thin omitted)
+- 2403 nodes · 2367 edges · 301 communities (251 shown, 50 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4fe6338b`
+- Built from commit: `b6daf54a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -210,7 +210,6 @@
 - [[_COMMUNITY_Community 206|Community 206]]
 - [[_COMMUNITY_Community 207|Community 207]]
 - [[_COMMUNITY_Community 208|Community 208]]
-- [[_COMMUNITY_Community 209|Community 209]]
 - [[_COMMUNITY_Community 210|Community 210]]
 - [[_COMMUNITY_Community 211|Community 211]]
 - [[_COMMUNITY_Community 212|Community 212]]
@@ -258,7 +257,6 @@
 - [[_COMMUNITY_Community 298|Community 298]]
 - [[_COMMUNITY_Community 300|Community 300]]
 - [[_COMMUNITY_Community 301|Community 301]]
-- [[_COMMUNITY_Community 302|Community 302]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `5. Tables` - 47 edges
@@ -292,7 +290,7 @@
 - **Full Environment Bootstrap Flow** — terraform_local_setup_guide, scripts_readme_bootstrap_sh, scripts_readme_secrets_init_sh, scripts_readme_plan_sh, scripts_readme_apply_sh, python_readme_health_check_py [EXTRACTED 1.00]
 - **Shared Zod Schema Contract** — frontend_readme_react_hook_form_zod, frontend_readme_create_task_schema, backend_readme_create_task_dto [EXTRACTED 1.00]
 
-## Communities (303 total, 50 thin omitted)
+## Communities (301 total, 50 thin omitted)
 
 ### Community 0 - "Backend Domain & Standards"
 Cohesion: 0.18
@@ -311,8 +309,8 @@ Cohesion: 0.04
 Nodes (47): 5.10 `sites`, 5.11 `service_targets`, 5.12 `parts`, 5.13 `workflows`, 5.14 `workflow_versions`, 5.15 `workflow_sections`, 5.16 `workflow_fields`, 5.17 `workflow_field_options` (+39 more)
 
 ### Community 4 - "AI Agent Development Rules"
-Cohesion: 0.14
-Nodes (13): code:bash (cd ../../   # back to infra root), code:bash (# Install Python dependencies for ops scripts), code:bash (# Easy way (uses the script):), code:bash (# In one terminal — create the tunnel), code:block25 (environments/prod/   Terraform config for production), Credential reference, Fieldbrix — Local Setup Guide, From zero to a running stack, step by step (+5 more)
+Cohesion: 0.12
+Nodes (16): code:bash (cd ../../   # back to infra root), code:bash (# Install Python dependencies for ops scripts), code:bash (# Easy way (uses the script):), code:bash (# In one terminal — create the tunnel), code:bash (# Stop before sleeping (~saves $14/month if done nightly + w), code:block19 (Always on:              ~$31/month  →  $100 lasts about 3.2 ), code:block25 (environments/prod/   Terraform config for production), Credential reference (+8 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.18
@@ -399,8 +397,8 @@ Cohesion: 0.09
 Nodes (26): package:fieldbrix_app/main.dart, package:flutter/material.dart, package:flutter_test/flutter_test.dart, package:sentry_flutter/sentry_flutter.dart, build, _incrementCounter, main, MaterialApp (+18 more)
 
 ### Community 26 - "parts Table"
-Cohesion: 0.13
-Nodes (14): code:bash ($ pnpm install), code:bash (# development), code:bash (# unit tests), code:bash ($ pnpm install -g @nestjs/mau), Compile and run the project, Deployment, Description, fieldbrix-backend (+6 more)
+Cohesion: 0.12
+Nodes (15): code:bash ($ pnpm install), code:bash (# development), code:bash (# unit tests), code:bash ($ pnpm install -g @nestjs/mau), Compile and run the project, Deployment, Description, fieldbrix-backend (+7 more)
 
 ### Community 27 - "task_links Table"
 Cohesion: 0.15
@@ -727,7 +725,7 @@ Cohesion: 0.67
 Nodes (3): modules/networking, Security Groups (EC2/RDS), VPC + Subnets
 
 ### Community 114 - "Community 114"
-Cohesion: 0.06
+Cohesion: 0.05
 Nodes (17): AppModule, requiredInProduction(), stringValue(), validateEnvironment(), validNodeEnvironments, DependencyHealthService, DependencyStatus, ReadinessResult (+9 more)
 
 ### Community 135 - "Community 135"
@@ -831,8 +829,8 @@ Cohesion: 0.15
 Nodes (13): Cloudflare CDN + DNS, RDS db.t3.micro, modules/database, deletion_protection = true, RDS PostgreSQL 16, DB Password via SSM, modules/dns, Cloudflare DNS Records (+5 more)
 
 ### Community 173 - "Community 173"
-Cohesion: 0.31
-Nodes (9): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:block99 (Format: <type>(<scope>): <description>) (+1 more)
+Cohesion: 0.27
+Nodes (10): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task) (+2 more)
 
 ### Community 174 - "Community 174"
 Cohesion: 0.31
@@ -863,8 +861,8 @@ Cohesion: 0.39
 Nodes (6): moduleFileExtensions, rootDir, testEnvironment, testRegex, transform, ^.+\\.(t|j)s$
 
 ### Community 181 - "Community 181"
-Cohesion: 0.29
-Nodes (8): 13.1 Migration Rules, 13.2 Query Rules, code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:typescript (// Test name format: 'should [expected behaviour] when [cond), PART 12 — LAMBDA FUNCTIONS (Python), PART 13 — DATABASE STANDARDS, Runtime & Libraries
+Cohesion: 0.20
+Nodes (12): 13.1 Migration Rules, 13.2 Query Rules, 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block97 (Unit tests (services, repositories)    : minimum 80% line co) (+4 more)
 
 ### Community 182 - "Community 182"
 Cohesion: 0.25
@@ -970,10 +968,6 @@ Nodes (3): configVersion, packages, roots
 Cohesion: 0.40
 Nodes (4): dart:io, package:package_info_plus/package_info_plus.dart, _PluginRegistrant, register
 
-### Community 209 - "Community 209"
-Cohesion: 0.50
-Nodes (5): 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:block97 (Unit tests (services, repositories)    : minimum 80% line co), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task), PART 14 — TESTING STANDARDS
-
 ### Community 210 - "Community 210"
 Cohesion: 0.40
 Nodes (5): code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), J1. Migration Rules, J2. Query Rules, PART J — DATABASE STANDARDS
@@ -1066,12 +1060,8 @@ Nodes (5): S3 Object Storage, Presigned URL Upload (Mobile), modules/storage, Pr
 Cohesion: 0.67
 Nodes (3): 3. Bootstrap remote state once, code:bash (source aws.env.local), Step 2 — Generate SSH key
 
-### Community 302 - "Community 302"
-Cohesion: 0.67
-Nodes (3): code:bash (# Stop before sleeping (~saves $14/month if done nightly + w), code:block19 (Always on:              ~$31/month  →  $100 lasts about 3.2 ), Step 13 — Stop/start to save money (IMPORTANT)
-
 ## Knowledge Gaps
-- **1210 isolated node(s):** `tsBuildInfoFile`, `target`, `lib`, `types`, `skipLibCheck` (+1205 more)
+- **1211 isolated node(s):** `tsBuildInfoFile`, `target`, `lib`, `types`, `skipLibCheck` (+1206 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **50 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1079,16 +1069,16 @@ Nodes (3): code:bash (# Stop before sleeping (~saves $14/month if done nightly +
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `PART 10 — MOBILE TECH STACK (Flutter)` connect `Platform Admin Safety Controls` to `Community 174`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **Why does `PART 8 — FRONTEND TECH STACK (Vite + React, Web Console)` connect `cost_report.py Entry Point` to `Community 174`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **Why does `PART A — UNIVERSAL CODE PRINCIPLES` connect `db-tunnel.sh` to `Community 182`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `Foundation workers and future Lambda packages.`, `Minimal, observable queue worker used by the Sprint 01 local platform.`, `tsBuildInfoFile` to the rest of the system?**
-  _1226 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1227 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `NestJS Backend Architecture` be split into smaller, more focused modules?**
   _Cohesion score 0.12418300653594772 - nodes in this community are weakly interconnected._
 - **Should `Terraform Ops Scripts` be split into smaller, more focused modules?**
   _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
 - **Should `AI Agent Development Rules` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._

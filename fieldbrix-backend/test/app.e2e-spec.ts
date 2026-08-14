@@ -79,6 +79,10 @@ describe('AppController (e2e)', () => {
       });
   });
 
+  it('/debug-sentry (GET) is unavailable unless explicitly enabled', () => {
+    return request(app.getHttpServer()).get('/debug-sentry').expect(404);
+  });
+
   afterEach(async () => {
     await app.close();
   });

@@ -63,6 +63,7 @@ services:
       SENTRY_DSN: ${BACKEND_SENTRY_DSN:-}
       SENTRY_ENVIRONMENT: local
       SENTRY_RELEASE: fieldbrix-backend@local
+      SENTRY_DEBUG_ENDPOINT: ${SENTRY_DEBUG_ENDPOINT:-false}
     command: pnpm start:dev
     depends_on:
       postgres:

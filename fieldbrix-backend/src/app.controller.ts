@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, NotFoundException } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -23,5 +23,19 @@ export class AppController {
   @Get('version')
   getVersion() {
     return this.appService.getVersion();
+  }
+
+  // Deliberately unavailable unless a local verification session opts in.
+  // It is never enabled in production.
+  @Get('debug-sentry')
+  triggerSentryVerification() {
+    if (
+      process.env.SENTRY_DEBUG_ENDPOINT !== 'true' ||
+      process.env.APP_ENV === 'production'
+    ) {
+      throw new NotFoundException();
+    }
+
+    throw new Error('FieldBrix Sentry verification event');
   }
 }

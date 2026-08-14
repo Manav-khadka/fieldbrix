@@ -2485,6 +2485,15 @@
       "norm_label": ".getversion()"
     },
     {
+      "label": ".triggerSentryVerification()",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L31",
+      "id": "src_app_controller_appcontroller_triggersentryverification",
+      "community": 114,
+      "norm_label": ".triggersentryverification()"
+    },
+    {
       "label": "environment.ts",
       "file_type": "code",
       "source_file": "fieldbrix-backend/src/config/environment.ts",
@@ -5050,10 +5059,19 @@
       "norm_label": "code:bash (# unit tests)"
     },
     {
-      "label": "Deployment",
+      "label": "Sentry verification",
       "file_type": "document",
       "source_file": "fieldbrix-backend/README.md",
       "source_location": "L60",
+      "id": "fieldbrix_backend_readme_sentry_verification",
+      "community": 26,
+      "norm_label": "sentry verification"
+    },
+    {
+      "label": "Deployment",
+      "file_type": "document",
+      "source_file": "fieldbrix-backend/README.md",
+      "source_location": "L68",
       "id": "fieldbrix_backend_readme_deployment",
       "community": 26,
       "norm_label": "deployment"
@@ -5062,7 +5080,7 @@
       "label": "code:bash ($ pnpm install -g @nestjs/mau)",
       "file_type": "document",
       "source_file": "fieldbrix-backend/README.md",
-      "source_location": "L66",
+      "source_location": "L74",
       "id": "fieldbrix_backend_readme_codeblock_4",
       "community": 26,
       "norm_label": "code:bash ($ pnpm install -g @nestjs/mau)"
@@ -5071,7 +5089,7 @@
       "label": "Resources",
       "file_type": "document",
       "source_file": "fieldbrix-backend/README.md",
-      "source_location": "L73",
+      "source_location": "L81",
       "id": "fieldbrix_backend_readme_resources",
       "community": 26,
       "norm_label": "resources"
@@ -5080,7 +5098,7 @@
       "label": "Support",
       "file_type": "document",
       "source_file": "fieldbrix-backend/README.md",
-      "source_location": "L86",
+      "source_location": "L94",
       "id": "fieldbrix_backend_readme_support",
       "community": 26,
       "norm_label": "support"
@@ -5089,7 +5107,7 @@
       "label": "Stay in touch",
       "file_type": "document",
       "source_file": "fieldbrix-backend/README.md",
-      "source_location": "L90",
+      "source_location": "L98",
       "id": "fieldbrix_backend_readme_stay_in_touch",
       "community": 26,
       "norm_label": "stay in touch"
@@ -5098,7 +5116,7 @@
       "label": "License",
       "file_type": "document",
       "source_file": "fieldbrix-backend/README.md",
-      "source_location": "L96",
+      "source_location": "L104",
       "id": "fieldbrix_backend_readme_license",
       "community": 26,
       "norm_label": "license"
@@ -5107,7 +5125,7 @@
       "label": "fieldbrix-backend",
       "file_type": "document",
       "source_file": "fieldbrix-backend/README.md",
-      "source_location": "L99",
+      "source_location": "L107",
       "id": "fieldbrix_backend_readme_fieldbrix_backend",
       "community": 26,
       "norm_label": "fieldbrix-backend"
@@ -8043,7 +8061,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2748",
       "id": "docs_engineering_handbook_part_14_testing_standards",
-      "community": 209,
+      "community": 181,
       "norm_label": "part 14 \u2014 testing standards"
     },
     {
@@ -8052,7 +8070,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2750",
       "id": "docs_engineering_handbook_14_1_test_structure_aaa_arrange_act_assert",
-      "community": 209,
+      "community": 181,
       "norm_label": "14.1 test structure \u2014 aaa (arrange, act, assert)"
     },
     {
@@ -8070,7 +8088,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2790",
       "id": "docs_engineering_handbook_14_2_coverage_requirements",
-      "community": 209,
+      "community": 181,
       "norm_label": "14.2 coverage requirements"
     },
     {
@@ -8079,7 +8097,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2792",
       "id": "docs_engineering_handbook_codeblock_97",
-      "community": 209,
+      "community": 181,
       "norm_label": "code:block97 (unit tests (services, repositories)    : minimum 80% line co)"
     },
     {
@@ -8106,7 +8124,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2815",
       "id": "docs_engineering_handbook_codeblock_98",
-      "community": 209,
+      "community": 173,
       "norm_label": "code:block98 (feature/fos-{ticket}-{description}      feature/fos-142-task)"
     },
     {
@@ -19346,7 +19364,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L337",
-      "community": 302,
+      "community": 4,
       "norm_label": "step 13 \u2014 stop/start to save money (important)",
       "id": "terraform_local_setup_step_13_stop_start_to_save_money_important"
     },
@@ -19355,7 +19373,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L342",
-      "community": 302,
+      "community": 4,
       "norm_label": "code:bash (# stop before sleeping (~saves $14/month if done nightly + w)",
       "id": "terraform_local_setup_codeblock_18"
     },
@@ -19364,7 +19382,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L359",
-      "community": 302,
+      "community": 4,
       "norm_label": "code:block19 (always on:              ~$31/month  \u2192  $100 lasts about 3.2 )",
       "id": "terraform_local_setup_codeblock_19"
     },
@@ -25477,6 +25495,16 @@
       "target": "src_app_controller_appcontroller_getversion"
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_app_controller_appcontroller",
+      "target": "src_app_controller_appcontroller_triggersentryverification",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -27518,9 +27546,9 @@
       "source_file": "terraform/LOCAL_SETUP.md",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "terraform_local_setup_fieldbrix_terraform_local_setup",
-      "target": "terraform_local_setup_4_create_runtime_secrets",
-      "confidence_score": 1.0
+      "target": "terraform_local_setup_4_create_runtime_secrets"
     },
     {
       "relation": "contains",
@@ -27678,9 +27706,9 @@
       "source_file": "terraform/LOCAL_SETUP.md",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "terraform_local_setup_4_create_runtime_secrets",
-      "target": "terraform_local_setup_codeblock_5",
-      "confidence_score": 1.0
+      "target": "terraform_local_setup_codeblock_5"
     },
     {
       "relation": "contains",
@@ -28691,6 +28719,16 @@
       "confidence_score": 1.0,
       "source": "fieldbrix_backend_readme_md",
       "target": "fieldbrix_backend_readme_run_tests"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/README.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "fieldbrix_backend_readme_md",
+      "target": "fieldbrix_backend_readme_sentry_verification",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -46147,5 +46185,5 @@
       "source_file": "docs/frontend/README.md"
     }
   ],
-  "built_at_commit": "4fe6338be7d71c14e9ccdefd6ab2b0b8745cf6b1"
+  "built_at_commit": "b6daf54a60f5bc23a54faef67587be1600f40d9f"
 }
