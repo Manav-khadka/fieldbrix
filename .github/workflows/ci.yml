@@ -56,7 +56,7 @@ jobs:
 
       - name: Build and start the local platform
         run: |
-          docker compose up --build -d
+          timeout --foreground 300s docker compose up --build -d
           ./scripts/local/migrate.sh
           ./scripts/local/seed.sh
           ./scripts/local/health.sh
