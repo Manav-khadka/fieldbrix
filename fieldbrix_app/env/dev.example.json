@@ -4,5 +4,6 @@
   "APP_VERSION": "0.0.0-dev",
   "SENTRY_DSN": "",
   "SENTRY_ENVIRONMENT": "local",
-  "SENTRY_RELEASE": "fieldbrix-mobile@0.0.0-dev"
+  "SENTRY_RELEASE": "fieldbrix-mobile@0.0.0-dev",
+  "SENTRY_DEBUG_ENABLED": false
 }

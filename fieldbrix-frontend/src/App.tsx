@@ -14,7 +14,9 @@ function App() {
           <span aria-hidden="true" />
           API is {apiHealth}.
         </p>
-        <SentryTestButton />
+        {import.meta.env.VITE_SENTRY_DEBUG_ENABLED === "true" && (
+          <SentryTestButton />
+        )}
       </section>
     </main>
   );

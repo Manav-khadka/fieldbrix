@@ -25,11 +25,12 @@ All projects are hosted under the `fieldbrixxx` Sentry organization:
 - Configured with: DSN, environment, release, error boundary, sensitive data redaction
 - Entry point: `fieldbrix-frontend/src/main.tsx`
 
-**Environment Variables** (`.env.local`):
+**Environment Variables** (ignored `.env.local`):
 ```
-VITE_SENTRY_DSN=https://f3f2d5bed3e1e0f1eaeaa381eac6df13@o4511906099691520.ingest.de.sentry.io/4511906143338576
+VITE_SENTRY_DSN=<web-project-dsn>
 VITE_SENTRY_ENVIRONMENT=local
 VITE_SENTRY_RELEASE=fieldbrix-web@0.0.0-dev
+VITE_SENTRY_DEBUG_ENABLED=true
 ```
 
 **Test Error Button**:
@@ -48,9 +49,9 @@ VITE_SENTRY_RELEASE=fieldbrix-web@0.0.0-dev
 - Configured with: DSN, environment, release, error scrubbing
 - Entry point: `fieldbrix-backend/src/main.ts` (imports instrument.ts first)
 
-**Environment Variables** (`.env`):
+**Environment Variables** (ignored `.env`):
 ```
-SENTRY_DSN=https://692c352239bca99d129e816f7047b93e@o4511906099691520.ingest.de.sentry.io/4511906151465040
+SENTRY_DSN=<backend-project-dsn>
 SENTRY_ENVIRONMENT=local
 SENTRY_RELEASE=fieldbrix-backend@0.0.0-dev
 SENTRY_DEBUG_ENDPOINT=true
@@ -71,12 +72,13 @@ SENTRY_DEBUG_ENDPOINT=true
 - Configured with: DSN, environment, release, performance monitoring
 - Entry point: `main()` function uses `SentryFlutter.init()`
 
-**Environment Variables** (`env/dev.local.json`):
+**Environment Variables** (ignored `env/dev.local.json`):
 ```json
 {
-  "SENTRY_DSN": "https://examplePublicKey@o0.ingest.sentry.io/0",
+  "SENTRY_DSN": "<mobile-project-dsn>",
   "SENTRY_ENVIRONMENT": "local",
-  "SENTRY_RELEASE": "fieldbrix-mobile@0.0.0-dev"
+  "SENTRY_RELEASE": "fieldbrix-mobile@0.0.0-dev",
+  "SENTRY_DEBUG_ENABLED": true
 }
 ```
 
@@ -117,7 +119,7 @@ curl http://localhost:3000/debug-sentry
    ```bash
    cd fieldbrix_app
    flutter pub get
-   flutter run --dart-define=SENTRY_DSN=<your-flutter-dsn>
+   flutter run --dart-define=SENTRY_DSN=<your-flutter-dsn> --dart-define=SENTRY_DEBUG_ENABLED=true
    ```
 
 2. Tap the "Break the world (Mobile)" button to trigger a mobile error
@@ -156,7 +158,7 @@ curl http://localhost:3000/debug-sentry
 
 ## Next Steps
 
-1. **Deploy to production**: Update DSNs in CI/CD pipelines
+1. **Deploy to production**: Configure protected CI secrets and verify the Sentry dashboard event.
 2. **Enable alerts**: Configure Sentry alert rules for critical errors
 3. **Monitor**: Check Sentry dashboards regularly for errors
 4. **Upload symbols**: Configure CI to upload Android/iOS debug symbols and source maps

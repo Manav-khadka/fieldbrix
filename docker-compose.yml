@@ -88,6 +88,7 @@ services:
       VITE_SENTRY_DSN: ${WEB_SENTRY_DSN:-}
       VITE_SENTRY_ENVIRONMENT: local
       VITE_SENTRY_RELEASE: fieldbrix-web@local
+      VITE_SENTRY_DEBUG_ENABLED: ${VITE_SENTRY_DEBUG_ENABLED:-false}
     command: pnpm dev --host 0.0.0.0
     depends_on:
       api:

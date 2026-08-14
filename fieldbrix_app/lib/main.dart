@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
@@ -40,6 +41,10 @@ class FieldbrixApp extends StatelessWidget {
 class FoundationScreen extends StatelessWidget {
   const FoundationScreen({super.key});
 
+  static const _sentryDebugEnabled = bool.fromEnvironment(
+    'SENTRY_DEBUG_ENABLED',
+  );
+
   void _triggerSentryError() {
     throw StateError('This is test exception from FieldBrix Mobile');
   }
@@ -54,12 +59,14 @@ class FoundationScreen extends StatelessWidget {
             const Text('FieldBrix', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700)),
             const SizedBox(height: 8),
             const Text('Mobile foundation is ready.'),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: _triggerSentryError,
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-              child: const Text('Break the world (Mobile)'),
-            ),
+            if (kDebugMode && _sentryDebugEnabled) ...[
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: _triggerSentryError,
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                child: const Text('Break the world (Mobile)'),
+              ),
+            ],
           ],
         ),
       ),
