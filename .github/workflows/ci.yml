@@ -90,4 +90,14 @@ jobs:
 
       - name: Teardown the local platform
         if: always()
-        run: ./scripts/local/clean.sh
+        run: |
+          set +e
+          timeout --foreground 45s ./scripts/local/clean.sh
+          cleanup_status=$?
+          set -e
+          if [ "${cleanup_status}" -eq 124 ]; then
+            echo "Docker cleanup exceeded 45 seconds; the runner is ephemeral."
+            docker compose ps || true
+            exit 0
+          fi
+          exit "${cleanup_status}"
