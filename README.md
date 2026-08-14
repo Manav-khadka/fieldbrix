@@ -56,3 +56,4 @@ Route 53, CloudFront, or autoscaling into this foundation.
 
 See [`docs/adr/0001-repository-topology.md`](docs/adr/0001-repository-topology.md)
 for the Sprint 01 repository contract.
+See [`docs/onboarding.md`](docs/onboarding.md) for the under-30-minute clean-machine onboarding path.

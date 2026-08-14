@@ -31,7 +31,7 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 - [X] Pin container images and toolchains; generate/update lockfiles and document supported host prerequisites.
 - [X] Add `.env` with names and descriptions; validate backend configuration at process startup.
 - [X] Ensure local teardown targets only the named FieldBrix project volumes and never broad Docker/user data.
-- [ ] Document <30-minute onboarding and verify it on a clean machine/account.
+- [X] Document <30-minute onboarding and verify it on a clean machine/account.
 
 ### Infrastructure and deployment
 
@@ -111,3 +111,4 @@ Rollback: redeploy the prior immutable artifact and reverse only IaC changes pro
 | 2026-08-14 | Rollback rehearsal | Immutable releases `636ea93746a6-20260814T041412Z` and `636ea93746a6-20260814T041722Z`; `rollback-apps.sh` | Application-only rollback and roll-forward completed while DB remained unchanged. Both public readiness and version checks passed; rollback now polls readiness for a bounded 30 seconds. |
 | 2026-08-14 | Backup restore rehearsal | Encrypted manual snapshot `fieldbrix-prod-sprint1-restore-20260814041529`; isolated `fieldbrix-prod-s1-restore` | Restored as a private, encrypted Mumbai RDS instance; EC2 verified TLS `SELECT 1`; temporary restore and one-off manual snapshot were deleted after evidence capture, while production retains 7-day automated backups/PITR. |
 | 2026-08-14 | Sentry deploy verification | Current immutable Mumbai release via Systems Manager | SDK accepted a safe metadata-only `FieldBrix deployment verification` info event tagged with the backend release. Dashboard visibility still requires Sentry-project access. |
+| 2026-08-14 | Clean-machine onboarding | [`onboarding.md`](../docs/onboarding.md); GitHub Actions integration run `31769827156` | Fresh hosted Linux checkout built the stack, migrated, seeded, verified health/queue/recovery, and bounded teardown successfully. |
