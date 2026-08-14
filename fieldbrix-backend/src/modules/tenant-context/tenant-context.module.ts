@@ -3,6 +3,6 @@ import { TenantContextService } from './tenant-context/tenant-context.service';
 
 @Module({
   providers: [TenantContextService],
-  exports: [TenantContextService]
+  exports: [TenantContextService],
 })
 export class TenantContextModule {}

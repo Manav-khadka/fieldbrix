@@ -8,6 +8,6 @@ import { IdempotencyModule } from '../idempotency/idempotency.module';
 @Module({
   controllers: [AdministrationController],
   imports: [PlatformModule, AuthorizationModule, IdempotencyModule],
-  providers: [AdministrationService]
+  providers: [AdministrationService],
 })
 export class AdministrationModule {}

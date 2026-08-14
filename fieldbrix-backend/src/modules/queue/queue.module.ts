@@ -6,6 +6,6 @@ import { TenantContextModule } from '../tenant-context/tenant-context.module';
 @Module({
   imports: [DatabaseModule, TenantContextModule],
   providers: [QueueService],
-  exports: [QueueService]
+  exports: [QueueService],
 })
 export class QueueModule {}

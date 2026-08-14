@@ -10,6 +10,6 @@ import { IdempotencyModule } from '../idempotency/idempotency.module';
   controllers: [AuthorizationController],
   imports: [PlatformModule, IdempotencyModule],
   providers: [AuthorizationService, PermissionGuard, PlatformAdminGuard],
-  exports: [PermissionGuard, PlatformAdminGuard]
+  exports: [PermissionGuard, PlatformAdminGuard],
 })
 export class AuthorizationModule {}

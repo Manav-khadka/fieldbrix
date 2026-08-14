@@ -1,8 +1,19 @@
 import { createHash, randomUUID } from 'node:crypto';
-import { NotificationDeliveryPort, NotificationKind } from '../../ports/notification-delivery.port/notification-delivery.port';
+import {
+  NotificationDeliveryPort,
+  NotificationKind,
+} from '../../ports/notification-delivery.port/notification-delivery.port';
 
 export class TemporaryEmailAdapter implements NotificationDeliveryPort {
-  private readonly deliveries = new Map<string, { kind: NotificationKind; recipientHash: string; secretHash: string; createdAt: string }>();
+  private readonly deliveries = new Map<
+    string,
+    {
+      kind: NotificationKind;
+      recipientHash: string;
+      secretHash: string;
+      createdAt: string;
+    }
+  >();
 
   deliver(kind: NotificationKind, recipient: string, secret: string) {
     const deliveryId = randomUUID();

@@ -17,7 +17,7 @@ AS $$
   SELECT u.id, u.tenant_id, u.email, u.display_name, u.password_hash, u.active,
          r.expires_at, r.consumed_at
   FROM password_reset_tokens r
-  JOIN users u ON u.id = r.user_id AND u.tenant_id = r.tenant_id
+  JOIN users u ON u.id = r.user_id
   WHERE r.token_hash = p_token_hash;
 $$;
 

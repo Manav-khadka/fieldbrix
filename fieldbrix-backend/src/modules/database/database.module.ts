@@ -5,6 +5,6 @@ import { TenantContextModule } from '../tenant-context/tenant-context.module';
 @Module({
   imports: [TenantContextModule],
   providers: [DatabaseService],
-  exports: [DatabaseService]
+  exports: [DatabaseService],
 })
 export class DatabaseModule {}

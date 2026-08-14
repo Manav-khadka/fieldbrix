@@ -1,5 +1,13 @@
 import { Type } from 'class-transformer';
-import { IsInt, IsNotEmpty, IsString, Matches, Max, MaxLength, Min, MinLength } from 'class-validator';
+import {
+  IsInt,
+  IsNotEmpty,
+  IsString,
+  Matches,
+  Max,
+  MaxLength,
+  Min,
+} from 'class-validator';
 
 export class UploadIntentDto {
   @IsString() @IsNotEmpty() @MaxLength(120) mime!: string;

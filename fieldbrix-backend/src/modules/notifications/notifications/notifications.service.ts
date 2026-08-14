@@ -4,8 +4,21 @@ import type { NotificationDeliveryPort } from '../ports/notification-delivery.po
 
 @Injectable()
 export class NotificationsService {
-  constructor(@Inject(NOTIFICATION_DELIVERY) private readonly delivery: NotificationDeliveryPort) {}
-  sendPasswordReset(recipient: string, token: string) { return this.queue('password_reset', recipient, token); }
-  sendInvitation(recipient: string, token: string) { return this.queue('invitation', recipient, token); }
-  private queue(type: 'password_reset' | 'invitation', recipient: string, token: string) { return this.delivery.deliver(type, recipient, token); }
+  constructor(
+    @Inject(NOTIFICATION_DELIVERY)
+    private readonly delivery: NotificationDeliveryPort,
+  ) {}
+  sendPasswordReset(recipient: string, token: string) {
+    return this.queue('password_reset', recipient, token);
+  }
+  sendInvitation(recipient: string, token: string) {
+    return this.queue('invitation', recipient, token);
+  }
+  private queue(
+    type: 'password_reset' | 'invitation',
+    recipient: string,
+    token: string,
+  ) {
+    return this.delivery.deliver(type, recipient, token);
+  }
 }

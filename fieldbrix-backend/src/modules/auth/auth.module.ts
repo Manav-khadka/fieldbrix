@@ -7,6 +7,6 @@ import { IdempotencyModule } from '../idempotency/idempotency.module';
 @Module({
   controllers: [AuthController],
   imports: [PlatformModule, IdempotencyModule],
-  providers: [AuthService]
+  providers: [AuthService],
 })
 export class AuthModule {}

@@ -38,8 +38,14 @@ export function validateEnvironment(config: Record<string, unknown>) {
   );
   requiredInProduction('S3_BUCKET', stringValue(config.S3_BUCKET, ''));
   requiredInProduction('SQS_QUEUE_URL', stringValue(config.SQS_QUEUE_URL, ''));
-  requiredInProduction('PLATFORM_ADMIN_TOKEN', stringValue(config.PLATFORM_ADMIN_TOKEN, ''));
-  requiredInProduction('PLATFORM_ADMIN_REAUTH', stringValue(config.PLATFORM_ADMIN_REAUTH, ''));
+  requiredInProduction(
+    'PLATFORM_ADMIN_TOKEN',
+    stringValue(config.PLATFORM_ADMIN_TOKEN, ''),
+  );
+  requiredInProduction(
+    'PLATFORM_ADMIN_REAUTH',
+    stringValue(config.PLATFORM_ADMIN_REAUTH, ''),
+  );
 
   return normalized;
 }

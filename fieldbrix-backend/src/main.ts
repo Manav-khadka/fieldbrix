@@ -5,7 +5,14 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true, forbidUnknownValues: true, forbidNonWhitelisted: true }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: true,
+      forbidUnknownValues: true,
+      forbidNonWhitelisted: true,
+    }),
+  );
   const logger = new Logger('bootstrap');
   app.enableShutdownHooks();
   app.enableCors({

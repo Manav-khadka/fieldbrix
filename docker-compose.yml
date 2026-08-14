@@ -48,6 +48,9 @@ services:
       APP_COMMIT_SHA: local
       APP_BUILD_TIME: ""
       LOG_LEVEL: debug
+      PLATFORM_ADMIN_ID: 66666666-6666-4666-8666-666666666666
+      PLATFORM_ADMIN_TOKEN: local-platform-admin
+      PLATFORM_ADMIN_REAUTH: local-platform-admin
       ADMIN_ORIGIN: http://localhost:${WEB_PORT:-5173}
       DB_HOST: postgres
       DB_PORT: 5432
@@ -58,13 +61,14 @@ services:
       AWS_ENDPOINT_URL: http://localstack:4566
       AWS_ACCESS_KEY_ID: test
       AWS_SECRET_ACCESS_KEY: test
+      S3_ENDPOINT: http://localstack:4566
       S3_BUCKET: fieldbrix-local-uploads
       SQS_QUEUE_URL: http://localstack:4566/000000000000/fieldbrix-local-jobs
       SENTRY_DSN: ${BACKEND_SENTRY_DSN:-}
       SENTRY_ENVIRONMENT: local
       SENTRY_RELEASE: fieldbrix-backend@local
       SENTRY_DEBUG_ENDPOINT: ${SENTRY_DEBUG_ENDPOINT:-false}
-    command: pnpm start:dev
+    command: sh -c 'if [ ! -x node_modules/.bin/nest ]; then pnpm install --frozen-lockfile; fi; pnpm start:dev'
     depends_on:
       postgres:
         condition: service_healthy
@@ -84,12 +88,16 @@ services:
     environment:
       VITE_APP_ENV: local
       VITE_API_BASE_URL: http://localhost:${API_PORT:-3000}
+      VITE_API_URL: http://localhost:${API_PORT:-3000}
       VITE_APP_VERSION: 0.0.1-local
+      VITE_PLATFORM_ADMIN_ID: 66666666-6666-4666-8666-666666666666
+      VITE_PLATFORM_ADMIN_TOKEN: local-platform-admin
+      VITE_S3_BUCKET: fieldbrix-local-uploads
       VITE_SENTRY_DSN: ${WEB_SENTRY_DSN:-}
       VITE_SENTRY_ENVIRONMENT: local
       VITE_SENTRY_RELEASE: fieldbrix-web@local
       VITE_SENTRY_DEBUG_ENABLED: ${VITE_SENTRY_DEBUG_ENABLED:-false}
-    command: pnpm dev --host 0.0.0.0
+    command: sh -c 'if [ ! -x node_modules/.bin/vite ]; then pnpm install --frozen-lockfile; fi; pnpm dev --host 0.0.0.0'
     depends_on:
       api:
         condition: service_started

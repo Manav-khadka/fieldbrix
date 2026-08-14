@@ -3,6 +3,6 @@ import { PdfWorkerService } from './pdf-worker.service';
 
 @Module({
   providers: [PdfWorkerService],
-  exports: [PdfWorkerService]
+  exports: [PdfWorkerService],
 })
 export class PdfWorkerModule {}

@@ -24,10 +24,14 @@ export class DependencyHealthService implements OnModuleDestroy {
     const databaseUrl = this.config.get<string>('DATABASE_URL');
     const databaseHost = this.config.get<string>('DB_HOST');
     const password = this.getDatabasePassword();
-    this.database =
-      databaseUrl
-        ? new Pool({ connectionString: databaseUrl, max: 4, connectionTimeoutMillis: 5_000, idleTimeoutMillis: 30_000 })
-        : databaseHost && password
+    this.database = databaseUrl
+      ? new Pool({
+          connectionString: databaseUrl,
+          max: 4,
+          connectionTimeoutMillis: 5_000,
+          idleTimeoutMillis: 30_000,
+        })
+      : databaseHost && password
         ? new Pool({
             host: databaseHost,
             port: this.config.get<number>('DB_PORT', 5432),
@@ -52,8 +56,13 @@ export class DependencyHealthService implements OnModuleDestroy {
     this.queueUrl = this.config.get<string>('SQS_QUEUE_URL');
     const clientConfiguration = {
       region: this.config.get<string>('AWS_REGION', 'ap-south-1'),
-      endpoint: this.config.get<string>('S3_ENDPOINT') ?? this.config.get<string>('AWS_ENDPOINT_URL'),
-      forcePathStyle: Boolean(this.config.get<string>('S3_ENDPOINT') ?? this.config.get<string>('AWS_ENDPOINT_URL')),
+      endpoint:
+        this.config.get<string>('S3_ENDPOINT') ??
+        this.config.get<string>('AWS_ENDPOINT_URL'),
+      forcePathStyle: Boolean(
+        this.config.get<string>('S3_ENDPOINT') ??
+        this.config.get<string>('AWS_ENDPOINT_URL'),
+      ),
     };
     this.objectStorage = this.bucket ? new S3Client(clientConfiguration) : null;
     this.queue = this.queueUrl ? new SQSClient(clientConfiguration) : null;

@@ -11,9 +11,16 @@ import { NotificationsModule } from '../notifications/notifications.module';
 import { IdempotencyModule } from '../idempotency/idempotency.module';
 
 @Module({
-  imports: [DatabaseModule, TenantContextModule, StorageModule, QueueModule, NotificationsModule, IdempotencyModule],
+  imports: [
+    DatabaseModule,
+    TenantContextModule,
+    StorageModule,
+    QueueModule,
+    NotificationsModule,
+    IdempotencyModule,
+  ],
   controllers: [PlatformController],
   providers: [PlatformService, PlatformRepository, RateLimitGuard],
-  exports: [PlatformService, PlatformRepository, RateLimitGuard]
+  exports: [PlatformService, PlatformRepository, RateLimitGuard],
 })
 export class PlatformModule {}

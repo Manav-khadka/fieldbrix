@@ -9,6 +9,6 @@ import { TemporaryEmailAdapter } from './adapters/temporary-email.adapter/tempor
     TemporaryEmailAdapter,
     { provide: NOTIFICATION_DELIVERY, useExisting: TemporaryEmailAdapter },
   ],
-  exports: [NotificationsService]
+  exports: [NotificationsService],
 })
 export class NotificationsModule {}
