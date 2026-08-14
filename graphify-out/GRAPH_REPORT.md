@@ -1,16 +1,16 @@
 # Graph Report - fieldbrix  (2026-08-14)
 
 ## Corpus Check
-- 200 files · ~132,880 words
+- 210 files · ~134,911 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2190 nodes · 2126 edges · 265 communities (223 shown, 42 thin omitted)
+- 2242 nodes · 2174 edges · 280 communities (231 shown, 49 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b4e493f2`
+- Built from commit: `b5243ecb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -186,7 +186,6 @@
 - [[_COMMUNITY_Community 182|Community 182]]
 - [[_COMMUNITY_Community 183|Community 183]]
 - [[_COMMUNITY_Community 184|Community 184]]
-- [[_COMMUNITY_Community 185|Community 185]]
 - [[_COMMUNITY_Community 186|Community 186]]
 - [[_COMMUNITY_Community 187|Community 187]]
 - [[_COMMUNITY_Community 188|Community 188]]
@@ -237,11 +236,28 @@
 - [[_COMMUNITY_Community 236|Community 236]]
 - [[_COMMUNITY_Community 237|Community 237]]
 - [[_COMMUNITY_Community 238|Community 238]]
+- [[_COMMUNITY_Community 247|Community 247]]
+- [[_COMMUNITY_Community 251|Community 251]]
+- [[_COMMUNITY_Community 252|Community 252]]
+- [[_COMMUNITY_Community 254|Community 254]]
+- [[_COMMUNITY_Community 255|Community 255]]
+- [[_COMMUNITY_Community 256|Community 256]]
+- [[_COMMUNITY_Community 265|Community 265]]
+- [[_COMMUNITY_Community 266|Community 266]]
+- [[_COMMUNITY_Community 267|Community 267]]
+- [[_COMMUNITY_Community 268|Community 268]]
+- [[_COMMUNITY_Community 269|Community 269]]
+- [[_COMMUNITY_Community 270|Community 270]]
+- [[_COMMUNITY_Community 271|Community 271]]
+- [[_COMMUNITY_Community 272|Community 272]]
+- [[_COMMUNITY_Community 273|Community 273]]
+- [[_COMMUNITY_Community 277|Community 277]]
+- [[_COMMUNITY_Community 278|Community 278]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `5. Tables` - 47 edges
 2. `compilerOptions` - 23 edges
-3. `compilerOptions` - 22 edges
+3. `compilerOptions` - 23 edges
 4. `Fieldbrix — Local Setup Guide` - 19 edges
 5. `compilerOptions` - 18 edges
 6. `compilerOptions` - 18 edges
@@ -270,7 +286,7 @@
 - **Full Environment Bootstrap Flow** — terraform_local_setup_guide, scripts_readme_bootstrap_sh, scripts_readme_secrets_init_sh, scripts_readme_plan_sh, scripts_readme_apply_sh, python_readme_health_check_py [EXTRACTED 1.00]
 - **Shared Zod Schema Contract** — frontend_readme_react_hook_form_zod, frontend_readme_create_task_schema, backend_readme_create_task_dto [EXTRACTED 1.00]
 
-## Communities (265 total, 42 thin omitted)
+## Communities (280 total, 49 thin omitted)
 
 ### Community 0 - "Backend Domain & Standards"
 Cohesion: 0.18
@@ -293,8 +309,8 @@ Cohesion: 0.12
 Nodes (15): code:bash (# 1. AWS CLI v2), code:bash (cd ../../   # back to infra root), code:bash (# Install Python dependencies for ops scripts), code:bash (# Easy way (uses the script):), code:bash (# In one terminal — create the tunnel), code:block25 (environments/prod/   Terraform config for production), Credential reference, Fieldbrix — Local Setup Guide (+7 more)
 
 ### Community 5 - "Client Case Study & Mobile UX"
-Cohesion: 0.04
-Nodes (46): 3.1 The Golden Rule, 3.2 Success Responses, 3.3 Error Responses, 3.4 HTTP Status Code Map, 3.5 Response Interceptor (NestJS), 3.6 Request Standards, 3. API CONTRACT, 4.1 Exception Hierarchy (+38 more)
+Cohesion: 0.12
+Nodes (17): 3.1 The Golden Rule, 3.2 Success Responses, 3.3 Error Responses, 3.4 HTTP Status Code Map, 3.5 Response Interceptor (NestJS), 3.6 Request Standards, 3. API CONTRACT, code:json (// Single resource — HTTP 200 or 201) (+9 more)
 
 ### Community 6 - "Cost & Sync Infrastructure"
 Cohesion: 0.05
@@ -309,8 +325,8 @@ Cohesion: 0.06
 Nodes (36): 4.1 Universal Code Principles, 4.2 Controllers, 4.3 Services, 4.4 Repositories, 4.5 DTOs, 4.6 Naming Conventions — Backend, code:typescript (// ❌ WRONG — TasksService does too many things), code:typescript (// ❌ WRONG — adding a new channel requires editing this clas) (+28 more)
 
 ### Community 9 - "health_check.py Internals"
-Cohesion: 0.06
-Nodes (36): 2.1 Universal Code Principles, 2.2 Controllers, 2.3 Services, 2.4 Repositories, 2.5 DTOs, 2.6 Naming Conventions — Backend, 2. BACKEND CODE STANDARDS, code:typescript (// ❌ WRONG — TasksService does too many things) (+28 more)
+Cohesion: 0.09
+Nodes (23): 2.1 Universal Code Principles, code:typescript (// ❌ WRONG — TasksService does too many things), code:typescript (// ❌ WRONG — throws where base class promises a return value), code:typescript (// ❌ WRONG — fat interface forces every implementor to stub ), code:typescript (// ❌ WRONG — hardcoded concrete dependency), code:typescript (// ❌ WRONG — tenant isolation check duplicated), code:block18 (Signs you are over-engineering:), code:typescript (// ❌ WRONG — dead code added "for future use") (+15 more)
 
 ### Community 10 - "db_snapshot.py Internals"
 Cohesion: 0.06
@@ -345,8 +361,8 @@ Cohesion: 0.10
 Nodes (20): 10. Tool Landscape — What Actually Differs, 11. Applying This: The Fieldbrix Worked Example, 12. Common Failure Modes, 1. The Core Shift: From Writing Code to Verifying Code, 2. Principle 1 — Mechanical Verification Beats Agent Judgment, Always, 3. Principle 2 — Architecture for Legibility, Not Just Correctness, 4. Principle 3 — One Source of Truth, Read By Every Tool, 5. Principle 4 — The Verification Pyramid (+12 more)
 
 ### Community 18 - "status.sh"
-Cohesion: 0.18
-Nodes (11): Cloudflare CDN + DNS, RDS db.t3.micro, modules/database, deletion_protection = true, RDS PostgreSQL 16, DB Password via SSM, Cloudflare DNS Records, environments/ Overview (+3 more)
+Cohesion: 0.22
+Nodes (8): modules/dns, Cloudflare API token, code:block1 (A record: api.fieldbrix.in → your static EC2 IP (proxied thr), modules/dns/, Proxied = true (orange cloud icon), SSL strict mode, What this creates, Why Cloudflare instead of Route 53?
 
 ### Community 19 - "plan.sh"
 Cohesion: 0.15
@@ -393,8 +409,8 @@ Cohesion: 0.13
 Nodes (14): Binding dependency and observability policy, code:text (Repository and infrastructure), Delivery baseline, Dependency chain, Dynamic tenant authorization, FieldBrix MVP + Growth Roadmap, Locked authentication, email, and commercial scope, Locked authorization model (+6 more)
 
 ### Community 30 - "task_section_results Table"
-Cohesion: 0.25
-Nodes (11): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:), code:dart (// Mirrors the server envelope exactly) (+3 more)
+Cohesion: 0.18
+Nodes (11): 2.2 Controllers, 2.3 Services, 2.4 Repositories, 2.5 DTOs, 2.6 Naming Conventions — Backend, 2. BACKEND CODE STANDARDS, code:typescript (// Controllers ONLY:), code:typescript (@Injectable()) (+3 more)
 
 ### Community 31 - "parts_used Table"
 Cohesion: 0.18
@@ -417,8 +433,8 @@ Cohesion: 0.22
 Nodes (9): code:typescript (// Smart components: one per page/route. Fetch data. Pass da), code:typescript (// Named return objects — never confusing positional tuples), code:typescript (// lib/api/client.ts — unwraps the envelope automatically), code:block39 (Files          : PascalCase.tsx for components, camelCase.ts), H1. Component Rules, H2. Custom Hooks, H3. API Client & Error Handling, H4. Naming Conventions — Frontend (+1 more)
 
 ### Community 36 - "DomainException Hierarchy"
-Cohesion: 0.22
-Nodes (8): code:bash (# First time setup), code:block2 (AWS ap-south-1 (Mumbai)), code:block3 (environments/prod/   Where you run Terraform), Fieldbrix Infrastructure, Folder map, Monthly cost, Quick commands, What this creates
+Cohesion: 0.19
+Nodes (12): code:bash (aws sts get-caller-identity --profile fieldbrix), code:bash (./scripts/plan.sh prod          # validate and save a Terraf), code:text (Internet -> Elastic IP -> nginx HTTPS on EC2 t4g.small), Current bootstrap architecture, DNS, FieldBrix AWS infrastructure, Fieldbrix Infrastructure, Folder map (+4 more)
 
 ### Community 37 - "Turborepo Monorepo Layout"
 Cohesion: 0.18
@@ -549,8 +565,8 @@ Cohesion: 0.40
 Nodes (4): Adding a dev environment, code:bash (cp -r environments/prod environments/dev), environments/, environments/prod/
 
 ### Community 70 - "Community 70"
-Cohesion: 0.40
-Nodes (4): After apply, code:bash (terraform output static_ip      # your permanent IP), environments/prod/, Files
+Cohesion: 0.29
+Nodes (7): After apply, code:bash (../../scripts/plan.sh prod), code:bash (sudo systemctl list-timers fieldbrix-tls.timer), code:bash (AWS_PROFILE=fieldbrix terraform output static_ip), environments/prod/, Files, Production environment
 
 ### Community 71 - "Community 71"
 Cohesion: 0.40
@@ -669,8 +685,8 @@ Cohesion: 0.25
 Nodes (3): RunnerTests, RunnerTests, XCTestCase
 
 ### Community 102 - "Community 102"
-Cohesion: 0.50
-Nodes (3): code:bash (./scripts/stop.sh prod    # before sleep — saves ~$14/month ), scripts/, Stop/Start to save money
+Cohesion: 0.33
+Nodes (5): code:bash (./scripts/stop.sh prod    # before sleep — saves ~$14/month ), code:bash (./scripts/configure-tls.sh prod), scripts/, Stop/Start to save money, TLS certificates
 
 ### Community 103 - "Community 103"
 Cohesion: 0.50
@@ -705,7 +721,7 @@ Cohesion: 0.67
 Nodes (3): modules/networking, Security Groups (EC2/RDS), VPC + Subnets
 
 ### Community 114 - "Community 114"
-Cohesion: 0.17
+Cohesion: 0.10
 Nodes (5): AppModule, AppController, AppModule, AppService, bootstrap()
 
 ### Community 135 - "Community 135"
@@ -722,15 +738,15 @@ Nodes (24): devDependencies, eslint, eslint-config-prettier, @eslint/eslintrc, @
 
 ### Community 151 - "Community 151"
 Cohesion: 0.08
-Nodes (24): devDependencies, eslint, eslint-config-prettier, @eslint/eslintrc, @eslint/js, eslint-plugin-prettier, globals, jest (+16 more)
+Nodes (25): devDependencies, eslint, eslint-config-prettier, @eslint/eslintrc, @eslint/js, eslint-plugin-prettier, globals, jest (+17 more)
 
 ### Community 152 - "Community 152"
 Cohesion: 0.08
 Nodes (23): compilerOptions, allowSyntheticDefaultImports, baseUrl, declaration, emitDecoratorMetadata, esModuleInterop, experimentalDecorators, forceConsistentCasingInFileNames (+15 more)
 
 ### Community 153 - "Community 153"
-Cohesion: 0.09
-Nodes (22): compilerOptions, allowSyntheticDefaultImports, baseUrl, declaration, emitDecoratorMetadata, esModuleInterop, experimentalDecorators, forceConsistentCasingInFileNames (+14 more)
+Cohesion: 0.08
+Nodes (23): compilerOptions, allowSyntheticDefaultImports, baseUrl, declaration, emitDecoratorMetadata, esModuleInterop, experimentalDecorators, forceConsistentCasingInFileNames (+15 more)
 
 ### Community 154 - "Community 154"
 Cohesion: 0.10
@@ -777,8 +793,8 @@ Cohesion: 0.15
 Nodes (13): "App not responding after EC2 start", Check AWS credits remaining, code:bash (# Check the bucket name in backend.tf matches what bootstrap), code:bash (AWS_PROFILE=fieldbrix ./scripts/status.sh prod), code:bash (# Make sure your current IP matches admin_cidr in terraform.), code:bash (./scripts/ssh.sh prod), code:bash (python scripts/python/cost_report.py), "EC2 won't start after being stopped" (+5 more)
 
 ### Community 165 - "Community 165"
-Cohesion: 0.20
-Nodes (11): AWS Infrastructure Reference, GitHub Actions CI/CD Pipeline, Complete Cost Summary, EC2 t4g.medium Compute, PgBouncer (AWS Doc), PowerSync (Self-hosted Sync Engine), modules/compute, Elastic IP (Static IP) (+3 more)
+Cohesion: 0.50
+Nodes (3): Answer, Q: How should FieldBrix bootstrap and deploy the existing Vite React frontend, NestJS backend, PostgreSQL database, and a reversible Terraform create/destroy pipeline before Sprint 1?, Source Nodes
 
 ### Community 166 - "Community 166"
 Cohesion: 0.18
@@ -805,8 +821,8 @@ Cohesion: 0.22
 Nodes (9): jest, collectCoverageFrom, coverageDirectory, moduleFileExtensions, rootDir, testEnvironment, testRegex, transform (+1 more)
 
 ### Community 172 - "Community 172"
-Cohesion: 0.22
-Nodes (8): modules/dns, Cloudflare API token, code:block1 (A record: api.fieldbrix.in → your static EC2 IP (proxied thr), modules/dns/, Proxied = true (orange cloud icon), SSL strict mode, What this creates, Why Cloudflare instead of Route 53?
+Cohesion: 0.20
+Nodes (11): AWS Infrastructure Reference, GitHub Actions CI/CD Pipeline, Complete Cost Summary, EC2 t4g.medium Compute, PgBouncer (AWS Doc), PowerSync (Self-hosted Sync Engine), modules/compute, Elastic IP (Static IP) (+3 more)
 
 ### Community 173 - "Community 173"
 Cohesion: 0.31
@@ -856,10 +872,6 @@ Nodes (7): check_ec2(), check_eip(), check_rds(), check_s3(), check_sqs(), check
 Cohesion: 0.29
 Nodes (6): author, description, license, name, private, version
 
-### Community 185 - "Community 185"
-Cohesion: 0.43
-Nodes (7): SQS + Lambda Async Layer, modules/queues, Dead-Letter Queue (DLQ), media-processing Queue, notifications.fifo Queue, pdf-generation.fifo Queue, scheduler.fifo Queue
-
 ### Community 186 - "Community 186"
 Cohesion: 0.29
 Nodes (7): 6.1 Exception Hierarchy, 6.2 DomainException Base Class, 6.3 Global Exception Filter, code:block50 (DomainException (base — never throw directly)), code:typescript (// shared/exceptions/domain.exception.ts), code:typescript (// shared/filters/global-exception.filter.ts), PART 6 — EXCEPTION HANDLING
@@ -877,8 +889,8 @@ Cohesion: 0.29
 Nodes (6): author, description, license, name, private, version
 
 ### Community 190 - "Community 190"
-Cohesion: 0.29
-Nodes (7): dependencies, @nestjs/common, @nestjs/config, @nestjs/core, @nestjs/platform-express, reflect-metadata, rxjs
+Cohesion: 0.25
+Nodes (8): dependencies, @nestjs/common, @nestjs/config, @nestjs/core, @nestjs/platform-express, pg, reflect-metadata, rxjs
 
 ### Community 191 - "Community 191"
 Cohesion: 0.29
@@ -913,8 +925,8 @@ Cohesion: 0.40
 Nodes (4): images, info, author, version
 
 ### Community 199 - "Community 199"
-Cohesion: 0.33
-Nodes (6): dependencies, @nestjs/common, @nestjs/core, @nestjs/platform-express, reflect-metadata, rxjs
+Cohesion: 0.29
+Nodes (7): dependencies, @nestjs/common, @nestjs/config, @nestjs/core, @nestjs/platform-express, reflect-metadata, rxjs
 
 ### Community 200 - "Community 200"
 Cohesion: 0.33
@@ -945,8 +957,8 @@ Cohesion: 0.60
 Nodes (3): configVersion, packages, roots
 
 ### Community 208 - "Community 208"
-Cohesion: 0.40
-Nodes (5): S3 Object Storage, Presigned URL Upload (Mobile), modules/storage, Presigned URL Upload Pattern, S3 Buckets (photos/pdfs/exports/web)
+Cohesion: 0.18
+Nodes (11): 5.1 Log Levels, 5.2 Structured Log Format — Every Entry Is JSON, 5.3 Logger Service, 5.4 What to NEVER Log, 5.5 Audit Log vs Operational Log — Two Separate Systems, 5. LOGGING STANDARDS, code:block39 (FATAL   Process cannot continue. Immediate page.), code:json ({) (+3 more)
 
 ### Community 209 - "Community 209"
 Cohesion: 0.50
@@ -992,22 +1004,62 @@ Nodes (3): code:bash (cd environments/prod), code:block14 (→ DNS → Records �
 Cohesion: 0.67
 Nodes (3): code:bash (# Stop before sleeping (~saves $14/month if done nightly + w), code:block19 (Always on:              ~$31/month  →  $100 lasts about 3.2 ), Step 13 — Stop/start to save money (IMPORTANT)
 
+### Community 237 - "Community 237"
+Cohesion: 0.25
+Nodes (11): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:), code:dart (// Mirrors the server envelope exactly) (+3 more)
+
+### Community 265 - "Community 265"
+Cohesion: 0.18
+Nodes (11): Cloudflare CDN + DNS, RDS db.t3.micro, modules/database, deletion_protection = true, RDS PostgreSQL 16, DB Password via SSM, Cloudflare DNS Records, environments/ Overview (+3 more)
+
+### Community 266 - "Community 266"
+Cohesion: 0.43
+Nodes (7): SQS + Lambda Async Layer, modules/queues, Dead-Letter Queue (DLQ), media-processing Queue, notifications.fifo Queue, pdf-generation.fifo Queue, scheduler.fifo Queue
+
+### Community 267 - "Community 267"
+Cohesion: 0.29
+Nodes (7): 4.1 Exception Hierarchy, 4.2 DomainException Base Class, 4.3 Global Exception Filter, 4. EXCEPTION HANDLING, code:block36 (DomainException (base — never throw directly)), code:typescript (// shared/exceptions/domain.exception.ts), code:typescript (// shared/filters/global-exception.filter.ts)
+
+### Community 268 - "Community 268"
+Cohesion: 0.29
+Nodes (6): 6.1 Migration Rules, 6.2 Query Rules, 6. DATABASE STANDARDS, code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), Fieldbrix — Backend Reference (NestJS + TypeScript)
+
+### Community 269 - "Community 269"
+Cohesion: 0.40
+Nodes (5): S3 Object Storage, Presigned URL Upload (Mobile), modules/storage, Presigned URL Upload Pattern, S3 Buckets (photos/pdfs/exports/web)
+
+### Community 270 - "Community 270"
+Cohesion: 0.40
+Nodes (5): 7. SECURITY RULES (ALL P0, NON-NEGOTIABLE), code:block46 (N1.  tenantId comes from JWT only. Never from request body, ), code:block47 (Layer      | Technology          | Key reason), code:block48 (HTTP  Code                          When), Quick Reference — Backend Row + Error Codes
+
+### Community 271 - "Community 271"
+Cohesion: 0.50
+Nodes (3): Answer, Q: How are the FieldBrix React admin, NestJS API, PostgreSQL database, Elastic IP, S3 releases, and Terraform deployment connected?, Source Nodes
+
+### Community 277 - "Community 277"
+Cohesion: 0.50
+Nodes (3): Answer, Q: How is production SSL/TLS configured, including Let's Encrypt certificate issuance, nginx, automatic renewal, and expiry checks?, Source Nodes
+
+### Community 278 - "Community 278"
+Cohesion: 0.50
+Nodes (3): Answer, Q: Why does the Terraform language server think prod/main.tf uses old module inputs such as admin_cidr, ssh_public_key_path, rds_endpoint, and sqs_queue_arns while the current module variables use private_subnet_cidr_b, engine_version, protect_database, and TLS inputs?, Source Nodes
+
 ## Knowledge Gaps
-- **1170 isolated node(s):** `tsBuildInfoFile`, `target`, `lib`, `types`, `skipLibCheck` (+1165 more)
+- **1186 isolated node(s):** `tsBuildInfoFile`, `target`, `lib`, `types`, `skipLibCheck` (+1181 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **42 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **49 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `PART 1 — INFRASTRUCTURE (AWS ap-south-1 Mumbai)` connect `bootstrap.sh` to `Community 174`?**
+- **Why does `PART 15 — GIT & PR WORKFLOW` connect `Community 173` to `Community 174`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+- **Why does `PART 10 — MOBILE TECH STACK (Flutter)` connect `Platform Admin Safety Controls` to `Community 174`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **Why does `Fieldbrix — Engineering Handbook` connect `Community 200` to `Community 174`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **Why does `PART 8 — FRONTEND TECH STACK (Vite + React, Web Console)` connect `cost_report.py Entry Point` to `Community 174`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `tsBuildInfoFile`, `target`, `lib` to the rest of the system?**
-  _1184 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1200 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `NestJS Backend Architecture` be split into smaller, more focused modules?**
   _Cohesion score 0.12418300653594772 - nodes in this community are weakly interconnected._
 - **Should `Terraform Ops Scripts` be split into smaller, more focused modules?**

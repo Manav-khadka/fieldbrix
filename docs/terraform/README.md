@@ -1,64 +1,65 @@
-# Fieldbrix Infrastructure
+# FieldBrix AWS infrastructure
 
-> **New AWS account?** Start with `AWS_SENTRY_BOOTSTRAP.md` for secure AWS
-> STS/SSO, Mac, budget, and Sentry setup. Then continue with `LOCAL_SETUP.md`.
-
-Verified local AWS identity: profile `fieldbrix`, account `059763918790`, workload and SSO Region `ap-south-1`, access portal `https://d-9f6756e140.awsapps.com/start/`. Re-run `aws sts get-caller-identity --profile fieldbrix` before Terraform; the dated full STS evidence is in [`AWS_SENTRY_BOOTSTRAP.md`](AWS_SENTRY_BOOTSTRAP.md#verified-local-identity--14-august-2026).
-
----
-
-## Quick commands
+The production bootstrap stack runs in AWS account `059763918790`, Region
+`ap-south-1`, using CLI profile `fieldbrix`. Verify the temporary SSO identity
+before operating it:
 
 ```bash
-# First time setup
-cp aws.env.example aws.env.local
-source aws.env.local
-./scripts/aws-login.sh          # log in with SSO + verify temporary STS identity
-./scripts/bootstrap.sh          # create S3 + DynamoDB for Terraform state
-./scripts/secrets-init.sh prod  # store all secrets in SSM (free, encrypted)
-./scripts/plan.sh prod          # dry run — see what will be created
-./scripts/apply.sh prod         # create everything (~8 minutes)
-
-# Daily use — save money while sleeping
-./scripts/stop.sh prod          # stop EC2 + RDS (~saves $14/month if done nightly)
-./scripts/start.sh prod         # start everything back up (~3 minutes)
-./scripts/status.sh prod        # see what's running and current cost
-
-# Access
-./scripts/ssh.sh prod           # SSH into EC2 in one command
-
-# Verify
-python scripts/python/health_check.py --env prod
+aws sts get-caller-identity --profile fieldbrix
 ```
 
----
+## Operate the stack
 
-## What this creates
+From `docs/terraform`:
 
+```bash
+./scripts/plan.sh prod          # validate and save a Terraform plan
+./scripts/apply.sh prod         # create or update infrastructure
+./scripts/configure-tls.sh prod   # issue/repair TLS through SSM
+./scripts/deploy-apps.sh prod   # build/test and deploy React + NestJS
+./scripts/status.sh prod        # inspect EC2, Elastic IP, RDS, and S3
+./scripts/stop.sh prod          # stop EC2 and RDS, preserving data and EIP
+./scripts/start.sh prod         # start EC2 and RDS again
+./scripts/destroy.sh prod       # deliberately remove the full disposable stack
 ```
-AWS ap-south-1 (Mumbai)
-├── EC2 t4g.medium              NestJS API + PgBouncer
-│   └── Elastic IP (static)     Same IP forever — survives stop/start
-├── RDS db.t3.micro             PostgreSQL 16 — managed backups
-├── S3 (4 buckets)              photos, pdfs, exports, web SPA
-├── SQS (4 queues + DLQ)        PDF, notifications, scheduler, media
-├── CloudWatch                  Alarms at $50 and $90 spend
-└── Cloudflare (free)           DNS + SSL + DDoS protection
+
+The deployment path is local build/tests -> private S3 release objects -> AWS
+Systems Manager -> versioned release directories on EC2. No SSH port or SSH key
+is configured. PostgreSQL is private and accepts traffic only from the app
+instance; the Nest readiness endpoint verifies it with TLS.
+
+## DNS
+
+Create these public DNS records using the current `static_ip` Terraform output:
+
+| Type | Name | Value |
+|---|---|---|
+| A | `admin.fieldbrix.com` | `3.6.182.160` |
+| A | `api.fieldbrix.com` | `3.6.182.160` |
+
+Use TTL 300 while bootstrapping. Once both records resolve, run
+`./scripts/configure-tls.sh prod` to issue and verify one Let's
+Encrypt certificate for both names. The EIP survives stop/start but is released
+by `terraform destroy`, so recheck the output after a future full recreation.
+
+The certificate job runs twice daily with jitter and renews only when Certbot
+reports the certificate as due. Current default Let's Encrypt certificates are
+90 days, so renewal normally happens with roughly one-third of the lifetime
+remaining—not on day 89. The job reloads nginx only after successful renewal and
+reports a service failure if less than 14 days of certificate validity remains.
+
+## Current bootstrap architecture
+
+```text
+Internet -> Elastic IP -> nginx HTTPS on EC2 t4g.small
+                           |-- admin.fieldbrix.com -> React static files
+                           `-- api.fieldbrix.com   -> NestJS :3000
+                                                     `-> private RDS PostgreSQL 18.4
+
+Private S3 -> release artifacts, photos, PDFs, and exports
+SSM Parameter Store -> database credential
+Systems Manager -> administrative and deployment commands
 ```
 
-## Monthly cost
-
-| Running all month | Stopped 10hrs/night + weekends |
-|-------------------|---------------------------------|
-| ~$31/month        | ~$16/month                      |
-| $100 credits ≈ 3.2 months | $100 credits ≈ 6.2 months |
-
-## Folder map
-
-```
-environments/prod/   Where you run Terraform
-modules/             Reusable building blocks (one per AWS service group)
-scripts/             Bash + Python ops scripts
-AWS_SENTRY_BOOTSTRAP.md Secure AWS account, STS/SSO, Mac, and Sentry setup
-LOCAL_SETUP.md       Full setup guide from zero to running
-```
+See `AWS_SENTRY_BOOTSTRAP.md` for the dated AWS identity evidence and
+`environments/prod/README.md` for environment-specific outputs.

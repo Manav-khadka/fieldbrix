@@ -6,5 +6,14 @@ variable "subnet_ids" {
 variable "rds_sg_id" { type = string }
 variable "instance_class" {
   type    = string
-  default = "db.t3.micro"
+  default = "db.t4g.micro"
+}
+variable "engine_version" {
+  type    = string
+  default = "18.4"
+}
+variable "protect_database" {
+  type        = bool
+  default     = false
+  description = "Use deletion protection and a final snapshot for durable production data."
 }

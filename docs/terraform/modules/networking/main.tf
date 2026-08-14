@@ -28,6 +28,13 @@ resource "aws_subnet" "private_a" {
   tags              = { Name = "fieldbrix-${var.env}-private-a" }
 }
 
+resource "aws_subnet" "private_b" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.private_subnet_cidr_b
+  availability_zone = "${var.region}b"
+  tags              = { Name = "fieldbrix-${var.env}-private-b" }
+}
+
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
   tags   = { Name = "fieldbrix-${var.env}-igw" }
@@ -56,7 +63,7 @@ resource "aws_route_table_association" "b" {
 
 resource "aws_security_group" "ec2" {
   name        = "fieldbrix-${var.env}-ec2-sg"
-  description = "Fieldbrix API — HTTPS from anywhere, SSH from admin IP only"
+  description = "Fieldbrix admin and API HTTP/HTTPS ingress; administration uses SSM"
   vpc_id      = aws_vpc.main.id
 
   ingress {
@@ -80,13 +87,6 @@ resource "aws_security_group" "ec2" {
     protocol    = "tcp"
     cidr_blocks = [var.vpc_cidr]
   }
-  ingress {
-    description = "SSH (admin IP only)"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = [var.admin_cidr]
-  }
   egress {
     from_port   = 0
     to_port     = 0
@@ -99,7 +99,7 @@ resource "aws_security_group" "ec2" {
 
 resource "aws_security_group" "rds" {
   name        = "fieldbrix-${var.env}-rds-sg"
-  description = "RDS — accepts connections from EC2 only, not internet"
+  description = "RDS accepts connections from EC2 only, not the internet"
   vpc_id      = aws_vpc.main.id
 
   ingress {

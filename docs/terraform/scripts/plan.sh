@@ -4,6 +4,9 @@
 # Usage: ./scripts/plan.sh <env>
 set -euo pipefail
 
+AWS_PROFILE_NAME=${AWS_PROFILE:-fieldbrix}
+export AWS_PROFILE="${AWS_PROFILE_NAME}"
+
 ENV=${1:?Usage: plan.sh <env>}
 DIR="$(dirname "$0")/../environments/${ENV}"
 

@@ -20,19 +20,19 @@
     "semantic_hash": "2cc6baa3b40455f7761efd63791a3828"
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/apply.sh": {
-    "mtime": 1786624876.72683,
-    "ast_hash": "65975d64ec7cb6c7e55c32a593785d2d",
-    "semantic_hash": "65975d64ec7cb6c7e55c32a593785d2d"
+    "mtime": 1786671122.9830277,
+    "ast_hash": "5377a27bbd0b50a7d5fbaf465931364c",
+    "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/status.sh": {
-    "mtime": 1786624876.7319505,
-    "ast_hash": "623fc4173a0cad845e2b230fba537266",
-    "semantic_hash": "623fc4173a0cad845e2b230fba537266"
+    "mtime": 1786669777.2871904,
+    "ast_hash": "6aa1adbb687859ba47d7b1c8ffe94a5b",
+    "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/plan.sh": {
-    "mtime": 1786624876.7284372,
-    "ast_hash": "bea6dfb9b6c0960786d3880520adbd37",
-    "semantic_hash": "bea6dfb9b6c0960786d3880520adbd37"
+    "mtime": 1786669723.12542,
+    "ast_hash": "7e4c35e5bd4b4da73281bf9c71f74a87",
+    "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/bootstrap.sh": {
     "mtime": 1786624876.727052,
@@ -40,19 +40,19 @@
     "semantic_hash": "61f072db28b737b56b7fabafa6a5ec66"
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/destroy.sh": {
-    "mtime": 1786624876.7281609,
-    "ast_hash": "e734842669fd89673c292f83c74a6105",
-    "semantic_hash": "e734842669fd89673c292f83c74a6105"
+    "mtime": 1786669723.1282322,
+    "ast_hash": "62e617ca3fae02fe818012d1cb6d6b9b",
+    "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/stop.sh": {
-    "mtime": 1786624876.7323048,
-    "ast_hash": "367e3f446b2c0d6fd2b02735b2ad0b97",
-    "semantic_hash": "367e3f446b2c0d6fd2b02735b2ad0b97"
+    "mtime": 1786669723.1269631,
+    "ast_hash": "29c922b6308eddc8aa7cff99e1ac6928",
+    "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/start.sh": {
-    "mtime": 1786624876.7315068,
-    "ast_hash": "c7fb96f0090f8bc0a2a041d4757eb813",
-    "semantic_hash": "c7fb96f0090f8bc0a2a041d4757eb813"
+    "mtime": 1786669777.2876482,
+    "ast_hash": "ddca3af3081057d899213c7c82ec0beb",
+    "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/python/migrate_account.py": {
     "mtime": 1786624876.7302885,
@@ -125,8 +125,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/README.md": {
-    "mtime": 1786666829.5618765,
-    "ast_hash": "4239785e6e0832c0816a8668bdca433a",
+    "mtime": 1786671122.9826381,
+    "ast_hash": "bf909be789137bd66fe76844ffe96e30",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/environments/README.md": {
@@ -135,13 +135,13 @@
     "semantic_hash": "d8363d98b4965e828c108fdc12cce3d2"
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/environments/prod/README.md": {
-    "mtime": 1786624876.7168067,
-    "ast_hash": "8aba18071ae1e49c1738560be4f8942f",
-    "semantic_hash": "8aba18071ae1e49c1738560be4f8942f"
+    "mtime": 1786671122.9823396,
+    "ast_hash": "68900435d91e6955ef3b5e5c8179056d",
+    "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/README.md": {
-    "mtime": 1786661826.7805154,
-    "ast_hash": "d98ead750dcecb4d5c4ec426532e285a",
+    "mtime": 1786671122.9819112,
+    "ast_hash": "9ecc48804bfbccec2cc0d1cf94c10371",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/python/requirements.txt": {
@@ -255,8 +255,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/App.tsx": {
-    "mtime": 1786650850.9068382,
-    "ast_hash": "c5e44a49ac2a44373fba5d1a7fe35be4",
+    "mtime": 1786668342.1748378,
+    "ast_hash": "bef0da51c562a7cc0f9748e71ae84137",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/main.tsx": {
@@ -270,8 +270,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/package.json": {
-    "mtime": 1786663626.651767,
-    "ast_hash": "41eed7253288e37d34150b42680b4c71",
+    "mtime": 1786668366.9680104,
+    "ast_hash": "febf6c9be2b1fe2d864a512f5df70489",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/tsconfig.build.json": {
@@ -280,8 +280,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/tsconfig.json": {
-    "mtime": 1786652550.326815,
-    "ast_hash": "e7accc5b0cf44ab80c0e5edb4226a223",
+    "mtime": 1786668908.9739883,
+    "ast_hash": "8556b14d60525732be77ce81902239e4",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/eslint.config.mjs": {
@@ -290,8 +290,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/test/app.e2e-spec.ts": {
-    "mtime": 1786650960.6132226,
-    "ast_hash": "91198fa8fc7e238ecc9dacec901d7a15",
+    "mtime": 1786668386.2024999,
+    "ast_hash": "7676b8d6cbf3724c2a94e83c9f54a939",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/test/jest-e2e.json": {
@@ -300,13 +300,13 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/main.ts": {
-    "mtime": 1786650960.612828,
-    "ast_hash": "3a3444599787f325c5e00d034838bc60",
+    "mtime": 1786668386.201699,
+    "ast_hash": "60eeab6ae9fbe8f11a5ba4b04fb496a8",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.service.ts": {
-    "mtime": 1786650960.6126928,
-    "ast_hash": "cd3fb7836f10de08a725ee1fd4ab36fe",
+    "mtime": 1786668425.4732533,
+    "ast_hash": "7d7eb4686964752b4907171f0b5ba7c6",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.module.ts": {
@@ -315,13 +315,13 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.controller.spec.ts": {
-    "mtime": 1786650960.6129432,
-    "ast_hash": "4a1c0e1133dbda6f6e8f3e60d984eddf",
+    "mtime": 1786668386.2020524,
+    "ast_hash": "ed9a1b13285f00553d9bd82c60548d45",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.controller.ts": {
-    "mtime": 1786650960.6124334,
-    "ast_hash": "3ab0e83b7d93b85ea489ab994ec79ea1",
+    "mtime": 1786668386.2014155,
+    "ast_hash": "ed8c3ab21f5575a9617c0ab069f6497c",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.claude/settings.json": {
@@ -975,8 +975,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/package.json": {
-    "mtime": 1786666653.288377,
-    "ast_hash": "b5583eb8cf85a4adcb0ef33de82470cc",
+    "mtime": 1786668471.1893861,
+    "ast_hash": "41eed7253288e37d34150b42680b4c71",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/tsconfig.build.json": {
@@ -985,8 +985,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/tsconfig.json": {
-    "mtime": 1786666653.2896786,
-    "ast_hash": "397a4e7fd9eb228257a07387005fa770",
+    "mtime": 1786668471.1906457,
+    "ast_hash": "e7accc5b0cf44ab80c0e5edb4226a223",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/eslint.config.mjs": {
@@ -1015,8 +1015,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/src/app.module.ts": {
-    "mtime": 1786666653.2890592,
-    "ast_hash": "c04a15e4b533d6ed3f26d17d17d061e9",
+    "mtime": 1786668471.190499,
+    "ast_hash": "a0abeea1c5b3f0ee8aaeea5bfad03067",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/src/app.controller.spec.ts": {
@@ -1342,6 +1342,56 @@
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": {
     "mtime": 1786666656.2235482,
     "ast_hash": "a0a8db5985280b3679d99a820ae2db79",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/deploy-apps.sh": {
+    "mtime": 1786670120.4146316,
+    "ast_hash": "e1f4f3fdf4a3c404f175a1c8b1a042bc",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/graphify-out/memory/query_20260814_003802_how_should_fieldbrix_bootstrap_and_deploy_the_exis.md": {
+    "mtime": 1786667882.6226928,
+    "ast_hash": "f30853f42b677a198b08c17fcf3a60f7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/configure-tls.sh": {
+    "mtime": 1786671122.9799602,
+    "ast_hash": "921644fca29519b1399ba7043d6f78d4",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/modules/compute/tls-maintain.sh": {
+    "mtime": 1786671339.2494266,
+    "ast_hash": "061f97b05bea23a091b4c085a7d2513b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/modules/compute/install-tls.sh": {
+    "mtime": 1786671122.9796383,
+    "ast_hash": "0b143fe6449291d32094d4d900f3ed02",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/graphify-out/memory/query_20260814_011000_how_are_the_fieldbrix_react_admin__nestjs_api__pos.md": {
+    "mtime": 1786669800.836354,
+    "ast_hash": "0b30e8acffa1d1cc3991eb3192e585d3",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/.dart_tool/extension_discovery/vs_code.json": {
+    "mtime": 1786671070.508492,
+    "ast_hash": "1126dfb49b45d93930595f755a2a235f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/.dart_tool/extension_discovery/README.md": {
+    "mtime": 1786671070.509008,
+    "ast_hash": "606241196f08642dcc9f7acef0d2d8da",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/graphify-out/memory/query_20260814_013035_why_does_the_terraform_language_server_think_prod.md": {
+    "mtime": 1786671035.0682366,
+    "ast_hash": "9e194becdf7aa1701b08821ddbd50fc2",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/graphify-out/memory/query_20260814_012112_how_is_production_ssl_tls_configured__including_le.md": {
+    "mtime": 1786670472.2209008,
+    "ast_hash": "aa4a4c0c33560ead2d7fa69c5ca959c7",
     "semantic_hash": ""
   }
 }

@@ -1,18 +1,28 @@
+data "aws_caller_identity" "current" {}
+
+locals {
+  bucket_prefix = "fieldbrix-${var.env}-${data.aws_caller_identity.current.account_id}"
+}
+
 resource "aws_s3_bucket" "photos" {
-  bucket = "fieldbrix-${var.env}-photos"
-  tags   = { Env = var.env }
+  bucket        = "${local.bucket_prefix}-photos"
+  force_destroy = true
+  tags          = { Env = var.env }
 }
 resource "aws_s3_bucket" "pdfs" {
-  bucket = "fieldbrix-${var.env}-pdfs"
-  tags   = { Env = var.env }
+  bucket        = "${local.bucket_prefix}-pdfs"
+  force_destroy = true
+  tags          = { Env = var.env }
 }
 resource "aws_s3_bucket" "exports" {
-  bucket = "fieldbrix-${var.env}-exports"
-  tags   = { Env = var.env }
+  bucket        = "${local.bucket_prefix}-exports"
+  force_destroy = true
+  tags          = { Env = var.env }
 }
 resource "aws_s3_bucket" "web" {
-  bucket = "fieldbrix-${var.env}-web"
-  tags   = { Env = var.env }
+  bucket        = "${local.bucket_prefix}-deployments"
+  force_destroy = true
+  tags          = { Env = var.env }
 }
 
 # Block all public access on private buckets
@@ -32,6 +42,13 @@ resource "aws_s3_bucket_public_access_block" "pdfs" {
 }
 resource "aws_s3_bucket_public_access_block" "exports" {
   bucket                  = aws_s3_bucket.exports.id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+resource "aws_s3_bucket_public_access_block" "web" {
+  bucket                  = aws_s3_bucket.web.id
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true

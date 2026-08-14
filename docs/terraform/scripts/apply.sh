@@ -3,6 +3,9 @@
 # Usage: ./scripts/apply.sh <env>
 set -euo pipefail
 
+AWS_PROFILE_NAME=${AWS_PROFILE:-fieldbrix}
+export AWS_PROFILE="${AWS_PROFILE_NAME}"
+
 ENV=${1:?Usage: apply.sh <env>}
 DIR="$(dirname "$0")/../environments/${ENV}"
 
@@ -23,6 +26,7 @@ terraform output
 
 echo ""
 echo "Next steps:"
-echo "  1. Point Cloudflare DNS A record to: $(terraform output -raw api_public_ip 2>/dev/null || echo 'see above')"
-echo "  2. Verify: python scripts/python/health_check.py --env ${ENV}"
-echo "  3. SSH in: ./scripts/ssh.sh ${ENV}"
+echo "  1. Point both DNS A records to: $(terraform output -raw static_ip)"
+echo "  2. Configure TLS after DNS resolves: ./scripts/configure-tls.sh ${ENV}"
+echo "  3. Deploy apps: ./scripts/deploy-apps.sh ${ENV}"
+echo "  4. Verify: curl --fail $(terraform output -raw api_url)/health/ready"

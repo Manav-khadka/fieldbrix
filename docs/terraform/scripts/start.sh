@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 # Start EC2 + RDS. Data is exactly as you left it.
-# Static IP is immediately active — DNS never breaks.
+# The existing Elastic IP is immediately active after EC2 starts.
 # Takes ~3 minutes (RDS is the slow part).
 #
 # Usage: ./scripts/start.sh <env>
 set -euo pipefail
 
 ENV=${1:?Usage: start.sh <env>}
+AWS_PROFILE_NAME=${AWS_PROFILE:-fieldbrix}
+export AWS_PROFILE="${AWS_PROFILE_NAME}"
 REGION="ap-south-1"
 
 echo ""
@@ -66,7 +68,7 @@ RDS_STOR_HOUR = 0.0032
 running_hr    = EC2_PER_HOUR + RDS_PER_HOUR + EBS_PER_HOUR + RDS_STOR_HOUR
 
 print(f"Stack is running.")
-print(f"Static IP:    {static_ip}  (same as always — DNS still works)")
+print(f"Static IP:    {static_ip}  (preserved while the Terraform stack exists)")
 print(f"Running cost: ${running_hr:.4f}/hr  →  ${running_hr * 24:.2f}/day")
 print()
 print("Stop before sleeping:")

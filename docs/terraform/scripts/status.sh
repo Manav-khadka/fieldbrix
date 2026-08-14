@@ -4,6 +4,8 @@
 set -euo pipefail
 
 ENV=${1:?Usage: status.sh <env>}
+AWS_PROFILE_NAME=${AWS_PROFILE:-fieldbrix}
+export AWS_PROFILE="${AWS_PROFILE_NAME}"
 REGION="ap-south-1"
 
 echo ""
@@ -18,21 +20,21 @@ EC2_INFO=$(aws ec2 describe-instances \
 
 EC2_STATE=$(echo "${EC2_INFO}" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('State','unknown'))" 2>/dev/null || echo "not found")
 EC2_IP=$(echo "${EC2_INFO}" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('IP') or 'none')" 2>/dev/null || echo "")
-echo "EC2 t4g.medium:    ${EC2_STATE} ${EC2_IP:+(IP: $EC2_IP)}"
+echo "EC2 t4g.small:     ${EC2_STATE} ${EC2_IP:+(IP: $EC2_IP)}"
 
 # EIP
 EIP_IP=$(aws ec2 describe-addresses \
   --filters "Name=tag:Name,Values=fieldbrix-${ENV}-eip" \
   --query "Addresses[0].PublicIp" \
   --output text --region "${REGION}" 2>/dev/null || echo "none")
-echo "Elastic IP:        ${EIP_IP} (static — never changes)"
+echo "Elastic IP:        ${EIP_IP} (stable across EC2 stop/start)"
 
 # RDS
 RDS_STATUS=$(aws rds describe-db-instances \
   --db-instance-identifier "fieldbrix-${ENV}" \
   --query "DBInstances[0].DBInstanceStatus" \
   --output text --region "${REGION}" 2>/dev/null || echo "not found")
-echo "RDS db.t3.micro:   ${RDS_STATUS}"
+echo "RDS db.t4g.micro:  ${RDS_STATUS}"
 
 # S3 buckets
 BUCKETS=$(aws s3api list-buckets \

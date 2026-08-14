@@ -13,6 +13,8 @@
 set -euo pipefail
 
 ENV=${1:?Usage: stop.sh <env>}
+AWS_PROFILE_NAME=${AWS_PROFILE:-fieldbrix}
+export AWS_PROFILE="${AWS_PROFILE_NAME}"
 REGION="ap-south-1"
 
 echo ""

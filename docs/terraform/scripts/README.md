@@ -9,11 +9,11 @@ Operations scripts for managing the Fieldbrix infrastructure.
 | `secrets-init.sh` | One-time: store all secrets in SSM Parameter Store |
 | `plan.sh <env>` | Dry run — see what Terraform will change |
 | `apply.sh <env>` | Apply the plan — create/update infrastructure |
+| `deploy-apps.sh <env>` | Build, test, upload, and activate the React + NestJS release through S3 and SSM |
+| `configure-tls.sh <env> [email]` | Issue/repair Let's Encrypt certificates and install the twice-daily renewal timer through SSM |
 | `stop.sh <env>` | Stop EC2 + RDS to save money while not working |
 | `start.sh <env>` | Start EC2 + RDS back up (takes ~3 minutes) |
 | `status.sh <env>` | Show what is running and current hourly cost |
-| `ssh.sh <env>` | SSH into EC2 in one command |
-| `db-tunnel.sh <env>` | Create SSH tunnel to RDS for local DB access |
 | `destroy.sh <env>` | Delete everything (with confirmation prompt) |
 | `python/` | Python scripts — health check, migration, cost report |
 
@@ -27,5 +27,23 @@ The server does not need to run while you sleep.
 ./scripts/status.sh prod  # check what state everything is in
 ```
 
-Your static IP (Elastic IP) stays the same. DNS does not break.
+Your static IP (Elastic IP) stays the same while the stack is stopped. A full
+`terraform destroy` releases the address, so a later recreation can require DNS
+updates.
 Data is fully preserved. RDS auto-restarts after 7 days if not manually started.
+
+## TLS certificates
+
+After both public DNS A records resolve to the Terraform `static_ip`, run:
+
+```bash
+./scripts/configure-tls.sh prod
+```
+
+The optional email argument is accepted for Certbot compatibility, but Let's
+Encrypt no longer sends expiration emails. This issues one certificate covering
+the admin and API hostnames, redirects HTTP
+to HTTPS, and installs `fieldbrix-tls.timer`. The timer checks twice daily with
+up to one hour of jitter. Certbot renews only inside the CA/client renewal window
+and reloads nginx after a successful renewal; the maintenance service fails and
+logs a critical message if fewer than 14 days remain.

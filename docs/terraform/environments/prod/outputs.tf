@@ -11,9 +11,17 @@ output "rds_endpoint" {
 output "photos_bucket" { value = module.storage.photos_bucket }
 output "web_bucket" {
   value       = module.storage.web_bucket
-  description = "Deploy React SPA: aws s3 sync dist/ s3://BUCKET --delete"
+  description = "Private deployment artifact bucket used by the SSM deployment pipeline."
 }
-output "ssh_command" {
-  value       = "./scripts/ssh.sh prod"
-  description = "How to SSH into the EC2 instance"
+output "instance_id" {
+  value       = module.compute.instance_id
+  description = "EC2 instance managed through AWS Systems Manager."
+}
+output "admin_url" {
+  value       = "https://${var.admin_domain}"
+  description = "TLS-protected admin hostname after its A record points to static_ip."
+}
+output "api_url" {
+  value       = "https://${var.api_domain}"
+  description = "TLS-protected API hostname after its A record points to static_ip."
 }
