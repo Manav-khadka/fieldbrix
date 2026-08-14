@@ -71,6 +71,7 @@ pnpm --dir "${BACKEND_DIR}" build
 
 pnpm --dir "${FRONTEND_DIR}" lint
 VITE_API_BASE_URL="${API_URL}" VITE_APP_VERSION="${COMMIT_SHA}" \
+  VITE_SENTRY_DSN="${WEB_SENTRY_DSN:-}" \
   VITE_SENTRY_RELEASE="fieldbrix-web@${COMMIT_SHA}" \
   pnpm --dir "${FRONTEND_DIR}" build
 
@@ -115,7 +116,7 @@ PARAMETERS=$(jq -cn \
     "aws s3 cp s3://$bucket/releases/$release/api.tar.gz /tmp/api.tar.gz --region $region --only-show-errors",
     "tar -xzf /tmp/admin.tar.gz -C /opt/fieldbrix/admin/releases/$release",
     "tar -xzf /tmp/api.tar.gz -C /opt/fieldbrix/backend/releases/$release",
-    ("printf \"%s\\n\" \"APP_VERSION=" + $version + "\" \"APP_COMMIT_SHA=" + $commit + "\" \"APP_BUILD_TIME=" + $buildTime + "\" > /opt/fieldbrix/backend/releases/$release/release.env"),
+    ("printf \"%s\\n\" \"APP_VERSION=" + $version + "\" \"APP_COMMIT_SHA=" + $commit + "\" \"APP_BUILD_TIME=" + $buildTime + "\" \"SENTRY_RELEASE=fieldbrix-backend@" + $commit + "\" > /opt/fieldbrix/backend/releases/$release/release.env"),
     "chown -R ec2-user:ec2-user /opt/fieldbrix/admin/releases/$release /opt/fieldbrix/backend/releases/$release",
     "cd /opt/fieldbrix/backend/releases/$release && sudo -u ec2-user /usr/bin/pnpm install --prod --frozen-lockfile",
     "install -d /etc/systemd/system/fieldbrix-api.service.d",

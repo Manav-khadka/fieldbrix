@@ -22,7 +22,7 @@ Why SPA       : Web console is 100% behind login screen
                 SEO = irrelevant
                 SSR (Next.js) adds complexity with zero benefit
                 No caching layers to fight for live dashboard data
-                Deploys to S3 + CloudFront (no server needed)
+                Deployed as an immutable artifact to the EC2/nginx runtime
 Why not Next  : ISR/SSG useless for authenticated dashboard
                 {cache: 'no-store'} needed everywhere anyway
                 Vercel lock-in concern
@@ -30,7 +30,7 @@ Why not Next  : ISR/SSG useless for authenticated dashboard
 
 Build time    : measured and recorded by CI for the pinned toolchain
 Bundle size   : Tree-shakable by default
-Deploy        : S3 sync + CloudFront invalidation (~45s)
+Deploy        : private S3 artifact upload + Systems Manager activation
 ```
 
 ## 1.2 Routing

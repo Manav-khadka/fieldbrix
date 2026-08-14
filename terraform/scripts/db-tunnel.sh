@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Creates an SSH tunnel to RDS so you can connect from your local machine.
+# Creates a Systems Manager port-forwarding tunnel to RDS.
 # After running this, connect to: localhost:5433
 #
 # Usage: ./scripts/db-tunnel.sh <env>
@@ -11,11 +11,10 @@ ENV=${1:?Usage: db-tunnel.sh <env>}
 REGION="ap-south-1"
 LOCAL_PORT=5433
 
-# Get EC2 static IP
-EC2_IP=$(aws ec2 describe-addresses \
-  --filters "Name=tag:Name,Values=fieldbrix-${ENV}-eip" \
-  --query "Addresses[0].PublicIp" \
-  --output text --region "${REGION}" 2>/dev/null)
+INSTANCE_ID=$(aws ec2 describe-instances \
+  --filters "Name=tag:Name,Values=fieldbrix-${ENV}-api" "Name=instance-state-name,Values=running" \
+  --query "Reservations[0].Instances[0].InstanceId" \
+  --output text --region "${REGION}")
 
 # Get RDS endpoint
 RDS_ENDPOINT=$(aws rds describe-db-instances \
@@ -23,13 +22,13 @@ RDS_ENDPOINT=$(aws rds describe-db-instances \
   --query "DBInstances[0].Endpoint.Address" \
   --output text --region "${REGION}" 2>/dev/null)
 
-if [ -z "${EC2_IP}" ] || [ "${EC2_IP}" = "None" ]; then
+if [ -z "${INSTANCE_ID}" ] || [ "${INSTANCE_ID}" = "None" ]; then
   echo "✗ EC2 not found or not running. Start it first: ./scripts/start.sh ${ENV}"
   exit 1
 fi
 
 echo "════════════════════════════════════════════"
-echo "SSH tunnel: localhost:${LOCAL_PORT} → RDS"
+echo "Systems Manager tunnel: localhost:${LOCAL_PORT} → RDS"
 echo ""
 echo "Connect with:"
 echo "  psql -h localhost -p ${LOCAL_PORT} -U fieldbrix_admin -d fieldbrix"
@@ -37,16 +36,13 @@ echo ""
 echo "Or DBeaver/TablePlus:"
 echo "  Host: localhost  Port: ${LOCAL_PORT}"
 echo "  Database: fieldbrix  User: fieldbrix_admin"
-echo "  Password: (from SSM /fieldbrix/${ENV}/db_password)"
+echo "  Password: (from Secrets Manager fieldbrix/${ENV}/runtime)"
 echo ""
 echo "Press Ctrl+C to close the tunnel"
 echo "════════════════════════════════════════════"
 
-KEY="~/.ssh/fieldbrix_prod"
-[ "${ENV}" != "prod" ] && KEY="~/.ssh/fieldbrix_${ENV}"
-
-ssh -i "${KEY}" \
-  -o StrictHostKeyChecking=no \
-  -N \
-  -L "${LOCAL_PORT}:${RDS_ENDPOINT}:5432" \
-  ec2-user@"${EC2_IP}"
+aws ssm start-session \
+  --target "${INSTANCE_ID}" \
+  --document-name AWS-StartPortForwardingSessionToRemoteHost \
+  --parameters "host=[\"${RDS_ENDPOINT}\"],portNumber=[\"5432\"],localPortNumber=[\"${LOCAL_PORT}\"]" \
+  --region "${REGION}"

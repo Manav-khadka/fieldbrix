@@ -68,13 +68,13 @@ Buckets       :
   fieldbrix-photos-{env}    ← job photos, receipts (private)
   fieldbrix-pdfs-{env}      ← invoices, reports (private)
   fieldbrix-exports-{env}   ← tenant data exports (private)
-  fieldbrix-web-{env}       ← React SPA static files (public)
+  fieldbrix-web-{env}       ← private immutable deployment artifacts
 Lifecycle     : Move photos to S3-IA after 90 days (60% cheaper)
                 Move to Glacier after 1 year
 Security      : All buckets private by default
                 Photos served via presigned URLs (15 min expiry)
                 PDFs served via presigned URLs (15 min expiry)
-                Web bucket CloudFront only (no direct S3 access)
+                Deployment bucket accessed only by the EC2 instance role
 ```
 
 ## CDN + DNS
@@ -87,10 +87,8 @@ Features used :
   DNS          : Unlimited, instant propagation
   SSL/TLS      : Auto-renewing, free certificates
   DDoS         : Always-on protection (free tier)
-  CDN          : React SPA assets cached globally
-                 India latency ~15-20ms vs ~80ms without CDN
-  Proxy        : Hides EC2 IP (security)
-  Page Rules   : Cache SPA assets 1 year, API never cached
+  Proxy        : Optional Cloudflare reverse proxy for the EC2 origin
+  DNS          : Cloudflare-managed records; no AWS DNS service
 ```
 
 ## Async Layer
@@ -147,13 +145,12 @@ Pipeline      :
     1. Run tests (Jest unit + integration)
     2. Build NestJS (tsc --noEmit type check)
     3. Build React (vite build)
-    4. SSH to EC2 → git pull → pm2 restart
-    5. Deploy React to S3 → CloudFront invalidation
-    6. Deploy Lambdas (zip → aws lambda update)
+    4. Build immutable release artifacts
+    5. Upload private artifacts to S3 and activate them through Systems Manager
+    6. Run HTTPS health and version smoke checks
 
 Deploy time   : ~3-4 minutes end to end
-Rollback      : pm2 restart with previous git commit
-                (30 seconds)
+Rollback      : reactivate a prior immutable release through Systems Manager
 ```
 
 ---
@@ -204,7 +201,6 @@ EBS gp3 30GB (EC2 root volume)          $2.40
 S3 (photos + PDFs + SPA assets)         $0.50
 Lambda (PDF + schedulers + webhooks)    $0.00  always free
 SQS (job queues)                        $0.00  always free
-CloudFront (React SPA CDN)              $0.00  free tier
 Cloudflare (DNS + SSL + DDoS)           $0.00  free plan
 GitHub Actions (CI/CD)                  $0.00  free tier
 ──────────────────────────────────────────────────

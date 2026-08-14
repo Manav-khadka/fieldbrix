@@ -1,5 +1,6 @@
 import "./App.css";
 import { useApiHealth } from "./hooks/use-api-health";
+import { SentryTestButton } from "./components/SentryTestButton";
 
 function App() {
   const apiHealth = useApiHealth();
@@ -13,6 +14,7 @@ function App() {
           <span aria-hidden="true" />
           API is {apiHealth}.
         </p>
+        <SentryTestButton />
       </section>
     </main>
   );

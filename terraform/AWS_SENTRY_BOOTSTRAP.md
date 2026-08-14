@@ -9,7 +9,7 @@ The authentication model is:
 Mac developer     -> IAM Identity Center -> temporary AWS STS credentials
 GitHub Actions    -> GitHub OIDC          -> temporary AWS STS credentials
 EC2/application   -> EC2 instance role    -> temporary AWS STS credentials
-Runtime secrets   -> AWS SSM Parameter Store (SecureString)
+Runtime secrets   -> AWS Secrets Manager (KMS-encrypted)
 Sentry build token-> GitHub Actions secret, never the application runtime
 ```
 
@@ -177,8 +177,7 @@ Expected:
 - The IAM command succeeds. A value of `1` means the root account has MFA.
 - S3 returns an empty list on a fresh account rather than `AccessDenied`.
 
-Then continue with `LOCAL_SETUP.md`, starting at the SSH-key step and Terraform
-state bootstrap:
+Then continue with `LOCAL_SETUP.md`, starting at Terraform state bootstrap:
 
 ```bash
 ./scripts/bootstrap.sh
@@ -190,8 +189,8 @@ Always read the plan before running `./scripts/apply.sh prod`.
 ## 5. Configure hosted Sentry
 
 Fieldbrix uses the hosted Sentry platform subscription. Terraform does not
-create or host a Sentry server in AWS. AWS SSM only holds the backend DSN so
-the EC2 application can read its runtime configuration securely.
+create or host a Sentry server in AWS. AWS Secrets Manager holds the backend
+runtime configuration so the EC2 application can read it securely.
 
 1. Use the existing Sentry organization subscription and enable MFA.
 2. In organization `fieldbrixxx`, use separate hosted projects so releases and alerts stay understandable:
@@ -213,7 +212,7 @@ the EC2 application can read its runtime configuration securely.
    - `SENTRY_WEB_PROJECT=vite-react`
    - `SENTRY_MOBILE_PROJECT=flutter`
    - `SENTRY_LAMBDAS_PROJECT=lambdas`
-7. Enter the backend DSN directly into the interactive SSM setup:
+7. Enter the backend DSN through the interactive Secrets Manager setup:
 
 ```bash
 source aws.env.local
@@ -228,7 +227,7 @@ Recommended variable names:
 
 | Consumer                  | Variable                     | Storage                            |
 | ------------------------- | ---------------------------- | ---------------------------------- |
-| NestJS runtime            | `SENTRY_DSN`, `SENTRY_ENVIRONMENT`, `SENTRY_RELEASE` | SSM/deployment config |
+| NestJS runtime            | `SENTRY_DSN`, `SENTRY_ENVIRONMENT`, `SENTRY_RELEASE` | Secrets Manager/deployment config |
 | React build               | `VITE_SENTRY_DSN`, `VITE_SENTRY_ENVIRONMENT`, `VITE_SENTRY_RELEASE` | CI environment / ignored local env |
 | Flutter build             | `SENTRY_DSN`, `SENTRY_ENVIRONMENT`, `SENTRY_RELEASE` | CI environment / `--dart-define` |
 | Lambda runtime            | `SENTRY_DSN`, `SENTRY_ENVIRONMENT`, `SENTRY_RELEASE` | encrypted function configuration |
@@ -265,10 +264,10 @@ only completion status and non-secret identifiers.
 - [ ] Root MFA configured; root access keys absent
 - [ ] Sentry backend/web/mobile DSNs stored in their target environments
 - [ ] Sentry CI auth token stored as `SENTRY_AUTH_TOKEN`
-- [ ] RDS password stored in SSM
-- [ ] JWT and refresh secrets stored in SSM and are different values
-- [ ] Cloudflare API token stored in SSM
-- [ ] Razorpay, MSG91, WhatsApp, Grafana credentials stored in SSM when available
+- [ ] RDS password stored in Secrets Manager
+- [ ] JWT and refresh secrets stored in Secrets Manager and are different values
+- [ ] Cloudflare API token stored in Secrets Manager
+- [ ] Razorpay, MSG91, WhatsApp, Grafana credentials stored in Secrets Manager when available
 - [ ] Systems Manager access works; no SSH key or port is configured
 
 If a secret was ever pasted into Git, chat, a ticket, or a screenshot, treat it
@@ -290,8 +289,8 @@ The foundation is ready when:
 - [ ] STS identity is the expected SSO assumed role and AWS account.
 - [ ] Root and human access have MFA.
 - [ ] The budget alerts are active and the email is confirmed.
-- [ ] Terraform state bucket and lock table exist.
-- [ ] Required SSM parameter names exist (values remain hidden).
+- [ ] Terraform state bucket and native S3 lock file support exist.
+- [ ] Required Secrets Manager secret names exist (values remain hidden).
 - [ ] Sentry projects, DSNs, and the CI token are stored in the correct places.
 - [ ] `terraform plan` completes and has been reviewed.
 

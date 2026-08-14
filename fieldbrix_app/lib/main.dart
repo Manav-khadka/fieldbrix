@@ -40,16 +40,26 @@ class FieldbrixApp extends StatelessWidget {
 class FoundationScreen extends StatelessWidget {
   const FoundationScreen({super.key});
 
+  void _triggerSentryError() {
+    throw StateError('This is test exception from FieldBrix Mobile');
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('FieldBrix', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700)),
-            SizedBox(height: 8),
-            Text('Mobile foundation is ready.'),
+            const Text('FieldBrix', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700)),
+            const SizedBox(height: 8),
+            const Text('Mobile foundation is ready.'),
+            const SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: _triggerSentryError,
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+              child: const Text('Break the world (Mobile)'),
+            ),
           ],
         ),
       ),

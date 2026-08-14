@@ -28,6 +28,8 @@ Never use "Flexible" mode — it sends traffic from Cloudflare to EC2 in plain H
 
 ## Cloudflare API token
 
-Stored in SSM at /fieldbrix/{env}/cloudflare_token.
+When this optional module is adopted, store it in Secrets Manager as
+`fieldbrix/{env}/cloudflare` with an `API_TOKEN` JSON key. Sprint 01 keeps DNS
+operator-managed in Cloudflare and does not apply this module.
 Created via Cloudflare dashboard → My Profile → API Tokens.
 Needs: Zone → DNS → Edit, scoped to your specific zone.

@@ -48,7 +48,14 @@ resource "aws_secretsmanager_secret_version" "runtime" {
   secret_id = aws_secretsmanager_secret.runtime.id
   secret_string = jsonencode({
     DB_PASSWORD = var.database_password
+    SENTRY_DSN  = var.backend_sentry_dsn
   })
+
+  lifecycle {
+    # Operators rotate non-database runtime values through Secrets Manager;
+    # Terraform must not overwrite that rotated secret on later applies.
+    ignore_changes = [secret_string]
+  }
 }
 
 module "queues" {

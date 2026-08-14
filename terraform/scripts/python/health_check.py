@@ -16,12 +16,6 @@ from rich.table import Table
 
 console = Console()
 
-REQUIRED_SECRETS = [
-    'db_password','jwt_secret','jwt_refresh_secret',
-    'razorpay_key_secret','msg91_auth_key',
-    'whatsapp_bsp_token','cloudflare_token',
-    'grafana_loki_user_id','grafana_api_key','sentry_dsn',
-]
 REQUIRED_QUEUES = ['pdf-generation','notifications','scheduler','media-processing']
 
 
@@ -36,7 +30,7 @@ def main(env, region, profile):
     checks = [
         ('EC2 instance',   *check_ec2(session, env)),
         ('RDS PostgreSQL', *check_rds(session, env)),
-        ('SSM secrets',    *check_ssm(session, env)),
+        ('Runtime secret', *check_runtime_secret(session, env)),
         ('SQS queues',     *check_sqs(session, env)),
         ('S3 buckets',     *check_s3(session, env)),
         ('Static IP',      *check_eip(session, env)),
@@ -86,14 +80,12 @@ def check_rds(session, env):
     except Exception as e: return False, str(e)
 
 
-def check_ssm(session, env):
+def check_runtime_secret(session, env):
     try:
-        ssm = session.client('ssm')
-        res = ssm.get_parameters(Names=[f'/fieldbrix/{env}/{s}' for s in REQUIRED_SECRETS], WithDecryption=False)
-        found, total = len(res['Parameters']), len(REQUIRED_SECRETS)
-        missing = [p.split('/')[-1] for p in res.get('InvalidParameters',[])]
-        if missing: return False, f"{found}/{total} found. Missing: {', '.join(missing)}"
-        return True, f"All {total} secrets present"
+        secret = session.client('secretsmanager').describe_secret(
+            SecretId=f'fieldbrix/{env}/runtime'
+        )
+        return True, f"Present — last changed {secret['LastChangedDate'].isoformat()}"
     except Exception as e: return False, str(e)
 
 
@@ -101,9 +93,12 @@ def check_sqs(session, env):
     try:
         sqs, found = session.client('sqs'), []
         for q in REQUIRED_QUEUES:
-            for suffix in ['.fifo','']:
-                try: sqs.get_queue_url(QueueName=f'fieldbrix-{env}-{q}'+suffix); found.append(q); break
-                except: pass
+            suffix = '.fifo' if q != 'media-processing' else ''
+            try:
+                sqs.get_queue_url(QueueName=f'fieldbrix-{env}-{q}{suffix}')
+                found.append(q)
+            except Exception:
+                pass
         total = len(REQUIRED_QUEUES)
         missing = set(REQUIRED_QUEUES) - set(found)
         if missing: return False, f"Missing: {', '.join(missing)}"
@@ -114,8 +109,10 @@ def check_sqs(session, env):
 def check_s3(session, env):
     try:
         s3, missing = session.client('s3'), []
+        account_id = session.client('sts').get_caller_identity()['Account']
         for b in ['photos','pdfs','exports','web']:
-            try: s3.head_bucket(Bucket=f'fieldbrix-{env}-{b}')
+            bucket = 'deployments' if b == 'web' else b
+            try: s3.head_bucket(Bucket=f'fieldbrix-{env}-{account_id}-{bucket}')
             except: missing.append(b)
         if missing: return False, f"Missing: {', '.join(missing)}"
         return True, "All 4 buckets exist"

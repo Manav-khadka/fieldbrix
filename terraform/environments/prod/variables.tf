@@ -67,3 +67,9 @@ variable "database_password" {
   sensitive   = true
   description = "RDS password injected by protected CI; never commit it to tfvars."
 }
+
+variable "backend_sentry_dsn" {
+  type        = string
+  sensitive   = true
+  description = "NestJS Sentry DSN injected by protected CI; never commit it to tfvars."
+}

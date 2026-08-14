@@ -35,11 +35,14 @@ jobs:
           AMI_ID: ${{ secrets.PROD_AMI_ID }}
           ALERT_EMAIL: ${{ secrets.PROD_ALERT_EMAIL }}
           DATABASE_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
+          BACKEND_SENTRY_DSN: ${{ secrets.PROD_BACKEND_SENTRY_DSN }}
           TF_VAR_database_password: ${{ secrets.PROD_DB_PASSWORD }}
+          TF_VAR_backend_sentry_dsn: ${{ secrets.PROD_BACKEND_SENTRY_DSN }}
         run: |
           test -n "${AMI_ID}"
           test -n "${ALERT_EMAIL}"
           test -n "${DATABASE_PASSWORD}"
+          test -n "${BACKEND_SENTRY_DSN}"
           cp terraform.tfvars.example terraform.tfvars
           sed -i "s/ami-REPLACE_WITH_CURRENT_AMI/${AMI_ID}/" terraform.tfvars
           sed -i "s/ops@example.com/${ALERT_EMAIL}/" terraform.tfvars

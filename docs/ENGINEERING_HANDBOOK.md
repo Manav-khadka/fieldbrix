@@ -136,7 +136,7 @@ Lifecycle     : Move photos to S3-IA after 90 days (60% cheaper)
 Security      : All buckets private by default
                 Photos served via presigned URLs (15 min expiry)
                 PDFs served via presigned URLs (15 min expiry)
-                Web bucket CloudFront only (no direct S3 access)
+                Deployment bucket accessed only by the EC2 instance role
 ```
 
 ## CDN + DNS
@@ -149,10 +149,8 @@ Features used :
   DNS          : Unlimited, instant propagation
   SSL/TLS      : Auto-renewing, free certificates
   DDoS         : Always-on protection (free tier)
-  CDN          : React SPA assets cached globally
-                 India latency ~15-20ms vs ~80ms without CDN
-  Proxy        : Hides EC2 IP (security)
-  Page Rules   : Cache SPA assets 1 year, API never cached
+  Proxy        : Optional Cloudflare reverse proxy for the EC2 origin
+  DNS          : Cloudflare-managed records; no AWS DNS service
 ```
 
 ## Async Layer
@@ -209,13 +207,12 @@ Pipeline      :
     1. Run tests (Jest unit + integration)
     2. Build NestJS (tsc --noEmit type check)
     3. Build React (vite build)
-    4. SSH to EC2 → git pull → pm2 restart
-    5. Deploy React to S3 → CloudFront invalidation
-    6. Deploy Lambdas (zip → aws lambda update)
+    4. Build immutable release artifacts
+    5. Upload private artifacts to S3 and activate them through Systems Manager
+    6. Run HTTPS health and version smoke checks
 
 Deploy time   : ~3-4 minutes end to end
-Rollback      : pm2 restart with previous git commit
-                (30 seconds)
+Rollback      : reactivate a prior immutable release through Systems Manager
 ```
 
 ---
@@ -1796,7 +1793,7 @@ Why SPA       : Web console is 100% behind login screen
                 SEO = irrelevant
                 SSR (Next.js) adds complexity with zero benefit
                 No caching layers to fight for live dashboard data
-                Deploys to S3 + CloudFront (no server needed)
+                Deployed as an immutable artifact to the EC2/nginx runtime
 Why not Next  : ISR/SSG useless for authenticated dashboard
                 {cache: 'no-store'} needed everywhere anyway
                 Vercel lock-in concern
@@ -1804,7 +1801,7 @@ Why not Next  : ISR/SSG useless for authenticated dashboard
 
 Build time    : measured and recorded by CI for the pinned toolchain
 Bundle size   : Tree-shakable by default
-Deploy        : S3 sync + CloudFront invalidation (~45s)
+Deploy        : private S3 artifact upload + Systems Manager activation
 ```
 
 ## 8.2 Routing
@@ -2991,7 +2988,6 @@ EBS gp3 30GB (EC2 root volume)          $2.40
 S3 (photos + PDFs + SPA assets)         $0.50
 Lambda (PDF + schedulers + webhooks)    $0.00  always free
 SQS (job queues)                        $0.00  always free
-CloudFront (React SPA CDN)              $0.00  free tier
 Cloudflare (DNS + SSL + DDoS)           $0.00  free plan
 GitHub Actions (CI/CD)                  $0.00  free tier
 ──────────────────────────────────────────────────

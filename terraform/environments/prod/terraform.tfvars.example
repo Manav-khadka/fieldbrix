@@ -1,5 +1,5 @@
-# FieldBrix production bootstrap configuration. Secrets are stored in SSM under
-# /fieldbrix/prod and must never be added to this file.
+# FieldBrix production bootstrap configuration. Secrets are stored in AWS
+# Secrets Manager and must never be added to this file.
 
 env    = "prod"
 region = "ap-south-1"
