@@ -1,0 +1,5679 @@
+{
+  "nodes": [
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_json",
+      "label": "tsconfig.node.json",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_tsbuildinfofile",
+      "label": "tsBuildInfoFile",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_target",
+      "label": "target",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_lib",
+      "label": "lib",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_types",
+      "label": "types",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_skiplibcheck",
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_module",
+      "label": "module",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_allowimportingtsextensions",
+      "label": "allowImportingTsExtensions",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_verbatimmodulesyntax",
+      "label": "verbatimModuleSyntax",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_moduledetection",
+      "label": "moduleDetection",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_noemit",
+      "label": "noEmit",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_nounusedlocals",
+      "label": "noUnusedLocals",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_nounusedparameters",
+      "label": "noUnusedParameters",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_erasablesyntaxonly",
+      "label": "erasableSyntaxOnly",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_compileroptions_nofallthroughcasesinswitch",
+      "label": "noFallthroughCasesInSwitch",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_node_include",
+      "label": "include",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_json",
+      "label": "tsconfig.app.json",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_tsbuildinfofile",
+      "label": "tsBuildInfoFile",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_target",
+      "label": "target",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_lib",
+      "label": "lib",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_module",
+      "label": "module",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_types",
+      "label": "types",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_allowarbitraryextensions",
+      "label": "allowArbitraryExtensions",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_skiplibcheck",
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_moduleresolution",
+      "label": "moduleResolution",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_allowimportingtsextensions",
+      "label": "allowImportingTsExtensions",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_verbatimmodulesyntax",
+      "label": "verbatimModuleSyntax",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_moduledetection",
+      "label": "moduleDetection",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_noemit",
+      "label": "noEmit",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_jsx",
+      "label": "jsx",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_nounusedlocals",
+      "label": "noUnusedLocals",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_nounusedparameters",
+      "label": "noUnusedParameters",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_erasablesyntaxonly",
+      "label": "erasableSyntaxOnly",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_compileroptions_nofallthroughcasesinswitch",
+      "label": "noFallthroughCasesInSwitch",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L23"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_app_include",
+      "label": "include",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L25"
+    },
+    {
+      "id": "fieldbrix_frontend_oxlintrc_json",
+      "label": ".oxlintrc.json",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_frontend_oxlintrc_schema",
+      "label": "$schema",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "fieldbrix_frontend_oxlintrc_plugins",
+      "label": "plugins",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "fieldbrix_frontend_oxlintrc_rules",
+      "label": "rules",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "fieldbrix_frontend_oxlintrc_rules_react_rules_of_hooks",
+      "label": "react/rules-of-hooks",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "fieldbrix_frontend_oxlintrc_rules_react_only_export_components",
+      "label": "react/only-export-components",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "fieldbrix_frontend_package_json",
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_frontend_package_name",
+      "label": "name",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "fieldbrix_frontend_package_private",
+      "label": "private",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "fieldbrix_frontend_package_version",
+      "label": "version",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "fieldbrix_frontend_package_type",
+      "label": "type",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "fieldbrix_frontend_package_scripts",
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "fieldbrix_frontend_package_scripts_dev",
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "fieldbrix_frontend_package_scripts_build",
+      "label": "build",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "fieldbrix_frontend_package_scripts_lint",
+      "label": "lint",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "fieldbrix_frontend_package_scripts_preview",
+      "label": "preview",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "fieldbrix_frontend_package_dependencies",
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "fieldbrix_frontend_package_dependencies_react",
+      "label": "react",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "fieldbrix_frontend_package_dependencies_react_dom",
+      "label": "react-dom",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "fieldbrix_frontend_package_devdependencies",
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "fieldbrix_frontend_package_devdependencies_types_node",
+      "label": "@types/node",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "fieldbrix_frontend_package_devdependencies_types_react",
+      "label": "@types/react",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "fieldbrix_frontend_package_devdependencies_types_react_dom",
+      "label": "@types/react-dom",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "fieldbrix_frontend_package_devdependencies_vitejs_plugin_react",
+      "label": "@vitejs/plugin-react",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "fieldbrix_frontend_package_devdependencies_oxlint",
+      "label": "oxlint",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "fieldbrix_frontend_package_devdependencies_typescript",
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "fieldbrix_frontend_package_devdependencies_vite",
+      "label": "vite",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L23"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_json",
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_files",
+      "label": "files",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "fieldbrix_frontend_tsconfig_references",
+      "label": "references",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/tsconfig.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "fieldbrix_frontend_vite_config_ts",
+      "label": "vite.config.ts",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/vite.config.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_frontend_src_app_tsx",
+      "label": "App.tsx",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/src/App.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_app",
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/src/App.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "fieldbrix_frontend_src_main_tsx",
+      "label": "main.tsx",
+      "file_type": "code",
+      "source_file": "fieldbrix-frontend/src/main.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_backend_nest_cli_json",
+      "label": "nest-cli.json",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/nest-cli.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_backend_nest_cli_schema",
+      "label": "$schema",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/nest-cli.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "fieldbrix_backend_nest_cli_collection",
+      "label": "collection",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/nest-cli.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "fieldbrix_backend_nest_cli_sourceroot",
+      "label": "sourceRoot",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/nest-cli.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "fieldbrix_backend_nest_cli_compileroptions",
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/nest-cli.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "fieldbrix_backend_nest_cli_compileroptions_deleteoutdir",
+      "label": "deleteOutDir",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/nest-cli.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "fieldbrix_backend_package_json",
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_backend_package_name",
+      "label": "name",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "fieldbrix_backend_package_version",
+      "label": "version",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "fieldbrix_backend_package_description",
+      "label": "description",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "fieldbrix_backend_package_author",
+      "label": "author",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "fieldbrix_backend_package_private",
+      "label": "private",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "fieldbrix_backend_package_license",
+      "label": "license",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts",
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_build",
+      "label": "build",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_format",
+      "label": "format",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_start",
+      "label": "start",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_start_dev",
+      "label": "start:dev",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_start_debug",
+      "label": "start:debug",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_start_prod",
+      "label": "start:prod",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_lint",
+      "label": "lint",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_test",
+      "label": "test",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_test_watch",
+      "label": "test:watch",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_test_cov",
+      "label": "test:cov",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_test_debug",
+      "label": "test:debug",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "fieldbrix_backend_package_scripts_test_e2e",
+      "label": "test:e2e",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "fieldbrix_backend_package_dependencies",
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "fieldbrix_backend_package_dependencies_nestjs_common",
+      "label": "@nestjs/common",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L23"
+    },
+    {
+      "id": "fieldbrix_backend_package_dependencies_nestjs_core",
+      "label": "@nestjs/core",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L24"
+    },
+    {
+      "id": "fieldbrix_backend_package_dependencies_nestjs_platform_express",
+      "label": "@nestjs/platform-express",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L25"
+    },
+    {
+      "id": "fieldbrix_backend_package_dependencies_reflect_metadata",
+      "label": "reflect-metadata",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L26"
+    },
+    {
+      "id": "fieldbrix_backend_package_dependencies_rxjs",
+      "label": "rxjs",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L27"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies",
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L29"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_eslint_eslintrc",
+      "label": "@eslint/eslintrc",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L30"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_eslint_js",
+      "label": "@eslint/js",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L31"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_nestjs_cli",
+      "label": "@nestjs/cli",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L32"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_nestjs_schematics",
+      "label": "@nestjs/schematics",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L33"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_nestjs_testing",
+      "label": "@nestjs/testing",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L34"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_types_express",
+      "label": "@types/express",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L35"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_types_jest",
+      "label": "@types/jest",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L36"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_types_node",
+      "label": "@types/node",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L37"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_types_supertest",
+      "label": "@types/supertest",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L38"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_eslint",
+      "label": "eslint",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L39"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_eslint_config_prettier",
+      "label": "eslint-config-prettier",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L40"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_eslint_plugin_prettier",
+      "label": "eslint-plugin-prettier",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L41"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_globals",
+      "label": "globals",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L42"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_jest",
+      "label": "jest",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L43"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_prettier",
+      "label": "prettier",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L44"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_source_map_support",
+      "label": "source-map-support",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L45"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_supertest",
+      "label": "supertest",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L46"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_ts_jest",
+      "label": "ts-jest",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L47"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_ts_loader",
+      "label": "ts-loader",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L48"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_ts_node",
+      "label": "ts-node",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L49"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_tsconfig_paths",
+      "label": "tsconfig-paths",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L50"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_typescript",
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L51"
+    },
+    {
+      "id": "fieldbrix_backend_package_devdependencies_typescript_eslint",
+      "label": "typescript-eslint",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L52"
+    },
+    {
+      "id": "fieldbrix_backend_package_jest",
+      "label": "jest",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L54"
+    },
+    {
+      "id": "fieldbrix_backend_package_jest_modulefileextensions",
+      "label": "moduleFileExtensions",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L55"
+    },
+    {
+      "id": "fieldbrix_backend_package_jest_rootdir",
+      "label": "rootDir",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L60"
+    },
+    {
+      "id": "fieldbrix_backend_package_jest_testregex",
+      "label": "testRegex",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L61"
+    },
+    {
+      "id": "fieldbrix_backend_package_jest_transform",
+      "label": "transform",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L62"
+    },
+    {
+      "id": "fieldbrix_backend_package_transform_t_j_s",
+      "label": "^.+\\\\.(t|j)s$",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L63"
+    },
+    {
+      "id": "fieldbrix_backend_package_jest_collectcoveragefrom",
+      "label": "collectCoverageFrom",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L65"
+    },
+    {
+      "id": "fieldbrix_backend_package_jest_coveragedirectory",
+      "label": "coverageDirectory",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L68"
+    },
+    {
+      "id": "fieldbrix_backend_package_jest_testenvironment",
+      "label": "testEnvironment",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L69"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_build_json",
+      "label": "tsconfig.build.json",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.build.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_build_extends",
+      "label": "extends",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.build.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_build_exclude",
+      "label": "exclude",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.build.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_json",
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_ignoredeprecations",
+      "label": "ignoreDeprecations",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_module",
+      "label": "module",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_moduleresolution",
+      "label": "moduleResolution",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_resolvepackagejsonexports",
+      "label": "resolvePackageJsonExports",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_esmoduleinterop",
+      "label": "esModuleInterop",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_isolatedmodules",
+      "label": "isolatedModules",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_declaration",
+      "label": "declaration",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_removecomments",
+      "label": "removeComments",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_emitdecoratormetadata",
+      "label": "emitDecoratorMetadata",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_experimentaldecorators",
+      "label": "experimentalDecorators",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_allowsyntheticdefaultimports",
+      "label": "allowSyntheticDefaultImports",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_target",
+      "label": "target",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_sourcemap",
+      "label": "sourceMap",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_outdir",
+      "label": "outDir",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_baseurl",
+      "label": "baseUrl",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_incremental",
+      "label": "incremental",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_skiplibcheck",
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_strictnullchecks",
+      "label": "strictNullChecks",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_forceconsistentcasinginfilenames",
+      "label": "forceConsistentCasingInFileNames",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_noimplicitany",
+      "label": "noImplicitAny",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_strictbindcallapply",
+      "label": "strictBindCallApply",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L23"
+    },
+    {
+      "id": "fieldbrix_backend_tsconfig_compileroptions_nofallthroughcasesinswitch",
+      "label": "noFallthroughCasesInSwitch",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L24"
+    },
+    {
+      "id": "fieldbrix_backend_eslint_config_mjs",
+      "label": "eslint.config.mjs",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/eslint.config.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_backend_test_app_e2e_spec_ts",
+      "label": "app.e2e-spec.ts",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/test/app.e2e-spec.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_backend_test_jest_e2e_json",
+      "label": "jest-e2e.json",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "test_jest_e2e_modulefileextensions",
+      "label": "moduleFileExtensions",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "test_jest_e2e_rootdir",
+      "label": "rootDir",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "test_jest_e2e_testenvironment",
+      "label": "testEnvironment",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "test_jest_e2e_testregex",
+      "label": "testRegex",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "test_jest_e2e_transform",
+      "label": "transform",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "test_jest_e2e_transform_t_j_s",
+      "label": "^.+\\\\.(t|j)s$",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "fieldbrix_backend_src_main_ts",
+      "label": "main.ts",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/main.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_main_bootstrap",
+      "label": "bootstrap()",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/main.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "fieldbrix_backend_src_app_service_ts",
+      "label": "app.service.ts",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/app.service.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_service_appservice",
+      "label": "AppService",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/app.service.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "src_app_service_appservice_gethello",
+      "label": ".getHello()",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/app.service.ts",
+      "source_location": "L5"
+    },
+    {
+      "id": "fieldbrix_backend_src_app_module_ts",
+      "label": "app.module.ts",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/app.module.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_module_appmodule",
+      "label": "AppModule",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/app.module.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "fieldbrix_backend_src_app_controller_spec_ts",
+      "label": "app.controller.spec.ts",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/app.controller.spec.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_backend_src_app_controller_ts",
+      "label": "app.controller.ts",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_controller_appcontroller",
+      "label": "AppController",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L5"
+    },
+    {
+      "id": "src_app_controller_appcontroller_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_app_controller_appcontroller_gethello",
+      "label": ".getHello()",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "claude_settings_local_json",
+      "label": "settings.local.json",
+      "file_type": "code",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "claude_settings_local_permissions",
+      "label": "permissions",
+      "file_type": "code",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "claude_settings_local_permissions_allow",
+      "label": "allow",
+      "file_type": "code",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "claude_settings_local_permissions_additionaldirectories",
+      "label": "additionalDirectories",
+      "file_type": "code",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "docs_terraform_scripts_db_tunnel_sh",
+      "label": "db-tunnel.sh",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/db-tunnel.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_terraform_scripts_ssh_sh",
+      "label": "ssh.sh",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/ssh.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_terraform_scripts_cost_sh",
+      "label": "cost.sh",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/cost.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_terraform_scripts_apply_sh",
+      "label": "apply.sh",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/apply.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_terraform_scripts_status_sh",
+      "label": "status.sh",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/status.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_terraform_scripts_plan_sh",
+      "label": "plan.sh",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/plan.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_terraform_scripts_bootstrap_sh",
+      "label": "bootstrap.sh",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/bootstrap.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_terraform_scripts_destroy_sh",
+      "label": "destroy.sh",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/destroy.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_terraform_scripts_stop_sh",
+      "label": "stop.sh",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/stop.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_terraform_scripts_start_sh",
+      "label": "start.sh",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/start.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_terraform_scripts_python_migrate_account_py",
+      "label": "migrate_account.py",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "python_migrate_account_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L28"
+    },
+    {
+      "id": "python_migrate_account_verify_ec2",
+      "label": "verify_ec2()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L56"
+    },
+    {
+      "id": "python_migrate_account_create_snapshot",
+      "label": "create_snapshot()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L63"
+    },
+    {
+      "id": "python_migrate_account_restore_snapshot",
+      "label": "restore_snapshot()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L73"
+    },
+    {
+      "id": "python_migrate_account_sync_s3",
+      "label": "sync_s3()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L86"
+    },
+    {
+      "id": "docs_terraform_scripts_python_cost_report_py",
+      "label": "cost_report.py",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/cost_report.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "python_cost_report_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/cost_report.py",
+      "source_location": "L18"
+    },
+    {
+      "id": "docs_terraform_scripts_python_health_check_py",
+      "label": "health_check.py",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "python_health_check_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L32"
+    },
+    {
+      "id": "python_health_check_check_ec2",
+      "label": "check_ec2()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L65"
+    },
+    {
+      "id": "python_health_check_check_rds",
+      "label": "check_rds()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L79"
+    },
+    {
+      "id": "python_health_check_check_ssm",
+      "label": "check_ssm()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L89"
+    },
+    {
+      "id": "python_health_check_check_sqs",
+      "label": "check_sqs()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L100"
+    },
+    {
+      "id": "python_health_check_check_s3",
+      "label": "check_s3()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L114"
+    },
+    {
+      "id": "python_health_check_check_eip",
+      "label": "check_eip()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L125"
+    },
+    {
+      "id": "docs_terraform_scripts_python_db_snapshot_py",
+      "label": "db_snapshot.py",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/db_snapshot.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "python_db_snapshot_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "docs/terraform/scripts/python/db_snapshot.py",
+      "source_location": "L19"
+    },
+    {
+      "id": "fieldbrix_app_test_widget_test_dart",
+      "label": "widget_test.dart",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/test/widget_test.dart",
+      "source_location": null
+    },
+    {
+      "id": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_test_widget_test_dart_main",
+      "label": "main",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/test/widget_test.dart",
+      "source_location": null
+    },
+    {
+      "id": "package_flutter_material_dart",
+      "label": "package:flutter/material.dart",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/test/widget_test.dart",
+      "source_location": null
+    },
+    {
+      "id": "package_flutter_test_flutter_test_dart",
+      "label": "package:flutter_test/flutter_test.dart",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/test/widget_test.dart",
+      "source_location": null
+    },
+    {
+      "id": "package_fieldbrix_app_main_dart",
+      "label": "package:fieldbrix_app/main.dart",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/test/widget_test.dart",
+      "source_location": null
+    },
+    {
+      "id": "fieldbrix_app_ios_runnertests_runnertests_swift",
+      "label": "RunnerTests.swift",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/RunnerTests/RunnerTests.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "runnertests_runnertests_runnertests",
+      "label": "RunnerTests",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/RunnerTests/RunnerTests.swift",
+      "source_location": "L5"
+    },
+    {
+      "id": "xctestcase",
+      "label": "XCTestCase",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "runnertests_runnertests_runnertests_testexample",
+      "label": ".testExample()",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/RunnerTests/RunnerTests.swift",
+      "source_location": "L7"
+    },
+    {
+      "id": "fieldbrix_app_ios_runner_runner_bridging_header_h",
+      "label": "Runner-Bridging-Header.h",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/Runner-Bridging-Header.h",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_app_ios_runner_generatedpluginregistrant_h",
+      "label": "GeneratedPluginRegistrant.h",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/GeneratedPluginRegistrant.h",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_app_ios_runner_appdelegate_swift",
+      "label": "AppDelegate.swift",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/AppDelegate.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "runner_appdelegate_appdelegate",
+      "label": "AppDelegate",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/AppDelegate.swift",
+      "source_location": "L4"
+    },
+    {
+      "id": "flutterappdelegate",
+      "label": "FlutterAppDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "flutterimplicitenginedelegate",
+      "label": "FlutterImplicitEngineDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "runner_appdelegate_appdelegate_application",
+      "label": ".application()",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/AppDelegate.swift",
+      "source_location": "L6"
+    },
+    {
+      "id": "runner_appdelegate_appdelegate_didinitializeimplicitflutterengine",
+      "label": ".didInitializeImplicitFlutterEngine()",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/AppDelegate.swift",
+      "source_location": "L13"
+    },
+    {
+      "id": "fieldbrix_app_ios_runner_generatedpluginregistrant_m",
+      "label": "GeneratedPluginRegistrant.m",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/GeneratedPluginRegistrant.m",
+      "source_location": "L1"
+    },
+    {
+      "id": "runner_generatedpluginregistrant_generatedpluginregistrant",
+      "label": "GeneratedPluginRegistrant",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/GeneratedPluginRegistrant.m",
+      "source_location": "L9"
+    },
+    {
+      "id": "runner_generatedpluginregistrant_generatedpluginregistrant_registerwithregistry",
+      "label": "-registerWithRegistry",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/GeneratedPluginRegistrant.m",
+      "source_location": "L11"
+    },
+    {
+      "id": "fieldbrix_app_ios_runner_scenedelegate_swift",
+      "label": "SceneDelegate.swift",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/SceneDelegate.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "runner_scenedelegate_scenedelegate",
+      "label": "SceneDelegate",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/SceneDelegate.swift",
+      "source_location": "L4"
+    },
+    {
+      "id": "flutterscenedelegate",
+      "label": "FlutterSceneDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "fieldbrix_app_ios_runner_assets_xcassets_launchimage_imageset_contents_json",
+      "label": "Contents.json",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "launchimage_imageset_contents_images",
+      "label": "images",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "launchimage_imageset_contents_info",
+      "label": "info",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "launchimage_imageset_contents_info_version",
+      "label": "version",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "launchimage_imageset_contents_info_author",
+      "label": "author",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "fieldbrix_app_ios_runner_assets_xcassets_appicon_appiconset_contents_json",
+      "label": "Contents.json",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "appicon_appiconset_contents_images",
+      "label": "images",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "appicon_appiconset_contents_info",
+      "label": "info",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "source_location": "L118"
+    },
+    {
+      "id": "appicon_appiconset_contents_info_version",
+      "label": "version",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "source_location": "L119"
+    },
+    {
+      "id": "appicon_appiconset_contents_info_author",
+      "label": "author",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "source_location": "L120"
+    },
+    {
+      "id": "fieldbrix_app_ios_flutter_flutter_export_environment_sh",
+      "label": "flutter_export_environment.sh",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Flutter/flutter_export_environment.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_app_ios_flutter_ephemeral_flutter_lldb_helper_py",
+      "label": "flutter_lldb_helper.py",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Flutter/ephemeral/flutter_lldb_helper.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "ephemeral_flutter_lldb_helper_handle_new_rx_page",
+      "label": "handle_new_rx_page()",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Flutter/ephemeral/flutter_lldb_helper.py",
+      "source_location": "L7"
+    },
+    {
+      "id": "ephemeral_flutter_lldb_helper_lldb_init_module",
+      "label": "__lldb_init_module()",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/ios/Flutter/ephemeral/flutter_lldb_helper.py",
+      "source_location": "L24"
+    },
+    {
+      "id": "ephemeral_flutter_lldb_helper_rationale_8",
+      "label": "Intercept NOTIFY_DEBUGGER_ABOUT_RX_PAGES and touch the pages.",
+      "file_type": "rationale",
+      "source_file": "fieldbrix_app/ios/Flutter/ephemeral/flutter_lldb_helper.py",
+      "source_location": "L8"
+    },
+    {
+      "id": "fieldbrix_app_android_build_gradle_kts",
+      "label": "build.gradle.kts",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/android/build.gradle.kts",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_app_android_settings_gradle_kts",
+      "label": "settings.gradle.kts",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/android/settings.gradle.kts",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_app_android_app_build_gradle_kts",
+      "label": "build.gradle.kts",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/android/app/build.gradle.kts",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_app_android_app_src_main_java_io_flutter_plugins_generatedpluginregistrant_java",
+      "label": "GeneratedPluginRegistrant.java",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
+      "source_location": "L1"
+    },
+    {
+      "id": "plugins_generatedpluginregistrant_generatedpluginregistrant",
+      "label": "GeneratedPluginRegistrant",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
+      "source_location": "L14"
+    },
+    {
+      "id": "plugins_generatedpluginregistrant_generatedpluginregistrant_registerwith",
+      "label": ".registerWith()",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
+      "source_location": "L17"
+    },
+    {
+      "id": "fieldbrix_app_android_app_src_main_kotlin_com_example_fieldbrix_app_mainactivity_kt",
+      "label": "MainActivity.kt",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/android/app/src/main/kotlin/com/example/fieldbrix_app/MainActivity.kt",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_app_mainactivity_mainactivity",
+      "label": "MainActivity",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/android/app/src/main/kotlin/com/example/fieldbrix_app/MainActivity.kt",
+      "source_location": "L5"
+    },
+    {
+      "id": "fieldbrix_app_lib_main_dart",
+      "label": "main.dart",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null
+    },
+    {
+      "id": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_myapp",
+      "label": "MyApp",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null
+    },
+    {
+      "id": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_myhomepage",
+      "label": "MyHomePage",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null
+    },
+    {
+      "id": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_myhomepagestate",
+      "label": "_MyHomePageState",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null
+    },
+    {
+      "id": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_main",
+      "label": "main",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null
+    },
+    {
+      "id": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_build",
+      "label": "build",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null
+    },
+    {
+      "id": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_materialapp",
+      "label": "MaterialApp",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null
+    },
+    {
+      "id": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_incrementcounter",
+      "label": "_incrementCounter",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null
+    },
+    {
+      "id": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_scaffold",
+      "label": "Scaffold",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null
+    },
+    {
+      "id": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_text",
+      "label": "Text",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null
+    },
+    {
+      "id": "package_flutter_material_dart",
+      "label": "package:flutter/material.dart",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null
+    },
+    {
+      "id": "fieldbrix_app_dart_tool_package_config_json",
+      "label": "package_config.json",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "dart_tool_package_config_configversion",
+      "label": "configVersion",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "dart_tool_package_config_packages",
+      "label": "packages",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "dart_tool_package_config_generator",
+      "label": "generator",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L173"
+    },
+    {
+      "id": "dart_tool_package_config_generatorversion",
+      "label": "generatorVersion",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L174"
+    },
+    {
+      "id": "dart_tool_package_config_flutterroot",
+      "label": "flutterRoot",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L175"
+    },
+    {
+      "id": "dart_tool_package_config_flutterversion",
+      "label": "flutterVersion",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L176"
+    },
+    {
+      "id": "dart_tool_package_config_pubcache",
+      "label": "pubCache",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L177"
+    },
+    {
+      "id": "fieldbrix_app_dart_tool_package_graph_json",
+      "label": "package_graph.json",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_graph.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "dart_tool_package_graph_roots",
+      "label": "roots",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_graph.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "dart_tool_package_graph_packages",
+      "label": "packages",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_graph.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "dart_tool_package_graph_configversion",
+      "label": "configVersion",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/package_graph.json",
+      "source_location": "L229"
+    },
+    {
+      "id": "fieldbrix_app_dart_tool_extension_discovery_vs_code_json",
+      "label": "vs_code.json",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/extension_discovery/vs_code.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "extension_discovery_vs_code_version",
+      "label": "version",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/extension_discovery/vs_code.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "extension_discovery_vs_code_entries",
+      "label": "entries",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/extension_discovery/vs_code.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "fieldbrix_app_dart_tool_dartpad_web_plugin_registrant_dart",
+      "label": "web_plugin_registrant.dart",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/dartpad/web_plugin_registrant.dart",
+      "source_location": null
+    },
+    {
+      "id": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_dart_tool_dartpad_web_plugin_registrant_dart_registerplugins",
+      "label": "registerPlugins",
+      "file_type": "code",
+      "source_file": "fieldbrix_app/.dart_tool/dartpad/web_plugin_registrant.dart",
+      "source_location": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_json",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_tsbuildinfofile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_target",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_lib",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions_lib",
+      "target": "ref_es2023",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_types",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions_types",
+      "target": "ref_node",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_skiplibcheck",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_module",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_allowimportingtsextensions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_verbatimmodulesyntax",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_moduledetection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_noemit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_nounusedlocals",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_nounusedparameters",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_erasablesyntaxonly",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_node_compileroptions_nofallthroughcasesinswitch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_json",
+      "target": "fieldbrix_frontend_tsconfig_node_include",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_node_include",
+      "target": "ref_vite_config_ts",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.node.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_json",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_tsbuildinfofile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_target",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_lib",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions_lib",
+      "target": "ref_es2023",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions_lib",
+      "target": "ref_dom",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_module",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_types",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions_types",
+      "target": "ref_vite_client",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_allowarbitraryextensions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_skiplibcheck",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_moduleresolution",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_allowimportingtsextensions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_verbatimmodulesyntax",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_moduledetection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_noemit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_jsx",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_nounusedlocals",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_nounusedparameters",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_erasablesyntaxonly",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_compileroptions",
+      "target": "fieldbrix_frontend_tsconfig_app_compileroptions_nofallthroughcasesinswitch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_json",
+      "target": "fieldbrix_frontend_tsconfig_app_include",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_app_include",
+      "target": "ref_src",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.app.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_oxlintrc_json",
+      "target": "fieldbrix_frontend_oxlintrc_schema",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_oxlintrc_json",
+      "target": "fieldbrix_frontend_oxlintrc_plugins",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_oxlintrc_plugins",
+      "target": "ref_react",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_oxlintrc_plugins",
+      "target": "ref_typescript",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_oxlintrc_plugins",
+      "target": "ref_oxc",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_oxlintrc_json",
+      "target": "fieldbrix_frontend_oxlintrc_rules",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_oxlintrc_rules",
+      "target": "fieldbrix_frontend_oxlintrc_rules_react_rules_of_hooks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_oxlintrc_rules",
+      "target": "fieldbrix_frontend_oxlintrc_rules_react_only_export_components",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_oxlintrc_rules_react_only_export_components",
+      "target": "ref_warn",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/.oxlintrc.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_package_json",
+      "target": "fieldbrix_frontend_package_name",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_json",
+      "target": "fieldbrix_frontend_package_private",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_json",
+      "target": "fieldbrix_frontend_package_version",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_json",
+      "target": "fieldbrix_frontend_package_type",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_json",
+      "target": "fieldbrix_frontend_package_scripts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_scripts",
+      "target": "fieldbrix_frontend_package_scripts_dev",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_scripts",
+      "target": "fieldbrix_frontend_package_scripts_build",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_scripts",
+      "target": "fieldbrix_frontend_package_scripts_lint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_scripts",
+      "target": "fieldbrix_frontend_package_scripts_preview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_json",
+      "target": "fieldbrix_frontend_package_dependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_dependencies",
+      "target": "fieldbrix_frontend_package_dependencies_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_dependencies_react",
+      "target": "react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_package_dependencies",
+      "target": "fieldbrix_frontend_package_dependencies_react_dom",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_dependencies_react_dom",
+      "target": "react_dom",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_package_json",
+      "target": "fieldbrix_frontend_package_devdependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies",
+      "target": "fieldbrix_frontend_package_devdependencies_types_node",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies_types_node",
+      "target": "types_node",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies",
+      "target": "fieldbrix_frontend_package_devdependencies_types_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies_types_react",
+      "target": "types_react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies",
+      "target": "fieldbrix_frontend_package_devdependencies_types_react_dom",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies_types_react_dom",
+      "target": "types_react_dom",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies",
+      "target": "fieldbrix_frontend_package_devdependencies_vitejs_plugin_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies_vitejs_plugin_react",
+      "target": "vitejs_plugin_react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies",
+      "target": "fieldbrix_frontend_package_devdependencies_oxlint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies_oxlint",
+      "target": "oxlint",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies",
+      "target": "fieldbrix_frontend_package_devdependencies_typescript",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies_typescript",
+      "target": "typescript",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies",
+      "target": "fieldbrix_frontend_package_devdependencies_vite",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_package_devdependencies_vite",
+      "target": "vite",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_json",
+      "target": "fieldbrix_frontend_tsconfig_files",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_tsconfig_json",
+      "target": "fieldbrix_frontend_tsconfig_references",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_vite_config_ts",
+      "target": "vite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/vite.config.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_vite_config_ts",
+      "target": "plugin_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/vite.config.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_src_app_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/src/App.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_src_app_tsx",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_frontend_src_assets_react_svg",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/src/App.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_src_app_tsx",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_frontend_src_assets_vite_svg",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/src/App.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_src_app_tsx",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_frontend_src_assets_hero_png",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/src/App.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_src_app_tsx",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_frontend_src_app_css",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/src/App.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_src_app_tsx",
+      "target": "src_app_app",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/src/App.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_src_main_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/src/main.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_src_main_tsx",
+      "target": "client",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/src/main.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_src_main_tsx",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_frontend_src_index_css",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/src/main.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_frontend_src_main_tsx",
+      "target": "fieldbrix_frontend_src_app_tsx",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-frontend/src/main.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_nest_cli_json",
+      "target": "fieldbrix_backend_nest_cli_schema",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/nest-cli.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_nest_cli_json",
+      "target": "fieldbrix_backend_nest_cli_collection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/nest-cli.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_nest_cli_json",
+      "target": "fieldbrix_backend_nest_cli_sourceroot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/nest-cli.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_nest_cli_json",
+      "target": "fieldbrix_backend_nest_cli_compileroptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/nest-cli.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_nest_cli_compileroptions",
+      "target": "fieldbrix_backend_nest_cli_compileroptions_deleteoutdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/nest-cli.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_json",
+      "target": "fieldbrix_backend_package_name",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_json",
+      "target": "fieldbrix_backend_package_version",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_json",
+      "target": "fieldbrix_backend_package_description",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_json",
+      "target": "fieldbrix_backend_package_author",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_json",
+      "target": "fieldbrix_backend_package_private",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_json",
+      "target": "fieldbrix_backend_package_license",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_json",
+      "target": "fieldbrix_backend_package_scripts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_build",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_format",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_start",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_start_dev",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_start_debug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_start_prod",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_lint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_test",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_test_watch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_test_cov",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_test_debug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_scripts",
+      "target": "fieldbrix_backend_package_scripts_test_e2e",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_json",
+      "target": "fieldbrix_backend_package_dependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_dependencies",
+      "target": "fieldbrix_backend_package_dependencies_nestjs_common",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_dependencies_nestjs_common",
+      "target": "nestjs_common",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_dependencies",
+      "target": "fieldbrix_backend_package_dependencies_nestjs_core",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_dependencies_nestjs_core",
+      "target": "nestjs_core",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_dependencies",
+      "target": "fieldbrix_backend_package_dependencies_nestjs_platform_express",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_dependencies_nestjs_platform_express",
+      "target": "nestjs_platform_express",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_dependencies",
+      "target": "fieldbrix_backend_package_dependencies_reflect_metadata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_dependencies_reflect_metadata",
+      "target": "reflect_metadata",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_dependencies",
+      "target": "fieldbrix_backend_package_dependencies_rxjs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_dependencies_rxjs",
+      "target": "rxjs",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_json",
+      "target": "fieldbrix_backend_package_devdependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_eslint_eslintrc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_eslint_eslintrc",
+      "target": "eslint_eslintrc",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_eslint_js",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_eslint_js",
+      "target": "eslint_js",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_nestjs_cli",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_nestjs_cli",
+      "target": "nestjs_cli",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L32",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_nestjs_schematics",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_nestjs_schematics",
+      "target": "nestjs_schematics",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_nestjs_testing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_nestjs_testing",
+      "target": "nestjs_testing",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_types_express",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_types_express",
+      "target": "types_express",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_types_jest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_types_jest",
+      "target": "types_jest",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L36",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_types_node",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_types_node",
+      "target": "types_node",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_types_supertest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_types_supertest",
+      "target": "types_supertest",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L38",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_eslint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_eslint",
+      "target": "eslint",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_eslint_config_prettier",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_eslint_config_prettier",
+      "target": "eslint_config_prettier",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L40",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_eslint_plugin_prettier",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_eslint_plugin_prettier",
+      "target": "eslint_plugin_prettier",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L41",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_globals",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_globals",
+      "target": "globals",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L42",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_jest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_jest",
+      "target": "jest",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_prettier",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_prettier",
+      "target": "prettier",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L44",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_source_map_support",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_source_map_support",
+      "target": "source_map_support",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_supertest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_supertest",
+      "target": "supertest",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_ts_jest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_ts_jest",
+      "target": "ts_jest",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L47",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_ts_loader",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_ts_loader",
+      "target": "ts_loader",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L48",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_ts_node",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_ts_node",
+      "target": "ts_node",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L49",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_tsconfig_paths",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_tsconfig_paths",
+      "target": "tsconfig_paths",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L50",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_typescript",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_typescript",
+      "target": "typescript",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies",
+      "target": "fieldbrix_backend_package_devdependencies_typescript_eslint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_devdependencies_typescript_eslint",
+      "target": "typescript_eslint",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L52",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_json",
+      "target": "fieldbrix_backend_package_jest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_jest",
+      "target": "fieldbrix_backend_package_jest_modulefileextensions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_jest_modulefileextensions",
+      "target": "ref_js",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L55",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_jest_modulefileextensions",
+      "target": "ref_json",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L55",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_jest_modulefileextensions",
+      "target": "ref_ts",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L55",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_jest",
+      "target": "fieldbrix_backend_package_jest_rootdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_jest",
+      "target": "fieldbrix_backend_package_jest_testregex",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_jest",
+      "target": "fieldbrix_backend_package_jest_transform",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_jest_transform",
+      "target": "fieldbrix_backend_package_transform_t_j_s",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_jest",
+      "target": "fieldbrix_backend_package_jest_collectcoveragefrom",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_jest_collectcoveragefrom",
+      "target": "ref_t_j_s",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L65",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_package_jest",
+      "target": "fieldbrix_backend_package_jest_coveragedirectory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_package_jest",
+      "target": "fieldbrix_backend_package_jest_testenvironment",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/package.json",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_build_json",
+      "target": "fieldbrix_backend_tsconfig_build_extends",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.build.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_build_json",
+      "target": "ref_tsconfig_json",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.build.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_build_json",
+      "target": "fieldbrix_backend_tsconfig_build_exclude",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.build.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_build_exclude",
+      "target": "ref_node_modules",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.build.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_build_exclude",
+      "target": "ref_test",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.build.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_build_exclude",
+      "target": "ref_dist",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.build.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_build_exclude",
+      "target": "ref_spec_ts",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.build.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_json",
+      "target": "fieldbrix_backend_tsconfig_compileroptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_ignoredeprecations",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_module",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_moduleresolution",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_resolvepackagejsonexports",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_esmoduleinterop",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_isolatedmodules",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_declaration",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_removecomments",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_emitdecoratormetadata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_experimentaldecorators",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_allowsyntheticdefaultimports",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_target",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_sourcemap",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_outdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_baseurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_incremental",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_skiplibcheck",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_strictnullchecks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_forceconsistentcasinginfilenames",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_noimplicitany",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_strictbindcallapply",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_tsconfig_compileroptions",
+      "target": "fieldbrix_backend_tsconfig_compileroptions_nofallthroughcasesinswitch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/tsconfig.json",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_eslint_config_mjs",
+      "target": "js",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/eslint.config.mjs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_eslint_config_mjs",
+      "target": "recommended",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/eslint.config.mjs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_eslint_config_mjs",
+      "target": "globals",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/eslint.config.mjs",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_eslint_config_mjs",
+      "target": "typescript_eslint",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/eslint.config.mjs",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_test_app_e2e_spec_ts",
+      "target": "testing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/app.e2e-spec.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_test_app_e2e_spec_ts",
+      "target": "common",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/app.e2e-spec.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_test_app_e2e_spec_ts",
+      "target": "supertest",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/app.e2e-spec.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_test_app_e2e_spec_ts",
+      "target": "types",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/app.e2e-spec.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_test_app_e2e_spec_ts",
+      "target": "fieldbrix_backend_src_app_module_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/app.e2e-spec.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_test_app_e2e_spec_ts",
+      "target": "src_app_module_appmodule",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/app.e2e-spec.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_test_jest_e2e_json",
+      "target": "test_jest_e2e_modulefileextensions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "test_jest_e2e_modulefileextensions",
+      "target": "ref_js",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "test_jest_e2e_modulefileextensions",
+      "target": "ref_json",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "test_jest_e2e_modulefileextensions",
+      "target": "ref_ts",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_backend_test_jest_e2e_json",
+      "target": "test_jest_e2e_rootdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_test_jest_e2e_json",
+      "target": "test_jest_e2e_testenvironment",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_test_jest_e2e_json",
+      "target": "test_jest_e2e_testregex",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_test_jest_e2e_json",
+      "target": "test_jest_e2e_transform",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "test_jest_e2e_transform",
+      "target": "test_jest_e2e_transform_t_j_s",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/test/jest-e2e.json",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_main_ts",
+      "target": "core",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/main.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_main_ts",
+      "target": "fieldbrix_backend_src_app_module_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/main.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_main_ts",
+      "target": "src_app_module_appmodule",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/main.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_main_ts",
+      "target": "src_main_bootstrap",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/main.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_service_ts",
+      "target": "common",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.service.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_service_ts",
+      "target": "src_app_service_appservice",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.service.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_service_appservice",
+      "target": "src_app_service_appservice_gethello",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.service.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_module_ts",
+      "target": "common",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.module.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_module_ts",
+      "target": "fieldbrix_backend_src_app_controller_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.module.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_module_ts",
+      "target": "src_app_controller_appcontroller",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.module.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_module_ts",
+      "target": "fieldbrix_backend_src_app_service_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.module.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_module_ts",
+      "target": "src_app_service_appservice",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.module.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_module_ts",
+      "target": "src_app_module_appmodule",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.module.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_controller_spec_ts",
+      "target": "testing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.spec.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_controller_spec_ts",
+      "target": "fieldbrix_backend_src_app_controller_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.spec.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_controller_spec_ts",
+      "target": "src_app_controller_appcontroller",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.spec.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_controller_spec_ts",
+      "target": "fieldbrix_backend_src_app_service_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.spec.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_controller_spec_ts",
+      "target": "src_app_service_appservice",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.spec.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_controller_ts",
+      "target": "common",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_controller_ts",
+      "target": "fieldbrix_backend_src_app_service_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_controller_ts",
+      "target": "src_app_service_appservice",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_backend_src_app_controller_ts",
+      "target": "src_app_controller_appcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_controller_appcontroller",
+      "target": "src_app_controller_appcontroller_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_controller_appcontroller",
+      "target": "src_app_controller_appcontroller_gethello",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/app.controller.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_settings_local_json",
+      "target": "claude_settings_local_permissions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_settings_local_permissions",
+      "target": "claude_settings_local_permissions_allow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_settings_local_permissions_allow",
+      "target": "ref_bash_python3_gen_chunk01_py",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "claude_settings_local_permissions_allow",
+      "target": "ref_bash_python3_gen_chunk01_part2_py",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "claude_settings_local_permissions_allow",
+      "target": "ref_bash_python3_gen_chunk01_part3_py",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "claude_settings_local_permissions_allow",
+      "target": "ref_bash_python3_gen_chunk01_part4_py",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "claude_settings_local_permissions_allow",
+      "target": "ref_bash_rm_f_private_tmp_claude_501_users_manavgenius_desktop_isl_final_fieldbrix_05eea9db_ac0b_4008_a408_ed3e8bdaed75_scratchpad_gen_chunk01_py_private_tmp_claude_501_users_manavgenius_desktop_isl_final_fieldbrix_05eea9db_ac0b_4008_a408_ed3e8bdaed75_scratchpad_partial_json",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "claude_settings_local_permissions_allow",
+      "target": "ref_bash_python3_c_import_json_d_json_load_open_users_manavgenius_desktop_isl_final_fieldbrix_graphify_out_graphify_chunk_02_json_print_nodes_len_d_nodes_print_edges_len_d_edges_print_hyperedges_len_d_hyperedges_ids_n_id_for_n_in_d_nodes_print_duplicate_node_ids_len_d_nodes_len_ids_bad_e_for_e_in_d_edges_if_e_source_not_in_ids_or_e_target_not_in_ids_print_edges_with_missing_node_refs_len_bad_print_b_for_b_in_bad",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "claude_settings_local_permissions_allow",
+      "target": "ref_bash_graphify_export",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "claude_settings_local_permissions_allow",
+      "target": "ref_bash_graphify_benchmark",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "claude_settings_local_permissions",
+      "target": "claude_settings_local_permissions_additionaldirectories",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_settings_local_permissions_additionaldirectories",
+      "target": "ref_private_tmp_claude_501_users_manavgenius_desktop_isl_final_fieldbrix_05eea9db_ac0b_4008_a408_ed3e8bdaed75_scratchpad",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "docs_terraform_scripts_python_migrate_account_py",
+      "target": "sys",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_migrate_account_py",
+      "target": "time",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_migrate_account_py",
+      "target": "boto3",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_migrate_account_py",
+      "target": "click",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_migrate_account_py",
+      "target": "datetime",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_migrate_account_py",
+      "target": "rich_console",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_migrate_account_py",
+      "target": "python_migrate_account_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_migrate_account_py",
+      "target": "python_migrate_account_verify_ec2",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_migrate_account_py",
+      "target": "python_migrate_account_create_snapshot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_migrate_account_py",
+      "target": "python_migrate_account_restore_snapshot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_migrate_account_py",
+      "target": "python_migrate_account_sync_s3",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "python_migrate_account_main",
+      "target": "python_migrate_account_verify_ec2",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "python_migrate_account_main",
+      "target": "python_migrate_account_create_snapshot",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "python_migrate_account_main",
+      "target": "python_migrate_account_restore_snapshot",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "python_migrate_account_main",
+      "target": "python_migrate_account_sync_s3",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/migrate_account.py",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_cost_report_py",
+      "target": "boto3",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/cost_report.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_cost_report_py",
+      "target": "click",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/cost_report.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_cost_report_py",
+      "target": "datetime",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/cost_report.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_cost_report_py",
+      "target": "rich_console",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/cost_report.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_cost_report_py",
+      "target": "rich_table",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/cost_report.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_cost_report_py",
+      "target": "python_cost_report_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/cost_report.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "sys",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "boto3",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "click",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "rich_console",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "rich_table",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "python_health_check_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "python_health_check_check_ec2",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "python_health_check_check_rds",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "python_health_check_check_ssm",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "python_health_check_check_sqs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "python_health_check_check_s3",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_health_check_py",
+      "target": "python_health_check_check_eip",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "python_health_check_main",
+      "target": "python_health_check_check_ec2",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "python_health_check_main",
+      "target": "python_health_check_check_rds",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "python_health_check_main",
+      "target": "python_health_check_check_ssm",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "python_health_check_main",
+      "target": "python_health_check_check_sqs",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "python_health_check_main",
+      "target": "python_health_check_check_s3",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "python_health_check_main",
+      "target": "python_health_check_check_eip",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/health_check.py",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_db_snapshot_py",
+      "target": "boto3",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/db_snapshot.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_db_snapshot_py",
+      "target": "click",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/db_snapshot.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_db_snapshot_py",
+      "target": "time",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/db_snapshot.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_db_snapshot_py",
+      "target": "datetime",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/db_snapshot.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_db_snapshot_py",
+      "target": "rich_console",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/db_snapshot.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_terraform_scripts_python_db_snapshot_py",
+      "target": "python_db_snapshot_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/terraform/scripts/python/db_snapshot.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_test_widget_test_dart",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_test_widget_test_dart_main",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/test/widget_test.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_test_widget_test_dart",
+      "target": "package_flutter_material_dart",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/test/widget_test.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_test_widget_test_dart",
+      "target": "package_flutter_test_flutter_test_dart",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/test/widget_test.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_test_widget_test_dart",
+      "target": "package_fieldbrix_app_main_dart",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/test/widget_test.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runnertests_runnertests_swift",
+      "target": "flutter",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/RunnerTests/RunnerTests.swift",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runnertests_runnertests_swift",
+      "target": "uikit",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/RunnerTests/RunnerTests.swift",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runnertests_runnertests_swift",
+      "target": "xctest",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/RunnerTests/RunnerTests.swift",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runnertests_runnertests_swift",
+      "target": "runnertests_runnertests_runnertests",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/RunnerTests/RunnerTests.swift",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "runnertests_runnertests_runnertests",
+      "target": "xctestcase",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/RunnerTests/RunnerTests.swift",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "runnertests_runnertests_runnertests",
+      "target": "runnertests_runnertests_runnertests_testexample",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/RunnerTests/RunnerTests.swift",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_appdelegate_swift",
+      "target": "flutter",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/AppDelegate.swift",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_appdelegate_swift",
+      "target": "uikit",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/AppDelegate.swift",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_appdelegate_swift",
+      "target": "runner_appdelegate_appdelegate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/AppDelegate.swift",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "runner_appdelegate_appdelegate",
+      "target": "flutterappdelegate",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/AppDelegate.swift",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "runner_appdelegate_appdelegate",
+      "target": "flutterimplicitenginedelegate",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/AppDelegate.swift",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "runner_appdelegate_appdelegate",
+      "target": "runner_appdelegate_appdelegate_application",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/AppDelegate.swift",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "runner_appdelegate_appdelegate",
+      "target": "runner_appdelegate_appdelegate_didinitializeimplicitflutterengine",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/AppDelegate.swift",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_generatedpluginregistrant_m",
+      "target": "generatedpluginregistrant",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/GeneratedPluginRegistrant.m",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_generatedpluginregistrant_m",
+      "target": "runner_generatedpluginregistrant_generatedpluginregistrant",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/GeneratedPluginRegistrant.m",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "runner_generatedpluginregistrant_generatedpluginregistrant",
+      "target": "runner_generatedpluginregistrant_generatedpluginregistrant_registerwithregistry",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/GeneratedPluginRegistrant.m",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_scenedelegate_swift",
+      "target": "flutter",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/SceneDelegate.swift",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_scenedelegate_swift",
+      "target": "uikit",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/SceneDelegate.swift",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_scenedelegate_swift",
+      "target": "runner_scenedelegate_scenedelegate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/SceneDelegate.swift",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "runner_scenedelegate_scenedelegate",
+      "target": "flutterscenedelegate",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/SceneDelegate.swift",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_assets_xcassets_launchimage_imageset_contents_json",
+      "target": "launchimage_imageset_contents_images",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_assets_xcassets_launchimage_imageset_contents_json",
+      "target": "launchimage_imageset_contents_info",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "launchimage_imageset_contents_info",
+      "target": "launchimage_imageset_contents_info_version",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "launchimage_imageset_contents_info",
+      "target": "launchimage_imageset_contents_info_author",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_assets_xcassets_appicon_appiconset_contents_json",
+      "target": "appicon_appiconset_contents_images",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_runner_assets_xcassets_appicon_appiconset_contents_json",
+      "target": "appicon_appiconset_contents_info",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_appiconset_contents_info",
+      "target": "appicon_appiconset_contents_info_version",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_appiconset_contents_info",
+      "target": "appicon_appiconset_contents_info_author",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_flutter_ephemeral_flutter_lldb_helper_py",
+      "target": "lldb",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Flutter/ephemeral/flutter_lldb_helper.py",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_flutter_ephemeral_flutter_lldb_helper_py",
+      "target": "ephemeral_flutter_lldb_helper_handle_new_rx_page",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Flutter/ephemeral/flutter_lldb_helper.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_ios_flutter_ephemeral_flutter_lldb_helper_py",
+      "target": "ephemeral_flutter_lldb_helper_lldb_init_module",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Flutter/ephemeral/flutter_lldb_helper.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "ephemeral_flutter_lldb_helper_rationale_8",
+      "target": "ephemeral_flutter_lldb_helper_handle_new_rx_page",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/ios/Flutter/ephemeral/flutter_lldb_helper.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_android_app_src_main_java_io_flutter_plugins_generatedpluginregistrant_java",
+      "target": "keep",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_android_app_src_main_java_io_flutter_plugins_generatedpluginregistrant_java",
+      "target": "nonnull",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_android_app_src_main_java_io_flutter_plugins_generatedpluginregistrant_java",
+      "target": "log",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_android_app_src_main_java_io_flutter_plugins_generatedpluginregistrant_java",
+      "target": "flutterengine",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_android_app_src_main_java_io_flutter_plugins_generatedpluginregistrant_java",
+      "target": "plugins_generatedpluginregistrant_generatedpluginregistrant",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "plugins_generatedpluginregistrant_generatedpluginregistrant",
+      "target": "plugins_generatedpluginregistrant_generatedpluginregistrant_registerwith",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_android_app_src_main_kotlin_com_example_fieldbrix_app_mainactivity_kt",
+      "target": "fieldbrix_app_mainactivity_mainactivity",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/android/app/src/main/kotlin/com/example/fieldbrix_app/MainActivity.kt",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_lib_main_dart",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_myapp",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_lib_main_dart",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_myhomepage",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_lib_main_dart",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_myhomepagestate",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_lib_main_dart",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_main",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_lib_main_dart",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_build",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_lib_main_dart",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_materialapp",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_lib_main_dart",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_incrementcounter",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_lib_main_dart",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_scaffold",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_lib_main_dart",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_lib_main_dart_text",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_lib_main_dart",
+      "target": "package_flutter_material_dart",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/lib/main.dart",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_package_config_json",
+      "target": "dart_tool_package_config_configversion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_package_config_json",
+      "target": "dart_tool_package_config_packages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_package_config_json",
+      "target": "dart_tool_package_config_generator",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_package_config_json",
+      "target": "dart_tool_package_config_generatorversion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L174",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_package_config_json",
+      "target": "dart_tool_package_config_flutterroot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_package_config_json",
+      "target": "dart_tool_package_config_flutterversion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_package_config_json",
+      "target": "dart_tool_package_config_pubcache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/package_config.json",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_package_graph_json",
+      "target": "dart_tool_package_graph_roots",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/package_graph.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "dart_tool_package_graph_roots",
+      "target": "ref_fieldbrix_app",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/package_graph.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_package_graph_json",
+      "target": "dart_tool_package_graph_packages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/package_graph.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_package_graph_json",
+      "target": "dart_tool_package_graph_configversion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/package_graph.json",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_extension_discovery_vs_code_json",
+      "target": "extension_discovery_vs_code_version",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/extension_discovery/vs_code.json",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_extension_discovery_vs_code_json",
+      "target": "extension_discovery_vs_code_entries",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix_app/.dart_tool/extension_discovery/vs_code.json",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "fieldbrix_app_dart_tool_dartpad_web_plugin_registrant_dart",
+      "target": "users_manavgenius_desktop_isl_final_fieldbrix_fieldbrix_app_dart_tool_dartpad_web_plugin_registrant_dart_registerplugins",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "fieldbrix_app/.dart_tool/dartpad/web_plugin_registrant.dart",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

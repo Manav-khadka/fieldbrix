@@ -1,0 +1,1347 @@
+{
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/fieldbrix-schema.sql": {
+    "mtime": 1786624876.7121046,
+    "ast_hash": "bfdd8943ab21926f1eaba7e9891e04e1",
+    "semantic_hash": "bfdd8943ab21926f1eaba7e9891e04e1"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/db-tunnel.sh": {
+    "mtime": 1786624876.7278066,
+    "ast_hash": "1fbd65dc99d0883deba597d985b385a3",
+    "semantic_hash": "1fbd65dc99d0883deba597d985b385a3"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/ssh.sh": {
+    "mtime": 1786624876.7312365,
+    "ast_hash": "2d95f210a1db8f6f4a5427a283689cbd",
+    "semantic_hash": "2d95f210a1db8f6f4a5427a283689cbd"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/cost.sh": {
+    "mtime": 1786624876.7275867,
+    "ast_hash": "2cc6baa3b40455f7761efd63791a3828",
+    "semantic_hash": "2cc6baa3b40455f7761efd63791a3828"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/apply.sh": {
+    "mtime": 1786624876.72683,
+    "ast_hash": "65975d64ec7cb6c7e55c32a593785d2d",
+    "semantic_hash": "65975d64ec7cb6c7e55c32a593785d2d"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/status.sh": {
+    "mtime": 1786624876.7319505,
+    "ast_hash": "623fc4173a0cad845e2b230fba537266",
+    "semantic_hash": "623fc4173a0cad845e2b230fba537266"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/plan.sh": {
+    "mtime": 1786624876.7284372,
+    "ast_hash": "bea6dfb9b6c0960786d3880520adbd37",
+    "semantic_hash": "bea6dfb9b6c0960786d3880520adbd37"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/bootstrap.sh": {
+    "mtime": 1786624876.727052,
+    "ast_hash": "61f072db28b737b56b7fabafa6a5ec66",
+    "semantic_hash": "61f072db28b737b56b7fabafa6a5ec66"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/destroy.sh": {
+    "mtime": 1786624876.7281609,
+    "ast_hash": "e734842669fd89673c292f83c74a6105",
+    "semantic_hash": "e734842669fd89673c292f83c74a6105"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/stop.sh": {
+    "mtime": 1786624876.7323048,
+    "ast_hash": "367e3f446b2c0d6fd2b02735b2ad0b97",
+    "semantic_hash": "367e3f446b2c0d6fd2b02735b2ad0b97"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/start.sh": {
+    "mtime": 1786624876.7315068,
+    "ast_hash": "c7fb96f0090f8bc0a2a041d4757eb813",
+    "semantic_hash": "c7fb96f0090f8bc0a2a041d4757eb813"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/python/migrate_account.py": {
+    "mtime": 1786624876.7302885,
+    "ast_hash": "c395abcbfeb7b188a22123112f3c2385",
+    "semantic_hash": "c395abcbfeb7b188a22123112f3c2385"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/python/cost_report.py": {
+    "mtime": 1786624876.7293522,
+    "ast_hash": "bb7644ff1ce1ebfbd50400e3c17fc3ed",
+    "semantic_hash": "bb7644ff1ce1ebfbd50400e3c17fc3ed"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/python/health_check.py": {
+    "mtime": 1786624876.7299585,
+    "ast_hash": "479611b636162943cabf1bb0d387ec1e",
+    "semantic_hash": "479611b636162943cabf1bb0d387ec1e"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/python/db_snapshot.py": {
+    "mtime": 1786624876.7295792,
+    "ast_hash": "37a828cd7da45357527285f3e7b2e075",
+    "semantic_hash": "37a828cd7da45357527285f3e7b2e075"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/CASE_STUDY.md": {
+    "mtime": 1786624876.7057772,
+    "ast_hash": "7094270d0f7e430fcd9a2373b5655657",
+    "semantic_hash": "7094270d0f7e430fcd9a2373b5655657"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/USER_STORIES.md": {
+    "mtime": 1786624876.7092774,
+    "ast_hash": "c312f2e2211385f5b83564266bbde687",
+    "semantic_hash": "c312f2e2211385f5b83564266bbde687"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/PLATFORM_USER_STORIES.md": {
+    "mtime": 1786624876.7088768,
+    "ast_hash": "fb84242655c1eb75f5f9b4dd5c45faf9",
+    "semantic_hash": "fb84242655c1eb75f5f9b4dd5c45faf9"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/fieldbrix-schema-readme.md": {
+    "mtime": 1786624876.711806,
+    "ast_hash": "688416e5c56923dc882c27e2505901bf",
+    "semantic_hash": "688416e5c56923dc882c27e2505901bf"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/ENGINEERING_HANDBOOK.md": {
+    "mtime": 1786667485.810792,
+    "ast_hash": "4c3b0cc01f0614b285fc37fefc7ec6ac",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/CLIENT_USER_STORIES.md": {
+    "mtime": 1786624876.7062151,
+    "ast_hash": "c70c8e4271b0c8d5c317e2c79303ac76",
+    "semantic_hash": "c70c8e4271b0c8d5c317e2c79303ac76"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/tech_implementation_guide.md": {
+    "mtime": 1786666875.5904193,
+    "ast_hash": "555468d5d96f0e361cd694efdb7b6cc9",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/AUTOMATED_TESTING_STRATEGY.md": {
+    "mtime": 1786666987.781512,
+    "ast_hash": "92cd3a17e6b708bf6d5550aeb6a026f9",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/AI_AGENT_DEVELOPMENT_PLAYBOOK.md": {
+    "mtime": 1786624876.704844,
+    "ast_hash": "279f52d71e7f8a4aed23926ffeb8a032",
+    "semantic_hash": "279f52d71e7f8a4aed23926ffeb8a032"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/LOCAL_SETUP.md": {
+    "mtime": 1786666829.5631049,
+    "ast_hash": "7b21f81d59357ae78e888223da0d2793",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/README.md": {
+    "mtime": 1786666829.5618765,
+    "ast_hash": "4239785e6e0832c0816a8668bdca433a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/environments/README.md": {
+    "mtime": 1786624876.716432,
+    "ast_hash": "d8363d98b4965e828c108fdc12cce3d2",
+    "semantic_hash": "d8363d98b4965e828c108fdc12cce3d2"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/environments/prod/README.md": {
+    "mtime": 1786624876.7168067,
+    "ast_hash": "8aba18071ae1e49c1738560be4f8942f",
+    "semantic_hash": "8aba18071ae1e49c1738560be4f8942f"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/README.md": {
+    "mtime": 1786661826.7805154,
+    "ast_hash": "d98ead750dcecb4d5c4ec426532e285a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/python/requirements.txt": {
+    "mtime": 1786624876.7305698,
+    "ast_hash": "43b8393f3cf27b5708a8d8696d785b1f",
+    "semantic_hash": "43b8393f3cf27b5708a8d8696d785b1f"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/python/README.md": {
+    "mtime": 1786624876.7289467,
+    "ast_hash": "9bb605c2e8d1e2894da0ebffba409165",
+    "semantic_hash": "9bb605c2e8d1e2894da0ebffba409165"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/.github/README.md": {
+    "mtime": 1786624876.714353,
+    "ast_hash": "83f2dab5e71bcc14182f21b48ae1d25e",
+    "semantic_hash": "83f2dab5e71bcc14182f21b48ae1d25e"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/.github/workflows/terraform-plan.yml": {
+    "mtime": 1786624876.715491,
+    "ast_hash": "a74216279c99bf48d000a5a9403388bd",
+    "semantic_hash": "a74216279c99bf48d000a5a9403388bd"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/.github/workflows/terraform-apply.yml": {
+    "mtime": 1786624876.7147865,
+    "ast_hash": "171be819531185eda5b9b68b85cd3fa1",
+    "semantic_hash": "171be819531185eda5b9b68b85cd3fa1"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/modules/database/README.md": {
+    "mtime": 1786624876.719241,
+    "ast_hash": "bcbefd4d7d4de9e84f2c2a224106ee8f",
+    "semantic_hash": "bcbefd4d7d4de9e84f2c2a224106ee8f"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/modules/networking/README.md": {
+    "mtime": 1786624876.722151,
+    "ast_hash": "0ee40302365015f1a33d03d746355dc9",
+    "semantic_hash": "0ee40302365015f1a33d03d746355dc9"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/modules/storage/README.md": {
+    "mtime": 1786624876.72547,
+    "ast_hash": "09a30a00ca78f158770bdcb6a59157b7",
+    "semantic_hash": "09a30a00ca78f158770bdcb6a59157b7"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/modules/compute/README.md": {
+    "mtime": 1786624876.718215,
+    "ast_hash": "ce78e73179647388631b72d507b45161",
+    "semantic_hash": "ce78e73179647388631b72d507b45161"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/modules/queues/README.md": {
+    "mtime": 1786624876.7234724,
+    "ast_hash": "599fb8f705b8aa71fb58e70ca4c47fb5",
+    "semantic_hash": "599fb8f705b8aa71fb58e70ca4c47fb5"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/modules/monitoring/README.md": {
+    "mtime": 1786624876.7209346,
+    "ast_hash": "4ff40870f70bbde5b831cd4f8c5eb504",
+    "semantic_hash": "4ff40870f70bbde5b831cd4f8c5eb504"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/modules/dns/README.md": {
+    "mtime": 1786624876.720066,
+    "ast_hash": "6e4b137c0bf957238027727e43b6155e",
+    "semantic_hash": "6e4b137c0bf957238027727e43b6155e"
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/frontend/README.md": {
+    "mtime": 1786666976.0963604,
+    "ast_hash": "5b0b60e56e51e90f3351f73597be9335",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/backend/README.md": {
+    "mtime": 1786666976.097372,
+    "ast_hash": "2b6457d0fa462173b5d82816a2031d6d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/mobile/README.md": {
+    "mtime": 1786666976.098248,
+    "ast_hash": "54058ec088214c8476020bd1465c188f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/aws/README.md": {
+    "mtime": 1786666914.5635688,
+    "ast_hash": "5cb3897863d458230887257a059c7477",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/tsconfig.node.json": {
+    "mtime": 1786650850.9110858,
+    "ast_hash": "f9cb81ddcea69ffdab672fc8c48dca66",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/tsconfig.app.json": {
+    "mtime": 1786650850.9102368,
+    "ast_hash": "5f2dafd737dea8a4ddcbb10f5113ac5a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/.oxlintrc.json": {
+    "mtime": 1786650850.9024987,
+    "ast_hash": "029f4905006c1fffd96bc863e2d98d3e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/package.json": {
+    "mtime": 1786650850.913544,
+    "ast_hash": "83082fbf8e9025fe9c04ffee85f204d3",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/tsconfig.json": {
+    "mtime": 1786650850.910557,
+    "ast_hash": "a3d39fa780ebff65444de257f291ce6c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/vite.config.ts": {
+    "mtime": 1786650850.9126804,
+    "ast_hash": "88439104b3c207f17d33ef3160e3b080",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/App.tsx": {
+    "mtime": 1786650850.9068382,
+    "ast_hash": "c5e44a49ac2a44373fba5d1a7fe35be4",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/main.tsx": {
+    "mtime": 1786650850.9098094,
+    "ast_hash": "787e5a07efeb2bf6209d5937195f2f68",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/nest-cli.json": {
+    "mtime": 1786650960.6118915,
+    "ast_hash": "b6c9c4b64b7092bea720263a47b574cf",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/package.json": {
+    "mtime": 1786663626.651767,
+    "ast_hash": "41eed7253288e37d34150b42680b4c71",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/tsconfig.build.json": {
+    "mtime": 1786650960.6121378,
+    "ast_hash": "f73d0f011ee462dcdf7f02bbdcde284b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/tsconfig.json": {
+    "mtime": 1786652550.326815,
+    "ast_hash": "e7accc5b0cf44ab80c0e5edb4226a223",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/eslint.config.mjs": {
+    "mtime": 1786650960.6117632,
+    "ast_hash": "d7647004fcd6fc51a724065fc878a559",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/test/app.e2e-spec.ts": {
+    "mtime": 1786650960.6132226,
+    "ast_hash": "91198fa8fc7e238ecc9dacec901d7a15",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/test/jest-e2e.json": {
+    "mtime": 1786650960.6131072,
+    "ast_hash": "9f2f5b0e1da31d7b04e205c944e85e8d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/main.ts": {
+    "mtime": 1786650960.612828,
+    "ast_hash": "3a3444599787f325c5e00d034838bc60",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.service.ts": {
+    "mtime": 1786650960.6126928,
+    "ast_hash": "cd3fb7836f10de08a725ee1fd4ab36fe",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.module.ts": {
+    "mtime": 1786663655.6601133,
+    "ast_hash": "a0abeea1c5b3f0ee8aaeea5bfad03067",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.controller.spec.ts": {
+    "mtime": 1786650960.6129432,
+    "ast_hash": "4a1c0e1133dbda6f6e8f3e60d984eddf",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.controller.ts": {
+    "mtime": 1786650960.6124334,
+    "ast_hash": "3ab0e83b7d93b85ea489ab994ec79ea1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.claude/settings.json": {
+    "mtime": 1786654738.1721072,
+    "ast_hash": "87f0d903477984d0587a02f8fe185263",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.claude/settings.local.json": {
+    "mtime": 1786653333.8684187,
+    "ast_hash": "a6f1d5ebf34e7458afdce3900a5cfb90",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.codex/hooks.json": {
+    "mtime": 1786654732.510956,
+    "ast_hash": "4463e143c50ad360d9d457477dd2854c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/test/widget_test.dart": {
+    "mtime": 1786651204.288059,
+    "ast_hash": "bbd7de3783178fe2b8ffadca00b0e255",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/RunnerTests/RunnerTests.swift": {
+    "mtime": 1786651204.202905,
+    "ast_hash": "a225a382d14d7b16b6f602a5c1d49331",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Runner-Bridging-Header.h": {
+    "mtime": 1776429542.4609919,
+    "ast_hash": "e07862ac930ed4d8479185d52c6cc66d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/GeneratedPluginRegistrant.h": {
+    "mtime": 1786651205.982957,
+    "ast_hash": "decb9041b5e91a07e66f4664e5dac408",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/AppDelegate.swift": {
+    "mtime": 1776429542.4598355,
+    "ast_hash": "2bd8469f2a4b701ff582f6574e58b13c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/GeneratedPluginRegistrant.m": {
+    "mtime": 1786651205.9835799,
+    "ast_hash": "f6079b630997f8fd4ae1ac639162419a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/SceneDelegate.swift": {
+    "mtime": 1776429542.4610326,
+    "ast_hash": "748d701e783e68faf618c00464257a19",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json": {
+    "mtime": 1776429542.4605207,
+    "ast_hash": "770f4f65e02ca2fc57f46f4f4148d15d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json": {
+    "mtime": 1776429542.4599462,
+    "ast_hash": "c3cdf9688b604d14f2e76a8287e16167",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Flutter/flutter_export_environment.sh": {
+    "mtime": 1786651205.8855407,
+    "ast_hash": "8339463e7d7d42f138c04623759f78d1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Flutter/ephemeral/flutter_lldb_helper.py": {
+    "mtime": 1786651205.525229,
+    "ast_hash": "98fc75412162af387e2e3461e4e58094",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/android/gradlew": {
+    "mtime": 1786651204.3127277,
+    "ast_hash": "7f1cd7eb3f75a1dc85cd37753972a6e2",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/android/build.gradle.kts": {
+    "mtime": 1786651204.2742352,
+    "ast_hash": "f11f360aed44d4f6871b398346af14f0",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/android/settings.gradle.kts": {
+    "mtime": 1786651204.2722511,
+    "ast_hash": "094e3cafe85d4dbf756dfe0bd754c6cb",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/android/app/build.gradle.kts": {
+    "mtime": 1786651204.274617,
+    "ast_hash": "066df1f5d6c5825ff116568ea0f25e9b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java": {
+    "mtime": 1786651205.975588,
+    "ast_hash": "5b3b418ce50367c33bded3c0df06d47f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/android/app/src/main/kotlin/com/example/fieldbrix_app/MainActivity.kt": {
+    "mtime": 1786651204.275404,
+    "ast_hash": "494f13aba53ead716b1220873d21bbca",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/lib/main.dart": {
+    "mtime": 1786651204.2785528,
+    "ast_hash": "c8e149125151c1ebb31c65a53bc8270e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/.dart_tool/package_config.json": {
+    "mtime": 1786651205.4768755,
+    "ast_hash": "442e7a0a7c0f9104977b0bd719f40f32",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/.dart_tool/package_graph.json": {
+    "mtime": 1786651205.4775872,
+    "ast_hash": "378e8b26084399997a8ef2ebafda5a6e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/.dart_tool/extension_discovery/vs_code.json": {
+    "mtime": 1786651299.0524971,
+    "ast_hash": "1126dfb49b45d93930595f755a2a235f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/.dart_tool/dartpad/web_plugin_registrant.dart": {
+    "mtime": 1786651205.9539225,
+    "ast_hash": "7ed35bc85b7658d113371ffc24d07117",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/AGENTS.md": {
+    "mtime": 1786654732.5103552,
+    "ast_hash": "62c05a2bf20bf036a0b2633478663e64",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/CLAUDE.md": {
+    "mtime": 1786654738.1718628,
+    "ast_hash": "82efb97a359f5c7290bf2513d14686be",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/index.html": {
+    "mtime": 1786650850.9035647,
+    "ast_hash": "21fa4e88ffef5b886d6f45dc2ef8a675",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/README.md": {
+    "mtime": 1786650992.0968869,
+    "ast_hash": "5028f4fc81f7ddd052201a266d0349e7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/README.md": {
+    "mtime": 1786651070.3605897,
+    "ast_hash": "2a19185753858c9121f3aebf72a462a3",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.agents/workflows/graphify.md": {
+    "mtime": 1786654752.6660235,
+    "ast_hash": "afa1ffc01aa56ac681c7335686f44767",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.agents/rules/graphify.md": {
+    "mtime": 1786654752.6658845,
+    "ast_hash": "f1e53ecc9194573d3c28fc116c743a2e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.graphify_chunks/chunk_01.txt": {
+    "mtime": 1786654573.0940802,
+    "ast_hash": "d4f141a3b6d41b599eb29232706f583f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.graphify_chunks/chunk_03.txt": {
+    "mtime": 1786654573.094265,
+    "ast_hash": "1ac3b6ac2404180ceb68e650d42cca66",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.graphify_chunks/chunk_02.txt": {
+    "mtime": 1786654573.094179,
+    "ast_hash": "e0d77e899c897bcbe069bcc3998b0bf1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.graphify_chunks/chunk_04.txt": {
+    "mtime": 1786654573.0943377,
+    "ast_hash": "f28a60c725497660e0b87642dd615438",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/.github/copilot-instructions.md": {
+    "mtime": 1786654744.3128204,
+    "ast_hash": "ec2dc0dc7bef63488889f34de2f5584d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/README.md": {
+    "mtime": 1786651268.6620877,
+    "ast_hash": "6283ffefbfb14cbc9a02c2ec7fd9690a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/pubspec.yaml": {
+    "mtime": 1786651204.276791,
+    "ast_hash": "65b430d2f226fc23d0f58b5077172ca7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/analysis_options.yaml": {
+    "mtime": 1786651204.278987,
+    "ast_hash": "66d03d7647c8e438164feaf5b922d44a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md": {
+    "mtime": 1776429542.4607673,
+    "ast_hash": "e175e436acacf76c814d83532d0b662c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/.dart_tool/extension_discovery/README.md": {
+    "mtime": 1786651299.053119,
+    "ast_hash": "606241196f08642dcc9f7acef0d2d8da",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-16-reporting-email.md": {
+    "mtime": 1786667034.0989842,
+    "ast_hash": "15adcc3fd79fce58f4437c5a8c7442f5",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-01-foundation.md": {
+    "mtime": 1786667034.0920706,
+    "ast_hash": "c6e3c26448f8a06bd08fecbf94321703",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-23-growth-rc.md": {
+    "mtime": 1786667034.10081,
+    "ast_hash": "addfdd741b525155cf1fb07b9182214e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-04-authorization.md": {
+    "mtime": 1786667034.0932853,
+    "ast_hash": "0ddc9bbbcf5adbf385bbb32726b247bd",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-10-task-lifecycle.md": {
+    "mtime": 1786667034.0961916,
+    "ast_hash": "a13553525259f7dbf0ff6f0807dce08c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-06-master-data.md": {
+    "mtime": 1786667034.0943637,
+    "ast_hash": "09997666b2511aa15d7284122bbe31f9",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-17-industry-beta.md": {
+    "mtime": 1786667034.0992568,
+    "ast_hash": "a5257900799fd60389874817dcc68c3e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-22-tracking-feedback.md": {
+    "mtime": 1786667034.1004348,
+    "ast_hash": "834c4cb7b1916825a4734320aa490965",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-02-application-platform.md": {
+    "mtime": 1786667034.092596,
+    "ast_hash": "6a5a3df21a81696c1c5c8085438c7e81",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-14-offline-sync.md": {
+    "mtime": 1786667034.0980825,
+    "ast_hash": "ae1d391cd61344515b9faa680e40ace2",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-09-workflow-governance.md": {
+    "mtime": 1786667034.0958288,
+    "ast_hash": "54cee5e658679778b0987abf7bcf8909",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-07-workflow-builder.md": {
+    "mtime": 1786667034.0948606,
+    "ast_hash": "f0a0bb7faa5200ea0b4d76e8dc6de1df",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-05-administration.md": {
+    "mtime": 1786667034.093695,
+    "ast_hash": "8ea8c5eb58aa89faef27f076dfba063d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/README.md": {
+    "mtime": 1786667108.45384,
+    "ast_hash": "c7f64289e040c34fc4830cc34ecf3cee",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-03-authentication.md": {
+    "mtime": 1786667034.0928574,
+    "ast_hash": "04b7b7cdd7dd0b91c033b1c471e43911",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-15-review.md": {
+    "mtime": 1786667034.0986843,
+    "ast_hash": "09dac912f062d7dd41a32ad1c359bc9b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-19-customer-portal.md": {
+    "mtime": 1786667034.0997682,
+    "ast_hash": "3de6a7e58a7de7454297873cb2e5c4da",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-20-contracts.md": {
+    "mtime": 1786667034.1000047,
+    "ast_hash": "db80b2a100f87d64530c4aa6e0116c77",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-18-mvp-release.md": {
+    "mtime": 1786667034.0995107,
+    "ast_hash": "a1f80d019451dc856710ffa98db7274c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-13-mobile-execution.md": {
+    "mtime": 1786667034.0973005,
+    "ast_hash": "391fb6bf49472bac890663abc9f2610d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-12-mobile-alpha.md": {
+    "mtime": 1786667034.0968547,
+    "ast_hash": "814107ff9417690bece923a53d3e28ad",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-21-invoicing.md": {
+    "mtime": 1786667034.100228,
+    "ast_hash": "bde8145fe70b323569998b06d399d067",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-24-growth-ga.md": {
+    "mtime": 1786667034.101222,
+    "ast_hash": "e9ddbbc1507e67e5cdbb8ff9b90d50f4",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-11-scheduling.md": {
+    "mtime": 1786667034.0964704,
+    "ast_hash": "e643dd6b240dc6d762a1506d9db25e0b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/sprint-08-rule-engine.md": {
+    "mtime": 1786667034.095246,
+    "ast_hash": "15b38fefe045799f84bdcca475930924",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/public/icons.svg": {
+    "mtime": 1786650850.905422,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/public/favicon.svg": {
+    "mtime": 1786650850.904467,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/assets/hero.png": {
+    "mtime": 1786650850.9076405,
+    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/assets/vite.svg": {
+    "mtime": 1786650850.9088607,
+    "ast_hash": "9960a24288958394ac50e57ff638b036",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/assets/react.svg": {
+    "mtime": 1786650850.9084425,
+    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png": {
+    "mtime": 1777049227.2067137,
+    "ast_hash": "978c1bee49d7ad5fc1a4d81099b13e18",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png": {
+    "mtime": 1777049227.206555,
+    "ast_hash": "978c1bee49d7ad5fc1a4d81099b13e18",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png": {
+    "mtime": 1777049227.2069435,
+    "ast_hash": "978c1bee49d7ad5fc1a4d81099b13e18",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png": {
+    "mtime": 1777049227.2104025,
+    "ast_hash": "643842917530acf4c5159ae851b0baf2",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png": {
+    "mtime": 1777049227.2101033,
+    "ast_hash": "be8887071dd7ec39cb754d236aa9584f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png": {
+    "mtime": 1777049227.2077544,
+    "ast_hash": "2247a840b6ee72b8a069208af170e5b1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png": {
+    "mtime": 1777049227.2089505,
+    "ast_hash": "a2f8558fb1d42514111fbbb19fb67314",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png": {
+    "mtime": 1777049227.2087152,
+    "ast_hash": "c785f8932297af4acd5f5ccb7630f01c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png": {
+    "mtime": 1777049227.209678,
+    "ast_hash": "665cb5e3c5729da6d639d26eff47a503",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png": {
+    "mtime": 1777049227.2094092,
+    "ast_hash": "1b3b1538136316263c7092951e923e9d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png": {
+    "mtime": 1777049227.2083473,
+    "ast_hash": "2247a840b6ee72b8a069208af170e5b1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png": {
+    "mtime": 1777049227.2091806,
+    "ast_hash": "2b1452c4c1bda6177b4fbbb832df217f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png": {
+    "mtime": 1777049227.2098978,
+    "ast_hash": "8245359312aea1b0d2412f79a07b0ca5",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png": {
+    "mtime": 1777049227.2073102,
+    "ast_hash": "e419d22a37bc40ba185aca1acb6d4ac6",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png": {
+    "mtime": 1777049227.208549,
+    "ast_hash": "5b3c0902200ce596e9848f22e1f0fe0e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png": {
+    "mtime": 1777049227.2081587,
+    "ast_hash": "36c0d7a7132bdde18898ffdfcfcdc4d2",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png": {
+    "mtime": 1777049227.2079592,
+    "ast_hash": "5b3c0902200ce596e9848f22e1f0fe0e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png": {
+    "mtime": 1777049227.2075412,
+    "ast_hash": "043119ef4faa026ff82bd03f241e5338",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/android/app/src/main/res/mipmap-mdpi/ic_launcher.png": {
+    "mtime": 1776429542.4577682,
+    "ast_hash": "6270344430679711b81476e29878caa7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/android/app/src/main/res/mipmap-hdpi/ic_launcher.png": {
+    "mtime": 1776429542.4576952,
+    "ast_hash": "13e9c72ec37fac220397aa819fa1ef2d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png": {
+    "mtime": 1776429542.457999,
+    "ast_hash": "57838d52c318faff743130c3fcfae0c6",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png": {
+    "mtime": 1776429542.4579208,
+    "ast_hash": "afe1b655b9f32da22f9a4301bb8e6ba8",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": {
+    "mtime": 1776429542.4578428,
+    "ast_hash": "a0a8db5985280b3679d99a820ae2db79",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-16-reporting-email.md": {
+    "mtime": 1786667081.4374366,
+    "ast_hash": "ecb778e086d9c3201637830e29375816",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-01-foundation.md": {
+    "mtime": 1786667081.4290729,
+    "ast_hash": "3e1d560298246b88bc211ac0b2ca0532",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-23-growth-rc.md": {
+    "mtime": 1786667081.4411232,
+    "ast_hash": "1c1192907a4cd437eba5a781bd0f653c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-04-authorization.md": {
+    "mtime": 1786667081.4309332,
+    "ast_hash": "c6fb314e04da7fa816269a39285bd496",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-10-task-lifecycle.md": {
+    "mtime": 1786667081.434645,
+    "ast_hash": "1991a1ead80b2b85c7a3b5899ec20851",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-06-master-data.md": {
+    "mtime": 1786667081.4319608,
+    "ast_hash": "49d14dec442299ff0c3e6bf4237c420e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-17-industry-beta.md": {
+    "mtime": 1786667081.4378726,
+    "ast_hash": "9fc4abccd9ce9f3e831aa37be2312d63",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-22-tracking-feedback.md": {
+    "mtime": 1786667081.440746,
+    "ast_hash": "341a6274a0c09b277753397d2290d4d0",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-02-application-platform.md": {
+    "mtime": 1786667081.4295979,
+    "ast_hash": "32c1e2f8b6faf0fff40022e3b99f2f78",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-14-offline-sync.md": {
+    "mtime": 1786667081.4365976,
+    "ast_hash": "677cae77a4a9d7035b0d72265a34dac3",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-09-workflow-governance.md": {
+    "mtime": 1786667081.434178,
+    "ast_hash": "d82bac6419575798dee7fcccb742e930",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-07-workflow-builder.md": {
+    "mtime": 1786667081.4327357,
+    "ast_hash": "17ffa810004523f1b327707e9327b6c3",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-05-administration.md": {
+    "mtime": 1786667081.4314787,
+    "ast_hash": "238e43687ac70a1df1b7edd296d7be3e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/README.md": {
+    "mtime": 1786667108.4547744,
+    "ast_hash": "a5a74441286d6bdaf25e5d0ccb922182",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-03-authentication.md": {
+    "mtime": 1786667081.4299963,
+    "ast_hash": "059abddc79874a5b814600fba3b3f902",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-15-review.md": {
+    "mtime": 1786667081.4370184,
+    "ast_hash": "92898df1e97bcd58bedade7269c55db5",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-19-customer-portal.md": {
+    "mtime": 1786667081.4393969,
+    "ast_hash": "e5f7887eccc6676bb97746959560bb5c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-20-contracts.md": {
+    "mtime": 1786667081.4398463,
+    "ast_hash": "0b552ac2da2d3cb8e6113e231d36a394",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-18-mvp-release.md": {
+    "mtime": 1786667081.4386032,
+    "ast_hash": "7a07008a6073f214b8bc100956c8c271",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-13-mobile-execution.md": {
+    "mtime": 1786667081.436202,
+    "ast_hash": "2270597c2745b29e23abaf4ece2804a3",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-12-mobile-alpha.md": {
+    "mtime": 1786667081.4358075,
+    "ast_hash": "3751f9542d330931609395fd590b7204",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-21-invoicing.md": {
+    "mtime": 1786667081.4403803,
+    "ast_hash": "480f453426424c3fae0a1ee7563e838f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-24-growth-ga.md": {
+    "mtime": 1786667081.4414606,
+    "ast_hash": "a4d7bde0c367ad93deb3450d46dd1980",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-11-scheduling.md": {
+    "mtime": 1786667081.4351826,
+    "ast_hash": "1fa977ac78b32ff8ddd172fa85549588",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-08-rule-engine.md": {
+    "mtime": 1786667081.4332585,
+    "ast_hash": "7437b2bbc77aed950429d3f30da462b8",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/scripts/aws-login.sh": {
+    "mtime": 1786663655.6560555,
+    "ast_hash": "0d43e8f7eee5f714d9ae27cf2ace34af",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/tsconfig.node.json": {
+    "mtime": 1786666654.72902,
+    "ast_hash": "f9cb81ddcea69ffdab672fc8c48dca66",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/tsconfig.app.json": {
+    "mtime": 1786666654.7288458,
+    "ast_hash": "5f2dafd737dea8a4ddcbb10f5113ac5a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/.oxlintrc.json": {
+    "mtime": 1786666654.7259293,
+    "ast_hash": "029f4905006c1fffd96bc863e2d98d3e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/package.json": {
+    "mtime": 1786666654.7261682,
+    "ast_hash": "83082fbf8e9025fe9c04ffee85f204d3",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/tsconfig.json": {
+    "mtime": 1786666654.7289276,
+    "ast_hash": "a3d39fa780ebff65444de257f291ce6c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/vite.config.ts": {
+    "mtime": 1786666654.7290986,
+    "ast_hash": "88439104b3c207f17d33ef3160e3b080",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/src/App.tsx": {
+    "mtime": 1786666654.727137,
+    "ast_hash": "c5e44a49ac2a44373fba5d1a7fe35be4",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/src/main.tsx": {
+    "mtime": 1786666654.7287576,
+    "ast_hash": "787e5a07efeb2bf6209d5937195f2f68",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/nest-cli.json": {
+    "mtime": 1786666653.2883017,
+    "ast_hash": "b6c9c4b64b7092bea720263a47b574cf",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/package.json": {
+    "mtime": 1786666653.288377,
+    "ast_hash": "b5583eb8cf85a4adcb0ef33de82470cc",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/tsconfig.build.json": {
+    "mtime": 1786666653.2896173,
+    "ast_hash": "f73d0f011ee462dcdf7f02bbdcde284b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/tsconfig.json": {
+    "mtime": 1786666653.2896786,
+    "ast_hash": "397a4e7fd9eb228257a07387005fa770",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/eslint.config.mjs": {
+    "mtime": 1786666653.2882016,
+    "ast_hash": "d7647004fcd6fc51a724065fc878a559",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/test/app.e2e-spec.ts": {
+    "mtime": 1786666653.289494,
+    "ast_hash": "91198fa8fc7e238ecc9dacec901d7a15",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/test/jest-e2e.json": {
+    "mtime": 1786666653.2895577,
+    "ast_hash": "9f2f5b0e1da31d7b04e205c944e85e8d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/src/main.ts": {
+    "mtime": 1786666653.2893884,
+    "ast_hash": "3a3444599787f325c5e00d034838bc60",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/src/app.service.ts": {
+    "mtime": 1786666653.2891557,
+    "ast_hash": "cd3fb7836f10de08a725ee1fd4ab36fe",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/src/app.module.ts": {
+    "mtime": 1786666653.2890592,
+    "ast_hash": "c04a15e4b533d6ed3f26d17d17d061e9",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/src/app.controller.spec.ts": {
+    "mtime": 1786666653.2888956,
+    "ast_hash": "4a1c0e1133dbda6f6e8f3e60d984eddf",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/src/app.controller.ts": {
+    "mtime": 1786666653.2889807,
+    "ast_hash": "3ab0e83b7d93b85ea489ab994ec79ea1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/test/widget_test.dart": {
+    "mtime": 1786666656.2315063,
+    "ast_hash": "bbd7de3783178fe2b8ffadca00b0e255",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/RunnerTests/RunnerTests.swift": {
+    "mtime": 1786666656.2308445,
+    "ast_hash": "a225a382d14d7b16b6f602a5c1d49331",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Runner-Bridging-Header.h": {
+    "mtime": 1786666656.2305906,
+    "ast_hash": "e07862ac930ed4d8479185d52c6cc66d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/GeneratedPluginRegistrant.h": {
+    "mtime": 1786666657.8709662,
+    "ast_hash": "decb9041b5e91a07e66f4664e5dac408",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/AppDelegate.swift": {
+    "mtime": 1786666656.226578,
+    "ast_hash": "2bd8469f2a4b701ff582f6574e58b13c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/GeneratedPluginRegistrant.m": {
+    "mtime": 1786666657.8721547,
+    "ast_hash": "f6079b630997f8fd4ae1ac639162419a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/SceneDelegate.swift": {
+    "mtime": 1786666656.2306848,
+    "ast_hash": "748d701e783e68faf618c00464257a19",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json": {
+    "mtime": 1786666656.229766,
+    "ast_hash": "770f4f65e02ca2fc57f46f4f4148d15d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json": {
+    "mtime": 1786666656.2267568,
+    "ast_hash": "c3cdf9688b604d14f2e76a8287e16167",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Flutter/flutter_export_environment.sh": {
+    "mtime": 1786666657.8402178,
+    "ast_hash": "99e69a2080d4d426719830d77d807b75",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Flutter/ephemeral/flutter_lldb_helper.py": {
+    "mtime": 1786666657.760172,
+    "ast_hash": "98fc75412162af387e2e3461e4e58094",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/android/build.gradle.kts": {
+    "mtime": 1786666656.2243693,
+    "ast_hash": "f11f360aed44d4f6871b398346af14f0",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/android/settings.gradle.kts": {
+    "mtime": 1786666656.2248416,
+    "ast_hash": "094e3cafe85d4dbf756dfe0bd754c6cb",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/android/app/build.gradle.kts": {
+    "mtime": 1786666656.2216306,
+    "ast_hash": "066df1f5d6c5825ff116568ea0f25e9b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java": {
+    "mtime": 1786666657.8696473,
+    "ast_hash": "5b3b418ce50367c33bded3c0df06d47f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/android/app/src/main/kotlin/com/example/fieldbrix_app/MainActivity.kt": {
+    "mtime": 1786666656.222503,
+    "ast_hash": "494f13aba53ead716b1220873d21bbca",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/lib/main.dart": {
+    "mtime": 1786666656.2310905,
+    "ast_hash": "c8e149125151c1ebb31c65a53bc8270e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/.dart_tool/package_config.json": {
+    "mtime": 1786666658.196,
+    "ast_hash": "442e7a0a7c0f9104977b0bd719f40f32",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/.dart_tool/package_graph.json": {
+    "mtime": 1786666657.7127743,
+    "ast_hash": "2352e5ed7ba959b9c9334db2eb7b74c4",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/README.md": {
+    "mtime": 1786666371.1098013,
+    "ast_hash": "93a650a5658abdc7f81a04f260ecb70c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/react-libraries.md": {
+    "mtime": 1786667366.4877558,
+    "ast_hash": "62be7f6f84a4e13f1bc2604bb8d3b0e8",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/terraform/AWS_SENTRY_BOOTSTRAP.md": {
+    "mtime": 1786667189.4202566,
+    "ast_hash": "62f4b095bda0513aad49b92a31e09e2a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/TRACEABILITY.md": {
+    "mtime": 1786667108.45623,
+    "ast_hash": "b675cf1a3d70b6df1be4b34f3e3f0461",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintplans/TRACEABILITY.md": {
+    "mtime": 1786667108.4555473,
+    "ast_hash": "d2a693da68458f739e48aec707068466",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sentry/vite-react.md": {
+    "mtime": 1786667466.1148849,
+    "ast_hash": "e953c791e3d7d9363870e157c31466e1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sentry/lambdas.md": {
+    "mtime": 1786666795.0690393,
+    "ast_hash": "97d97be68b4b8923b1e59d106428306f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sentry/nest.md": {
+    "mtime": 1786667466.1153018,
+    "ast_hash": "6a5448e7e6f65374d04df211522d0810",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sentry/flutter.md": {
+    "mtime": 1786667466.1156738,
+    "ast_hash": "4357c765a1b2c23987f96bdda6899250",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/index.html": {
+    "mtime": 1786666654.7260897,
+    "ast_hash": "21fa4e88ffef5b886d6f45dc2ef8a675",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/README.md": {
+    "mtime": 1786666654.7260096,
+    "ast_hash": "5028f4fc81f7ddd052201a266d0349e7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/backend/README.md": {
+    "mtime": 1786666653.2860682,
+    "ast_hash": "2a19185753858c9121f3aebf72a462a3",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/README.md": {
+    "mtime": 1786666656.2212634,
+    "ast_hash": "6283ffefbfb14cbc9a02c2ec7fd9690a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/pubspec.yaml": {
+    "mtime": 1786666656.2313578,
+    "ast_hash": "65b430d2f226fc23d0f58b5077172ca7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/analysis_options.yaml": {
+    "mtime": 1786666656.221356,
+    "ast_hash": "66d03d7647c8e438164feaf5b922d44a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md": {
+    "mtime": 1786666656.230129,
+    "ast_hash": "e175e436acacf76c814d83532d0b662c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/public/icons.svg": {
+    "mtime": 1786666654.7266672,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/public/favicon.svg": {
+    "mtime": 1786666654.7264864,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/src/assets/hero.png": {
+    "mtime": 1786666654.727675,
+    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/src/assets/vite.svg": {
+    "mtime": 1786666654.7284899,
+    "ast_hash": "9960a24288958394ac50e57ff638b036",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/frontend/src/assets/react.svg": {
+    "mtime": 1786666654.7281933,
+    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png": {
+    "mtime": 1786666656.2299495,
+    "ast_hash": "978c1bee49d7ad5fc1a4d81099b13e18",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png": {
+    "mtime": 1786666656.2300417,
+    "ast_hash": "978c1bee49d7ad5fc1a4d81099b13e18",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png": {
+    "mtime": 1786666656.229861,
+    "ast_hash": "978c1bee49d7ad5fc1a4d81099b13e18",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png": {
+    "mtime": 1786666656.2294421,
+    "ast_hash": "643842917530acf4c5159ae851b0baf2",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png": {
+    "mtime": 1786666656.2286038,
+    "ast_hash": "be8887071dd7ec39cb754d236aa9584f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png": {
+    "mtime": 1786666656.2289429,
+    "ast_hash": "2247a840b6ee72b8a069208af170e5b1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png": {
+    "mtime": 1786666656.2273378,
+    "ast_hash": "a2f8558fb1d42514111fbbb19fb67314",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png": {
+    "mtime": 1786666656.2271252,
+    "ast_hash": "c785f8932297af4acd5f5ccb7630f01c",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png": {
+    "mtime": 1786666656.2295413,
+    "ast_hash": "665cb5e3c5729da6d639d26eff47a503",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png": {
+    "mtime": 1786666656.228006,
+    "ast_hash": "1b3b1538136316263c7092951e923e9d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png": {
+    "mtime": 1786666656.2275813,
+    "ast_hash": "2247a840b6ee72b8a069208af170e5b1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png": {
+    "mtime": 1786666656.2288432,
+    "ast_hash": "2b1452c4c1bda6177b4fbbb832df217f",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png": {
+    "mtime": 1786666656.2290316,
+    "ast_hash": "8245359312aea1b0d2412f79a07b0ca5",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png": {
+    "mtime": 1786666656.2292686,
+    "ast_hash": "e419d22a37bc40ba185aca1acb6d4ac6",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png": {
+    "mtime": 1786666656.2291946,
+    "ast_hash": "5b3c0902200ce596e9848f22e1f0fe0e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png": {
+    "mtime": 1786666656.229346,
+    "ast_hash": "36c0d7a7132bdde18898ffdfcfcdc4d2",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png": {
+    "mtime": 1786666656.229117,
+    "ast_hash": "5b3c0902200ce596e9848f22e1f0fe0e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png": {
+    "mtime": 1786666656.2287219,
+    "ast_hash": "043119ef4faa026ff82bd03f241e5338",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/android/app/src/main/res/mipmap-mdpi/ic_launcher.png": {
+    "mtime": 1786666656.2233522,
+    "ast_hash": "6270344430679711b81476e29878caa7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/android/app/src/main/res/mipmap-hdpi/ic_launcher.png": {
+    "mtime": 1786666656.2230773,
+    "ast_hash": "13e9c72ec37fac220397aa819fa1ef2d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png": {
+    "mtime": 1786666656.2238305,
+    "ast_hash": "57838d52c318faff743130c3fcfae0c6",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png": {
+    "mtime": 1786666656.2236893,
+    "ast_hash": "afe1b655b9f32da22f9a4301bb8e6ba8",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/apps/mobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": {
+    "mtime": 1786666656.2235482,
+    "ast_hash": "a0a8db5985280b3679d99a820ae2db79",
+    "semantic_hash": ""
+  }
+}

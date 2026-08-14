@@ -1,0 +1,1 @@
+{"nodes": [{"id": "scripts_destroy", "label": "destroy.sh", "file_type": "code", "source_file": "docs/terraform/scripts/destroy.sh", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null}], "edges": [], "hyperedges": []}

@@ -1,0 +1,66 @@
+# Fieldbrix Production Configuration
+# Copy this file: cp terraform.tfvars.example terraform.tfvars
+# Fill in your values. This file is gitignored — NEVER commit terraform.tfvars
+#
+# SECRETS go in SSM Parameter Store via scripts/secrets-init.sh (not here)
+# See LOCAL_SETUP.md for the full step-by-step guide
+
+env    = "prod"
+region = "ap-south-1"
+
+# ── Network ─────────────────────────────────────────────────────────────────
+# Private IP ranges — safe to keep as defaults
+vpc_cidr              = "10.0.0.0/16"
+public_subnet_cidr_a  = "10.0.1.0/24"
+public_subnet_cidr_b  = "10.0.2.0/24"
+private_subnet_cidr_a = "10.0.3.0/24"
+
+# ── Your IP for SSH ──────────────────────────────────────────────────────────
+# Find your current IP: curl -s ifconfig.me
+# Format: "x.x.x.x/32"  — the /32 means just your single IP
+admin_cidr = "REPLACE_WITH_YOUR_IP/32"
+
+# ── Compute ──────────────────────────────────────────────────────────────────
+ec2_instance_type = "t4g.medium"     # 2 vCPU, 4GB RAM, ARM Graviton — $16.13/month
+
+# Get the current standard Amazon Linux 2023 ARM64 AMI from AWS's public SSM parameter:
+# aws ssm get-parameter \
+#   --name /aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-arm64 \
+#   --query 'Parameter.Value' --output text --region ap-south-1 --profile fieldbrix
+ami_id = "ami-REPLACE_WITH_CURRENT_AMI"
+
+# Your SSH PUBLIC key file path (the .pub file)
+# Generate one: ssh-keygen -t ed25519 -C "fieldbrix-prod" -f ~/.ssh/fieldbrix_prod
+ssh_public_key_path = "~/.ssh/fieldbrix_prod.pub"
+
+# ── Database ─────────────────────────────────────────────────────────────────
+db_instance_class = "db.t3.micro"   # 1 vCPU, 1GB RAM — $12.24/month
+
+# ── App ──────────────────────────────────────────────────────────────────────
+# Domains allowed to upload directly to S3 (CORS)
+cors_allowed_origins = [
+  "https://app.fieldbrix.in",
+  "https://api.fieldbrix.in",
+  "http://localhost:5173",   # local React dev
+]
+
+# ── Cloudflare ───────────────────────────────────────────────────────────────
+# Zone ID: Cloudflare dashboard → your domain → right sidebar → Zone ID
+cloudflare_zone_id = "REPLACE_WITH_CLOUDFLARE_ZONE_ID"
+
+# ── Alerts ───────────────────────────────────────────────────────────────────
+# Email for billing alerts ($50, $90) and CloudWatch alarms
+alert_email = "REPLACE_WITH_YOUR_EMAIL"
+
+# ── NOT IN THIS FILE ─────────────────────────────────────────────────────────
+# Secrets go in SSM Parameter Store via scripts/secrets-init.sh:
+#   /fieldbrix/prod/db_password
+#   /fieldbrix/prod/jwt_secret
+#   /fieldbrix/prod/jwt_refresh_secret
+#   /fieldbrix/prod/razorpay_key_secret
+#   /fieldbrix/prod/msg91_auth_key
+#   /fieldbrix/prod/whatsapp_bsp_token
+#   /fieldbrix/prod/cloudflare_token
+#   /fieldbrix/prod/grafana_loki_user_id
+#   /fieldbrix/prod/grafana_api_key
+#   /fieldbrix/prod/sentry_dsn

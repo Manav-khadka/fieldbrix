@@ -1,0 +1,34 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+*.tfplan
+
+# Commit .terraform.lock.hcl so every machine and CI uses reviewed providers.
+
+# Secret variable files — NEVER commit
+*.tfvars
+!*.tfvars.example
+
+# Credentials & keys
+*.pem
+*.key
+*.p12
+credentials.json
+aws.env.local
+CREDENTIALS.local.md
+
+# Python
+scripts/python/.venv/
+**/__pycache__/
+*.pyc
+scripts/python/.env
+
+# Lambda zip artefacts
+lambdas/*.zip
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
