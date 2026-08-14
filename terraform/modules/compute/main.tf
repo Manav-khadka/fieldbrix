@@ -90,6 +90,8 @@ resource "aws_instance" "api" {
     region                           = var.region
     rds_address                      = var.rds_address
     rds_port                         = var.rds_port
+    application_bucket               = var.application_bucket
+    application_queue_url            = var.application_queue_url
     admin_domain                     = var.admin_domain
     api_domain                       = var.api_domain
     tls_contact_email                = var.tls_contact_email

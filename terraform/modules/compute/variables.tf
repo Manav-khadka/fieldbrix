@@ -15,6 +15,8 @@ variable "deployment_bucket_arn" { type = string }
 variable "queue_arns" { type = list(string) }
 variable "rds_address" { type = string }
 variable "rds_port" { type = number }
+variable "application_bucket" { type = string }
+variable "application_queue_url" { type = string }
 variable "admin_domain" { type = string }
 variable "api_domain" { type = string }
 variable "tls_contact_email" {

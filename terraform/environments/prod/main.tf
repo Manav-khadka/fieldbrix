@@ -58,6 +58,8 @@ module "compute" {
   queue_arns                       = module.queues.all_queue_arns
   rds_address                      = module.database.address
   rds_port                         = module.database.port
+  application_bucket               = module.storage.photos_bucket
+  application_queue_url            = module.queues.media_queue_url
   admin_domain                     = var.admin_domain
   api_domain                       = var.api_domain
   tls_contact_email                = var.tls_contact_email

@@ -60,6 +60,8 @@ INSTANCE_ID=$(run_terraform -chdir="${TF_DIR}" output -raw instance_id)
 DEPLOYMENT_BUCKET=$(run_terraform -chdir="${TF_DIR}" output -raw web_bucket)
 ADMIN_URL=$(run_terraform -chdir="${TF_DIR}" output -raw admin_url)
 API_URL=$(run_terraform -chdir="${TF_DIR}" output -raw api_url)
+APPLICATION_BUCKET=$(run_terraform -chdir="${TF_DIR}" output -raw photos_bucket)
+APPLICATION_QUEUE_URL=$(run_terraform -chdir="${TF_DIR}" output -json queue_urls | jq -r '.media')
 
 pnpm --dir "${BACKEND_DIR}" install --frozen-lockfile
 pnpm --dir "${FRONTEND_DIR}" install --frozen-lockfile
@@ -108,6 +110,8 @@ PARAMETERS=$(jq -cn \
   --arg commit "${COMMIT_SHA}" \
   --arg buildTime "${BUILD_TIME}" \
   --arg sentryDsn "${BACKEND_SENTRY_DSN}" \
+  --arg applicationBucket "${APPLICATION_BUCKET}" \
+  --arg applicationQueueUrl "${APPLICATION_QUEUE_URL}" \
   '{commands:[
     "set -euo pipefail",
     ("release=" + $release),
@@ -118,7 +122,7 @@ PARAMETERS=$(jq -cn \
     "aws s3 cp s3://$bucket/releases/$release/api.tar.gz /tmp/api.tar.gz --region $region --only-show-errors",
     "tar -xzf /tmp/admin.tar.gz -C /opt/fieldbrix/admin/releases/$release",
     "tar -xzf /tmp/api.tar.gz -C /opt/fieldbrix/backend/releases/$release",
-    ("printf \"%s\\n\" \"APP_VERSION=" + $version + "\" \"APP_COMMIT_SHA=" + $commit + "\" \"APP_BUILD_TIME=" + $buildTime + "\" \"SENTRY_RELEASE=fieldbrix-backend@" + $commit + "\" \"SENTRY_DSN=" + $sentryDsn + "\" > /opt/fieldbrix/backend/releases/$release/release.env"),
+    ("printf \"%s\\n\" \"APP_VERSION=" + $version + "\" \"APP_COMMIT_SHA=" + $commit + "\" \"APP_BUILD_TIME=" + $buildTime + "\" \"SENTRY_RELEASE=fieldbrix-backend@" + $commit + "\" \"SENTRY_DSN=" + $sentryDsn + "\" \"S3_BUCKET=" + $applicationBucket + "\" \"SQS_QUEUE_URL=" + $applicationQueueUrl + "\" > /opt/fieldbrix/backend/releases/$release/release.env"),
     "chown -R ec2-user:ec2-user /opt/fieldbrix/admin/releases/$release /opt/fieldbrix/backend/releases/$release",
     "cd /opt/fieldbrix/backend/releases/$release && sudo -u ec2-user /usr/bin/pnpm install --prod --frozen-lockfile",
     "install -d /etc/systemd/system/fieldbrix-api.service.d",
