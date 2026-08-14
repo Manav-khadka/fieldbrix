@@ -86,17 +86,17 @@ resource "aws_instance" "api" {
   }
 
   user_data = templatefile("${path.module}/user_data.sh.tpl", {
-    env                       = var.env
-    region                    = var.region
-    rds_address               = var.rds_address
-    rds_port                  = var.rds_port
-    admin_domain              = var.admin_domain
-    api_domain                = var.api_domain
-    tls_contact_email         = var.tls_contact_email
+    env                              = var.env
+    region                           = var.region
+    rds_address                      = var.rds_address
+    rds_port                         = var.rds_port
+    admin_domain                     = var.admin_domain
+    api_domain                       = var.api_domain
+    tls_contact_email                = var.tls_contact_email
     database_password_parameter_name = var.database_password_parameter_name
     sentry_dsn_parameter_name        = var.sentry_dsn_parameter_name
-    tls_installer_script_b64  = base64encode(file("${path.module}/install-tls.sh"))
-    tls_maintainer_script_b64 = base64encode(file("${path.module}/tls-maintain.sh"))
+    tls_installer_script_b64         = base64encode(file("${path.module}/install-tls.sh"))
+    tls_maintainer_script_b64        = base64encode(file("${path.module}/tls-maintain.sh"))
   })
   # Bootstrap changes should not replace the server and discard deployed
   # release directories. Apply live operational changes through SSM.
