@@ -1,16 +1,16 @@
 # Graph Report - fieldbrix  (2026-08-14)
 
 ## Corpus Check
-- 201 files · ~131,829 words
+- 201 files · ~131,881 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2444 nodes · 2412 edges · 302 communities (252 shown, 50 thin omitted)
+- 2445 nodes · 2414 edges · 302 communities (252 shown, 50 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7cbe96a6`
+- Built from commit: `dc56e9b0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -302,8 +302,8 @@ Cohesion: 0.18
 Nodes (11): 7.1 Log Levels, 7.2 Structured Log Format — Every Entry Is JSON, 7.3 Logger Service, 7.4 What to NEVER Log, 7.5 Audit Log vs Operational Log — Two Separate Systems, code:block53 (FATAL   Process cannot continue. Immediate page.), code:json ({), code:typescript (// shared/logger/fieldbrix-logger.ts) (+3 more)
 
 ### Community 2 - "NestJS Backend Architecture"
-Cohesion: 0.12
-Nodes (18): Backend Reference (NestJS), API Response Envelope, Audit Log (audit_logs table), CreateTaskDto, NestJS Dependency Injection, Modular Monolith Domain Modules, DomainException Hierarchy, Guards (RBAC + Tenant Isolation) (+10 more)
+Cohesion: 0.15
+Nodes (14): Backend Reference (NestJS), API Response Envelope, Audit Log (audit_logs table), NestJS Dependency Injection, Modular Monolith Domain Modules, DomainException Hierarchy, Guards (RBAC + Tenant Isolation), Idempotency Key Pattern (+6 more)
 
 ### Community 3 - "Terraform Ops Scripts"
 Cohesion: 0.04
@@ -338,8 +338,8 @@ Cohesion: 0.06
 Nodes (34): 1. The Problem This Solves, 2. Why Not AI Agents for the Verification Loop, 3.0 Dependency, license and observability gates, 3.1 The Local Loop (seconds, no emulator), 3.2 Golden (Screenshot) Tests — visual regressions, zero eyeballing, 3.3 PR-Gated Emulator Integration Tests — the actual "does the app work" check, 3.4 Maestro — lower-effort alternative/complement for new flows, 3.5 Backend and Web, Same Pattern (already specified, cross-referenced here) (+26 more)
 
 ### Community 11 - "Platform Admin Safety Controls"
-Cohesion: 0.07
-Nodes (40): 10.10 Push Notifications, 10.11 Secure Storage, 10.12 Connectivity, 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, 10.1 Framework, 10.2 Local Database, 10.3 Database Encryption (+32 more)
+Cohesion: 0.10
+Nodes (30): 10.10 Push Notifications, 10.11 Secure Storage, 10.12 Connectivity, 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, 10.1 Framework, 10.2 Local Database, 10.3 Database Encryption (+22 more)
 
 ### Community 12 - "db_snapshot.py Entry Point"
 Cohesion: 0.07
@@ -347,11 +347,11 @@ Nodes (27): 1. Role roster, 2. Brief per-role journey, 3. User stories per role,
 
 ### Community 13 - "cost_report.py Entry Point"
 Cohesion: 0.06
-Nodes (36): 8.10 Real-time Updates, 8.11 Drag and Drop (Dispatch Board), 8.12 Internationalization, 8.13 Frontend libraries summary, 8.1 Framework Choice, 8.2 Routing, 8.3 UI Components, 8.4 Data Tables (+28 more)
+Nodes (35): 8.10 Real-time Updates, 8.11 Drag and Drop (Dispatch Board), 8.12 Internationalization, 8.13 Frontend libraries summary, 8.1 Framework Choice, 8.2 Routing, 8.3 UI Components, 8.4 Data Tables (+27 more)
 
 ### Community 14 - "db-tunnel.sh"
-Cohesion: 0.07
-Nodes (27): A1. SOLID, A2. Other Principles, code:typescript (// ❌ WRONG — invalid data travels deep before failing), code:typescript (// ❌ WRONG — three hops into unrelated domains), code:typescript (// ❌ WRONG — magic string transitions with no record of what), code:typescript (// ❌ WRONG — pyramid of doom), code:typescript (// ❌ WRONG — TasksService does too many things), code:typescript (// ❌ WRONG — adding a new channel requires editing this clas) (+19 more)
+Cohesion: 0.13
+Nodes (15): A2. Other Principles, code:typescript (// ❌ WRONG — invalid data travels deep before failing), code:typescript (// ❌ WRONG — three hops into unrelated domains), code:typescript (// ❌ WRONG — magic string transitions with no record of what), code:typescript (// ❌ WRONG — pyramid of doom), code:typescript (// ❌ WRONG — tenant isolation check duplicated), code:block8 (Signs you are over-engineering:), code:typescript (// ❌ WRONG — dead code added "for future use") (+7 more)
 
 ### Community 15 - "ssh.sh"
 Cohesion: 0.08
@@ -366,8 +366,8 @@ Cohesion: 0.10
 Nodes (20): 10. Tool Landscape — What Actually Differs, 11. Applying This: The Fieldbrix Worked Example, 12. Common Failure Modes, 1. The Core Shift: From Writing Code to Verifying Code, 2. Principle 1 — Mechanical Verification Beats Agent Judgment, Always, 3. Principle 2 — Architecture for Legibility, Not Just Correctness, 4. Principle 3 — One Source of Truth, Read By Every Tool, 5. Principle 4 — The Verification Pyramid (+12 more)
 
 ### Community 18 - "Community 18"
-Cohesion: 0.25
-Nodes (6): Cloudflare API token, code:block1 (A record: api.fieldbrix.in → your static EC2 IP (proxied thr), modules/dns/, Proxied = true (orange cloud icon), What this creates, Why Cloudflare instead of Route 53?
+Cohesion: 0.17
+Nodes (12): A1. SOLID, code:typescript (// ❌ WRONG — TasksService does too many things), code:typescript (// ❌ WRONG — adding a new channel requires editing this clas), code:typescript (// ❌ WRONG — throws where base class promises a return value), code:typescript (// ❌ WRONG — fat interface forces every implementor to stub ), code:typescript (// ❌ WRONG — hardcoded concrete dependency), D — Dependency Inversion, I — Interface Segregation (+4 more)
 
 ### Community 19 - "plan.sh"
 Cohesion: 0.15
@@ -386,8 +386,8 @@ Cohesion: 0.06
 Nodes (33): 1.10 Domain Modules (Modular Monolith Structure), 1.11 Backend libraries summary, 1.1 Framework, 1.2 Why Dependency Injection Matters for Fieldbrix, 1.3 Guards (RBAC + Tenant Isolation), 1.4 Interceptors (PII Masking, Logging, Response Transform), 1.5 Pipes (Validation), 1.6 ORM — Prisma (+25 more)
 
 ### Community 23 - "start.sh"
-Cohesion: 0.13
-Nodes (17): Security Rules N1-N15, AI Agent Development Playbook, Architecture for Legibility, Not Just Correctness, AUTOMATED_TESTING_STRATEGY.md, The Definition of Done, ENGINEERING_HANDBOOK_FASTAPI.md, graphify-out Knowledge Graph, Humans Own Decisions, Agents Own Execution (+9 more)
+Cohesion: 0.14
+Nodes (15): Security Rules N1-N15, AI Agent Development Playbook, AGENTS.md / CLAUDE.md Pattern, Architecture for Legibility, Not Just Correctness, The Definition of Done, ENGINEERING_HANDBOOK*.md (P0/P1/P2 System), graphify-out Knowledge Graph, Humans Own Decisions, Agents Own Execution (+7 more)
 
 ### Community 24 - "platform_admins Table"
 Cohesion: 0.11
@@ -414,8 +414,8 @@ Cohesion: 0.13
 Nodes (14): Binding dependency and observability policy, code:text (Repository and infrastructure), Delivery baseline, Dependency chain, Dynamic tenant authorization, FieldBrix MVP + Growth Roadmap, Locked authentication, email, and commercial scope, Locked authorization model (+6 more)
 
 ### Community 30 - "Community 30"
-Cohesion: 0.43
-Nodes (7): SQS + Lambda Async Layer, modules/queues, Dead-Letter Queue (DLQ), media-processing Queue, notifications.fifo Queue, pdf-generation.fifo Queue, scheduler.fifo Queue
+Cohesion: 0.50
+Nodes (4): CreateTaskDto, Validation Pipes (class-validator), CreateTaskSchema (Shared Zod Schema), React Hook Form + Zod
 
 ### Community 31 - "parts_used Table"
 Cohesion: 0.18
@@ -826,8 +826,8 @@ Cohesion: 0.22
 Nodes (9): jest, collectCoverageFrom, coverageDirectory, moduleFileExtensions, rootDir, testEnvironment, testRegex, transform (+1 more)
 
 ### Community 172 - "Community 172"
-Cohesion: 0.15
-Nodes (13): Cloudflare CDN + DNS, RDS db.t3.micro, modules/database, deletion_protection = true, RDS PostgreSQL 16, DB Password via SSM, modules/dns, Cloudflare DNS Records (+5 more)
+Cohesion: 0.05
+Nodes (40): AWS Infrastructure Reference, GitHub Actions CI/CD Pipeline, Cloudflare CDN + DNS, Complete Cost Summary, EC2 t4g.medium Compute, PgBouncer (AWS Doc), RDS db.t3.micro, S3 Object Storage (+32 more)
 
 ### Community 173 - "Community 173"
 Cohesion: 0.31
@@ -862,12 +862,12 @@ Cohesion: 0.39
 Nodes (6): moduleFileExtensions, rootDir, testEnvironment, testRegex, transform, ^.+\\.(t|j)s$
 
 ### Community 181 - "Community 181"
-Cohesion: 0.18
-Nodes (13): 13.1 Migration Rules, 13.2 Query Rules, 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block97 (Unit tests (services, repositories)    : minimum 80% line co) (+5 more)
+Cohesion: 0.29
+Nodes (8): 13.1 Migration Rules, 13.2 Query Rules, code:block93 (Runtime       : Python 3.12), code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), PART 12 — LAMBDA FUNCTIONS (Python), PART 13 — DATABASE STANDARDS, Runtime & Libraries
 
 ### Community 182 - "Community 182"
-Cohesion: 0.40
-Nodes (5): B1. Monorepo Layout, B2. Module Boundary Rules, code:block14 (fieldbrix/                          Root (Turborepo)), code:block15 (Rule P0: No file in modules/ may import from infrastructure/), PART B — PROJECT STRUCTURE
+Cohesion: 0.15
+Nodes (12): B1. Monorepo Layout, B2. Module Boundary Rules, code:block14 (fieldbrix/                          Root (Turborepo)), code:block15 (Rule P0: No file in modules/ may import from infrastructure/), code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:block55 (N1.  tenantId comes from JWT only. Never from request body, ), J1. Migration Rules (+4 more)
 
 ### Community 183 - "Community 183"
 Cohesion: 0.44
@@ -974,16 +974,16 @@ Cohesion: 0.43
 Nodes (5): required, severeErrors, targetUrl, webdriver(), [width, height]
 
 ### Community 210 - "Community 210"
-Cohesion: 0.40
-Nodes (5): code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), J1. Migration Rules, J2. Query Rules, PART J — DATABASE STANDARDS
+Cohesion: 0.29
+Nodes (10): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:), code:dart (// Mirrors the server envelope exactly) (+2 more)
 
 ### Community 211 - "Community 211"
 Cohesion: 0.40
 Nodes (5): code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block48 (Unit tests (services, repositories)    : minimum 80% line co), K1. Test Structure — AAA (Arrange, Act, Assert), K2. Coverage Requirements, PART K — TESTING STANDARDS
 
 ### Community 212 - "Community 212"
-Cohesion: 0.25
-Nodes (7): code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:typescript (/**), code:block55 (N1.  tenantId comes from JWT only. Never from request body, ), M1. Comment Style, M2. TSDoc on All Public Service Methods, PART M — DOCUMENTATION STANDARDS, PART N — SECURITY RULES (ALL P0, NON-NEGOTIABLE)
+Cohesion: 0.40
+Nodes (5): code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:typescript (/**), M1. Comment Style, M2. TSDoc on All Public Service Methods, PART M — DOCUMENTATION STANDARDS
 
 ### Community 215 - "Community 215"
 Cohesion: 0.50
@@ -1026,8 +1026,8 @@ Cohesion: 0.40
 Nodes (5): 5d. Create an API token, 6. Review and apply, code:bash (./scripts/plan.sh prod), code:bash (./scripts/apply.sh prod), Step 6 — Store all secrets in SSM Parameter Store (free)
 
 ### Community 266 - "Community 266"
-Cohesion: 0.18
-Nodes (12): AWS Infrastructure Reference, GitHub Actions CI/CD Pipeline, Complete Cost Summary, EC2 t4g.medium Compute, PgBouncer (AWS Doc), modules/compute, Elastic IP (Static IP), IMDSv2 Enforcement (+4 more)
+Cohesion: 0.40
+Nodes (6): 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block97 (Unit tests (services, repositories)    : minimum 80% line co), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task), PART 14 — TESTING STANDARDS
 
 ### Community 268 - "Community 268"
 Cohesion: 0.17
@@ -1051,7 +1051,7 @@ Nodes (7): 4.1 Exception Hierarchy, 4.2 DomainException Base Class, 4.3 Global E
 
 ### Community 296 - "Community 296"
 Cohesion: 0.40
-Nodes (5): S3 Object Storage, Presigned URL Upload (Mobile), modules/storage, Presigned URL Upload Pattern, S3 Buckets (photos/pdfs/exports/web)
+Nodes (5): AUTOMATED_TESTING_STRATEGY.md, ENGINEERING_HANDBOOK_FASTAPI.md, Mechanical Verification Beats Agent Judgment, tech_implementation_guide_fastapi.md, The Verification Pyramid
 
 ### Community 298 - "Community 298"
 Cohesion: 0.67
@@ -1081,9 +1081,9 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **What connects `Foundation workers and future Lambda packages.`, `Minimal, observable queue worker used by the Sprint 01 local platform.`, `tsBuildInfoFile` to the rest of the system?**
   _1247 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `NestJS Backend Architecture` be split into smaller, more focused modules?**
-  _Cohesion score 0.12418300653594772 - nodes in this community are weakly interconnected._
 - **Should `Terraform Ops Scripts` be split into smaller, more focused modules?**
   _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
 - **Should `AI Agent Development Rules` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
+- **Should `Community 5` be split into smaller, more focused modules?**
+  _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._

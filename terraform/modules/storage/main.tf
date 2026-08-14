@@ -1,5 +1,13 @@
 data "aws_caller_identity" "current" {}
 
+# Preserve the existing deployment-bucket versioning state while expanding the
+# same configuration to every bucket. This is a Terraform state address move,
+# not an AWS delete/recreate operation.
+moved {
+  from = aws_s3_bucket_versioning.web
+  to   = aws_s3_bucket_versioning.all["web"]
+}
+
 locals {
   bucket_prefix = "fieldbrix-${var.env}-${data.aws_caller_identity.current.account_id}"
 }

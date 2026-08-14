@@ -5217,7 +5217,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L1",
       "id": "terraform_modules_dns_readme_md",
-      "community": 18,
+      "community": 172,
       "norm_label": "readme.md"
     },
     {
@@ -5226,7 +5226,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L1",
       "id": "dns_readme_modules_dns",
-      "community": 18,
+      "community": 172,
       "norm_label": "modules/dns/"
     },
     {
@@ -5235,7 +5235,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L5",
       "id": "dns_readme_what_this_creates",
-      "community": 18,
+      "community": 172,
       "norm_label": "what this creates"
     },
     {
@@ -5244,7 +5244,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L7",
       "id": "dns_readme_codeblock_1",
-      "community": 18,
+      "community": 172,
       "norm_label": "code:block1 (a record: api.fieldbrix.in \u2192 your static ec2 ip (proxied thr)"
     },
     {
@@ -5253,7 +5253,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L13",
       "id": "dns_readme_why_cloudflare_instead_of_route_53",
-      "community": 18,
+      "community": 172,
       "norm_label": "why cloudflare instead of route 53?"
     },
     {
@@ -5262,7 +5262,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L18",
       "id": "dns_readme_proxied_true_orange_cloud_icon",
-      "community": 18,
+      "community": 172,
       "norm_label": "proxied = true (orange cloud icon)"
     },
     {
@@ -5280,7 +5280,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L29",
       "id": "dns_readme_cloudflare_api_token",
-      "community": 18,
+      "community": 172,
       "norm_label": "cloudflare api token"
     },
     {
@@ -7998,7 +7998,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2150",
       "id": "docs_engineering_handbook_codeblock_74",
-      "community": 13,
+      "community": 11,
       "norm_label": "code:block74 (sdk           : flutter stable pinned by ci and the reposito)"
     },
     {
@@ -8241,7 +8241,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2540",
       "id": "docs_engineering_handbook_part_11_mobile_code_standards",
-      "community": 11,
+      "community": 210,
       "norm_label": "part 11 \u2014 mobile code standards"
     },
     {
@@ -8250,7 +8250,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2542",
       "id": "docs_engineering_handbook_11_1_widget_rules",
-      "community": 11,
+      "community": 210,
       "norm_label": "11.1 widget rules"
     },
     {
@@ -8268,7 +8268,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2571",
       "id": "docs_engineering_handbook_11_2_riverpod_providers",
-      "community": 11,
+      "community": 210,
       "norm_label": "11.2 riverpod providers"
     },
     {
@@ -8277,7 +8277,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2573",
       "id": "docs_engineering_handbook_codeblock_89",
-      "community": 11,
+      "community": 210,
       "norm_label": "code:dart (// declare at file top-level \u2014 never inside a widget or meth)"
     },
     {
@@ -8286,7 +8286,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2589",
       "id": "docs_engineering_handbook_11_3_offline_first_rule",
-      "community": 11,
+      "community": 210,
       "norm_label": "11.3 offline-first rule"
     },
     {
@@ -8295,7 +8295,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2591",
       "id": "docs_engineering_handbook_codeblock_90",
-      "community": 11,
+      "community": 210,
       "norm_label": "code:dart (// rule p0: every user action that mutates data must:)"
     },
     {
@@ -8304,7 +8304,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2618",
       "id": "docs_engineering_handbook_11_4_flutter_api_client",
-      "community": 11,
+      "community": 210,
       "norm_label": "11.4 flutter api client"
     },
     {
@@ -8313,7 +8313,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2620",
       "id": "docs_engineering_handbook_codeblock_91",
-      "community": 11,
+      "community": 210,
       "norm_label": "code:dart (// mirrors the server envelope exactly)"
     },
     {
@@ -8322,7 +8322,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2642",
       "id": "docs_engineering_handbook_11_5_naming_conventions_flutter",
-      "community": 11,
+      "community": 210,
       "norm_label": "11.5 naming conventions \u2014 flutter"
     },
     {
@@ -8331,7 +8331,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2644",
       "id": "docs_engineering_handbook_codeblock_92",
-      "community": 11,
+      "community": 210,
       "norm_label": "code:block92 (files      : snake_case.dart             task_card.dart  tas)"
     },
     {
@@ -8358,7 +8358,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2660",
       "id": "docs_engineering_handbook_codeblock_93",
-      "community": 11,
+      "community": 181,
       "norm_label": "code:block93 (runtime       : python 3.12)"
     },
     {
@@ -8412,7 +8412,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2745",
       "id": "docs_engineering_handbook_part_14_testing_standards",
-      "community": 181,
+      "community": 266,
       "norm_label": "part 14 \u2014 testing standards"
     },
     {
@@ -8421,7 +8421,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2747",
       "id": "docs_engineering_handbook_14_1_test_structure_aaa_arrange_act_assert",
-      "community": 181,
+      "community": 266,
       "norm_label": "14.1 test structure \u2014 aaa (arrange, act, assert)"
     },
     {
@@ -8430,7 +8430,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2749",
       "id": "docs_engineering_handbook_codeblock_96",
-      "community": 181,
+      "community": 266,
       "norm_label": "code:typescript (// test name format: 'should [expected behaviour] when [cond)"
     },
     {
@@ -8439,7 +8439,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2787",
       "id": "docs_engineering_handbook_14_2_coverage_requirements",
-      "community": 181,
+      "community": 266,
       "norm_label": "14.2 coverage requirements"
     },
     {
@@ -8448,7 +8448,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2789",
       "id": "docs_engineering_handbook_codeblock_97",
-      "community": 181,
+      "community": 266,
       "norm_label": "code:block97 (unit tests (services, repositories)    : minimum 80% line co)"
     },
     {
@@ -8475,7 +8475,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2812",
       "id": "docs_engineering_handbook_codeblock_98",
-      "community": 181,
+      "community": 266,
       "norm_label": "code:block98 (feature/fos-{ticket}-{description}      feature/fos-142-task)"
     },
     {
@@ -8808,7 +8808,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1",
       "id": "docs_tech_implementation_guide_md",
-      "community": 212,
+      "community": 182,
       "norm_label": "tech_implementation_guide.md"
     },
     {
@@ -8871,7 +8871,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L48",
       "id": "docs_tech_implementation_guide_part_a_universal_code_principles",
-      "community": 14,
+      "community": 18,
       "norm_label": "part a \u2014 universal code principles"
     },
     {
@@ -8880,7 +8880,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L50",
       "id": "docs_tech_implementation_guide_a1_solid",
-      "community": 14,
+      "community": 18,
       "norm_label": "a1. solid"
     },
     {
@@ -8889,7 +8889,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L54",
       "id": "docs_tech_implementation_guide_s_single_responsibility",
-      "community": 14,
+      "community": 18,
       "norm_label": "s \u2014 single responsibility"
     },
     {
@@ -8898,7 +8898,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L58",
       "id": "docs_tech_implementation_guide_codeblock_2",
-      "community": 14,
+      "community": 18,
       "norm_label": "code:typescript (// \u274c wrong \u2014 tasksservice does too many things)"
     },
     {
@@ -8907,7 +8907,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L96",
       "id": "docs_tech_implementation_guide_o_open_closed",
-      "community": 14,
+      "community": 18,
       "norm_label": "o \u2014 open/closed"
     },
     {
@@ -8916,7 +8916,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L100",
       "id": "docs_tech_implementation_guide_codeblock_3",
-      "community": 14,
+      "community": 18,
       "norm_label": "code:typescript (// \u274c wrong \u2014 adding a new channel requires editing this clas)"
     },
     {
@@ -8925,7 +8925,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L135",
       "id": "docs_tech_implementation_guide_l_liskov_substitution",
-      "community": 14,
+      "community": 18,
       "norm_label": "l \u2014 liskov substitution"
     },
     {
@@ -8934,7 +8934,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L139",
       "id": "docs_tech_implementation_guide_codeblock_4",
-      "community": 14,
+      "community": 18,
       "norm_label": "code:typescript (// \u274c wrong \u2014 throws where base class promises a return value)"
     },
     {
@@ -8943,7 +8943,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L157",
       "id": "docs_tech_implementation_guide_i_interface_segregation",
-      "community": 14,
+      "community": 18,
       "norm_label": "i \u2014 interface segregation"
     },
     {
@@ -8952,7 +8952,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L161",
       "id": "docs_tech_implementation_guide_codeblock_5",
-      "community": 14,
+      "community": 18,
       "norm_label": "code:typescript (// \u274c wrong \u2014 fat interface forces every implementor to stub )"
     },
     {
@@ -8961,7 +8961,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L178",
       "id": "docs_tech_implementation_guide_d_dependency_inversion",
-      "community": 14,
+      "community": 18,
       "norm_label": "d \u2014 dependency inversion"
     },
     {
@@ -8970,7 +8970,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L182",
       "id": "docs_tech_implementation_guide_codeblock_6",
-      "community": 14,
+      "community": 18,
       "norm_label": "code:typescript (// \u274c wrong \u2014 hardcoded concrete dependency)"
     },
     {
@@ -9753,7 +9753,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1497",
       "id": "docs_tech_implementation_guide_part_j_database_standards",
-      "community": 210,
+      "community": 182,
       "norm_label": "part j \u2014 database standards"
     },
     {
@@ -9762,7 +9762,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1499",
       "id": "docs_tech_implementation_guide_j1_migration_rules",
-      "community": 210,
+      "community": 182,
       "norm_label": "j1. migration rules"
     },
     {
@@ -9771,7 +9771,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1501",
       "id": "docs_tech_implementation_guide_codeblock_45",
-      "community": 210,
+      "community": 182,
       "norm_label": "code:sql (-- every migration:)"
     },
     {
@@ -9780,7 +9780,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1524",
       "id": "docs_tech_implementation_guide_j2_query_rules",
-      "community": 210,
+      "community": 182,
       "norm_label": "j2. query rules"
     },
     {
@@ -9789,7 +9789,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1526",
       "id": "docs_tech_implementation_guide_codeblock_46",
-      "community": 210,
+      "community": 182,
       "norm_label": "code:typescript (// rule p0: every prisma query includes tenantid in where)"
     },
     {
@@ -9969,7 +9969,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1756",
       "id": "docs_tech_implementation_guide_part_n_security_rules_all_p0_non_negotiable",
-      "community": 212,
+      "community": 182,
       "norm_label": "part n \u2014 security rules (all p0, non-negotiable)"
     },
     {
@@ -9978,7 +9978,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1758",
       "id": "docs_tech_implementation_guide_codeblock_55",
-      "community": 212,
+      "community": 182,
       "norm_label": "code:block55 (n1.  tenantid comes from jwt only. never from request body, )"
     },
     {
@@ -17056,6 +17056,15 @@
       "norm_label": "source nodes"
     },
     {
+      "label": "deploy-apps.sh",
+      "file_type": "code",
+      "source_file": "deploy-apps.sh",
+      "source_location": "L1",
+      "community": 185,
+      "norm_label": "deploy-apps.sh",
+      "id": "deploy_apps_sh"
+    },
+    {
       "label": "check_runtime_secret()",
       "file_type": "code",
       "source_file": "terraform/scripts/python/health_check.py",
@@ -20021,7 +20030,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/modules/dns/README.md",
       "source_location": "L1",
-      "community": 18,
+      "community": 172,
       "norm_label": "readme.md",
       "id": "docs_terraform_modules_dns_readme_md"
     },
@@ -21309,7 +21318,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 296,
       "norm_label": "mechanical verification beats agent judgment",
       "id": "docs_ai_agent_development_playbook_mechanical_verification"
     },
@@ -21335,7 +21344,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 23,
       "norm_label": "one source of truth, read by every tool",
       "id": "docs_ai_agent_development_playbook_one_source_of_truth"
     },
@@ -21348,7 +21357,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 296,
       "norm_label": "the verification pyramid",
       "id": "docs_ai_agent_development_playbook_verification_pyramid"
     },
@@ -21452,7 +21461,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 296,
       "norm_label": "automated_testing_strategy.md",
       "id": "docs_ai_agent_development_playbook_automated_testing_strategy"
     },
@@ -21465,7 +21474,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 296,
       "norm_label": "tech_implementation_guide_fastapi.md",
       "id": "docs_ai_agent_development_playbook_tech_implementation_guide_fastapi"
     },
@@ -21478,7 +21487,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 296,
       "norm_label": "engineering_handbook_fastapi.md",
       "id": "docs_ai_agent_development_playbook_engineering_handbook_fastapi"
     },
@@ -21517,7 +21526,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 23,
       "norm_label": "engineering_handbook*.md (p0/p1/p2 system)",
       "id": "docs_ai_agent_development_playbook_engineering_handbook"
     },
@@ -21530,7 +21539,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 23,
       "norm_label": "agents.md / claude.md pattern",
       "id": "docs_ai_agent_development_playbook_agents_md"
     },
@@ -21751,7 +21760,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 296,
+      "community": 172,
       "norm_label": "modules/storage",
       "id": "storage_readme"
     },
@@ -21764,7 +21773,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 296,
+      "community": 172,
       "norm_label": "s3 buckets (photos/pdfs/exports/web)",
       "id": "storage_readme_s3_buckets"
     },
@@ -21777,7 +21786,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 296,
+      "community": 172,
       "norm_label": "presigned url upload pattern",
       "id": "storage_readme_presigned_url_upload"
     },
@@ -21790,7 +21799,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "modules/compute",
       "id": "compute_readme"
     },
@@ -21803,7 +21812,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "elastic ip (static ip)",
       "id": "compute_readme_elastic_ip"
     },
@@ -21816,7 +21825,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "pgbouncer connection pooler",
       "id": "compute_readme_pgbouncer"
     },
@@ -21829,7 +21838,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "imdsv2 enforcement",
       "id": "compute_readme_imdsv2"
     },
@@ -21842,7 +21851,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "modules/queues",
       "id": "queues_readme"
     },
@@ -21855,7 +21864,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "pdf-generation.fifo queue",
       "id": "queues_readme_pdf_generation_fifo"
     },
@@ -21868,7 +21877,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "notifications.fifo queue",
       "id": "queues_readme_notifications_fifo"
     },
@@ -21881,7 +21890,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "scheduler.fifo queue",
       "id": "queues_readme_scheduler_fifo"
     },
@@ -21894,7 +21903,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "media-processing queue",
       "id": "queues_readme_media_processing"
     },
@@ -21907,7 +21916,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "dead-letter queue (dlq)",
       "id": "queues_readme_dlq"
     },
@@ -22076,7 +22085,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 30,
       "norm_label": "react hook form + zod",
       "id": "frontend_readme_react_hook_form_zod"
     },
@@ -22089,7 +22098,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 30,
       "norm_label": "createtaskschema (shared zod schema)",
       "id": "frontend_readme_create_task_schema"
     },
@@ -22232,7 +22241,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 30,
       "norm_label": "validation pipes (class-validator)",
       "id": "backend_readme_pipes_validation"
     },
@@ -22388,7 +22397,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 30,
       "norm_label": "createtaskdto",
       "id": "backend_readme_create_task_dto"
     },
@@ -22492,7 +22501,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 296,
+      "community": 172,
       "norm_label": "presigned url upload (mobile)",
       "id": "mobile_readme_presigned_url_upload"
     },
@@ -22596,7 +22605,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "aws infrastructure reference",
       "id": "aws_readme"
     },
@@ -22609,7 +22618,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "ec2 t4g.medium compute",
       "id": "aws_readme_ec2_compute"
     },
@@ -22635,7 +22644,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "pgbouncer (aws doc)",
       "id": "aws_readme_pgbouncer"
     },
@@ -22648,7 +22657,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 296,
+      "community": 172,
       "norm_label": "s3 object storage",
       "id": "aws_readme_s3_storage"
     },
@@ -22674,7 +22683,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "sqs + lambda async layer",
       "id": "aws_readme_sqs_lambda_async"
     },
@@ -22700,7 +22709,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "github actions ci/cd pipeline",
       "id": "aws_readme_cicd_github_actions"
     },
@@ -22713,7 +22722,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "complete cost summary",
       "id": "aws_readme_cost_summary"
     }
@@ -22753,21 +22762,31 @@
       "relation": "defines",
       "confidence": "EXTRACTED",
       "source_file": "terraform/scripts/deploy-apps.sh",
-      "source_location": "L17",
+      "source_location": "L40",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "terraform_scripts_deploy_apps_sh",
-      "target": "scripts_deploy_apps_cleanup"
+      "target": "scripts_deploy_apps_cleanup",
+      "confidence_score": 1.0
     },
     {
       "relation": "defines",
       "confidence": "EXTRACTED",
       "source_file": "terraform/scripts/deploy-apps.sh",
-      "source_location": "L45",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "terraform_scripts_deploy_apps_sh",
+      "target": "scripts_deploy_apps_run_terraform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy-apps.sh",
+      "source_location": "L40",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "terraform_scripts_deploy_apps_sh",
-      "target": "scripts_deploy_apps_run_terraform"
+      "source": "deploy_apps_sh",
+      "target": "scripts_deploy_apps_cleanup"
     },
     {
       "relation": "defines",
@@ -22778,6 +22797,16 @@
       "confidence_score": 1.0,
       "source": "docs_terraform_scripts_deploy_apps_sh",
       "target": "scripts_deploy_apps_cleanup"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy-apps.sh",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "deploy_apps_sh",
+      "target": "scripts_deploy_apps_run_terraform"
     },
     {
       "relation": "defines",
@@ -47008,5 +47037,5 @@
       "source_file": "docs/frontend/README.md"
     }
   ],
-  "built_at_commit": "7cbe96a698742733b522b618c086f17e3fadcf17"
+  "built_at_commit": "dc56e9b0384821b9f206c196e03dd9e8eea18aba"
 }
