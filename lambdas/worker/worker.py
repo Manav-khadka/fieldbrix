@@ -8,6 +8,7 @@ import os
 import time
 
 import boto3
+from botocore.exceptions import ClientError
 
 
 logging.basicConfig(level=os.environ.get("LOG_LEVEL", "INFO"), format="%(message)s")
@@ -23,11 +24,23 @@ def main() -> None:
     )
 
     while True:
-        response = client.receive_message(
-            QueueUrl=queue_url,
-            MaxNumberOfMessages=1,
-            WaitTimeSeconds=10,
-        )
+        try:
+            response = client.receive_message(
+                QueueUrl=queue_url,
+                MaxNumberOfMessages=1,
+                WaitTimeSeconds=10,
+            )
+        except ClientError as error:
+            LOGGER.warning(
+                json.dumps(
+                    {
+                        "event": "queue.receive_unavailable",
+                        "error_code": error.response.get("Error", {}).get("Code"),
+                    },
+                ),
+            )
+            time.sleep(1)
+            continue
         for message in response.get("Messages", []):
             LOGGER.info(json.dumps({"event": "queue.message_received", "message_id": message["MessageId"]}))
             client.delete_message(QueueUrl=queue_url, ReceiptHandle=message["ReceiptHandle"])

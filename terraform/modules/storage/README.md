@@ -7,7 +7,7 @@ Four S3 buckets for different data types.
 | fieldbrix-{env}-photos | Job photos, receipts, evidence | No | → IA after 90d → Glacier after 365d |
 | fieldbrix-{env}-pdfs | Generated invoices, reports | No | None |
 | fieldbrix-{env}-exports | Tenant data exports | No | Auto-delete after 30d |
-| fieldbrix-{env}-web | React SPA static files | Yes (via CloudFront) | None |
+| fieldbrix-{env}-web | Versioned React SPA deployment artifacts | No (served by the application deployment path) | None |
 
 ## How photos work (presigned URLs)
 

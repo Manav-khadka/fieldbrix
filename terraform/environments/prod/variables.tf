@@ -61,3 +61,9 @@ variable "alert_email" {
     error_message = "alert_email must be a valid email address."
   }
 }
+
+variable "database_password" {
+  type        = string
+  sensitive   = true
+  description = "RDS password injected by protected CI; never commit it to tfvars."
+}

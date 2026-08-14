@@ -10,7 +10,7 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 
 - Target workspace: `apps/api`, `apps/web`, `mobile`, `lambdas/{pdf,scheduler,notifications,media}`, `packages/{types,schemas,config}`, `infra`, and `docs` with a single dependency lock and task graph.
 - Local stack: PostgreSQL, LocalStack-compatible S3/SQS/DLQ, API/web shells, queue worker, deterministic seed, and health probes.
-- Production IaC: VPC/private subnets, load balancer/EC2, RDS PostgreSQL, S3/CloudFront, SQS/DLQ, IAM, KMS, Secrets Manager, Route 53/ACM, CloudWatch, backup and restore configuration.
+- Production IaC: VPC/private subnets, load balancer/EC2 where adopted, RDS PostgreSQL, S3 deployment artifacts, SQS/DLQ, IAM, KMS, Secrets Manager, CloudWatch, and backup/restore configuration. DNS remains with Cloudflare; AWS Certificate Manager, Route 53, CloudFront, and autoscaling are out of scope.
 - CI artifacts: immutable application version/commit SHA, Terraform plan, test reports, SBOM, secret/dependency scan, and deploy manifest.
 
 ## Initial operational contracts
@@ -37,9 +37,9 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 
 - [X] Separate Terraform state, modules, variables, outputs, and least-privilege deployment role; enable state locking/encryption.
 - [ ] Keep RDS and workloads private; restrict ingress/egress; require TLS; encrypt RDS, buckets, queues, backups, and logs.
-- [ ] Enable RDS automated backups/PITR, S3 versioning/lifecycle, SQS DLQ/redrive, ALB health checks, autoscaling and termination protection where required.
+- [ ] Enable RDS automated backups/PITR, S3 versioning/lifecycle, SQS DLQ/redrive, load-balancer health checks where adopted, and termination protection where required.
 - [ ] Put runtime secrets in Secrets Manager and grant resource-specific read access; rotate a test secret.
-- [ ] Add blue/green or equivalent reversible deployment, database-independent app rollback, CloudFront invalidation, and release tagging.
+- [ ] Add a reversible deployment, database-independent app rollback, and release tagging.
 - [ ] Create isolated production test-tenant configuration without granting it production customer data.
 - [ ] Run `terraform fmt`, `validate`, policy/security scan, plan review, controlled apply, drift check, and destroy only in disposable CI infrastructure.
 
@@ -69,15 +69,15 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 
 ## Integration, test, and LambdaTest checklist
 
-- [ ] Unit-test config validators, health aggregation, and Terraform helper logic.
-- [ ] Integration-test API → PostgreSQL, API → S3 emulator, API → SQS/DLQ, web → API health, and worker receive/ack/fail flows.
+- [X] Unit-test config validators and health aggregation; Terraform helper validation remains in the offline validation script.
+- [X] Integration-test API → PostgreSQL, API → S3 emulator, API → SQS/DLQ, web → API health, and worker receive/ack flows.
 - [ ] Prove local bootstrap, migration placeholder, seed, restart, teardown, and second bootstrap on macOS and Linux CI.
 - [ ] Rehearse Terraform plan/apply and deployment against a disposable account/stack; capture outputs without secrets.
 - [ ] Restore a backup to an isolated database and verify connectivity and documented RTO/RPO evidence.
 - [ ] Run IAM/TLS/encryption/public-access/secret scans and ensure no high/critical findings remain.
 - [ ] LambdaTest web: open deployed web shell in Chrome, Edge, Firefox, Safari/WebKit at desktop and mobile widths; assert load, TLS, no console errors, and `/version` matches build.
 - [ ] LambdaTest mobile: mark `N/A—no app journey yet`, signed by QA; verify only that future credentials are stored as CI secrets.
-- [ ] Inject failed DB, object-store, and queue dependencies; readiness becomes `503`, liveness stays healthy, alarms fire, and recovery is automatic.
+- [X] Inject failed DB, object-store, and queue dependencies; readiness becomes `503`, liveness stays healthy, and recovery is automatic. Production alarm firing remains an external AWS evidence item.
 
 ## Delivery and sign-off
 
@@ -99,3 +99,4 @@ Rollback: redeploy the prior immutable artifact and reverse only IaC changes pro
 | 2026-08-14 | CI/CD pipeline              | Backend/frontend CI, umbrella verification, Terraform plan/apply, and manually approved deployment | Local application builds, Terraform validation, Actionlint, and deployment-command rendering passed; mobile pipeline deferred |
 | 2026-08-14 | Local runtime and health contracts | Pinned Compose stack, LocalStack S3/SQS, PostgreSQL, API config validator and dependency probes | Backend lint/typecheck, 4 unit tests, 4 E2E tests, build; frontend lint/typecheck/build; Flutter analyze/test; Docker Hub timed out fetching the Node base image before end-to-end compose startup |
 | 2026-08-14 | Terraform retention and alerts | Retained/versioned buckets, lifecycle rollback retention, monitoring module, protected plan/apply workflow and read-only drift script | `terraform fmt` passed; offline module initialization completed. Direct remote-state access was denied (403) for this local AWS identity, so no cloud plan/apply was attempted |
+| 2026-08-14 | Local integration and resilience | Clean Compose bootstrap, PostgreSQL, LocalStack S3/SQS, API/web health, queue worker receipt/ack, teardown/second bootstrap, dependency failure injection | API readiness passed against DB/S3/SQS; worker acknowledged a real queue message; DB and LocalStack failures produced `live=200` / `ready=503`, then recovered automatically |

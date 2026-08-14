@@ -16,13 +16,39 @@ module "storage" {
 }
 
 module "database" {
-  source           = "../../modules/database"
-  env              = var.env
-  subnet_ids       = [module.networking.private_subnet_a, module.networking.private_subnet_b]
-  rds_sg_id        = module.networking.rds_sg_id
-  instance_class   = var.db_instance_class
-  engine_version   = var.db_engine_version
-  protect_database = var.protect_database
+  source            = "../../modules/database"
+  env               = var.env
+  subnet_ids        = [module.networking.private_subnet_a, module.networking.private_subnet_b]
+  rds_sg_id         = module.networking.rds_sg_id
+  instance_class    = var.db_instance_class
+  engine_version    = var.db_engine_version
+  protect_database  = var.protect_database
+  database_password = var.database_password
+}
+
+resource "aws_kms_key" "runtime_secrets" {
+  description             = "FieldBrix ${var.env} runtime secret encryption"
+  deletion_window_in_days = 30
+  enable_key_rotation     = true
+}
+
+resource "aws_kms_alias" "runtime_secrets" {
+  name          = "alias/fieldbrix-${var.env}-runtime-secrets"
+  target_key_id = aws_kms_key.runtime_secrets.key_id
+}
+
+resource "aws_secretsmanager_secret" "runtime" {
+  name                    = "fieldbrix/${var.env}/runtime"
+  description             = "FieldBrix runtime database and service secrets"
+  kms_key_id              = aws_kms_key.runtime_secrets.arn
+  recovery_window_in_days = 30
+}
+
+resource "aws_secretsmanager_secret_version" "runtime" {
+  secret_id = aws_secretsmanager_secret.runtime.id
+  secret_string = jsonencode({
+    DB_PASSWORD = var.database_password
+  })
 }
 
 module "queues" {
@@ -46,6 +72,8 @@ module "compute" {
   admin_domain            = var.admin_domain
   api_domain              = var.api_domain
   tls_contact_email       = var.tls_contact_email
+  runtime_secret_arn      = aws_secretsmanager_secret.runtime.arn
+  runtime_kms_key_arn     = aws_kms_key.runtime_secrets.arn
 }
 
 module "monitoring" {

@@ -8,6 +8,10 @@
 | `terraform-plan.yml` | Pull requests changing `terraform/` | Runs offline validation and a production plan |
 | `terraform-apply.yml` | Manual dispatch with confirmation | Re-plans and applies through the protected production environment |
 | `deploy.yml` | Manual dispatch with confirmation | Builds the direct application folders, deploys a versioned release, and runs smoke checks |
+| `security.yml` | Pull requests, `main`, and weekly | Blocks committed secrets and high/critical dependency or IaC findings; publishes an SBOM |
+
+`ci.yml` also runs the Linux Docker integration stack: PostgreSQL, LocalStack
+S3/SQS, API readiness, web health, worker receive/ack, and database recovery.
 
 The root repository owns CI/CD for the direct application folders.
 
@@ -20,6 +24,7 @@ deployment-branch protection for `main`. Configure these Actions secrets:
 |---|---|
 | `AWS_TERRAFORM_ROLE_ARN` | Repository secret; Terraform plan/apply through GitHub OIDC |
 | `PROD_AMI_ID` | Repository secret; non-secret AMI input written to the ignored CI tfvars file |
+| `PROD_DB_PASSWORD` | Repository secret; RDS password written only to the ephemeral CI tfvars file |
 | `AWS_DEPLOY_ROLE_ARN` | `production` environment secret; S3 upload, SSM deployment, and read-only Terraform outputs |
 
 The IAM roles must trust this repository's GitHub OIDC subject and use
@@ -31,6 +36,7 @@ deployment script.
 Protect `main` and require this umbrella check before merge:
 
 - `verify`
+- `Security / scan`
 - `Terraform Plan` when infrastructure changes
 
 Terraform apply and application deployment share the `production` concurrency

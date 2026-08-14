@@ -1,59 +1,31 @@
 #!/usr/bin/env bash
-# Store all runtime secrets in SSM Parameter Store (free, KMS-encrypted).
-# Prompts interactively — secrets never appear in shell history or log files.
-# Existing parameters are preserved. Pass --force only when intentionally rotating.
-# Usage: ./scripts/secrets-init.sh <env> [--force]
+# Creates or updates the one runtime secret consumed by the production instance.
+# Usage: ./scripts/secrets-init.sh <env>
 set -euo pipefail
 
-ENV=${1:?Usage: secrets-init.sh <env> [--force]}
-FORCE=${2:-}
-REGION="ap-south-1"
-PREFIX="/fieldbrix/${ENV}"
+ENVIRONMENT=${1:?Usage: secrets-init.sh <env>}
+REGION=${AWS_REGION:-ap-south-1}
+SECRET_ID="fieldbrix/${ENVIRONMENT}/runtime"
 
-store() {
-  local name=$1 desc=$2
-
-  if [[ "${FORCE}" != "--force" ]] && aws ssm get-parameter \
-    --name "${PREFIX}/${name}" \
-    --region "${REGION}" >/dev/null 2>&1; then
-    echo "  = /fieldbrix/${ENV}/${name} (already present; preserved)"
-    return
-  fi
-
-  read -rsp "  ${desc}: " VAL; echo ""
-  if [[ -z "${VAL}" ]]; then
-    echo "  - /fieldbrix/${ENV}/${name} (skipped)"
-    return
-  fi
-  aws ssm put-parameter \
-    --name "${PREFIX}/${name}" \
-    --description "Fieldbrix ${ENV} — ${desc}" \
-    --type "SecureString" \
-    --value "${VAL}" \
-    --overwrite \
-    --region "${REGION}" > /dev/null
-  echo "  ✓ /fieldbrix/${ENV}/${name}"
+read -rsp "RDS password for ${ENVIRONMENT}: " DATABASE_PASSWORD
+printf '\n'
+test -n "${DATABASE_PASSWORD}" || {
+  echo "A database password is required." >&2
+  exit 1
 }
 
-echo ""
-echo "=== Fieldbrix Secrets Setup: ${ENV} ==="
-echo "Encrypted with AWS KMS (free default key)"
-echo "Generate random values with: openssl rand -base64 32"
-echo ""
+SECRET_JSON=$(jq -cn --arg password "${DATABASE_PASSWORD}" '{DB_PASSWORD: $password}')
 
-store "db_password"          "RDS password (openssl rand -base64 32)"
-store "jwt_secret"           "JWT signing secret (openssl rand -base64 64)"
-store "jwt_refresh_secret"   "JWT refresh secret (different value, openssl rand -base64 64)"
-store "razorpay_key_secret"  "Razorpay secret key (press Enter to skip)"
-store "msg91_auth_key"       "MSG91 API auth key (press Enter to skip)"
-store "whatsapp_bsp_token"   "WhatsApp BSP API token (press Enter to skip)"
-store "cloudflare_token"     "Cloudflare API token"
-store "grafana_loki_user_id" "Grafana Cloud Loki user ID (press Enter to skip)"
-store "grafana_api_key"      "Grafana Cloud API key (press Enter to skip)"
-store "sentry_dsn"           "Hosted Sentry backend DSN (press Enter to skip)"
+if aws secretsmanager describe-secret --secret-id "${SECRET_ID}" --region "${REGION}" >/dev/null 2>&1; then
+  aws secretsmanager put-secret-value \
+    --secret-id "${SECRET_ID}" \
+    --secret-string "${SECRET_JSON}" \
+    --region "${REGION}" >/dev/null
+  echo "Updated ${SECRET_ID}."
+else
+  echo "Secret ${SECRET_ID} is Terraform-managed; apply Terraform before initializing it." >&2
+  exit 1
+fi
 
-echo ""
-echo "✓ Secret setup complete (existing values preserved; blank values skipped)."
-echo ""
-echo "Verify:"
-echo "  aws ssm get-parameters-by-path --path '${PREFIX}' --region ${REGION} --query 'Parameters[*].Name'"
+echo "Do not print the secret value. Verify only its metadata with:"
+echo "aws secretsmanager describe-secret --secret-id ${SECRET_ID} --region ${REGION}"

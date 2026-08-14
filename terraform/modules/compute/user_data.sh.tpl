@@ -90,12 +90,11 @@ fi
 
 # Store the database password encoded so arbitrary characters remain safe in an
 # EnvironmentFile. The NestJS process decodes it in memory before connecting.
-DB_PASS=$(aws ssm get-parameter \
-  --name "/fieldbrix/${env}/db_password" \
-  --with-decryption \
-  --query "Parameter.Value" \
+DB_PASS=$(aws secretsmanager get-secret-value \
+  --secret-id "${runtime_secret_arn}" \
+  --query "SecretString" \
   --output text \
-  --region "${region}")
+  --region "${region}" | jq -r '.DB_PASSWORD')
 DB_PASS_B64=$(printf '%s' "$DB_PASS" | base64 -w 0)
 
 cat > /etc/fieldbrix/backend.env <<ENV

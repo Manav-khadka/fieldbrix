@@ -1,9 +1,24 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-curl --fail --silent http://localhost:${API_PORT:-3000}/health/live >/dev/null
-curl --fail --silent http://localhost:${API_PORT:-3000}/health/ready >/dev/null
-curl --fail --silent http://localhost:${WEB_PORT:-5173}/ >/dev/null
+wait_for_http() {
+  local url=$1
+  local attempts=${2:-30}
+
+  for _ in $(seq 1 "${attempts}"); do
+    if curl --fail --silent --max-time 2 "${url}" >/dev/null; then
+      return 0
+    fi
+    sleep 1
+  done
+
+  echo "Timed out waiting for ${url}" >&2
+  return 1
+}
+
+wait_for_http http://localhost:${API_PORT:-3000}/health/live
+wait_for_http http://localhost:${API_PORT:-3000}/health/ready
+wait_for_http http://localhost:${WEB_PORT:-5173}/
 docker compose exec -T postgres pg_isready -U "${POSTGRES_USER:-fieldbrix}" -d "${POSTGRES_DB:-fieldbrix}" >/dev/null
 docker compose exec -T localstack awslocal s3api head-bucket --bucket fieldbrix-local-uploads
 docker compose exec -T localstack awslocal sqs get-queue-attributes \

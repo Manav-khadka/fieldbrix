@@ -1,9 +1,3 @@
-# Password from SSM Parameter Store (free, encrypted)
-data "aws_ssm_parameter" "db_password" {
-  name            = "/fieldbrix/${var.env}/db_password"
-  with_decryption = true
-}
-
 resource "aws_db_subnet_group" "main" {
   name       = "fieldbrix-${var.env}-subnet-group"
   subnet_ids = var.subnet_ids
@@ -43,7 +37,7 @@ resource "aws_db_instance" "postgres" {
 
   db_name  = "fieldbrix"
   username = "fieldbrix_admin"
-  password = data.aws_ssm_parameter.db_password.value
+  password = var.database_password
 
   db_subnet_group_name       = aws_db_subnet_group.main.name
   vpc_security_group_ids     = [var.rds_sg_id]

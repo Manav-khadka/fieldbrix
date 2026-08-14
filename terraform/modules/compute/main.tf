@@ -40,8 +40,8 @@ resource "aws_iam_role_policy" "ec2" {
       {
         Sid      = "ReadRuntimeConfiguration"
         Effect   = "Allow"
-        Action   = ["ssm:GetParameter", "ssm:GetParameters", "ssm:GetParametersByPath"]
-        Resource = "arn:aws:ssm:${var.region}:*:parameter/fieldbrix/${var.env}/*"
+        Action   = ["secretsmanager:GetSecretValue"]
+        Resource = var.runtime_secret_arn
       },
       {
         Sid    = "UseApplicationQueues"
@@ -60,7 +60,7 @@ resource "aws_iam_role_policy" "ec2" {
         Sid      = "DecryptRuntimeConfiguration"
         Effect   = "Allow"
         Action   = ["kms:Decrypt"]
-        Resource = "*"
+        Resource = var.runtime_kms_key_arn
       },
       {
         Sid      = "WriteApplicationLogs"
@@ -99,6 +99,7 @@ resource "aws_instance" "api" {
     admin_domain              = var.admin_domain
     api_domain                = var.api_domain
     tls_contact_email         = var.tls_contact_email
+    runtime_secret_arn        = var.runtime_secret_arn
     tls_installer_script_b64  = base64encode(file("${path.module}/install-tls.sh"))
     tls_maintainer_script_b64 = base64encode(file("${path.module}/tls-maintain.sh"))
   })

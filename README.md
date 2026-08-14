@@ -42,10 +42,10 @@ Object buckets are retained and versioned, so application releases can be
 reverted to a previous immutable artifact. Set `protect_database = true` before
 putting durable data in production and confirm the configured alerts email.
 
-The current compute topology is an EC2 bootstrap surface. Moving it behind an
-ALB with private workloads is a production network migration and must be
-reviewed and applied as its own change, not silently mixed into this sprint
-foundation.
+The current compute topology is an EC2 bootstrap surface. Any later private
+workload/load-balancer migration must be reviewed and applied as its own
+change. DNS remains with Cloudflare; do not introduce AWS Certificate Manager,
+Route 53, CloudFront, or autoscaling into this foundation.
 
 ## Notes
 - One umbrella commit contains the compatible backend, frontend, mobile, and

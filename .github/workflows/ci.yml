@@ -48,3 +48,46 @@ jobs:
 
       - name: Terraform
         run: ./terraform/scripts/validate.sh prod
+
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build and start the local platform
+        run: |
+          docker compose up --build -d
+          ./scripts/local/migrate.sh
+          ./scripts/local/seed.sh
+          ./scripts/local/health.sh
+
+      - name: Prove queue worker receive and acknowledgement
+        run: |
+          docker compose exec -T localstack awslocal sqs send-message \
+            --queue-url http://localhost:4566/000000000000/fieldbrix-local-jobs \
+            --message-body '{"event":"ci.worker"}' >/dev/null
+          for attempt in $(seq 1 15); do
+            if docker compose logs queue-worker | grep -q 'queue.message_acknowledged'; then
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "Queue worker did not acknowledge the message" >&2
+          exit 1
+
+      - name: Prove dependency readiness and automatic recovery
+        run: |
+          docker compose stop postgres
+          sleep 2
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}' http://localhost:3000/health/live)" = 200
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}' http://localhost:3000/health/ready)" = 503
+          docker compose start postgres
+          ./scripts/local/health.sh
+
+      - name: Collect service logs
+        if: always()
+        run: docker compose logs --no-color
+
+      - name: Teardown the local platform
+        if: always()
+        run: ./scripts/local/clean.sh

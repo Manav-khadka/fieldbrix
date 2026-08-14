@@ -1,16 +1,16 @@
 # Graph Report - fieldbrix  (2026-08-14)
 
 ## Corpus Check
-- 195 files · ~128,900 words
+- 195 files · ~129,402 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2391 nodes · 2355 edges · 297 communities (248 shown, 49 thin omitted)
+- 2392 nodes · 2356 edges · 294 communities (245 shown, 49 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8f45e703`
+- Built from commit: `51f31f03`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -236,9 +236,7 @@
 - [[_COMMUNITY_Community 232|Community 232]]
 - [[_COMMUNITY_Community 233|Community 233]]
 - [[_COMMUNITY_Community 234|Community 234]]
-- [[_COMMUNITY_Community 235|Community 235]]
 - [[_COMMUNITY_Community 236|Community 236]]
-- [[_COMMUNITY_Community 237|Community 237]]
 - [[_COMMUNITY_Community 238|Community 238]]
 - [[_COMMUNITY_Community 247|Community 247]]
 - [[_COMMUNITY_Community 251|Community 251]]
@@ -252,7 +250,6 @@
 - [[_COMMUNITY_Community 271|Community 271]]
 - [[_COMMUNITY_Community 277|Community 277]]
 - [[_COMMUNITY_Community 278|Community 278]]
-- [[_COMMUNITY_Community 295|Community 295]]
 - [[_COMMUNITY_Community 296|Community 296]]
 
 ## God Nodes (most connected - your core abstractions)
@@ -287,7 +284,7 @@
 - **Full Environment Bootstrap Flow** — terraform_local_setup_guide, scripts_readme_bootstrap_sh, scripts_readme_secrets_init_sh, scripts_readme_plan_sh, scripts_readme_apply_sh, python_readme_health_check_py [EXTRACTED 1.00]
 - **Shared Zod Schema Contract** — frontend_readme_react_hook_form_zod, frontend_readme_create_task_schema, backend_readme_create_task_dto [EXTRACTED 1.00]
 
-## Communities (297 total, 49 thin omitted)
+## Communities (294 total, 49 thin omitted)
 
 ### Community 0 - "Backend Domain & Standards"
 Cohesion: 0.18
@@ -298,20 +295,20 @@ Cohesion: 0.18
 Nodes (11): 7.1 Log Levels, 7.2 Structured Log Format — Every Entry Is JSON, 7.3 Logger Service, 7.4 What to NEVER Log, 7.5 Audit Log vs Operational Log — Two Separate Systems, code:block53 (FATAL   Process cannot continue. Immediate page.), code:json ({), code:typescript (// shared/logger/fieldbrix-logger.ts) (+3 more)
 
 ### Community 2 - "NestJS Backend Architecture"
-Cohesion: 0.15
-Nodes (14): Backend Reference (NestJS), API Response Envelope, Audit Log (audit_logs table), NestJS Dependency Injection, Modular Monolith Domain Modules, DomainException Hierarchy, Guards (RBAC + Tenant Isolation), Idempotency Key Pattern (+6 more)
+Cohesion: 0.12
+Nodes (18): Backend Reference (NestJS), API Response Envelope, Audit Log (audit_logs table), CreateTaskDto, NestJS Dependency Injection, Modular Monolith Domain Modules, DomainException Hierarchy, Guards (RBAC + Tenant Isolation) (+10 more)
 
 ### Community 3 - "Terraform Ops Scripts"
 Cohesion: 0.04
 Nodes (47): 5.10 `sites`, 5.11 `service_targets`, 5.12 `parts`, 5.13 `workflows`, 5.14 `workflow_versions`, 5.15 `workflow_sections`, 5.16 `workflow_fields`, 5.17 `workflow_field_options` (+39 more)
 
 ### Community 4 - "AI Agent Development Rules"
-Cohesion: 0.10
-Nodes (19): code:bash (cd ../../   # back to infra root), code:bash (cd environments/prod), code:block14 (→ DNS → Records → Add record), code:bash (# Install Python dependencies for ops scripts), code:bash (# Easy way (uses the script):), code:bash (# In one terminal — create the tunnel), code:bash (# Stop before sleeping (~saves $14/month if done nightly + w), code:block19 (Always on:              ~$31/month  →  $100 lasts about 3.2 ) (+11 more)
+Cohesion: 0.12
+Nodes (16): code:bash (cd ../../   # back to infra root), code:bash (cd environments/prod), code:block14 (→ DNS → Records → Add record), code:bash (# Install Python dependencies for ops scripts), code:bash (# Easy way (uses the script):), code:bash (# In one terminal — create the tunnel), code:block25 (environments/prod/   Terraform config for production), Credential reference (+8 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.12
-Nodes (15): 1.2 Why Dependency Injection Matters for Fieldbrix, 1.3 Guards (RBAC + Tenant Isolation), 1.4 Interceptors (PII Masking, Logging, Response Transform), code:block2 (Without DI (Express style):), code:block3 (Package       : @nestjs/passport + custom guards), code:block4 (Package       : Built into NestJS), Compile and run the project, Deployment (+7 more)
+Cohesion: 0.25
+Nodes (6): Cloudflare API token, code:block1 (A record: api.fieldbrix.in → your static EC2 IP (proxied thr), modules/dns/, Proxied = true (orange cloud icon), What this creates, Why Cloudflare instead of Route 53?
 
 ### Community 6 - "Cost & Sync Infrastructure"
 Cohesion: 0.05
@@ -334,8 +331,8 @@ Cohesion: 0.06
 Nodes (34): 1. The Problem This Solves, 2. Why Not AI Agents for the Verification Loop, 3.0 Dependency, license and observability gates, 3.1 The Local Loop (seconds, no emulator), 3.2 Golden (Screenshot) Tests — visual regressions, zero eyeballing, 3.3 PR-Gated Emulator Integration Tests — the actual "does the app work" check, 3.4 Maestro — lower-effort alternative/complement for new flows, 3.5 Backend and Web, Same Pattern (already specified, cross-referenced here) (+26 more)
 
 ### Community 11 - "Platform Admin Safety Controls"
-Cohesion: 0.10
-Nodes (29): 10.10 Push Notifications, 10.11 Secure Storage, 10.12 Connectivity, 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, 10.1 Framework, 10.2 Local Database, 10.3 Database Encryption (+21 more)
+Cohesion: 0.07
+Nodes (41): 10.10 Push Notifications, 10.11 Secure Storage, 10.12 Connectivity, 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, 10.1 Framework, 10.2 Local Database, 10.3 Database Encryption (+33 more)
 
 ### Community 12 - "db_snapshot.py Entry Point"
 Cohesion: 0.07
@@ -362,8 +359,8 @@ Cohesion: 0.10
 Nodes (20): 10. Tool Landscape — What Actually Differs, 11. Applying This: The Fieldbrix Worked Example, 12. Common Failure Modes, 1. The Core Shift: From Writing Code to Verifying Code, 2. Principle 1 — Mechanical Verification Beats Agent Judgment, Always, 3. Principle 2 — Architecture for Legibility, Not Just Correctness, 4. Principle 3 — One Source of Truth, Read By Every Tool, 5. Principle 4 — The Verification Pyramid (+12 more)
 
 ### Community 18 - "Community 18"
-Cohesion: 0.18
-Nodes (11): 5.1 Log Levels, 5.2 Structured Log Format — Every Entry Is JSON, 5.3 Logger Service, 5.4 What to NEVER Log, 5.5 Audit Log vs Operational Log — Two Separate Systems, 5. LOGGING STANDARDS, code:block39 (FATAL   Process cannot continue. Immediate page.), code:json ({) (+3 more)
+Cohesion: 0.43
+Nodes (7): SQS + Lambda Async Layer, modules/queues, Dead-Letter Queue (DLQ), media-processing Queue, notifications.fifo Queue, pdf-generation.fifo Queue, scheduler.fifo Queue
 
 ### Community 19 - "plan.sh"
 Cohesion: 0.15
@@ -378,8 +375,8 @@ Cohesion: 0.12
 Nodes (17): 5.1 The Golden Rule, 5.2 Success Responses, 5.3 Error Responses, 5.4 HTTP Status Code Map, 5.5 Response Interceptor (NestJS), 5.6 Request Standards, code:json (// Single resource — HTTP 200 or 201), code:json (// Validation error — HTTP 400) (+9 more)
 
 ### Community 22 - "stop.sh"
-Cohesion: 0.11
-Nodes (18): 1.10 Domain Modules (Modular Monolith Structure), 1.11 Backend libraries summary, 1.1 Framework, 1.5 Pipes (Validation), 1.6 ORM — Prisma, 1.7 Built-in Swagger / OpenAPI, 1.8 Authentication, 1.9 WebSockets / SSE (Real-time) (+10 more)
+Cohesion: 0.06
+Nodes (33): 1.10 Domain Modules (Modular Monolith Structure), 1.11 Backend libraries summary, 1.1 Framework, 1.2 Why Dependency Injection Matters for Fieldbrix, 1.3 Guards (RBAC + Tenant Isolation), 1.4 Interceptors (PII Masking, Logging, Response Transform), 1.5 Pipes (Validation), 1.6 ORM — Prisma (+25 more)
 
 ### Community 23 - "start.sh"
 Cohesion: 0.13
@@ -410,8 +407,8 @@ Cohesion: 0.13
 Nodes (14): Binding dependency and observability policy, code:text (Repository and infrastructure), Delivery baseline, Dependency chain, Dynamic tenant authorization, FieldBrix MVP + Growth Roadmap, Locked authentication, email, and commercial scope, Locked authorization model (+6 more)
 
 ### Community 30 - "Community 30"
-Cohesion: 0.20
-Nodes (10): 3.1 The Golden Rule, 3.2 Success Responses, 3.3 Error Responses, 3.4 HTTP Status Code Map, 3.5 Response Interceptor (NestJS), 3. API CONTRACT, code:json (// Single resource — HTTP 200 or 201), code:json (// Validation error — HTTP 400) (+2 more)
+Cohesion: 0.40
+Nodes (5): S3 Object Storage, Presigned URL Upload (Mobile), modules/storage, Presigned URL Upload Pattern, S3 Buckets (photos/pdfs/exports/web)
 
 ### Community 31 - "parts_used Table"
 Cohesion: 0.18
@@ -774,8 +771,8 @@ Cohesion: 0.12
 Nodes (16): compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, lib, module, moduleDetection, noEmit, noFallthroughCasesInSwitch (+8 more)
 
 ### Community 160 - "Community 160"
-Cohesion: 0.15
-Nodes (13): JWT Authentication, Swagger/OpenAPI Auto-docs, Mobile Reference (Flutter), Dio HTTP Client, Drift Local Database, Firebase Cloud Messaging, Flutter + Riverpod, Geolocator Anti-Spoofing (+5 more)
+Cohesion: 0.13
+Nodes (15): PowerSync (Self-hosted Sync Engine), JWT Authentication, Swagger/OpenAPI Auto-docs, Mobile Reference (Flutter), Dio HTTP Client, Drift Local Database, Firebase Cloud Messaging, Flutter + Riverpod (+7 more)
 
 ### Community 161 - "Community 161"
 Cohesion: 0.15
@@ -822,12 +819,12 @@ Cohesion: 0.22
 Nodes (9): jest, collectCoverageFrom, coverageDirectory, moduleFileExtensions, rootDir, testEnvironment, testRegex, transform (+1 more)
 
 ### Community 172 - "Community 172"
-Cohesion: 0.05
-Nodes (42): AWS Infrastructure Reference, GitHub Actions CI/CD Pipeline, Cloudflare CDN + DNS, Complete Cost Summary, EC2 t4g.medium Compute, PgBouncer (AWS Doc), PowerSync (Self-hosted Sync Engine), RDS db.t3.micro (+34 more)
+Cohesion: 0.15
+Nodes (13): Cloudflare CDN + DNS, RDS db.t3.micro, modules/database, deletion_protection = true, RDS PostgreSQL 16, DB Password via SSM, modules/dns, Cloudflare DNS Records (+5 more)
 
 ### Community 173 - "Community 173"
-Cohesion: 0.31
-Nodes (9): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:block99 (Format: <type>(<scope>): <description>) (+1 more)
+Cohesion: 0.27
+Nodes (10): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task) (+2 more)
 
 ### Community 174 - "Community 174"
 Cohesion: 0.31
@@ -858,8 +855,8 @@ Cohesion: 0.39
 Nodes (6): moduleFileExtensions, rootDir, testEnvironment, testRegex, transform, ^.+\\.(t|j)s$
 
 ### Community 181 - "Community 181"
-Cohesion: 0.25
-Nodes (9): 13.1 Migration Rules, 13.2 Query Rules, code:block93 (Runtime       : Python 3.12), code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:typescript (// Test name format: 'should [expected behaviour] when [cond), PART 12 — LAMBDA FUNCTIONS (Python), PART 13 — DATABASE STANDARDS (+1 more)
+Cohesion: 0.29
+Nodes (8): 13.1 Migration Rules, 13.2 Query Rules, code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:typescript (// Test name format: 'should [expected behaviour] when [cond), PART 12 — LAMBDA FUNCTIONS (Python), PART 13 — DATABASE STANDARDS, Runtime & Libraries
 
 ### Community 182 - "Community 182"
 Cohesion: 0.25
@@ -966,8 +963,8 @@ Cohesion: 0.40
 Nodes (4): dart:io, package:package_info_plus/package_info_plus.dart, _PluginRegistrant, register
 
 ### Community 209 - "Community 209"
-Cohesion: 0.50
-Nodes (5): 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:block97 (Unit tests (services, repositories)    : minimum 80% line co), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task), PART 14 — TESTING STANDARDS
+Cohesion: 0.67
+Nodes (4): 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:block97 (Unit tests (services, repositories)    : minimum 80% line co), PART 14 — TESTING STANDARDS
 
 ### Community 210 - "Community 210"
 Cohesion: 0.40
@@ -1002,32 +999,24 @@ Cohesion: 0.15
 Nodes (13): 2. Validate without AWS or remote state, 4. Create runtime parameters, 7. DNS, TLS, and application deployment, 8. Verify and operate, code:bash (aws --version), code:bash (terraform -chdir=environments/prod output static_ip), code:bash (./scripts/status.sh prod), code:bash (./scripts/secrets-init.sh prod) (+5 more)
 
 ### Community 229 - "Community 229"
-Cohesion: 0.29
-Nodes (7): 3.6 Request Standards, code:typescript (// main.ts), code:typescript (// Every request gets a correlation ID.), code:typescript (// Rule P0: idempotencyKey required on every mutation (POST/), Correlation ID Middleware, Idempotency Rules, Validation Pipe (global)
-
-### Community 235 - "Community 235"
-Cohesion: 0.29
-Nodes (7): 4.1 Exception Hierarchy, 4.2 DomainException Base Class, 4.3 Global Exception Filter, 4. EXCEPTION HANDLING, code:block36 (DomainException (base — never throw directly)), code:typescript (// shared/exceptions/domain.exception.ts), code:typescript (// shared/filters/global-exception.filter.ts)
+Cohesion: 0.67
+Nodes (3): code:bash (# Stop before sleeping (~saves $14/month if done nightly + w), code:block19 (Always on:              ~$31/month  →  $100 lasts about 3.2 ), Step 13 — Stop/start to save money (IMPORTANT)
 
 ### Community 236 - "Community 236"
 Cohesion: 0.48
 Nodes (6): ADR-0001: Single repository and service ownership, ADR-0001: Umbrella repository and service ownership, Consequences, Context, Decision, Ownership
-
-### Community 237 - "Community 237"
-Cohesion: 0.25
-Nodes (11): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Widgets display state and emit events. No business logic.), code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:) (+3 more)
 
 ### Community 238 - "Community 238"
 Cohesion: 0.40
 Nodes (5): 5d. Create an API token, 6. Review and apply, code:bash (./scripts/plan.sh prod), code:bash (./scripts/apply.sh prod), Step 6 — Store all secrets in SSM Parameter Store (free)
 
 ### Community 266 - "Community 266"
-Cohesion: 0.67
-Nodes (3): AGENTS.md / CLAUDE.md Pattern, ENGINEERING_HANDBOOK*.md (P0/P1/P2 System), One Source of Truth, Read By Every Tool
+Cohesion: 0.18
+Nodes (12): AWS Infrastructure Reference, GitHub Actions CI/CD Pipeline, Complete Cost Summary, EC2 t4g.medium Compute, PgBouncer (AWS Doc), modules/compute, Elastic IP (Static IP), IMDSv2 Enforcement (+4 more)
 
 ### Community 268 - "Community 268"
-Cohesion: 0.17
-Nodes (11): 6.1 Migration Rules, 6.2 Query Rules, 6. DATABASE STANDARDS, 7. SECURITY RULES (ALL P0, NON-NEGOTIABLE), code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:block46 (N1.  tenantId comes from JWT only. Never from request body, ), code:block47 (Layer      | Technology          | Key reason) (+3 more)
+Cohesion: 0.04
+Nodes (46): 3.1 The Golden Rule, 3.2 Success Responses, 3.3 Error Responses, 3.4 HTTP Status Code Map, 3.5 Response Interceptor (NestJS), 3.6 Request Standards, 3. API CONTRACT, 4.1 Exception Hierarchy (+38 more)
 
 ### Community 271 - "Community 271"
 Cohesion: 0.50
@@ -1041,10 +1030,6 @@ Nodes (3): Answer, Q: How is production SSL/TLS configured, including Let's Encr
 Cohesion: 0.50
 Nodes (3): Answer, Q: Why does the Terraform language server think prod/main.tf uses old module inputs such as admin_cidr, ssh_public_key_path, rds_endpoint, and sqs_queue_arns while the current module variables use private_subnet_cidr_b, engine_version, protect_database, and TLS inputs?, Source Nodes
 
-### Community 295 - "Community 295"
-Cohesion: 0.50
-Nodes (4): CreateTaskDto, Validation Pipes (class-validator), CreateTaskSchema (Shared Zod Schema), React Hook Form + Zod
-
 ### Community 296 - "Community 296"
 Cohesion: 0.67
 Nodes (3): 3. Bootstrap remote state once, code:bash (source aws.env.local), Step 2 — Generate SSH key
@@ -1057,17 +1042,17 @@ Nodes (3): 3. Bootstrap remote state once, code:bash (source aws.env.local), Ste
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `PART 19 — QUICK REFERENCE CARDS` connect `answer_option_selections Table` to `Community 174`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **Why does `PART 8 — FRONTEND TECH STACK (Vite + React, Web Console)` connect `cost_report.py Entry Point` to `Community 174`?**
+- **Why does `PART 11 — MOBILE CODE STANDARDS` connect `Platform Admin Safety Controls` to `Community 174`?**
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
+- **Why does `PART A — UNIVERSAL CODE PRINCIPLES` connect `db-tunnel.sh` to `Community 182`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **Why does `PART 3 — BACKEND TECH STACK (NestJS + TypeScript)` connect `cost.sh` to `Community 174`?**
+- **Why does `PART 8 — FRONTEND TECH STACK (Vite + React, Web Console)` connect `cost_report.py Entry Point` to `Community 174`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `Foundation workers and future Lambda packages.`, `Minimal, observable queue worker used by the Sprint 01 local platform.`, `tsBuildInfoFile` to the rest of the system?**
   _1223 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `NestJS Backend Architecture` be split into smaller, more focused modules?**
+  _Cohesion score 0.12418300653594772 - nodes in this community are weakly interconnected._
 - **Should `Terraform Ops Scripts` be split into smaller, more focused modules?**
   _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
 - **Should `AI Agent Development Rules` be split into smaller, more focused modules?**
-  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
-- **Should `Community 5` be split into smaller, more focused modules?**
-  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._

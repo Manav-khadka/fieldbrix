@@ -40,6 +40,10 @@ export class DependencyHealthService implements OnModuleDestroy {
             idleTimeoutMillis: 30_000,
           })
         : null;
+    // PostgreSQL emits idle-client failures on the pool. Handling the event
+    // keeps the process alive so readiness, rather than liveness, reports an
+    // unavailable database.
+    this.database?.on('error', () => undefined);
 
     this.bucket = this.config.get<string>('S3_BUCKET');
     this.queueUrl = this.config.get<string>('SQS_QUEUE_URL');

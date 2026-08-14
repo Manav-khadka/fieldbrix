@@ -1,0 +1,58 @@
+name: Security
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 3 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Detect committed secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: anchore/sbom-action@v0
+        with:
+          path: .
+          format: spdx-json
+          output-file: fieldbrix.spdx.json
+
+      - name: Upload software bill of materials
+        uses: actions/upload-artifact@v4
+        with:
+          name: fieldbrix-sbom
+          path: fieldbrix.spdx.json
+          if-no-files-found: error
+
+      - name: Scan dependencies and infrastructure
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          scan-type: fs
+          scan-ref: .
+          format: sarif
+          output: trivy-results.sarif
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+
+      - name: Upload Trivy findings
+        if: always()
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: trivy-results.sarif
