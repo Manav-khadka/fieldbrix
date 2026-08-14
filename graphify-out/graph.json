@@ -3007,6 +3007,15 @@
       "norm_label": "webdriver()"
     },
     {
+      "label": "severeErrors",
+      "file_type": "code",
+      "source_file": "scripts/lambdatest/web-smoke.mjs",
+      "source_location": "L95",
+      "id": "lambdatest_web_smoke_severeerrors",
+      "community": 209,
+      "norm_label": "severeerrors"
+    },
+    {
       "label": "widget_test.dart",
       "file_type": "code",
       "source_file": "fieldbrix_app/test/widget_test.dart",
@@ -7944,7 +7953,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2547",
       "id": "docs_engineering_handbook_codeblock_88",
-      "community": 11,
+      "community": 30,
       "norm_label": "code:dart (// widgets display state and emit events. no business logic.)"
     },
     {
@@ -8097,7 +8106,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2748",
       "id": "docs_engineering_handbook_part_14_testing_standards",
-      "community": 5,
+      "community": 181,
       "norm_label": "part 14 \u2014 testing standards"
     },
     {
@@ -8106,7 +8115,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2750",
       "id": "docs_engineering_handbook_14_1_test_structure_aaa_arrange_act_assert",
-      "community": 5,
+      "community": 181,
       "norm_label": "14.1 test structure \u2014 aaa (arrange, act, assert)"
     },
     {
@@ -8115,7 +8124,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2752",
       "id": "docs_engineering_handbook_codeblock_96",
-      "community": 5,
+      "community": 181,
       "norm_label": "code:typescript (// test name format: 'should [expected behaviour] when [cond)"
     },
     {
@@ -8124,7 +8133,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2790",
       "id": "docs_engineering_handbook_14_2_coverage_requirements",
-      "community": 5,
+      "community": 181,
       "norm_label": "14.2 coverage requirements"
     },
     {
@@ -8133,7 +8142,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2792",
       "id": "docs_engineering_handbook_codeblock_97",
-      "community": 5,
+      "community": 181,
       "norm_label": "code:block97 (unit tests (services, repositories)    : minimum 80% line co)"
     },
     {
@@ -8160,7 +8169,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2815",
       "id": "docs_engineering_handbook_codeblock_98",
-      "community": 5,
+      "community": 173,
       "norm_label": "code:block98 (feature/fos-{ticket}-{description}      feature/fos-142-task)"
     },
     {
@@ -8493,7 +8502,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1",
       "id": "docs_tech_implementation_guide_md",
-      "community": 211,
+      "community": 182,
       "norm_label": "tech_implementation_guide.md"
     },
     {
@@ -9654,7 +9663,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1756",
       "id": "docs_tech_implementation_guide_part_n_security_rules_all_p0_non_negotiable",
-      "community": 211,
+      "community": 182,
       "norm_label": "part n \u2014 security rules (all p0, non-negotiable)"
     },
     {
@@ -9663,7 +9672,7 @@
       "source_file": "docs/tech_implementation_guide.md",
       "source_location": "L1758",
       "id": "docs_tech_implementation_guide_codeblock_55",
-      "community": 211,
+      "community": 182,
       "norm_label": "code:block55 (n1.  tenantid comes from jwt only. never from request body, )"
     },
     {
@@ -10905,7 +10914,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L356",
       "id": "backend_readme_2_backend_code_standards",
-      "community": 9,
+      "community": 5,
       "norm_label": "2. backend code standards"
     },
     {
@@ -11139,7 +11148,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L657",
       "id": "backend_readme_2_2_controllers",
-      "community": 9,
+      "community": 5,
       "norm_label": "2.2 controllers"
     },
     {
@@ -11148,7 +11157,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L659",
       "id": "backend_readme_codeblock_24",
-      "community": 9,
+      "community": 5,
       "norm_label": "code:typescript (// controllers only:)"
     },
     {
@@ -11157,7 +11166,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L710",
       "id": "backend_readme_2_3_services",
-      "community": 9,
+      "community": 5,
       "norm_label": "2.3 services"
     },
     {
@@ -11166,7 +11175,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L712",
       "id": "backend_readme_codeblock_25",
-      "community": 9,
+      "community": 5,
       "norm_label": "code:typescript (@injectable())"
     },
     {
@@ -11175,7 +11184,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L759",
       "id": "backend_readme_2_4_repositories",
-      "community": 9,
+      "community": 5,
       "norm_label": "2.4 repositories"
     },
     {
@@ -11184,7 +11193,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L761",
       "id": "backend_readme_codeblock_26",
-      "community": 9,
+      "community": 5,
       "norm_label": "code:typescript (// repositories only contain prisma queries.)"
     },
     {
@@ -11193,7 +11202,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L816",
       "id": "backend_readme_2_5_dtos",
-      "community": 9,
+      "community": 5,
       "norm_label": "2.5 dtos"
     },
     {
@@ -11202,7 +11211,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L818",
       "id": "backend_readme_codeblock_27",
-      "community": 9,
+      "community": 5,
       "norm_label": "code:typescript (// rule p0: tenantid, createdby, updatedby, status are never)"
     },
     {
@@ -11211,7 +11220,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L871",
       "id": "backend_readme_2_6_naming_conventions_backend",
-      "community": 9,
+      "community": 5,
       "norm_label": "2.6 naming conventions \u2014 backend"
     },
     {
@@ -11220,7 +11229,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L873",
       "id": "backend_readme_codeblock_28",
-      "community": 9,
+      "community": 5,
       "norm_label": "code:block28 (files          : kebab-case.ts            tasks.service.ts  )"
     },
     {
@@ -11229,7 +11238,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L890",
       "id": "backend_readme_3_api_contract",
-      "community": 268,
+      "community": 235,
       "norm_label": "3. api contract"
     },
     {
@@ -11238,7 +11247,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L892",
       "id": "backend_readme_3_1_the_golden_rule",
-      "community": 268,
+      "community": 235,
       "norm_label": "3.1 the golden rule"
     },
     {
@@ -11247,7 +11256,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L897",
       "id": "backend_readme_3_2_success_responses",
-      "community": 268,
+      "community": 235,
       "norm_label": "3.2 success responses"
     },
     {
@@ -11256,7 +11265,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L899",
       "id": "backend_readme_codeblock_29",
-      "community": 268,
+      "community": 235,
       "norm_label": "code:json (// single resource \u2014 http 200 or 201)"
     },
     {
@@ -11265,7 +11274,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L941",
       "id": "backend_readme_3_3_error_responses",
-      "community": 268,
+      "community": 235,
       "norm_label": "3.3 error responses"
     },
     {
@@ -11274,7 +11283,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L943",
       "id": "backend_readme_codeblock_30",
-      "community": 268,
+      "community": 235,
       "norm_label": "code:json (// validation error \u2014 http 400)"
     },
     {
@@ -11283,7 +11292,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1014",
       "id": "backend_readme_3_4_http_status_code_map",
-      "community": 268,
+      "community": 235,
       "norm_label": "3.4 http status code map"
     },
     {
@@ -11292,7 +11301,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1016",
       "id": "backend_readme_codeblock_31",
-      "community": 268,
+      "community": 235,
       "norm_label": "code:block31 (200  successful get, successful action returning data       )"
     },
     {
@@ -11301,7 +11310,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1036",
       "id": "backend_readme_3_5_response_interceptor_nestjs",
-      "community": 268,
+      "community": 235,
       "norm_label": "3.5 response interceptor (nestjs)"
     },
     {
@@ -11310,7 +11319,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1038",
       "id": "backend_readme_codeblock_32",
-      "community": 268,
+      "community": 235,
       "norm_label": "code:typescript (// shared/interceptors/response-transform.interceptor.ts)"
     },
     {
@@ -11319,7 +11328,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1079",
       "id": "backend_readme_3_6_request_standards",
-      "community": 268,
+      "community": 237,
       "norm_label": "3.6 request standards"
     },
     {
@@ -11328,7 +11337,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1081",
       "id": "backend_readme_validation_pipe_global",
-      "community": 268,
+      "community": 237,
       "norm_label": "validation pipe (global)"
     },
     {
@@ -11337,7 +11346,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1083",
       "id": "backend_readme_codeblock_33",
-      "community": 268,
+      "community": 237,
       "norm_label": "code:typescript (// main.ts)"
     },
     {
@@ -11346,7 +11355,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1095",
       "id": "backend_readme_correlation_id_middleware",
-      "community": 268,
+      "community": 237,
       "norm_label": "correlation id middleware"
     },
     {
@@ -11355,7 +11364,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1097",
       "id": "backend_readme_codeblock_34",
-      "community": 268,
+      "community": 237,
       "norm_label": "code:typescript (// every request gets a correlation id.)"
     },
     {
@@ -11364,7 +11373,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1121",
       "id": "backend_readme_idempotency_rules",
-      "community": 268,
+      "community": 237,
       "norm_label": "idempotency rules"
     },
     {
@@ -11373,7 +11382,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1123",
       "id": "backend_readme_codeblock_35",
-      "community": 268,
+      "community": 237,
       "norm_label": "code:typescript (// rule p0: idempotencykey required on every mutation (post/)"
     },
     {
@@ -11382,7 +11391,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1145",
       "id": "backend_readme_4_exception_handling",
-      "community": 268,
+      "community": 295,
       "norm_label": "4. exception handling"
     },
     {
@@ -11391,7 +11400,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1147",
       "id": "backend_readme_4_1_exception_hierarchy",
-      "community": 268,
+      "community": 295,
       "norm_label": "4.1 exception hierarchy"
     },
     {
@@ -11400,7 +11409,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1149",
       "id": "backend_readme_codeblock_36",
-      "community": 268,
+      "community": 295,
       "norm_label": "code:block36 (domainexception (base \u2014 never throw directly))"
     },
     {
@@ -11409,7 +11418,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1194",
       "id": "backend_readme_4_2_domainexception_base_class",
-      "community": 268,
+      "community": 295,
       "norm_label": "4.2 domainexception base class"
     },
     {
@@ -11418,7 +11427,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1196",
       "id": "backend_readme_codeblock_37",
-      "community": 268,
+      "community": 295,
       "norm_label": "code:typescript (// shared/exceptions/domain.exception.ts)"
     },
     {
@@ -11427,7 +11436,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1234",
       "id": "backend_readme_4_3_global_exception_filter",
-      "community": 268,
+      "community": 295,
       "norm_label": "4.3 global exception filter"
     },
     {
@@ -11436,7 +11445,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1236",
       "id": "backend_readme_codeblock_38",
-      "community": 268,
+      "community": 295,
       "norm_label": "code:typescript (// shared/filters/global-exception.filter.ts)"
     },
     {
@@ -11445,7 +11454,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1306",
       "id": "backend_readme_5_logging_standards",
-      "community": 268,
+      "community": 229,
       "norm_label": "5. logging standards"
     },
     {
@@ -11454,7 +11463,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1308",
       "id": "backend_readme_5_1_log_levels",
-      "community": 268,
+      "community": 229,
       "norm_label": "5.1 log levels"
     },
     {
@@ -11463,7 +11472,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1310",
       "id": "backend_readme_codeblock_39",
-      "community": 268,
+      "community": 229,
       "norm_label": "code:block39 (fatal   process cannot continue. immediate page.)"
     },
     {
@@ -11472,7 +11481,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1334",
       "id": "backend_readme_5_2_structured_log_format_every_entry_is_json",
-      "community": 268,
+      "community": 229,
       "norm_label": "5.2 structured log format \u2014 every entry is json"
     },
     {
@@ -11481,7 +11490,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1336",
       "id": "backend_readme_codeblock_40",
-      "community": 268,
+      "community": 229,
       "norm_label": "code:json ({)"
     },
     {
@@ -11490,7 +11499,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1354",
       "id": "backend_readme_5_3_logger_service",
-      "community": 268,
+      "community": 229,
       "norm_label": "5.3 logger service"
     },
     {
@@ -11499,7 +11508,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1356",
       "id": "backend_readme_codeblock_41",
-      "community": 268,
+      "community": 229,
       "norm_label": "code:typescript (// shared/logger/fieldbrix-logger.ts)"
     },
     {
@@ -11508,7 +11517,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1391",
       "id": "backend_readme_5_4_what_to_never_log",
-      "community": 268,
+      "community": 229,
       "norm_label": "5.4 what to never log"
     },
     {
@@ -11517,7 +11526,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1393",
       "id": "backend_readme_codeblock_42",
-      "community": 268,
+      "community": 229,
       "norm_label": "code:block42 (\u274c never:)"
     },
     {
@@ -11526,7 +11535,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1416",
       "id": "backend_readme_5_5_audit_log_vs_operational_log_two_separate_systems",
-      "community": 268,
+      "community": 229,
       "norm_label": "5.5 audit log vs operational log \u2014 two separate systems"
     },
     {
@@ -11535,7 +11544,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1418",
       "id": "backend_readme_codeblock_43",
-      "community": 268,
+      "community": 229,
       "norm_label": "code:block43 (operational logs (winston \u2192 cloudwatch))"
     },
     {
@@ -26052,9 +26061,9 @@
       "source_file": "scripts/lambdatest/web-smoke.mjs",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_lambdatest_web_smoke_mjs",
-      "target": "lambdatest_web_smoke_required",
-      "confidence_score": 1.0
+      "target": "lambdatest_web_smoke_required"
     },
     {
       "relation": "contains",
@@ -26062,9 +26071,9 @@
       "source_file": "scripts/lambdatest/web-smoke.mjs",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_lambdatest_web_smoke_mjs",
-      "target": "lambdatest_web_smoke_targeturl",
-      "confidence_score": 1.0
+      "target": "lambdatest_web_smoke_targeturl"
     },
     {
       "relation": "contains",
@@ -26072,8 +26081,18 @@
       "source_file": "scripts/lambdatest/web-smoke.mjs",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_lambdatest_web_smoke_mjs",
-      "target": "lambdatest_web_smoke_webdriver",
+      "target": "lambdatest_web_smoke_webdriver"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/lambdatest/web-smoke.mjs",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "scripts_lambdatest_web_smoke_mjs",
+      "target": "lambdatest_web_smoke_severeerrors",
       "confidence_score": 1.0
     },
     {
@@ -46251,5 +46270,5 @@
       "source_file": "docs/frontend/README.md"
     }
   ],
-  "built_at_commit": "0557f222e6b4a6308e781e5f9355bce6d4a5dc55"
+  "built_at_commit": "9b843bf434ddbd2f59243e0f64b2ad83e3b9d7c7"
 }

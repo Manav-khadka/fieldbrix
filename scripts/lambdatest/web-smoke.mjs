@@ -82,6 +82,31 @@ try {
     throw new Error(`Unexpected redirect from ${targetUrl.origin} to ${state.url}`);
   }
 
+  let consoleCheck = 'unavailable';
+  try {
+    const logTypes = await webdriver(
+      `/session/${sessionId}/se/log/types`,
+      'GET',
+    );
+    if (logTypes.includes('browser')) {
+      const logs = await webdriver(`/session/${sessionId}/se/log`, 'POST', {
+        type: 'browser',
+      });
+      const severeErrors = logs.filter((entry) => entry.level === 'SEVERE');
+      if (severeErrors.length > 0) {
+        throw new Error(
+          `Browser console has ${severeErrors.length} severe error(s): ${severeErrors
+            .map((entry) => entry.message)
+            .join(' | ')}`,
+        );
+      }
+      consoleCheck = 'passed';
+    }
+  } catch (error) {
+    if (String(error.message).includes('severe error(s)')) throw error;
+    console.warn(`Browser-console check unavailable: ${error.message}`);
+  }
+
   console.log(
     JSON.stringify({
       event: 'lambdatest.web_smoke_passed',
@@ -89,6 +114,7 @@ try {
       platform,
       url: state.url,
       title: state.title,
+      consoleCheck,
     }),
   );
 } finally {
