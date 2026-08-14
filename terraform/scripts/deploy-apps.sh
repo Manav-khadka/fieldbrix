@@ -71,11 +71,26 @@ pnpm --dir "${BACKEND_DIR}" build
 
 pnpm --dir "${FRONTEND_DIR}" lint
 VITE_API_BASE_URL="${API_URL}" VITE_APP_VERSION="${COMMIT_SHA}" \
+  VITE_SENTRY_RELEASE="fieldbrix-web@${COMMIT_SHA}" \
   pnpm --dir "${FRONTEND_DIR}" build
 
+if [[ -n "${SENTRY_AUTH_TOKEN:-}" ]]; then
+  : "${SENTRY_ORG:?SENTRY_ORG is required when SENTRY_AUTH_TOKEN is set}"
+  : "${SENTRY_WEB_PROJECT:?SENTRY_WEB_PROJECT is required when SENTRY_AUTH_TOKEN is set}"
+  : "${SENTRY_BACKEND_PROJECT:?SENTRY_BACKEND_PROJECT is required when SENTRY_AUTH_TOKEN is set}"
+  SENTRY_CLI=(pnpm --dir "${FRONTEND_DIR}" dlx @sentry/cli@3.6.2)
+  "${SENTRY_CLI[@]}" releases new "fieldbrix-web@${COMMIT_SHA}"
+  "${SENTRY_CLI[@]}" sourcemaps inject "${FRONTEND_DIR}/dist"
+  "${SENTRY_CLI[@]}" sourcemaps upload --release "fieldbrix-web@${COMMIT_SHA}" \
+    --org "${SENTRY_ORG}" --project "${SENTRY_WEB_PROJECT}" "${FRONTEND_DIR}/dist"
+  "${SENTRY_CLI[@]}" releases new "fieldbrix-backend@${COMMIT_SHA}"
+  "${SENTRY_CLI[@]}" sourcemaps upload --release "fieldbrix-backend@${COMMIT_SHA}" \
+    --org "${SENTRY_ORG}" --project "${SENTRY_BACKEND_PROJECT}" "${BACKEND_DIR}/dist"
+fi
+
 tar -czf "${ARTIFACT_DIR}/api.tar.gz" \
-  -C "${BACKEND_DIR}" dist package.json pnpm-lock.yaml
-tar -czf "${ARTIFACT_DIR}/admin.tar.gz" -C "${FRONTEND_DIR}/dist" .
+  --exclude='*.map' -C "${BACKEND_DIR}" dist package.json pnpm-lock.yaml
+tar -czf "${ARTIFACT_DIR}/admin.tar.gz" --exclude='*.map' -C "${FRONTEND_DIR}/dist" .
 
 for artifact in api.tar.gz admin.tar.gz; do
   aws s3 cp "${ARTIFACT_DIR}/${artifact}" \

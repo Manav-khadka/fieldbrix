@@ -8,7 +8,7 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 
 ## Architecture and deliverables
 
-- Target workspace: `apps/api`, `apps/web`, `mobile`, `lambdas/{pdf,scheduler,notifications,media}`, `packages/{types,schemas,config}`, `infra`, and `docs` with a single dependency lock and task graph.
+- Target workspace: `fieldbrix-backend/`, `fieldbrix-frontend/`, `fieldbrix_app/`, `lambdas/`, `terraform/`, and `docs/` tracked directly in one umbrella repository. Each runtime retains its appropriate lockfile; root CI validates the compatible set.
 - Local stack: PostgreSQL, LocalStack-compatible S3/SQS/DLQ, API/web shells, queue worker, deterministic seed, and health probes.
 - Production IaC: VPC/private subnets, load balancer/EC2 where adopted, RDS PostgreSQL, S3 deployment artifacts, SQS/DLQ, IAM, KMS, Secrets Manager, CloudWatch, and backup/restore configuration. DNS remains with Cloudflare; AWS Certificate Manager, Route 53, CloudFront, and autoscaling are out of scope.
 - CI artifacts: immutable application version/commit SHA, Terraform plan, test reports, SBOM, secret/dependency scan, and deploy manifest.
@@ -101,3 +101,4 @@ Rollback: redeploy the prior immutable artifact and reverse only IaC changes pro
 | 2026-08-14 | Terraform retention and alerts | Retained/versioned buckets, lifecycle rollback retention, monitoring module, protected plan/apply workflow and read-only drift script | `terraform fmt` passed; offline module initialization completed. Direct remote-state access was denied (403) for this local AWS identity, so no cloud plan/apply was attempted |
 | 2026-08-14 | Local integration and resilience | Clean Compose bootstrap, PostgreSQL, LocalStack S3/SQS, API/web health, queue worker receipt/ack, teardown/second bootstrap, dependency failure injection | API readiness passed against DB/S3/SQS; worker acknowledged a real queue message; DB and LocalStack failures produced `live=200` / `ready=503`, then recovered automatically |
 | 2026-08-14 | Remote CI and security | GitHub Actions CI run `31765142279`; Security run `31765142283` | CI verify and Linux Docker integration passed; Gitleaks, SBOM generation, Trivy dependency/IaC scan, and SARIF upload passed |
+| 2026-08-14 | Sentry release plumbing | Backend/web SDK initialization, recursive redaction test, hidden web source maps, protected deploy upload commands | Backend scrubber unit test and web production build passed; actual event/source-map verification remains pending configured Sentry projects and production approval |

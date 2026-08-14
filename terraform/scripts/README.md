@@ -6,10 +6,11 @@ Operations scripts for managing the Fieldbrix infrastructure.
 |--------|---------|
 | `aws-login.sh` | Log in with AWS SSO when needed and verify the temporary STS identity |
 | `bootstrap.sh` | One-time: create S3 + DynamoDB for Terraform state |
-| `secrets-init.sh` | One-time: store all secrets in SSM Parameter Store |
+| `secrets-init.sh` | Update the Terraform-managed Secrets Manager runtime secret after protected provisioning |
 | `plan.sh <env>` | Dry run — see what Terraform will change |
 | `apply.sh <env>` | Apply the plan — create/update infrastructure |
 | `deploy-apps.sh <env>` | Build, test, upload, and activate the React + NestJS release through S3 and SSM |
+| `rollback-apps.sh <env> <release-id>` | Re-activate a prior immutable application release without changing the database |
 | `configure-tls.sh <env> [email]` | Issue/repair Let's Encrypt certificates and install the twice-daily renewal timer through SSM |
 | `stop.sh <env>` | Stop EC2 + RDS to save money while not working |
 | `start.sh <env>` | Start EC2 + RDS back up (takes ~3 minutes) |
@@ -31,6 +32,12 @@ Your static IP (Elastic IP) stays the same while the stack is stopped. A full
 `terraform destroy` releases the address, so a later recreation can require DNS
 updates.
 Data is fully preserved. RDS auto-restarts after 7 days if not manually started.
+
+## Restore rehearsal
+
+Follow [`../docs/backup-restore.md`](../docs/backup-restore.md). Restore only
+into a new isolated DB instance; production rollback never destroys or restores
+the production database.
 
 ## TLS certificates
 

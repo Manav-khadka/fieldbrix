@@ -4,10 +4,9 @@ RDS PostgreSQL 16 — managed, automated backups, encrypted.
 
 ## Password management
 
-The DB password is read from SSM Parameter Store at apply time.
-Never in terraform.tfvars. Never in code. Never in logs.
-
-Store it first: `./scripts/secrets-init.sh prod`
+The DB password is supplied to protected CI as `PROD_DB_PASSWORD`, stored in
+AWS Secrets Manager with a dedicated KMS key, and read by the application using
+resource-scoped IAM. Never place it in `terraform.tfvars`, code, or logs.
 
 ## Stop/start behaviour
 
@@ -25,4 +24,6 @@ When you run `./scripts/start.sh`, RDS starts:
 
 Terraform will refuse to destroy RDS in prod even with `terraform destroy`.
 You must set `deletion_protection = false` first and re-apply, then destroy.
-This prevents accidental data loss.
+This prevents accidental data loss. See
+[`backup-restore.md`](../../docs/backup-restore.md) for the isolated restore
+rehearsal procedure.

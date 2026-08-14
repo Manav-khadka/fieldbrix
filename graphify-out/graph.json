@@ -190,6 +190,15 @@
       "norm_label": "identity()"
     },
     {
+      "label": "rollback-apps.sh",
+      "file_type": "code",
+      "source_file": "terraform/scripts/rollback-apps.sh",
+      "source_location": "L1",
+      "id": "terraform_scripts_rollback_apps_sh",
+      "community": 299,
+      "norm_label": "rollback-apps.sh"
+    },
+    {
       "label": "drift-check.sh",
       "file_type": "code",
       "source_file": "terraform/scripts/drift-check.sh",
@@ -2647,6 +2656,24 @@
       "norm_label": "scrubsentryevent()"
     },
     {
+      "label": "sentry.spec.ts",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/observability/sentry.spec.ts",
+      "source_location": "L1",
+      "id": "fieldbrix_backend_src_observability_sentry_spec_ts",
+      "community": 206,
+      "norm_label": "sentry.spec.ts"
+    },
+    {
+      "label": "event",
+      "file_type": "code",
+      "source_file": "fieldbrix-backend/src/observability/sentry.spec.ts",
+      "source_location": "L5",
+      "id": "observability_sentry_spec_event",
+      "community": 206,
+      "norm_label": "event"
+    },
+    {
       "label": "response-envelope.interceptor.ts",
       "file_type": "code",
       "source_file": "fieldbrix-backend/src/http/response-envelope.interceptor.ts",
@@ -4128,7 +4155,7 @@
       "source_file": "terraform/LOCAL_SETUP.md",
       "source_location": "L47",
       "id": "terraform_local_setup_3_bootstrap_remote_state_once",
-      "community": 296,
+      "community": 228,
       "norm_label": "3. bootstrap remote state once"
     },
     {
@@ -4137,7 +4164,7 @@
       "source_file": "terraform/LOCAL_SETUP.md",
       "source_location": "L51",
       "id": "terraform_local_setup_codeblock_4",
-      "community": 296,
+      "community": 228,
       "norm_label": "code:bash (source aws.env.local)"
     },
     {
@@ -4218,7 +4245,7 @@
       "source_file": "terraform/LOCAL_SETUP.md",
       "source_location": "L109",
       "id": "terraform_local_setup_7_dns_tls_and_application_deployment",
-      "community": 228,
+      "community": 295,
       "norm_label": "7. dns, tls, and application deployment"
     },
     {
@@ -4227,7 +4254,7 @@
       "source_file": "terraform/LOCAL_SETUP.md",
       "source_location": "L114",
       "id": "terraform_local_setup_codeblock_10",
-      "community": 228,
+      "community": 295,
       "norm_label": "code:bash (terraform -chdir=environments/prod output static_ip)"
     },
     {
@@ -4236,7 +4263,7 @@
       "source_file": "terraform/LOCAL_SETUP.md",
       "source_location": "L123",
       "id": "terraform_local_setup_8_verify_and_operate",
-      "community": 228,
+      "community": 295,
       "norm_label": "8. verify and operate"
     },
     {
@@ -4245,7 +4272,7 @@
       "source_file": "terraform/LOCAL_SETUP.md",
       "source_location": "L125",
       "id": "terraform_local_setup_codeblock_11",
-      "community": 228,
+      "community": 295,
       "norm_label": "code:bash (./scripts/status.sh prod)"
     },
     {
@@ -4411,6 +4438,33 @@
       "norm_label": "code:bash (aws_profile=fieldbrix terraform output static_ip)"
     },
     {
+      "label": "backup-restore.md",
+      "file_type": "document",
+      "source_file": "terraform/docs/backup-restore.md",
+      "source_location": "L1",
+      "id": "terraform_docs_backup_restore_md",
+      "community": 297,
+      "norm_label": "backup-restore.md"
+    },
+    {
+      "label": "Backup and restore rehearsal",
+      "file_type": "document",
+      "source_file": "terraform/docs/backup-restore.md",
+      "source_location": "L1",
+      "id": "docs_backup_restore_backup_and_restore_rehearsal",
+      "community": 297,
+      "norm_label": "backup and restore rehearsal"
+    },
+    {
+      "label": "Rehearsal procedure",
+      "file_type": "document",
+      "source_file": "terraform/docs/backup-restore.md",
+      "source_location": "L8",
+      "id": "docs_backup_restore_rehearsal_procedure",
+      "community": 297,
+      "norm_label": "rehearsal procedure"
+    },
+    {
       "label": "README.md",
       "file_type": "document",
       "source_file": "terraform/scripts/README.md",
@@ -4432,7 +4486,7 @@
       "label": "Stop/Start to save money",
       "file_type": "document",
       "source_file": "terraform/scripts/README.md",
-      "source_location": "L20",
+      "source_location": "L21",
       "id": "scripts_readme_stop_start_to_save_money",
       "community": 102,
       "norm_label": "stop/start to save money"
@@ -4441,16 +4495,25 @@
       "label": "code:bash (./scripts/stop.sh prod    # before sleep \u2014 saves ~$14/month )",
       "file_type": "document",
       "source_file": "terraform/scripts/README.md",
-      "source_location": "L24",
+      "source_location": "L25",
       "id": "scripts_readme_codeblock_1",
       "community": 102,
       "norm_label": "code:bash (./scripts/stop.sh prod    # before sleep \u2014 saves ~$14/month )"
     },
     {
+      "label": "Restore rehearsal",
+      "file_type": "document",
+      "source_file": "terraform/scripts/README.md",
+      "source_location": "L36",
+      "id": "scripts_readme_restore_rehearsal",
+      "community": 102,
+      "norm_label": "restore rehearsal"
+    },
+    {
       "label": "TLS certificates",
       "file_type": "document",
       "source_file": "terraform/scripts/README.md",
-      "source_location": "L35",
+      "source_location": "L42",
       "id": "scripts_readme_tls_certificates",
       "community": 102,
       "norm_label": "tls certificates"
@@ -4459,7 +4522,7 @@
       "label": "code:bash (./scripts/configure-tls.sh prod)",
       "file_type": "document",
       "source_file": "terraform/scripts/README.md",
-      "source_location": "L39",
+      "source_location": "L46",
       "id": "scripts_readme_codeblock_2",
       "community": 102,
       "norm_label": "code:bash (./scripts/configure-tls.sh prod)"
@@ -4540,7 +4603,7 @@
       "label": "Stop/start behaviour",
       "file_type": "document",
       "source_file": "terraform/modules/database/README.md",
-      "source_location": "L12",
+      "source_location": "L11",
       "id": "database_readme_stop_start_behaviour",
       "community": 73,
       "norm_label": "stop/start behaviour"
@@ -4549,7 +4612,7 @@
       "label": "deletion_protection = true",
       "file_type": "document",
       "source_file": "terraform/modules/database/README.md",
-      "source_location": "L24",
+      "source_location": "L23",
       "id": "database_readme_deletion_protection_true",
       "community": 73,
       "norm_label": "deletion_protection = true"
@@ -4794,7 +4857,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L1",
       "id": "terraform_modules_dns_readme_md",
-      "community": 5,
+      "community": 172,
       "norm_label": "readme.md"
     },
     {
@@ -4803,7 +4866,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L1",
       "id": "dns_readme_modules_dns",
-      "community": 5,
+      "community": 172,
       "norm_label": "modules/dns/"
     },
     {
@@ -4812,7 +4875,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L5",
       "id": "dns_readme_what_this_creates",
-      "community": 5,
+      "community": 172,
       "norm_label": "what this creates"
     },
     {
@@ -4821,7 +4884,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L7",
       "id": "dns_readme_codeblock_1",
-      "community": 5,
+      "community": 172,
       "norm_label": "code:block1 (a record: api.fieldbrix.in \u2192 your static ec2 ip (proxied thr)"
     },
     {
@@ -4830,7 +4893,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L13",
       "id": "dns_readme_why_cloudflare_instead_of_route_53",
-      "community": 5,
+      "community": 172,
       "norm_label": "why cloudflare instead of route 53?"
     },
     {
@@ -4839,7 +4902,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L18",
       "id": "dns_readme_proxied_true_orange_cloud_icon",
-      "community": 5,
+      "community": 172,
       "norm_label": "proxied = true (orange cloud icon)"
     },
     {
@@ -4857,7 +4920,7 @@
       "source_file": "terraform/modules/dns/README.md",
       "source_location": "L29",
       "id": "dns_readme_cloudflare_api_token",
-      "community": 5,
+      "community": 172,
       "norm_label": "cloudflare api token"
     },
     {
@@ -7809,7 +7872,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2543",
       "id": "docs_engineering_handbook_part_11_mobile_code_standards",
-      "community": 11,
+      "community": 30,
       "norm_label": "part 11 \u2014 mobile code standards"
     },
     {
@@ -7818,7 +7881,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2545",
       "id": "docs_engineering_handbook_11_1_widget_rules",
-      "community": 11,
+      "community": 30,
       "norm_label": "11.1 widget rules"
     },
     {
@@ -7836,7 +7899,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2574",
       "id": "docs_engineering_handbook_11_2_riverpod_providers",
-      "community": 11,
+      "community": 30,
       "norm_label": "11.2 riverpod providers"
     },
     {
@@ -7845,7 +7908,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2576",
       "id": "docs_engineering_handbook_codeblock_89",
-      "community": 11,
+      "community": 30,
       "norm_label": "code:dart (// declare at file top-level \u2014 never inside a widget or meth)"
     },
     {
@@ -7854,7 +7917,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2592",
       "id": "docs_engineering_handbook_11_3_offline_first_rule",
-      "community": 11,
+      "community": 30,
       "norm_label": "11.3 offline-first rule"
     },
     {
@@ -7863,7 +7926,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2594",
       "id": "docs_engineering_handbook_codeblock_90",
-      "community": 11,
+      "community": 30,
       "norm_label": "code:dart (// rule p0: every user action that mutates data must:)"
     },
     {
@@ -7872,7 +7935,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2621",
       "id": "docs_engineering_handbook_11_4_flutter_api_client",
-      "community": 11,
+      "community": 30,
       "norm_label": "11.4 flutter api client"
     },
     {
@@ -7881,7 +7944,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2623",
       "id": "docs_engineering_handbook_codeblock_91",
-      "community": 11,
+      "community": 30,
       "norm_label": "code:dart (// mirrors the server envelope exactly)"
     },
     {
@@ -7890,7 +7953,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2645",
       "id": "docs_engineering_handbook_11_5_naming_conventions_flutter",
-      "community": 11,
+      "community": 30,
       "norm_label": "11.5 naming conventions \u2014 flutter"
     },
     {
@@ -7899,7 +7962,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2647",
       "id": "docs_engineering_handbook_codeblock_92",
-      "community": 11,
+      "community": 30,
       "norm_label": "code:block92 (files      : snake_case.dart             task_card.dart  tas)"
     },
     {
@@ -7926,7 +7989,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2663",
       "id": "docs_engineering_handbook_codeblock_93",
-      "community": 11,
+      "community": 30,
       "norm_label": "code:block93 (runtime       : python 3.12)"
     },
     {
@@ -8043,7 +8106,7 @@
       "source_file": "docs/ENGINEERING_HANDBOOK.md",
       "source_location": "L2815",
       "id": "docs_engineering_handbook_codeblock_98",
-      "community": 173,
+      "community": 209,
       "norm_label": "code:block98 (feature/fos-{ticket}-{description}      feature/fos-142-task)"
     },
     {
@@ -10788,7 +10851,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L356",
       "id": "backend_readme_2_backend_code_standards",
-      "community": 9,
+      "community": 5,
       "norm_label": "2. backend code standards"
     },
     {
@@ -11022,7 +11085,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L657",
       "id": "backend_readme_2_2_controllers",
-      "community": 9,
+      "community": 5,
       "norm_label": "2.2 controllers"
     },
     {
@@ -11031,7 +11094,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L659",
       "id": "backend_readme_codeblock_24",
-      "community": 9,
+      "community": 5,
       "norm_label": "code:typescript (// controllers only:)"
     },
     {
@@ -11040,7 +11103,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L710",
       "id": "backend_readme_2_3_services",
-      "community": 9,
+      "community": 5,
       "norm_label": "2.3 services"
     },
     {
@@ -11049,7 +11112,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L712",
       "id": "backend_readme_codeblock_25",
-      "community": 9,
+      "community": 5,
       "norm_label": "code:typescript (@injectable())"
     },
     {
@@ -11058,7 +11121,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L759",
       "id": "backend_readme_2_4_repositories",
-      "community": 9,
+      "community": 5,
       "norm_label": "2.4 repositories"
     },
     {
@@ -11067,7 +11130,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L761",
       "id": "backend_readme_codeblock_26",
-      "community": 9,
+      "community": 5,
       "norm_label": "code:typescript (// repositories only contain prisma queries.)"
     },
     {
@@ -11076,7 +11139,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L816",
       "id": "backend_readme_2_5_dtos",
-      "community": 9,
+      "community": 5,
       "norm_label": "2.5 dtos"
     },
     {
@@ -11085,7 +11148,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L818",
       "id": "backend_readme_codeblock_27",
-      "community": 9,
+      "community": 5,
       "norm_label": "code:typescript (// rule p0: tenantid, createdby, updatedby, status are never)"
     },
     {
@@ -11094,7 +11157,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L871",
       "id": "backend_readme_2_6_naming_conventions_backend",
-      "community": 9,
+      "community": 5,
       "norm_label": "2.6 naming conventions \u2014 backend"
     },
     {
@@ -11103,7 +11166,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L873",
       "id": "backend_readme_codeblock_28",
-      "community": 9,
+      "community": 5,
       "norm_label": "code:block28 (files          : kebab-case.ts            tasks.service.ts  )"
     },
     {
@@ -11112,7 +11175,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L890",
       "id": "backend_readme_3_api_contract",
-      "community": 268,
+      "community": 229,
       "norm_label": "3. api contract"
     },
     {
@@ -11121,7 +11184,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L892",
       "id": "backend_readme_3_1_the_golden_rule",
-      "community": 268,
+      "community": 229,
       "norm_label": "3.1 the golden rule"
     },
     {
@@ -11130,7 +11193,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L897",
       "id": "backend_readme_3_2_success_responses",
-      "community": 268,
+      "community": 229,
       "norm_label": "3.2 success responses"
     },
     {
@@ -11139,7 +11202,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L899",
       "id": "backend_readme_codeblock_29",
-      "community": 268,
+      "community": 229,
       "norm_label": "code:json (// single resource \u2014 http 200 or 201)"
     },
     {
@@ -11148,7 +11211,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L941",
       "id": "backend_readme_3_3_error_responses",
-      "community": 268,
+      "community": 229,
       "norm_label": "3.3 error responses"
     },
     {
@@ -11157,7 +11220,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L943",
       "id": "backend_readme_codeblock_30",
-      "community": 268,
+      "community": 229,
       "norm_label": "code:json (// validation error \u2014 http 400)"
     },
     {
@@ -11166,7 +11229,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1014",
       "id": "backend_readme_3_4_http_status_code_map",
-      "community": 268,
+      "community": 229,
       "norm_label": "3.4 http status code map"
     },
     {
@@ -11175,7 +11238,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1016",
       "id": "backend_readme_codeblock_31",
-      "community": 268,
+      "community": 229,
       "norm_label": "code:block31 (200  successful get, successful action returning data       )"
     },
     {
@@ -11184,7 +11247,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1036",
       "id": "backend_readme_3_5_response_interceptor_nestjs",
-      "community": 268,
+      "community": 229,
       "norm_label": "3.5 response interceptor (nestjs)"
     },
     {
@@ -11193,7 +11256,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1038",
       "id": "backend_readme_codeblock_32",
-      "community": 268,
+      "community": 229,
       "norm_label": "code:typescript (// shared/interceptors/response-transform.interceptor.ts)"
     },
     {
@@ -11202,7 +11265,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1079",
       "id": "backend_readme_3_6_request_standards",
-      "community": 268,
+      "community": 235,
       "norm_label": "3.6 request standards"
     },
     {
@@ -11211,7 +11274,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1081",
       "id": "backend_readme_validation_pipe_global",
-      "community": 268,
+      "community": 235,
       "norm_label": "validation pipe (global)"
     },
     {
@@ -11220,7 +11283,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1083",
       "id": "backend_readme_codeblock_33",
-      "community": 268,
+      "community": 235,
       "norm_label": "code:typescript (// main.ts)"
     },
     {
@@ -11229,7 +11292,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1095",
       "id": "backend_readme_correlation_id_middleware",
-      "community": 268,
+      "community": 235,
       "norm_label": "correlation id middleware"
     },
     {
@@ -11238,7 +11301,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1097",
       "id": "backend_readme_codeblock_34",
-      "community": 268,
+      "community": 235,
       "norm_label": "code:typescript (// every request gets a correlation id.)"
     },
     {
@@ -11247,7 +11310,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1121",
       "id": "backend_readme_idempotency_rules",
-      "community": 268,
+      "community": 235,
       "norm_label": "idempotency rules"
     },
     {
@@ -11256,7 +11319,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1123",
       "id": "backend_readme_codeblock_35",
-      "community": 268,
+      "community": 235,
       "norm_label": "code:typescript (// rule p0: idempotencykey required on every mutation (post/)"
     },
     {
@@ -11265,7 +11328,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1145",
       "id": "backend_readme_4_exception_handling",
-      "community": 268,
+      "community": 237,
       "norm_label": "4. exception handling"
     },
     {
@@ -11274,7 +11337,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1147",
       "id": "backend_readme_4_1_exception_hierarchy",
-      "community": 268,
+      "community": 237,
       "norm_label": "4.1 exception hierarchy"
     },
     {
@@ -11283,7 +11346,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1149",
       "id": "backend_readme_codeblock_36",
-      "community": 268,
+      "community": 237,
       "norm_label": "code:block36 (domainexception (base \u2014 never throw directly))"
     },
     {
@@ -11292,7 +11355,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1194",
       "id": "backend_readme_4_2_domainexception_base_class",
-      "community": 268,
+      "community": 237,
       "norm_label": "4.2 domainexception base class"
     },
     {
@@ -11301,7 +11364,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1196",
       "id": "backend_readme_codeblock_37",
-      "community": 268,
+      "community": 237,
       "norm_label": "code:typescript (// shared/exceptions/domain.exception.ts)"
     },
     {
@@ -11310,7 +11373,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1234",
       "id": "backend_readme_4_3_global_exception_filter",
-      "community": 268,
+      "community": 237,
       "norm_label": "4.3 global exception filter"
     },
     {
@@ -11319,7 +11382,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1236",
       "id": "backend_readme_codeblock_38",
-      "community": 268,
+      "community": 237,
       "norm_label": "code:typescript (// shared/filters/global-exception.filter.ts)"
     },
     {
@@ -11328,7 +11391,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1306",
       "id": "backend_readme_5_logging_standards",
-      "community": 268,
+      "community": 18,
       "norm_label": "5. logging standards"
     },
     {
@@ -11337,7 +11400,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1308",
       "id": "backend_readme_5_1_log_levels",
-      "community": 268,
+      "community": 18,
       "norm_label": "5.1 log levels"
     },
     {
@@ -11346,7 +11409,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1310",
       "id": "backend_readme_codeblock_39",
-      "community": 268,
+      "community": 18,
       "norm_label": "code:block39 (fatal   process cannot continue. immediate page.)"
     },
     {
@@ -11355,7 +11418,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1334",
       "id": "backend_readme_5_2_structured_log_format_every_entry_is_json",
-      "community": 268,
+      "community": 18,
       "norm_label": "5.2 structured log format \u2014 every entry is json"
     },
     {
@@ -11364,7 +11427,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1336",
       "id": "backend_readme_codeblock_40",
-      "community": 268,
+      "community": 18,
       "norm_label": "code:json ({)"
     },
     {
@@ -11373,7 +11436,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1354",
       "id": "backend_readme_5_3_logger_service",
-      "community": 268,
+      "community": 18,
       "norm_label": "5.3 logger service"
     },
     {
@@ -11382,7 +11445,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1356",
       "id": "backend_readme_codeblock_41",
-      "community": 268,
+      "community": 18,
       "norm_label": "code:typescript (// shared/logger/fieldbrix-logger.ts)"
     },
     {
@@ -11391,7 +11454,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1391",
       "id": "backend_readme_5_4_what_to_never_log",
-      "community": 268,
+      "community": 18,
       "norm_label": "5.4 what to never log"
     },
     {
@@ -11400,7 +11463,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1393",
       "id": "backend_readme_codeblock_42",
-      "community": 268,
+      "community": 18,
       "norm_label": "code:block42 (\u274c never:)"
     },
     {
@@ -11409,7 +11472,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1416",
       "id": "backend_readme_5_5_audit_log_vs_operational_log_two_separate_systems",
-      "community": 268,
+      "community": 18,
       "norm_label": "5.5 audit log vs operational log \u2014 two separate systems"
     },
     {
@@ -11418,7 +11481,7 @@
       "source_file": "docs/backend/README.md",
       "source_location": "L1418",
       "id": "backend_readme_codeblock_43",
-      "community": 268,
+      "community": 18,
       "norm_label": "code:block43 (operational logs (winston \u2192 cloudwatch))"
     },
     {
@@ -14674,7 +14737,7 @@
       "label": "CI/CD configuration",
       "file_type": "document",
       "source_file": ".github/README.md",
-      "source_location": "L49",
+      "source_location": "L55",
       "id": "github_readme_ci_cd_configuration",
       "community": 72,
       "norm_label": "ci/cd configuration"
@@ -16622,6 +16685,15 @@
       "id": "memory_query_20260814_012112_how_is_production_ssl_tls_configured_including_le_source_nodes",
       "community": 277,
       "norm_label": "source nodes"
+    },
+    {
+      "label": "sprint-01-foundation.md",
+      "file_type": "document",
+      "source_file": "sprint-01-foundation.md",
+      "source_location": "L1",
+      "community": 33,
+      "norm_label": "sprint-01-foundation.md",
+      "id": "sprint_01_foundation_md"
     },
     {
       "label": "tsconfig.node.json",
@@ -19076,7 +19148,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L60",
-      "community": 296,
+      "community": 228,
       "norm_label": "step 2 \u2014 generate ssh key",
       "id": "terraform_local_setup_step_2_generate_ssh_key"
     },
@@ -19157,7 +19229,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L175",
-      "community": 228,
+      "community": 295,
       "norm_label": "step 7 \u2014 configure terraform variables",
       "id": "terraform_local_setup_step_7_configure_terraform_variables"
     },
@@ -19184,7 +19256,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L244",
-      "community": 4,
+      "community": 298,
       "norm_label": "step 9 \u2014 point cloudflare dns to your server",
       "id": "terraform_local_setup_step_9_point_cloudflare_dns_to_your_server"
     },
@@ -19193,7 +19265,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L248",
-      "community": 4,
+      "community": 298,
       "norm_label": "code:bash (cd environments/prod)",
       "id": "terraform_local_setup_codeblock_13"
     },
@@ -19202,7 +19274,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L254",
-      "community": 4,
+      "community": 298,
       "norm_label": "code:block14 (\u2192 dns \u2192 records \u2192 add record)",
       "id": "terraform_local_setup_codeblock_14"
     },
@@ -19265,7 +19337,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L337",
-      "community": 229,
+      "community": 4,
       "norm_label": "step 13 \u2014 stop/start to save money (important)",
       "id": "terraform_local_setup_step_13_stop_start_to_save_money_important"
     },
@@ -19274,7 +19346,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L342",
-      "community": 229,
+      "community": 4,
       "norm_label": "code:bash (# stop before sleeping (~saves $14/month if done nightly + w)",
       "id": "terraform_local_setup_codeblock_18"
     },
@@ -19283,7 +19355,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/LOCAL_SETUP.md",
       "source_location": "L359",
-      "community": 229,
+      "community": 4,
       "norm_label": "code:block19 (always on:              ~$31/month  \u2192  $100 lasts about 3.2 )",
       "id": "terraform_local_setup_codeblock_19"
     },
@@ -19553,7 +19625,7 @@
       "file_type": "document",
       "source_file": "docs/terraform/modules/dns/README.md",
       "source_location": "L1",
-      "community": 5,
+      "community": 172,
       "norm_label": "readme.md",
       "id": "docs_terraform_modules_dns_readme_md"
     },
@@ -21283,7 +21355,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "modules/storage",
       "id": "storage_readme"
     },
@@ -21296,7 +21368,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "s3 buckets (photos/pdfs/exports/web)",
       "id": "storage_readme_s3_buckets"
     },
@@ -21309,7 +21381,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "presigned url upload pattern",
       "id": "storage_readme_presigned_url_upload"
     },
@@ -21322,7 +21394,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "modules/compute",
       "id": "compute_readme"
     },
@@ -21335,7 +21407,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "elastic ip (static ip)",
       "id": "compute_readme_elastic_ip"
     },
@@ -21348,7 +21420,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "pgbouncer connection pooler",
       "id": "compute_readme_pgbouncer"
     },
@@ -21361,7 +21433,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "imdsv2 enforcement",
       "id": "compute_readme_imdsv2"
     },
@@ -21374,7 +21446,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 18,
+      "community": 172,
       "norm_label": "modules/queues",
       "id": "queues_readme"
     },
@@ -21387,7 +21459,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 18,
+      "community": 172,
       "norm_label": "pdf-generation.fifo queue",
       "id": "queues_readme_pdf_generation_fifo"
     },
@@ -21400,7 +21472,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 18,
+      "community": 172,
       "norm_label": "notifications.fifo queue",
       "id": "queues_readme_notifications_fifo"
     },
@@ -21413,7 +21485,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 18,
+      "community": 172,
       "norm_label": "scheduler.fifo queue",
       "id": "queues_readme_scheduler_fifo"
     },
@@ -21426,7 +21498,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 18,
+      "community": 172,
       "norm_label": "media-processing queue",
       "id": "queues_readme_media_processing"
     },
@@ -21439,7 +21511,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 18,
+      "community": 172,
       "norm_label": "dead-letter queue (dlq)",
       "id": "queues_readme_dlq"
     },
@@ -21608,7 +21680,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 296,
       "norm_label": "react hook form + zod",
       "id": "frontend_readme_react_hook_form_zod"
     },
@@ -21621,7 +21693,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 296,
       "norm_label": "createtaskschema (shared zod schema)",
       "id": "frontend_readme_create_task_schema"
     },
@@ -21764,7 +21836,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 296,
       "norm_label": "validation pipes (class-validator)",
       "id": "backend_readme_pipes_validation"
     },
@@ -21920,7 +21992,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 296,
       "norm_label": "createtaskdto",
       "id": "backend_readme_create_task_dto"
     },
@@ -21985,7 +22057,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 160,
+      "community": 172,
       "norm_label": "powersync offline sync (client)",
       "id": "mobile_readme_powersync"
     },
@@ -22024,7 +22096,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "presigned url upload (mobile)",
       "id": "mobile_readme_presigned_url_upload"
     },
@@ -22128,7 +22200,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "aws infrastructure reference",
       "id": "aws_readme"
     },
@@ -22141,7 +22213,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "ec2 t4g.medium compute",
       "id": "aws_readme_ec2_compute"
     },
@@ -22167,7 +22239,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "pgbouncer (aws doc)",
       "id": "aws_readme_pgbouncer"
     },
@@ -22180,7 +22252,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 30,
+      "community": 172,
       "norm_label": "s3 object storage",
       "id": "aws_readme_s3_storage"
     },
@@ -22206,7 +22278,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 18,
+      "community": 172,
       "norm_label": "sqs + lambda async layer",
       "id": "aws_readme_sqs_lambda_async"
     },
@@ -22219,7 +22291,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 160,
+      "community": 172,
       "norm_label": "powersync (self-hosted sync engine)",
       "id": "aws_readme_powersync"
     },
@@ -22232,7 +22304,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "github actions ci/cd pipeline",
       "id": "aws_readme_cicd_github_actions"
     },
@@ -22245,7 +22317,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 266,
+      "community": 172,
       "norm_label": "complete cost summary",
       "id": "aws_readme_cost_summary"
     }
@@ -25679,6 +25751,38 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/observability/sentry.spec.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "fieldbrix_backend_src_observability_sentry_spec_ts",
+      "target": "fieldbrix_backend_src_observability_sentry_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/observability/sentry.spec.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "fieldbrix_backend_src_observability_sentry_spec_ts",
+      "target": "observability_sentry_scrubsentryevent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "fieldbrix-backend/src/observability/sentry.spec.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "fieldbrix_backend_src_observability_sentry_spec_ts",
+      "target": "observability_sentry_spec_event",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "fieldbrix-backend/src/http/response-envelope.interceptor.ts",
       "source_location": "L8",
       "weight": 1.0,
@@ -25865,9 +25969,9 @@
       "source_file": "scripts/local/health.sh",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_local_health_sh",
-      "target": "local_health_wait_for_http",
-      "confidence_score": 1.0
+      "target": "local_health_wait_for_http"
     },
     {
       "relation": "defines",
@@ -27912,6 +28016,26 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "terraform/docs/backup-restore.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "terraform_docs_backup_restore_md",
+      "target": "docs_backup_restore_backup_and_restore_rehearsal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "terraform/docs/backup-restore.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "docs_backup_restore_backup_and_restore_rehearsal",
+      "target": "docs_backup_restore_rehearsal_procedure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "terraform/scripts/README.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -27928,6 +28052,16 @@
       "confidence_score": 1.0,
       "source": "scripts_readme_scripts",
       "target": "scripts_readme_stop_start_to_save_money"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "terraform/scripts/README.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "scripts_readme_scripts",
+      "target": "scripts_readme_restore_rehearsal",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -37035,9 +37169,9 @@
       "source_file": "sprintimplementationplan/sprint-01-foundation.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "sprintimplementationplan_sprint_01_foundation_md",
-      "target": "sprintimplementationplan_sprint_01_foundation_sprint_01_repository_and_infrastructure_foundation"
+      "target": "sprintimplementationplan_sprint_01_foundation_sprint_01_repository_and_infrastructure_foundation",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -37138,6 +37272,16 @@
       "confidence_score": 1.0,
       "source": "sprintimplementationplan_sprint_01_foundation_sprint_01_repository_and_infrastructure_foundation",
       "target": "sprintimplementationplan_sprint_01_foundation_sprint_evidence_log"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sprint-01-foundation.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "sprint_01_foundation_md",
+      "target": "sprintimplementationplan_sprint_01_foundation_sprint_01_repository_and_infrastructure_foundation"
     },
     {
       "relation": "contains",
@@ -45974,5 +46118,5 @@
       "source_file": "docs/frontend/README.md"
     }
   ],
-  "built_at_commit": "51f31f030578b418fb534658fa8d114abe02b61b"
+  "built_at_commit": "0455a95fe447a5df83dc4ce095a8a98ffbed1469"
 }

@@ -25,6 +25,7 @@ deployment-branch protection for `main`. Configure these Actions secrets:
 | `AWS_TERRAFORM_ROLE_ARN` | Repository secret; Terraform plan/apply through GitHub OIDC |
 | `PROD_AMI_ID` | Repository secret; non-secret AMI input written to the ignored CI tfvars file |
 | `PROD_DB_PASSWORD` | Repository secret; RDS password written only to the ephemeral CI tfvars file |
+| `SENTRY_AUTH_TOKEN` | `production` environment secret; optional source-map upload token, never exposed to app runtime |
 | `AWS_DEPLOY_ROLE_ARN` | `production` environment secret; S3 upload, SSM deployment, and read-only Terraform outputs |
 
 The IAM roles must trust this repository's GitHub OIDC subject and use
@@ -32,6 +33,11 @@ short-lived STS sessions. Do not create GitHub secrets for permanent AWS access
 keys. The deployment role needs only the release bucket, target SSM instance,
 SSM command APIs, and read access to the Terraform state/outputs required by the
 deployment script.
+
+If Sentry source-map upload is enabled, set `SENTRY_ORG`,
+`SENTRY_WEB_PROJECT`, and `SENTRY_BACKEND_PROJECT` as production environment
+variables. The deploy script skips Sentry upload when `SENTRY_AUTH_TOKEN` is
+not configured.
 
 Protect `main` and require this umbrella check before merge:
 

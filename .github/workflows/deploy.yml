@@ -59,6 +59,10 @@ jobs:
           RELEASE_COMMIT_SHA: ${{ github.sha }}
           FIELDBRIX_BACKEND_DIR: ${{ github.workspace }}/fieldbrix-backend
           FIELDBRIX_FRONTEND_DIR: ${{ github.workspace }}/fieldbrix-frontend
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+          SENTRY_WEB_PROJECT: ${{ vars.SENTRY_WEB_PROJECT }}
+          SENTRY_BACKEND_PROJECT: ${{ vars.SENTRY_BACKEND_PROJECT }}
         run: ./terraform/scripts/deploy-apps.sh "${{ inputs.environment }}"
       - name: Record deployment evidence
         if: success()
