@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+          token: ${{ secrets.SUBMODULES_TOKEN }}
+
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10.29.3
+          run_install: false
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Backend
+        run: |
+          pnpm --dir apps/backend install --frozen-lockfile
+          pnpm --dir apps/backend exec eslint "{src,apps,libs,test}/**/*.ts" --max-warnings=0
+          pnpm --dir apps/backend exec tsc --noEmit
+          pnpm --dir apps/backend test --runInBand
+          pnpm --dir apps/backend test:e2e --runInBand
+          pnpm --dir apps/backend build
+
+      - name: Frontend
+        run: |
+          pnpm --dir apps/frontend install --frozen-lockfile
+          pnpm --dir apps/frontend lint
+          pnpm --dir apps/frontend build
+
+      - uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: 1.15.8
+
+      - name: Terraform
+        run: ./terraform/scripts/validate.sh prod

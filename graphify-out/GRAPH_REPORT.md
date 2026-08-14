@@ -1,16 +1,16 @@
 # Graph Report - fieldbrix  (2026-08-14)
 
 ## Corpus Check
-- 212 files · ~134,190 words
+- 212 files · ~134,865 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2302 nodes · 2245 edges · 284 communities (236 shown, 48 thin omitted)
+- 2308 nodes · 2251 edges · 277 communities (229 shown, 48 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `dd5d107c`
+- Built from commit: `86fca758`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -20,7 +20,6 @@
 - [[_COMMUNITY_NestJS Backend Architecture|NestJS Backend Architecture]]
 - [[_COMMUNITY_Terraform Ops Scripts|Terraform Ops Scripts]]
 - [[_COMMUNITY_AI Agent Development Rules|AI Agent Development Rules]]
-- [[_COMMUNITY_Client Case Study & Mobile UX|Client Case Study & Mobile UX]]
 - [[_COMMUNITY_Cost & Sync Infrastructure|Cost & Sync Infrastructure]]
 - [[_COMMUNITY_React Frontend Stack|React Frontend Stack]]
 - [[_COMMUNITY_CICD & Terraform Config|CI/CD & Terraform Config]]
@@ -33,7 +32,6 @@
 - [[_COMMUNITY_ssh.sh|ssh.sh]]
 - [[_COMMUNITY_cost.sh|cost.sh]]
 - [[_COMMUNITY_apply.sh|apply.sh]]
-- [[_COMMUNITY_status.sh|status.sh]]
 - [[_COMMUNITY_plan.sh|plan.sh]]
 - [[_COMMUNITY_bootstrap.sh|bootstrap.sh]]
 - [[_COMMUNITY_destroy.sh|destroy.sh]]
@@ -45,7 +43,6 @@
 - [[_COMMUNITY_task_links Table|task_links Table]]
 - [[_COMMUNITY_answer_option_selections Table|answer_option_selections Table]]
 - [[_COMMUNITY_answer_lookup_selections Table|answer_lookup_selections Table]]
-- [[_COMMUNITY_task_section_results Table|task_section_results Table]]
 - [[_COMMUNITY_parts_used Table|parts_used Table]]
 - [[_COMMUNITY_import_jobs Table|import_jobs Table]]
 - [[_COMMUNITY_import_rows Table|import_rows Table]]
@@ -209,7 +206,6 @@
 - [[_COMMUNITY_Community 205|Community 205]]
 - [[_COMMUNITY_Community 206|Community 206]]
 - [[_COMMUNITY_Community 207|Community 207]]
-- [[_COMMUNITY_Community 208|Community 208]]
 - [[_COMMUNITY_Community 209|Community 209]]
 - [[_COMMUNITY_Community 210|Community 210]]
 - [[_COMMUNITY_Community 211|Community 211]]
@@ -230,8 +226,6 @@
 - [[_COMMUNITY_Community 226|Community 226]]
 - [[_COMMUNITY_Community 227|Community 227]]
 - [[_COMMUNITY_Community 228|Community 228]]
-- [[_COMMUNITY_Community 229|Community 229]]
-- [[_COMMUNITY_Community 230|Community 230]]
 - [[_COMMUNITY_Community 231|Community 231]]
 - [[_COMMUNITY_Community 232|Community 232]]
 - [[_COMMUNITY_Community 233|Community 233]]
@@ -248,7 +242,6 @@
 - [[_COMMUNITY_Community 256|Community 256]]
 - [[_COMMUNITY_Community 265|Community 265]]
 - [[_COMMUNITY_Community 266|Community 266]]
-- [[_COMMUNITY_Community 267|Community 267]]
 - [[_COMMUNITY_Community 268|Community 268]]
 - [[_COMMUNITY_Community 271|Community 271]]
 - [[_COMMUNITY_Community 277|Community 277]]
@@ -286,7 +279,7 @@
 - **Full Environment Bootstrap Flow** — terraform_local_setup_guide, scripts_readme_bootstrap_sh, scripts_readme_secrets_init_sh, scripts_readme_plan_sh, scripts_readme_apply_sh, python_readme_health_check_py [EXTRACTED 1.00]
 - **Shared Zod Schema Contract** — frontend_readme_react_hook_form_zod, frontend_readme_create_task_schema, backend_readme_create_task_dto [EXTRACTED 1.00]
 
-## Communities (284 total, 48 thin omitted)
+## Communities (277 total, 48 thin omitted)
 
 ### Community 0 - "Backend Domain & Standards"
 Cohesion: 0.18
@@ -308,10 +301,6 @@ Nodes (47): 5.10 `sites`, 5.11 `service_targets`, 5.12 `parts`, 5.13 `workflows`
 Cohesion: 0.10
 Nodes (19): code:bash (cd ../../   # back to infra root), code:bash (cd environments/prod), code:block14 (→ DNS → Records → Add record), code:bash (# Install Python dependencies for ops scripts), code:bash (# Easy way (uses the script):), code:bash (# In one terminal — create the tunnel), code:bash (# Stop before sleeping (~saves $14/month if done nightly + w), code:block19 (Always on:              ~$31/month  →  $100 lasts about 3.2 ) (+11 more)
 
-### Community 5 - "Client Case Study & Mobile UX"
-Cohesion: 0.20
-Nodes (10): 3.1 The Golden Rule, 3.2 Success Responses, 3.3 Error Responses, 3.4 HTTP Status Code Map, 3.5 Response Interceptor (NestJS), 3. API CONTRACT, code:json (// Single resource — HTTP 200 or 201), code:json (// Validation error — HTTP 400) (+2 more)
-
 ### Community 6 - "Cost & Sync Infrastructure"
 Cohesion: 0.05
 Nodes (43): 1.10 Push Notifications, 1.11 Secure Storage, 1.12 Connectivity, 1.13 OEM Battery Optimization (India-specific), 1.14 Flutter libraries summary, 1.1 Framework, 1.2 Local Database, 1.3 Database Encryption (+35 more)
@@ -325,24 +314,24 @@ Cohesion: 0.06
 Nodes (36): 4.1 Universal Code Principles, 4.2 Controllers, 4.3 Services, 4.4 Repositories, 4.5 DTOs, 4.6 Naming Conventions — Backend, code:typescript (// ❌ WRONG — TasksService does too many things), code:typescript (// ❌ WRONG — adding a new channel requires editing this clas) (+28 more)
 
 ### Community 9 - "health_check.py Internals"
-Cohesion: 0.08
-Nodes (25): 2.1 Universal Code Principles, code:typescript (// ❌ WRONG — TasksService does too many things), code:typescript (// ❌ WRONG — adding a new channel requires editing this clas), code:typescript (// ❌ WRONG — throws where base class promises a return value), code:typescript (// ❌ WRONG — fat interface forces every implementor to stub ), code:typescript (// ❌ WRONG — hardcoded concrete dependency), code:typescript (// ❌ WRONG — tenant isolation check duplicated), code:block18 (Signs you are over-engineering:) (+17 more)
+Cohesion: 0.06
+Nodes (36): 2.1 Universal Code Principles, 2.2 Controllers, 2.3 Services, 2.4 Repositories, 2.5 DTOs, 2.6 Naming Conventions — Backend, 2. BACKEND CODE STANDARDS, code:typescript (// ❌ WRONG — TasksService does too many things) (+28 more)
 
 ### Community 10 - "db_snapshot.py Internals"
 Cohesion: 0.06
 Nodes (34): 1. The Problem This Solves, 2. Why Not AI Agents for the Verification Loop, 3.0 Dependency, license and observability gates, 3.1 The Local Loop (seconds, no emulator), 3.2 Golden (Screenshot) Tests — visual regressions, zero eyeballing, 3.3 PR-Gated Emulator Integration Tests — the actual "does the app work" check, 3.4 Maestro — lower-effort alternative/complement for new flows, 3.5 Backend and Web, Same Pattern (already specified, cross-referenced here) (+26 more)
 
 ### Community 11 - "Platform Admin Safety Controls"
-Cohesion: 0.15
-Nodes (20): 10.10 Push Notifications, 10.11 Secure Storage, 10.12 Connectivity, 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, 10.5 HTTP Client, 10.6 State Management, 10.7 Image Handling (+12 more)
+Cohesion: 0.10
+Nodes (30): 10.10 Push Notifications, 10.11 Secure Storage, 10.12 Connectivity, 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, 10.1 Framework, 10.2 Local Database, 10.3 Database Encryption (+22 more)
 
 ### Community 12 - "db_snapshot.py Entry Point"
 Cohesion: 0.07
 Nodes (27): 1. Role roster, 2. Brief per-role journey, 3. User stories per role, 4. Cross-role edge cases (full catalog, role-tagged), 5. Flexibility — role & permission system itself, Auditor / Compliance, read-only (AU), Back Office / Accounts (AC), Business, contract & money (+19 more)
 
 ### Community 13 - "cost_report.py Entry Point"
-Cohesion: 0.08
-Nodes (25): 8.10 Real-time Updates, 8.11 Drag and Drop (Dispatch Board), 8.12 Internationalization, 8.1 Framework Choice, 8.2 Routing, 8.3 UI Components, 8.4 Data Tables, 8.5 Server State (API Data) (+17 more)
+Cohesion: 0.06
+Nodes (35): 8.10 Real-time Updates, 8.11 Drag and Drop (Dispatch Board), 8.12 Internationalization, 8.13 Frontend libraries summary, 8.1 Framework Choice, 8.2 Routing, 8.3 UI Components, 8.4 Data Tables (+27 more)
 
 ### Community 14 - "db-tunnel.sh"
 Cohesion: 0.07
@@ -359,10 +348,6 @@ Nodes (25): 3.10 WebSockets / SSE (Real-time), 3.11 Domain Modules (Modular Mono
 ### Community 17 - "apply.sh"
 Cohesion: 0.10
 Nodes (20): 10. Tool Landscape — What Actually Differs, 11. Applying This: The Fieldbrix Worked Example, 12. Common Failure Modes, 1. The Core Shift: From Writing Code to Verifying Code, 2. Principle 1 — Mechanical Verification Beats Agent Judgment, Always, 3. Principle 2 — Architecture for Legibility, Not Just Correctness, 4. Principle 3 — One Source of Truth, Read By Every Tool, 5. Principle 4 — The Verification Pyramid (+12 more)
-
-### Community 18 - "status.sh"
-Cohesion: 0.27
-Nodes (10): 8.13 Frontend libraries summary, 9.1 Component Rules, 9.2 Custom Hooks, 9.3 API Client & Error Handling, 9.4 Naming Conventions — Frontend, code:typescript (// Smart components: one per page/route. Fetch data. Pass da), code:typescript (// Named return objects — never confusing positional tuples), code:typescript (// lib/api/client.ts — unwraps the envelope automatically) (+2 more)
 
 ### Community 19 - "plan.sh"
 Cohesion: 0.15
@@ -407,10 +392,6 @@ Nodes (14): 19.1 Stack Cheat Sheet, 19.2 Architectural Decisions, 19.3 Response 
 ### Community 29 - "answer_lookup_selections Table"
 Cohesion: 0.13
 Nodes (14): Binding dependency and observability policy, code:text (Repository and infrastructure), Delivery baseline, Dependency chain, Dynamic tenant authorization, FieldBrix MVP + Growth Roadmap, Locked authentication, email, and commercial scope, Locked authorization model (+6 more)
-
-### Community 30 - "task_section_results Table"
-Cohesion: 0.18
-Nodes (11): 2.2 Controllers, 2.3 Services, 2.4 Repositories, 2.5 DTOs, 2.6 Naming Conventions — Backend, 2. BACKEND CODE STANDARDS, code:typescript (// Controllers ONLY:), code:typescript (@Injectable()) (+3 more)
 
 ### Community 31 - "parts_used Table"
 Cohesion: 0.18
@@ -573,8 +554,8 @@ Cohesion: 0.33
 Nodes (4): code:bash (cd scripts/python), Scripts, scripts/python/, Setup
 
 ### Community 72 - "Community 72"
-Cohesion: 0.33
-Nodes (4): .github/, Manual approval for prod, Required GitHub Secrets (Settings → Secrets → Actions), workflows/
+Cohesion: 0.22
+Nodes (6): FieldBrix GitHub Actions, .github/, Manual approval for prod, Required GitHub Secrets (Settings → Secrets → Actions), Required repository configuration, Workflows
 
 ### Community 73 - "Community 73"
 Cohesion: 0.33
@@ -753,8 +734,8 @@ Cohesion: 0.10
 Nodes (20): dependencies, react, react-dom, devDependencies, oxlint, @types/node, @types/react, @types/react-dom (+12 more)
 
 ### Community 155 - "Community 155"
-Cohesion: 0.10
-Nodes (20): dependencies, react, react-dom, devDependencies, oxlint, @types/node, @types/react, @types/react-dom (+12 more)
+Cohesion: 0.09
+Nodes (22): dependencies, react, react-dom, devDependencies, oxlint, @types/node, @types/react, @types/react-dom (+14 more)
 
 ### Community 156 - "Community 156"
 Cohesion: 0.10
@@ -825,8 +806,8 @@ Cohesion: 0.05
 Nodes (42): AWS Infrastructure Reference, GitHub Actions CI/CD Pipeline, Cloudflare CDN + DNS, Complete Cost Summary, EC2 t4g.medium Compute, PgBouncer (AWS Doc), PowerSync (Self-hosted Sync Engine), RDS db.t3.micro (+34 more)
 
 ### Community 173 - "Community 173"
-Cohesion: 0.27
-Nodes (10): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task) (+2 more)
+Cohesion: 0.31
+Nodes (9): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:block99 (Format: <type>(<scope>): <description>) (+1 more)
 
 ### Community 174 - "Community 174"
 Cohesion: 0.31
@@ -956,13 +937,9 @@ Nodes (7): 1. Configure short-lived AWS access, 1a. Create your AWS account, 1b.
 Cohesion: 0.60
 Nodes (3): configVersion, packages, roots
 
-### Community 208 - "Community 208"
-Cohesion: 0.18
-Nodes (11): 5.1 Log Levels, 5.2 Structured Log Format — Every Entry Is JSON, 5.3 Logger Service, 5.4 What to NEVER Log, 5.5 Audit Log vs Operational Log — Two Separate Systems, 5. LOGGING STANDARDS, code:block39 (FATAL   Process cannot continue. Immediate page.), code:json ({) (+3 more)
-
 ### Community 209 - "Community 209"
-Cohesion: 0.50
-Nodes (5): 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block97 (Unit tests (services, repositories)    : minimum 80% line co), PART 14 — TESTING STANDARDS
+Cohesion: 0.40
+Nodes (6): 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block97 (Unit tests (services, repositories)    : minimum 80% line co), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task), PART 14 — TESTING STANDARDS
 
 ### Community 210 - "Community 210"
 Cohesion: 0.40
@@ -996,14 +973,6 @@ Nodes (5): code:bash (git submodule update --init --recursive), FieldBrix, Inclu
 Cohesion: 0.15
 Nodes (13): 2. Validate without AWS or remote state, 4. Create runtime parameters, 7. DNS, TLS, and application deployment, 8. Verify and operate, code:bash (aws --version), code:bash (terraform -chdir=environments/prod output static_ip), code:bash (./scripts/status.sh prod), code:bash (./scripts/secrets-init.sh prod) (+5 more)
 
-### Community 229 - "Community 229"
-Cohesion: 0.22
-Nodes (9): 10.1 Framework, 10.2 Local Database, 10.3 Database Encryption, 10.4 Offline Sync, code:block74 (SDK           : Flutter stable pinned by CI and the reposito), code:block75 (Package       : drift (pubspec/lock)), code:block76 (Package       : sqlcipher_flutter_libs), code:block77 (Package       : powersync (pubspec/lock)) (+1 more)
-
-### Community 230 - "Community 230"
-Cohesion: 0.29
-Nodes (7): 3.6 Request Standards, code:typescript (// main.ts), code:typescript (// Every request gets a correlation ID.), code:typescript (// Rule P0: idempotencyKey required on every mutation (POST/), Correlation ID Middleware, Idempotency Rules, Validation Pipe (global)
-
 ### Community 235 - "Community 235"
 Cohesion: 0.67
 Nodes (3): 3. Bootstrap remote state once, code:bash (source aws.env.local), Step 2 — Generate SSH key
@@ -1013,8 +982,8 @@ Cohesion: 0.33
 Nodes (5): ADR-0001: Umbrella repository and service ownership, Consequences, Context, Decision, Ownership
 
 ### Community 237 - "Community 237"
-Cohesion: 0.25
-Nodes (11): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Widgets display state and emit events. No business logic.), code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:) (+3 more)
+Cohesion: 0.29
+Nodes (10): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:), code:dart (// Mirrors the server envelope exactly) (+2 more)
 
 ### Community 238 - "Community 238"
 Cohesion: 0.40
@@ -1028,13 +997,9 @@ Nodes (4): CreateTaskDto, Validation Pipes (class-validator), CreateTaskSchema (
 Cohesion: 0.67
 Nodes (3): AGENTS.md / CLAUDE.md Pattern, ENGINEERING_HANDBOOK*.md (P0/P1/P2 System), One Source of Truth, Read By Every Tool
 
-### Community 267 - "Community 267"
-Cohesion: 0.29
-Nodes (7): 4.1 Exception Hierarchy, 4.2 DomainException Base Class, 4.3 Global Exception Filter, 4. EXCEPTION HANDLING, code:block36 (DomainException (base — never throw directly)), code:typescript (// shared/exceptions/domain.exception.ts), code:typescript (// shared/filters/global-exception.filter.ts)
-
 ### Community 268 - "Community 268"
-Cohesion: 0.17
-Nodes (11): 6.1 Migration Rules, 6.2 Query Rules, 6. DATABASE STANDARDS, 7. SECURITY RULES (ALL P0, NON-NEGOTIABLE), code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:block46 (N1.  tenantId comes from JWT only. Never from request body, ), code:block47 (Layer      | Technology          | Key reason) (+3 more)
+Cohesion: 0.04
+Nodes (46): 3.1 The Golden Rule, 3.2 Success Responses, 3.3 Error Responses, 3.4 HTTP Status Code Map, 3.5 Response Interceptor (NestJS), 3.6 Request Standards, 3. API CONTRACT, 4.1 Exception Hierarchy (+38 more)
 
 ### Community 271 - "Community 271"
 Cohesion: 0.50
@@ -1049,7 +1014,7 @@ Cohesion: 0.50
 Nodes (3): Answer, Q: Why does the Terraform language server think prod/main.tf uses old module inputs such as admin_cidr, ssh_public_key_path, rds_endpoint, and sqs_queue_arns while the current module variables use private_subnet_cidr_b, engine_version, protect_database, and TLS inputs?, Source Nodes
 
 ## Knowledge Gaps
-- **1183 isolated node(s):** `tsBuildInfoFile`, `target`, `lib`, `types`, `skipLibCheck` (+1178 more)
+- **1185 isolated node(s):** `tsBuildInfoFile`, `target`, `lib`, `types`, `skipLibCheck` (+1180 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **48 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1058,15 +1023,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `PART 4 — BACKEND CODE STANDARDS` connect `CI/CD & Terraform Config` to `Community 174`?**
   _High betweenness centrality (0.006) - this node is a cross-community bridge._
-- **Why does `PART 8 — FRONTEND TECH STACK (Vite + React, Web Console)` connect `cost_report.py Entry Point` to `status.sh`, `Community 174`?**
-  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `PART 5 — API CONTRACT` connect `destroy.sh` to `Community 174`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **What connects `tsBuildInfoFile`, `target`, `lib` to the rest of the system?**
-  _1197 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1199 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Terraform Ops Scripts` be split into smaller, more focused modules?**
   _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
 - **Should `AI Agent Development Rules` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Cost & Sync Infrastructure` be split into smaller, more focused modules?**
   _Cohesion score 0.045454545454545456 - nodes in this community are weakly interconnected._
+- **Should `React Frontend Stack` be split into smaller, more focused modules?**
+  _Cohesion score 0.049494949494949494 - nodes in this community are weakly interconnected._

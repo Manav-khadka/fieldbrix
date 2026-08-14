@@ -1,0 +1,53 @@
+name: Terraform Apply
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: Apply the current production Terraform plan
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: terraform-production
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    if: inputs.confirm
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v6
+      - uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: 1.15.8
+      - name: Validate without remote state
+        run: ./terraform/scripts/validate.sh prod
+      - name: Configure short-lived AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ secrets.AWS_TERRAFORM_ROLE_ARN }}
+          aws-region: ap-south-1
+      - name: Write non-secret apply inputs
+        working-directory: terraform/environments/prod
+        env:
+          AMI_ID: ${{ secrets.PROD_AMI_ID }}
+        run: |
+          test -n "${AMI_ID}"
+          cp terraform.tfvars.example terraform.tfvars
+          sed -i "s/ami-REPLACE_WITH_CURRENT_AMI/${AMI_ID}/" terraform.tfvars
+      - name: Initialize remote state
+        working-directory: terraform/environments/prod
+        run: terraform init -input=false
+      - name: Create immutable apply plan
+        working-directory: terraform/environments/prod
+        run: terraform plan -input=false -out=prod.tfplan
+      - name: Apply approved plan
+        working-directory: terraform/environments/prod
+        run: terraform apply -input=false prod.tfplan

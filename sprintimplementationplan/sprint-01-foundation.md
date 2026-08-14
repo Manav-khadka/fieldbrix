@@ -15,21 +15,21 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 
 ## Initial operational contracts
 
-| Method | Path | Purpose | Contract and checks |
-|---|---|---|---|
-| GET | `/health/live` | Process liveness | `200` envelope; no dependency calls; <100 ms p95 |
-| GET | `/health/ready` | Deployment readiness | `200` only when DB, object storage, and queue adapters are usable; otherwise sanitized `503` |
-| GET | `/version` | Release evidence | commit SHA, semantic version, build time; no host/secrets |
+| Method | Path              | Purpose              | Contract and checks                                                                              |
+| ------ | ----------------- | -------------------- | ------------------------------------------------------------------------------------------------ |
+| GET    | `/health/live`  | Process liveness     | `200` envelope; no dependency calls; <100 ms p95                                               |
+| GET    | `/health/ready` | Deployment readiness | `200` only when DB, object storage, and queue adapters are usable; otherwise sanitized `503` |
+| GET    | `/version`      | Release evidence     | commit SHA, semantic version, build time; no host/secrets                                        |
 
 ## Implementation checklist
 
 ### Repository and local developer experience
 
-- [x] Record an ADR for repository layout, package boundaries, Node/Flutter/Python/Terraform versions, and ownership ([ADR-0001](../docs/adr/0001-repository-topology.md)).
+- [X] Record an ADR for repository layout, package boundaries, Node/Flutter/Python/Terraform versions, and ownership ([ADR-0001](../docs/adr/0001-repository-topology.md)).
 - [ ] Add shared TypeScript strict config, ESLint/Prettier, Flutter analysis, Python lint/type config, editor settings, and conventional commit validation.
 - [ ] Add commands for install, bootstrap, migrate, seed, test, lint, build, start, stop, and clean; commands are safe to rerun.
 - [ ] Pin container images and toolchains; generate/update lockfiles and document supported host prerequisites.
-- [ ] Add `.env.example` with names and descriptions only; validate configuration at process startup.
+- [ ] Add `.env` with names and descriptions and secret ask if you donthave; validate configuration at process startup.
 - [ ] Ensure local teardown targets only the named FieldBrix project volumes and never broad Docker/user data.
 - [ ] Document <30-minute onboarding and verify it on a clean machine/account.
 
@@ -59,13 +59,13 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 
 ## Logging, Sentry, metrics, and audit
 
-| Signal | Required implementation |
-|---|---|
-| Logs | JSON startup/shutdown, config validation, dependency health, deployment and queue connectivity events with service/env/version/correlation ID; redact secrets and endpoints containing credentials |
-| Metrics | readiness status, deploy duration/failure, DB connection health, queue depth/age, DLQ count, disk/CPU/memory, ALB 4xx/5xx and latency |
-| Sentry | Create API, web, Flutter, and Lambda projects; configure DSNs only through secrets; release/environment tagging; test event per deploy; source-map/debug-file upload plumbing |
-| Alerts | Readiness failure, sustained 5xx, RDS storage/connections, DLQ >0, backup failure, certificate expiry, deployment rollback |
-| Audit | Infrastructure changes remain in Terraform/CloudTrail; business audit table is Sprint 02 scope |
+| Signal  | Required implementation                                                                                                                                                                            |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Logs    | JSON startup/shutdown, config validation, dependency health, deployment and queue connectivity events with service/env/version/correlation ID; redact secrets and endpoints containing credentials |
+| Metrics | readiness status, deploy duration/failure, DB connection health, queue depth/age, DLQ count, disk/CPU/memory, ALB 4xx/5xx and latency                                                              |
+| Sentry  | Create API, web, Flutter, and Lambda projects; configure DSNs only through secrets; release/environment tagging; test event per deploy; source-map/debug-file upload plumbing                      |
+| Alerts  | Readiness failure, sustained 5xx, RDS storage/connections, DLQ >0, backup failure, certificate expiry, deployment rollback                                                                         |
+| Audit   | Infrastructure changes remain in Terraform/CloudTrail; business audit table is Sprint 02 scope                                                                                                     |
 
 ## Integration, test, and LambdaTest checklist
 
@@ -91,8 +91,9 @@ Rollback: redeploy the prior immutable artifact and reverse only IaC changes pro
 
 ## Sprint evidence log
 
-| Date | Slice | Evidence | Result |
-|---|---|---|---|
-| 2026-08-14 | Repository contract | [`ADR-0001`](../docs/adr/0001-repository-topology.md) | Accepted; Terraform remote registration remains open |
-| 2026-08-14 | API operational contract | Backend `/health/live`, `/health/ready`, and `/version`; CI workflow | lint, typecheck, 2 unit tests, 3 e2e tests, and build passed; readiness still needs storage and queue adapters |
-| 2026-08-14 | Terraform queue foundation | Offline validation script, CI paths, encrypted SQS queues, DLQ redrive, least-privilege EC2 queue policy | `terraform fmt` and `terraform validate` passed without AWS/state access |
+| Date       | Slice                      | Evidence                                                                                                 | Result                                                                                                         |
+| ---------- | -------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 2026-08-14 | Repository contract        | [`ADR-0001`](../docs/adr/0001-repository-topology.md)                                                   | Accepted; Terraform remote registration remains open                                                           |
+| 2026-08-14 | API operational contract   | Backend`/health/live`, `/health/ready`, and `/version`; CI workflow                                | lint, typecheck, 2 unit tests, 3 e2e tests, and build passed; readiness still needs storage and queue adapters |
+| 2026-08-14 | Terraform queue foundation | Offline validation script, CI paths, encrypted SQS queues, DLQ redrive, least-privilege EC2 queue policy | `terraform fmt` and `terraform validate` passed without AWS/state access                                   |
+| 2026-08-14 | CI/CD pipeline              | Backend/frontend CI, umbrella verification, Terraform plan/apply, and manually approved deployment | Local application builds, Terraform validation, Actionlint, and deployment-command rendering passed; mobile pipeline deferred |

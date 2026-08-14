@@ -13,7 +13,6 @@ Thumbs.db
 .agents/
 .claude/
 .codex/
-.github/
 .graphify_chunks/
 
 # Environment variables

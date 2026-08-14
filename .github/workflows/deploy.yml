@@ -1,0 +1,74 @@
+name: Deploy Applications
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Deployment environment
+        required: true
+        default: prod
+        type: choice
+        options: [prod]
+      confirm:
+        description: I reviewed the pinned submodule commits and want to deploy them
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: application-${{ inputs.environment }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: inputs.confirm
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          token: ${{ secrets.SUBMODULES_TOKEN }}
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10.29.3
+          run_install: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: |
+            apps/backend/pnpm-lock.yaml
+            apps/frontend/pnpm-lock.yaml
+      - uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: 1.15.8
+      - name: Configure short-lived deployment credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ap-south-1
+      - name: Initialize Terraform outputs
+        working-directory: terraform/environments/${{ inputs.environment }}
+        run: terraform init -input=false
+      - name: Build, deploy, and verify
+        env:
+          RELEASE_COMMIT_SHA: ${{ github.sha }}
+          FIELDBRIX_BACKEND_DIR: ${{ github.workspace }}/apps/backend
+          FIELDBRIX_FRONTEND_DIR: ${{ github.workspace }}/apps/frontend
+        run: ./terraform/scripts/deploy-apps.sh "${{ inputs.environment }}"
+      - name: Record deployment evidence
+        if: success()
+        run: |
+          {
+            echo "## FieldBrix deployment"
+            echo "- Environment: ${{ inputs.environment }}"
+            echo "- Umbrella commit: \`${{ github.sha }}\`"
+            echo "- Backend commit: \`$(git -C apps/backend rev-parse HEAD)\`"
+            echo "- Frontend commit: \`$(git -C apps/frontend rev-parse HEAD)\`"
+          } >> "${GITHUB_STEP_SUMMARY}"
