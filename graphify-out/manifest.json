@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-01-foundation.md": {
-    "mtime": 1786681650.348385,
-    "ast_hash": "99dc5fc8b1322b2239f9ae56ac8acb25",
+    "mtime": 1786681692.9607885,
+    "ast_hash": "f5bbc2b7a906fb7bb21352112d76b8f5",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-23-growth-rc.md": {
@@ -770,8 +770,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/README.md": {
-    "mtime": 1786675682.74092,
-    "ast_hash": "b99ebbaa57447895bc102e41f881e447",
+    "mtime": 1786681692.9602032,
+    "ast_hash": "7a27a9481a0eebf45b42a0df2bc923b2",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/react-libraries.md": {
@@ -1227,6 +1227,11 @@
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/production-operations.md": {
     "mtime": 1786681650.3473485,
     "ast_hash": "3c687ccdc17b10f0ed0dbcdc777a5451",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/docs/onboarding.md": {
+    "mtime": 1786681692.9592774,
+    "ast_hash": "ea6f1e03bd610c22ed083fef37b4dad6",
     "semantic_hash": ""
   }
 }
