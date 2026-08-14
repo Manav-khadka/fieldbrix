@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# One-time setup: creates S3 bucket (state storage) + DynamoDB table (state lock).
+# One-time setup: creates the versioned S3 state bucket.
+# Terraform's native S3 lockfile handles locking; no DynamoDB table is used.
 # Run once per AWS account before any terraform commands.
 set -euo pipefail
 
 REGION="ap-south-1"
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 STATE_BUCKET="fieldbrix-tfstate-${ACCOUNT_ID}"
-LOCK_TABLE="fieldbrix-terraform-locks"
 
 echo "Account:      ${ACCOUNT_ID}"
 echo "Region:       ${REGION}"
@@ -37,22 +37,11 @@ aws s3api put-public-access-block \
 
 echo "✓ S3 bucket ready"
 
-# DynamoDB for state locking — provisioned mode = completely free
-echo "→ Creating DynamoDB lock table (provisioned mode = free)..."
-aws dynamodb create-table \
-  --table-name "${LOCK_TABLE}" \
-  --attribute-definitions AttributeName=LockID,AttributeType=S \
-  --key-schema AttributeName=LockID,KeyType=HASH \
-  --billing-mode PROVISIONED \
-  --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
-  --region "${REGION}"
-
-echo "✓ DynamoDB lock table ready"
 echo ""
 echo "════════════════════════════════════════════"
 echo "Now update environments/prod/backend.tf:"
 echo ""
 echo '  bucket         = "'${STATE_BUCKET}'"'
-echo '  dynamodb_table = "'${LOCK_TABLE}'"'
 echo '  region         = "'${REGION}'"'
+echo '  use_lockfile   = true'
 echo "════════════════════════════════════════════"

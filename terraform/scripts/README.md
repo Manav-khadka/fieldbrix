@@ -5,7 +5,7 @@ Operations scripts for managing the Fieldbrix infrastructure.
 | Script | Purpose |
 |--------|---------|
 | `aws-login.sh` | Log in with AWS SSO when needed and verify the temporary STS identity |
-| `bootstrap.sh` | One-time: create S3 + DynamoDB for Terraform state |
+| `bootstrap.sh` | One-time: create versioned encrypted S3 state storage with native S3 locking |
 | `secrets-init.sh` | Update the Terraform-managed Secrets Manager runtime secret after protected provisioning |
 | `plan.sh <env>` | Dry run — see what Terraform will change |
 | `apply.sh <env>` | Apply the plan — create/update infrastructure |
