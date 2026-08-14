@@ -1,0 +1,49 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+!.env.example
+!.env.sample
+**/.env
+**/.env.*
+
+# Node / frontend
+node_modules/
+**/node_modules/
+dist/
+build/
+coverage/
+.cache/
+.next/
+.nuxt/
+.vite/
+out/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Backend / runtime
+*.pid
+*.seed
+*.pid.lock
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Misc generated artifacts
+*.iml
+*.swp
+*.swo
+
+# Local tool caches
+/.local/
+/.cache/
