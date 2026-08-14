@@ -1,0 +1,44 @@
+name: LambdaTest web smoke
+
+on:
+  workflow_dispatch:
+    inputs:
+      web_url:
+        description: HTTPS URL of the deployed FieldBrix web shell
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  browser-smoke:
+    name: ${{ matrix.browser }} on ${{ matrix.platform }}
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - browser: chrome
+            platform: Windows 11
+          - browser: MicrosoftEdge
+            platform: Windows 11
+          - browser: firefox
+            platform: Windows 11
+          - browser: Safari
+            platform: macOS Ventura
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.12.0
+
+      - name: Run HTTPS web-shell smoke test
+        env:
+          LT_USERNAME: ${{ secrets.LT_USERNAME }}
+          LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
+          LT_WEB_URL: ${{ inputs.web_url }}
+          LT_BROWSER: ${{ matrix.browser }}
+          LT_PLATFORM: ${{ matrix.platform }}
+        run: node scripts/lambdatest/web-smoke.mjs
