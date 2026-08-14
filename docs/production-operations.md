@@ -38,9 +38,9 @@ the existing application security group only, and verify it from the EC2 host
 over TLS. Do not attach the restored database to the application service.
 
 After recording the result, delete the temporary instance with
-`--skip-final-snapshot`; retain the manual source snapshot only for the agreed
-evidence-retention period. Never delete or restore the production instance as
-an application rollback mechanism.
+`--skip-final-snapshot`. Delete the one-off manual source snapshot unless an
+explicit evidence-retention period has been agreed. Never delete or restore
+the production instance as an application rollback mechanism.
 
 ## Alerts and Sentry
 
