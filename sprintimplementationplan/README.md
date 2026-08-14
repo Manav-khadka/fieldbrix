@@ -18,7 +18,7 @@ Status values: `NOT STARTED` · `IN PROGRESS` · `BLOCKED` · `IN QA` · `DONE`
 
 | Sprint | Implementation plan | Milestone | Status | Eng owner | QA owner | Planned | Completed | Evidence |
 |---:|---|---|---|---|---|---|---|---|
-| 01 | [Foundation](sprint-01-foundation.md) | — | NOT STARTED | TBD | TBD | — | — | — |
+| 01 | [Foundation](sprint-01-foundation.md) | — | IN PROGRESS | Platform | TBD | 2026-08-14 | — | [Sprint evidence](sprint-01-foundation.md#sprint-evidence-log) |
 | 02 | [Application platform](sprint-02-application-platform.md) | — | NOT STARTED | TBD | TBD | — | — | — |
 | 03 | [Authentication](sprint-03-authentication.md) | — | NOT STARTED | TBD | TBD | — | — | — |
 | 04 | [Dynamic authorization and god mode](sprint-04-authorization.md) | — | NOT STARTED | TBD | TBD | — | — | — |

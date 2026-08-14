@@ -1,6 +1,6 @@
 # Sprint 01 — Repository and Infrastructure Foundation
 
-Source: [Sprint plan](../sprintplans/sprint-01-foundation.md) · Prerequisite: none · Status: `NOT STARTED` · Target: 64 points
+Source: [Sprint plan](../sprintplans/sprint-01-foundation.md) · Prerequisite: none · Status: `IN PROGRESS` · Started: 2026-08-14 · Target: 64 points
 
 ## Outcome and boundaries
 
@@ -25,7 +25,7 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 
 ### Repository and local developer experience
 
-- [ ] Record an ADR for monorepo layout, package boundaries, Node/Flutter/Python versions, and ownership.
+- [x] Record an ADR for repository layout, package boundaries, Node/Flutter/Python/Terraform versions, and ownership ([ADR-0001](../docs/adr/0001-repository-topology.md)).
 - [ ] Add shared TypeScript strict config, ESLint/Prettier, Flutter analysis, Python lint/type config, editor settings, and conventional commit validation.
 - [ ] Add commands for install, bootstrap, migrate, seed, test, lint, build, start, stop, and clean; commands are safe to rerun.
 - [ ] Pin container images and toolchains; generate/update lockfiles and document supported host prerequisites.
@@ -88,3 +88,11 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 - [ ] QA confirms every acceptance criterion in the source sprint and records sign-off before Sprint 02 starts.
 
 Rollback: redeploy the prior immutable artifact and reverse only IaC changes proven safe by the reviewed plan. Never destroy stateful resources as a rollback shortcut.
+
+## Sprint evidence log
+
+| Date | Slice | Evidence | Result |
+|---|---|---|---|
+| 2026-08-14 | Repository contract | [`ADR-0001`](../docs/adr/0001-repository-topology.md) | Accepted; Terraform remote registration remains open |
+| 2026-08-14 | API operational contract | Backend `/health/live`, `/health/ready`, and `/version`; CI workflow | lint, typecheck, 2 unit tests, 3 e2e tests, and build passed; readiness still needs storage and queue adapters |
+| 2026-08-14 | Terraform queue foundation | Offline validation script, CI paths, encrypted SQS queues, DLQ redrive, least-privilege EC2 queue policy | `terraform fmt` and `terraform validate` passed without AWS/state access |
