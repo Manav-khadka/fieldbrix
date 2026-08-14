@@ -148,6 +148,6 @@ aws ssm wait command-executed \
 curl --fail --silent "${ADMIN_URL}" >/dev/null
 curl --fail --silent "${API_URL}/health/ready" >/dev/null
 curl --fail --silent "${API_URL}/version" | \
-  jq -e --arg sha "${COMMIT_SHA}" '.commitSha == $sha' >/dev/null
+  jq -e --arg sha "${COMMIT_SHA}" '(.data // .).commitSha == $sha' >/dev/null
 
 echo "Deployment ${RELEASE_ID} succeeded."
