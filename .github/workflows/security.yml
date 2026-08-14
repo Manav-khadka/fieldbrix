@@ -42,8 +42,9 @@ jobs:
           if-no-files-found: error
 
       - name: Scan dependencies and infrastructure
-        uses: aquasecurity/trivy-action@v0.33.1
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
+          version: v0.73.0
           scan-type: fs
           scan-ref: .
           format: sarif
@@ -52,7 +53,7 @@ jobs:
           exit-code: "1"
 
       - name: Upload Trivy findings
-        if: always()
+        if: ${{ always() && hashFiles('trivy-results.sarif') != '' }}
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: trivy-results.sarif
