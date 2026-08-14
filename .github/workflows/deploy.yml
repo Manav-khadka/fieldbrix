@@ -63,6 +63,14 @@ jobs:
       - name: Record deployment evidence
         if: success()
         run: |
+          jq -n \
+            --arg environment "${{ inputs.environment }}" \
+            --arg umbrellaCommit "${{ github.sha }}" \
+            --arg backendVersion "$(jq -r .version fieldbrix-backend/package.json)" \
+            --arg frontendVersion "$(jq -r .version fieldbrix-frontend/package.json)" \
+            --arg deployedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            '{environment: $environment, umbrellaCommit: $umbrellaCommit, backendVersion: $backendVersion, frontendVersion: $frontendVersion, deployedAt: $deployedAt}' \
+            > deployment-manifest.json
           {
             echo "## FieldBrix deployment"
             echo "- Environment: ${{ inputs.environment }}"
@@ -70,3 +78,10 @@ jobs:
             echo "- Backend: tracked in umbrella commit"
             echo "- Frontend: tracked in umbrella commit"
           } >> "${GITHUB_STEP_SUMMARY}"
+      - name: Upload deployment manifest
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment-manifest-${{ github.run_id }}
+          path: deployment-manifest.json
+          if-no-files-found: error

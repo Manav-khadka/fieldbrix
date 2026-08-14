@@ -71,7 +71,7 @@ Deliver one-command local startup, reproducible CI, and production AWS infrastru
 
 - [X] Unit-test config validators and health aggregation; Terraform helper validation remains in the offline validation script.
 - [X] Integration-test API → PostgreSQL, API → S3 emulator, API → SQS/DLQ, web → API health, and worker receive/ack flows.
-- [ ] Prove local bootstrap, migration placeholder, seed, restart, teardown, and second bootstrap on macOS and Linux CI.
+- [X] Prove local bootstrap, migration placeholder, seed, restart, teardown, and second bootstrap on macOS and Linux CI.
 - [ ] Rehearse Terraform plan/apply and deployment against a disposable account/stack; capture outputs without secrets.
 - [ ] Restore a backup to an isolated database and verify connectivity and documented RTO/RPO evidence.
 - [ ] Run IAM/TLS/encryption/public-access/secret scans and ensure no high/critical findings remain.
@@ -100,3 +100,4 @@ Rollback: redeploy the prior immutable artifact and reverse only IaC changes pro
 | 2026-08-14 | Local runtime and health contracts | Pinned Compose stack, LocalStack S3/SQS, PostgreSQL, API config validator and dependency probes | Backend lint/typecheck, 4 unit tests, 4 E2E tests, build; frontend lint/typecheck/build; Flutter analyze/test; Docker Hub timed out fetching the Node base image before end-to-end compose startup |
 | 2026-08-14 | Terraform retention and alerts | Retained/versioned buckets, lifecycle rollback retention, monitoring module, protected plan/apply workflow and read-only drift script | `terraform fmt` passed; offline module initialization completed. Direct remote-state access was denied (403) for this local AWS identity, so no cloud plan/apply was attempted |
 | 2026-08-14 | Local integration and resilience | Clean Compose bootstrap, PostgreSQL, LocalStack S3/SQS, API/web health, queue worker receipt/ack, teardown/second bootstrap, dependency failure injection | API readiness passed against DB/S3/SQS; worker acknowledged a real queue message; DB and LocalStack failures produced `live=200` / `ready=503`, then recovered automatically |
+| 2026-08-14 | Remote CI and security | GitHub Actions CI run `31765142279`; Security run `31765142283` | CI verify and Linux Docker integration passed; Gitleaks, SBOM generation, Trivy dependency/IaC scan, and SARIF upload passed |
