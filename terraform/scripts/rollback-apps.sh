@@ -23,8 +23,7 @@ PARAMETERS=$(jq -cn --arg release "${RELEASE_ID}" '{commands:[
   "ln -sfn /opt/fieldbrix/backend/releases/$release /opt/fieldbrix/backend/current",
   "systemctl daemon-reload && systemctl restart fieldbrix-api.service",
   "nginx -t && systemctl reload nginx",
-  "curl --fail http://127.0.0.1:3000/health/live",
-  "curl --fail http://127.0.0.1:3000/health/ready"
+  "for attempt in $(seq 1 15); do if curl --fail --silent http://127.0.0.1:3000/health/live >/dev/null && curl --fail --silent http://127.0.0.1:3000/health/ready >/dev/null; then exit 0; fi; sleep 2; done; exit 1"
 ]}')
 
 COMMAND_ID=$(aws ssm send-command \
