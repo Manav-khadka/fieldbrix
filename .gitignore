@@ -2,6 +2,20 @@
 .DS_Store
 Thumbs.db
 
+# General editor / tool files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+
+# GitHub / local tooling metadata
+.agents/
+.claude/
+.codex/
+.github/
+.graphify_chunks/
+
 # Environment variables
 .env
 .env.*
@@ -30,20 +44,11 @@ npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*
 
-# Backend / runtime
+# Runtime / backend
 *.pid
 *.seed
 *.pid.lock
 
-# IDE/editor
-.vscode/
-.idea/
-
-# Misc generated artifacts
-*.iml
-*.swp
-*.swo
-
-# Local tool caches
-/.local/
-/.cache/
+# Local cache
+.local/
+.cache/
