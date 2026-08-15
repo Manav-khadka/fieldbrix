@@ -21,7 +21,9 @@ import { QueueModule } from './modules/queue/queue.module';
 import { TenantContextModule } from './modules/tenant-context/tenant-context.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
 import { PdfWorkerModule } from './workers/pdf-worker/pdf-worker.module';
-import { OperationsModule } from './modules/operations/operations.module';
+import { WorkflowsModule } from './modules/workflows/workflows.module';
+import { TasksModule } from './modules/tasks/tasks.module';
+import { MasterDataModule } from './modules/master-data/master-data.module';
 
 @Module({
   imports: [
@@ -42,7 +44,9 @@ import { OperationsModule } from './modules/operations/operations.module';
     TenantContextModule,
     NotificationsModule,
     PdfWorkerModule,
-    OperationsModule,
+    WorkflowsModule,
+    TasksModule,
+    MasterDataModule,
   ],
   controllers: [AppController],
   providers: [

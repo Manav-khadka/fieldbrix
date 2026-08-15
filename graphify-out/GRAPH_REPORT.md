@@ -1,55 +1,60 @@
-# Graph Report - /Users/manavgenius/Desktop/ISL_FINAL/fieldbrix  (2026-08-14)
+# Graph Report - fieldbrix  (2026-08-14)
 
 ## Corpus Check
-- 118 files · ~344,372 words
+- 302 files · ~171,170 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2556 nodes · 3233 edges · 235 communities detected
-- Extraction: 85% EXTRACTED · 15% INFERRED · 0% AMBIGUOUS · INFERRED: 476 edges (avg confidence: 0.8)
+- 2597 nodes · 3294 edges · 306 communities (199 shown, 107 thin omitted)
+- Extraction: 85% EXTRACTED · 15% INFERRED · 0% AMBIGUOUS · INFERRED: 479 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
+## Graph Freshness
+- Built from commit: `7694f02c`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
+
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Community 0|Community 0]]
-- [[_COMMUNITY_Community 1|Community 1]]
-- [[_COMMUNITY_Community 2|Community 2]]
-- [[_COMMUNITY_Community 3|Community 3]]
-- [[_COMMUNITY_Community 4|Community 4]]
+- [[_COMMUNITY_Backend Domain & Standards|Backend Domain & Standards]]
+- [[_COMMUNITY_AWS Infrastructure Stack|AWS Infrastructure Stack]]
+- [[_COMMUNITY_NestJS Backend Architecture|NestJS Backend Architecture]]
+- [[_COMMUNITY_Terraform Ops Scripts|Terraform Ops Scripts]]
+- [[_COMMUNITY_AI Agent Development Rules|AI Agent Development Rules]]
 - [[_COMMUNITY_Community 5|Community 5]]
-- [[_COMMUNITY_Community 6|Community 6]]
-- [[_COMMUNITY_Community 7|Community 7]]
-- [[_COMMUNITY_Community 8|Community 8]]
-- [[_COMMUNITY_Community 9|Community 9]]
-- [[_COMMUNITY_Community 10|Community 10]]
-- [[_COMMUNITY_Community 11|Community 11]]
-- [[_COMMUNITY_Community 12|Community 12]]
-- [[_COMMUNITY_Community 13|Community 13]]
-- [[_COMMUNITY_Community 14|Community 14]]
-- [[_COMMUNITY_Community 15|Community 15]]
-- [[_COMMUNITY_Community 16|Community 16]]
-- [[_COMMUNITY_Community 17|Community 17]]
+- [[_COMMUNITY_Cost & Sync Infrastructure|Cost & Sync Infrastructure]]
+- [[_COMMUNITY_React Frontend Stack|React Frontend Stack]]
+- [[_COMMUNITY_CICD & Terraform Config|CI/CD & Terraform Config]]
+- [[_COMMUNITY_health_check.py Internals|health_check.py Internals]]
+- [[_COMMUNITY_db_snapshot.py Internals|db_snapshot.py Internals]]
+- [[_COMMUNITY_Platform Admin Safety Controls|Platform Admin Safety Controls]]
+- [[_COMMUNITY_db_snapshot.py Entry Point|db_snapshot.py Entry Point]]
+- [[_COMMUNITY_cost_report.py Entry Point|cost_report.py Entry Point]]
+- [[_COMMUNITY_db-tunnel.sh|db-tunnel.sh]]
+- [[_COMMUNITY_ssh.sh|ssh.sh]]
+- [[_COMMUNITY_cost.sh|cost.sh]]
+- [[_COMMUNITY_apply.sh|apply.sh]]
 - [[_COMMUNITY_Community 18|Community 18]]
-- [[_COMMUNITY_Community 19|Community 19]]
-- [[_COMMUNITY_Community 20|Community 20]]
-- [[_COMMUNITY_Community 21|Community 21]]
-- [[_COMMUNITY_Community 22|Community 22]]
-- [[_COMMUNITY_Community 23|Community 23]]
-- [[_COMMUNITY_Community 24|Community 24]]
-- [[_COMMUNITY_Community 25|Community 25]]
-- [[_COMMUNITY_Community 26|Community 26]]
-- [[_COMMUNITY_Community 27|Community 27]]
-- [[_COMMUNITY_Community 28|Community 28]]
-- [[_COMMUNITY_Community 29|Community 29]]
+- [[_COMMUNITY_plan.sh|plan.sh]]
+- [[_COMMUNITY_bootstrap.sh|bootstrap.sh]]
+- [[_COMMUNITY_destroy.sh|destroy.sh]]
+- [[_COMMUNITY_stop.sh|stop.sh]]
+- [[_COMMUNITY_start.sh|start.sh]]
+- [[_COMMUNITY_platform_admins Table|platform_admins Table]]
+- [[_COMMUNITY_tenant_settings Table|tenant_settings Table]]
+- [[_COMMUNITY_parts Table|parts Table]]
+- [[_COMMUNITY_task_links Table|task_links Table]]
+- [[_COMMUNITY_answer_option_selections Table|answer_option_selections Table]]
+- [[_COMMUNITY_answer_lookup_selections Table|answer_lookup_selections Table]]
 - [[_COMMUNITY_Community 30|Community 30]]
-- [[_COMMUNITY_Community 31|Community 31]]
-- [[_COMMUNITY_Community 32|Community 32]]
-- [[_COMMUNITY_Community 33|Community 33]]
-- [[_COMMUNITY_Community 34|Community 34]]
-- [[_COMMUNITY_Community 35|Community 35]]
-- [[_COMMUNITY_Community 36|Community 36]]
-- [[_COMMUNITY_Community 37|Community 37]]
-- [[_COMMUNITY_Community 38|Community 38]]
-- [[_COMMUNITY_Community 39|Community 39]]
+- [[_COMMUNITY_parts_used Table|parts_used Table]]
+- [[_COMMUNITY_import_jobs Table|import_jobs Table]]
+- [[_COMMUNITY_import_rows Table|import_rows Table]]
+- [[_COMMUNITY_destroy.sh (duplicate)|destroy.sh (duplicate)]]
+- [[_COMMUNITY_API Response Envelope Pattern|API Response Envelope Pattern]]
+- [[_COMMUNITY_DomainException Hierarchy|DomainException Hierarchy]]
+- [[_COMMUNITY_Turborepo Monorepo Layout|Turborepo Monorepo Layout]]
+- [[_COMMUNITY_Maestro Mobile Test Flows|Maestro Mobile Test Flows]]
+- [[_COMMUNITY_AWS Device Farm Testing|AWS Device Farm Testing]]
 - [[_COMMUNITY_Community 40|Community 40]]
 - [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 42|Community 42]]
@@ -143,7 +148,6 @@
 - [[_COMMUNITY_Community 130|Community 130]]
 - [[_COMMUNITY_Community 131|Community 131]]
 - [[_COMMUNITY_Community 132|Community 132]]
-- [[_COMMUNITY_Community 133|Community 133]]
 - [[_COMMUNITY_Community 134|Community 134]]
 - [[_COMMUNITY_Community 135|Community 135]]
 - [[_COMMUNITY_Community 136|Community 136]]
@@ -157,10 +161,6 @@
 - [[_COMMUNITY_Community 144|Community 144]]
 - [[_COMMUNITY_Community 145|Community 145]]
 - [[_COMMUNITY_Community 146|Community 146]]
-- [[_COMMUNITY_Community 147|Community 147]]
-- [[_COMMUNITY_Community 148|Community 148]]
-- [[_COMMUNITY_Community 149|Community 149]]
-- [[_COMMUNITY_Community 150|Community 150]]
 - [[_COMMUNITY_Community 151|Community 151]]
 - [[_COMMUNITY_Community 152|Community 152]]
 - [[_COMMUNITY_Community 153|Community 153]]
@@ -205,7 +205,6 @@
 - [[_COMMUNITY_Community 192|Community 192]]
 - [[_COMMUNITY_Community 193|Community 193]]
 - [[_COMMUNITY_Community 194|Community 194]]
-- [[_COMMUNITY_Community 195|Community 195]]
 - [[_COMMUNITY_Community 196|Community 196]]
 - [[_COMMUNITY_Community 197|Community 197]]
 - [[_COMMUNITY_Community 198|Community 198]]
@@ -215,24 +214,9 @@
 - [[_COMMUNITY_Community 202|Community 202]]
 - [[_COMMUNITY_Community 203|Community 203]]
 - [[_COMMUNITY_Community 204|Community 204]]
-- [[_COMMUNITY_Community 205|Community 205]]
-- [[_COMMUNITY_Community 206|Community 206]]
-- [[_COMMUNITY_Community 207|Community 207]]
-- [[_COMMUNITY_Community 208|Community 208]]
-- [[_COMMUNITY_Community 209|Community 209]]
-- [[_COMMUNITY_Community 210|Community 210]]
-- [[_COMMUNITY_Community 211|Community 211]]
-- [[_COMMUNITY_Community 212|Community 212]]
-- [[_COMMUNITY_Community 213|Community 213]]
-- [[_COMMUNITY_Community 214|Community 214]]
-- [[_COMMUNITY_Community 215|Community 215]]
-- [[_COMMUNITY_Community 216|Community 216]]
-- [[_COMMUNITY_Community 217|Community 217]]
 - [[_COMMUNITY_Community 218|Community 218]]
 - [[_COMMUNITY_Community 219|Community 219]]
 - [[_COMMUNITY_Community 220|Community 220]]
-- [[_COMMUNITY_Community 221|Community 221]]
-- [[_COMMUNITY_Community 222|Community 222]]
 - [[_COMMUNITY_Community 223|Community 223]]
 - [[_COMMUNITY_Community 224|Community 224]]
 - [[_COMMUNITY_Community 225|Community 225]]
@@ -245,28 +229,94 @@
 - [[_COMMUNITY_Community 232|Community 232]]
 - [[_COMMUNITY_Community 233|Community 233]]
 - [[_COMMUNITY_Community 234|Community 234]]
+- [[_COMMUNITY_Community 235|Community 235]]
+- [[_COMMUNITY_Community 236|Community 236]]
+- [[_COMMUNITY_Community 237|Community 237]]
+- [[_COMMUNITY_Community 238|Community 238]]
+- [[_COMMUNITY_Community 239|Community 239]]
+- [[_COMMUNITY_Community 240|Community 240]]
+- [[_COMMUNITY_Community 241|Community 241]]
+- [[_COMMUNITY_Community 242|Community 242]]
+- [[_COMMUNITY_Community 243|Community 243]]
+- [[_COMMUNITY_Community 245|Community 245]]
+- [[_COMMUNITY_Community 246|Community 246]]
+- [[_COMMUNITY_Community 247|Community 247]]
+- [[_COMMUNITY_Community 248|Community 248]]
+- [[_COMMUNITY_Community 249|Community 249]]
+- [[_COMMUNITY_Community 250|Community 250]]
+- [[_COMMUNITY_Community 252|Community 252]]
+- [[_COMMUNITY_Community 253|Community 253]]
+- [[_COMMUNITY_Community 254|Community 254]]
+- [[_COMMUNITY_Community 255|Community 255]]
+- [[_COMMUNITY_Community 256|Community 256]]
+- [[_COMMUNITY_Community 257|Community 257]]
+- [[_COMMUNITY_Community 258|Community 258]]
+- [[_COMMUNITY_Community 259|Community 259]]
+- [[_COMMUNITY_Community 260|Community 260]]
+- [[_COMMUNITY_Community 262|Community 262]]
+- [[_COMMUNITY_Community 263|Community 263]]
+- [[_COMMUNITY_Community 264|Community 264]]
+- [[_COMMUNITY_Community 265|Community 265]]
+- [[_COMMUNITY_Community 266|Community 266]]
+- [[_COMMUNITY_Community 267|Community 267]]
+- [[_COMMUNITY_Community 268|Community 268]]
+- [[_COMMUNITY_Community 269|Community 269]]
+- [[_COMMUNITY_Community 270|Community 270]]
+- [[_COMMUNITY_Community 271|Community 271]]
+- [[_COMMUNITY_Community 272|Community 272]]
+- [[_COMMUNITY_Community 273|Community 273]]
+- [[_COMMUNITY_Community 274|Community 274]]
+- [[_COMMUNITY_Community 275|Community 275]]
+- [[_COMMUNITY_Community 276|Community 276]]
+- [[_COMMUNITY_Community 277|Community 277]]
+- [[_COMMUNITY_Community 278|Community 278]]
+- [[_COMMUNITY_Community 279|Community 279]]
+- [[_COMMUNITY_Community 280|Community 280]]
+- [[_COMMUNITY_Community 281|Community 281]]
+- [[_COMMUNITY_Community 282|Community 282]]
+- [[_COMMUNITY_Community 283|Community 283]]
+- [[_COMMUNITY_Community 284|Community 284]]
+- [[_COMMUNITY_Community 285|Community 285]]
+- [[_COMMUNITY_Community 286|Community 286]]
+- [[_COMMUNITY_Community 287|Community 287]]
+- [[_COMMUNITY_Community 288|Community 288]]
+- [[_COMMUNITY_Community 289|Community 289]]
+- [[_COMMUNITY_Community 290|Community 290]]
+- [[_COMMUNITY_Community 291|Community 291]]
+- [[_COMMUNITY_Community 292|Community 292]]
+- [[_COMMUNITY_Community 293|Community 293]]
+- [[_COMMUNITY_Community 294|Community 294]]
+- [[_COMMUNITY_Community 295|Community 295]]
+- [[_COMMUNITY_Community 296|Community 296]]
+- [[_COMMUNITY_Community 297|Community 297]]
+- [[_COMMUNITY_Community 300|Community 300]]
+- [[_COMMUNITY_Community 301|Community 301]]
+- [[_COMMUNITY_Community 302|Community 302]]
+- [[_COMMUNITY_Community 303|Community 303]]
+- [[_COMMUNITY_Community 304|Community 304]]
+- [[_COMMUNITY_Community 305|Community 305]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `PlatformService` - 86 edges
+1. `PlatformService` - 87 edges
 2. `PlatformRepository` - 83 edges
-3. `OperationsController` - 49 edges
+3. `OperationsController` - 50 edges
 4. `5. Tables` - 47 edges
-5. `OperationsService` - 44 edges
+5. `OperationsService` - 45 edges
 6. `AdministrationController` - 42 edges
 7. `AdministrationService` - 41 edges
-8. `OperationsRepository` - 30 edges
-9. `now()` - 27 edges
+8. `OperationsRepository` - 31 edges
+9. `now()` - 28 edges
 10. `AuthorizationController` - 23 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Leak panel` --semantically_similar_to--> `Platform role roster (13 roles)`  [INFERRED] [semantically similar]
   docs/CASE_STUDY.md → docs/PLATFORM_USER_STORIES.md
-- `Intercept NOTIFY_DEBUGGER_ABOUT_RX_PAGES and touch the pages.` --rationale_for--> `handle_new_rx_page()`  [EXTRACTED]
-  fieldbrix_app/ios/Flutter/ephemeral/flutter_lldb_helper.py → /Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/Flutter/ephemeral/flutter_lldb_helper.py
 - `Log groups` --references--> `modules/monitoring`  [EXTRACTED]
   terraform/modules/monitoring/README.md → docs/terraform/modules/monitoring/README.md
 - `SSL strict mode` --references--> `modules/dns`  [EXTRACTED]
   terraform/modules/dns/README.md → docs/terraform/modules/dns/README.md
+- `Row-Level Security tenant isolation` --references--> `tenantId-from-JWT-only rule`  [EXTRACTED]
+  docs/fieldbrix-schema.sql → docs/ENGINEERING_HANDBOOK.md
 - `Apex Elevator Services (composite case study)` --cites--> `firstdoc_fable_5.md (ICP/blueprint source doc)`  [EXTRACTED]
   docs/CASE_STUDY.md → firstdoc_fable_5.md (external)
 
@@ -278,165 +328,129 @@
 - **Full Environment Bootstrap Flow** — terraform_local_setup_guide, scripts_readme_bootstrap_sh, scripts_readme_secrets_init_sh, scripts_readme_plan_sh, scripts_readme_apply_sh, python_readme_health_check_py [EXTRACTED 1.00]
 - **Shared Zod Schema Contract** — frontend_readme_react_hook_form_zod, frontend_readme_create_task_schema, backend_readme_create_task_dto [EXTRACTED 1.00]
 
-## Communities
+## Communities (306 total, 107 thin omitted)
 
-### Community 0 - "Community 0"
-Cohesion: 0.03
-Nodes (16): add(), assignRole(), changeActiveState(), create(), invite(), revoke(), saveSettings(), DatabaseService (+8 more)
+### Community 1 - "AWS Infrastructure Stack"
+Cohesion: 0.18
+Nodes (11): C1. Controllers, C2. Services, C3. Repositories, C4. DTOs, C5. Naming Conventions — Backend, code:typescript (// Controllers ONLY:), code:typescript (@Injectable()), code:typescript (// Repositories ONLY contain Prisma queries.) (+3 more)
 
-### Community 1 - "Community 1"
-Cohesion: 0.02
-Nodes (114): B1. Monorepo Layout, B2. Module Boundary Rules, C1. Controllers, C2. Services, C3. Repositories, C4. DTOs, C5. Naming Conventions — Backend, code:block1 (PART A  Universal Code Principles .............. SOLID, DRY,) (+106 more)
+### Community 2 - "NestJS Backend Architecture"
+Cohesion: 0.12
+Nodes (18): Backend Reference (NestJS), API Response Envelope, Audit Log (audit_logs table), CreateTaskDto, NestJS Dependency Injection, Modular Monolith Domain Modules, DomainException Hierarchy, Guards (RBAC + Tenant Isolation) (+10 more)
 
-### Community 2 - "Community 2"
-Cohesion: 0.02
-Nodes (106): AWS Infrastructure Reference, GitHub Actions CI/CD Pipeline, Cloudflare CDN + DNS, Complete Cost Summary, EC2 t4g.medium Compute, PgBouncer (AWS Doc), PowerSync (Self-hosted Sync Engine), RDS db.t3.micro (+98 more)
+### Community 3 - "Terraform Ops Scripts"
+Cohesion: 0.12
+Nodes (17): Async Layer, CDN + DNS, CI/CD, code:block2 (Service       : EC2 t4g.medium), code:block3 (Service       : RDS db.t3.micro), code:block4 (Service       : PgBouncer (on EC2, not a separate server)), code:block5 (Service       : S3 (ap-south-1)), code:block6 (Service       : Cloudflare (Free tier)) (+9 more)
 
-### Community 3 - "Community 3"
-Cohesion: 0.02
-Nodes (105): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, 13.1 Migration Rules, 13.2 Query Rules, 14.1 Test Structure — AAA (Arrange, Act, Assert) (+97 more)
+### Community 6 - "Cost & Sync Infrastructure"
+Cohesion: 0.08
+Nodes (25): 2.1 Universal Code Principles, code:typescript (// ❌ WRONG — TasksService does too many things), code:typescript (// ❌ WRONG — adding a new channel requires editing this clas), code:typescript (// ❌ WRONG — throws where base class promises a return value), code:typescript (// ❌ WRONG — fat interface forces every implementor to stub ), code:typescript (// ❌ WRONG — hardcoded concrete dependency), code:typescript (// ❌ WRONG — tenant isolation check duplicated), code:block18 (Signs you are over-engineering:) (+17 more)
 
-### Community 4 - "Community 4"
+### Community 7 - "React Frontend Stack"
+Cohesion: 0.12
+Nodes (16): code:bash (cd ../../   # back to infra root), code:bash (# Install Python dependencies for ops scripts), code:bash (# Easy way (uses the script):), code:bash (# In one terminal — create the tunnel), code:bash (# Stop before sleeping (~saves $14/month if done nightly + w), code:block19 (Always on:              ~$31/month  →  $100 lasts about 3.2 ), code:block25 (environments/prod/   Terraform config for production), Credential reference (+8 more)
+
+### Community 8 - "CI/CD & Terraform Config"
+Cohesion: 0.08
+Nodes (25): 8.10 Real-time Updates, 8.11 Drag and Drop (Dispatch Board), 8.12 Internationalization, 8.1 Framework Choice, 8.2 Routing, 8.3 UI Components, 8.4 Data Tables, 8.5 Server State (API Data) (+17 more)
+
+### Community 9 - "health_check.py Internals"
 Cohesion: 0.04
-Nodes (9): bootstrap(), OperationsController, base(), clean(), id(), OperationsService, compare(), empty() (+1 more)
+Nodes (47): 5.10 `sites`, 5.11 `service_targets`, 5.12 `parts`, 5.13 `workflows`, 5.14 `workflow_versions`, 5.15 `workflow_sections`, 5.16 `workflow_fields`, 5.17 `workflow_field_options` (+39 more)
 
-### Community 5 - "Community 5"
-Cohesion: 0.04
-Nodes (6): AdministrationService, AuthService, AuthorizationService, IdempotencyService, PermissionGuard, PlatformController
-
-### Community 6 - "Community 6"
-Cohesion: 0.02
-Nodes (82): 2.1 Universal Code Principles, 2.2 Controllers, 2.3 Services, 2.4 Repositories, 2.5 DTOs, 2.6 Naming Conventions — Backend, 2. BACKEND CODE STANDARDS, 3.1 The Golden Rule (+74 more)
-
-### Community 7 - "Community 7"
-Cohesion: 0.03
-Nodes (69): 1. Configure short-lived AWS access, 1a. Create your AWS account, 1b. Create an IAM user for local Terraform use, 1c. Set billing alerts BEFORE doing anything else, 2. Validate without AWS or remote state, 3. Bootstrap remote state once, 4. Create runtime parameters, 4. Create runtime secrets (+61 more)
-
-### Community 8 - "Community 8"
-Cohesion: 0.04
-Nodes (65): 10.10 Push Notifications, 10.11 Secure Storage, 10.12 Connectivity, 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, 10.1 Framework, 10.2 Local Database, 10.3 Database Encryption (+57 more)
-
-### Community 9 - "Community 9"
-Cohesion: 0.03
-Nodes (59): 1. What this schema is for, 2. Global conventions, 3. Enumerated types, 4. Shared trigger function, 5.10 `sites`, 5.11 `service_targets`, 5.12 `parts`, 5.13 `workflows` (+51 more)
-
-### Community 10 - "Community 10"
+### Community 10 - "db_snapshot.py Internals"
 Cohesion: 0.05
 Nodes (43): 1.10 Real-time Updates, 1.11 Drag and Drop (Dispatch Board), 1.12 Internationalization, 1.13 Frontend libraries summary, 1.1 Framework Choice, 1.2 Routing, 1.3 UI Components, 1.4 Data Tables (+35 more)
 
-### Community 11 - "Community 11"
+### Community 11 - "Platform Admin Safety Controls"
 Cohesion: 0.05
 Nodes (43): 1.10 Push Notifications, 1.11 Secure Storage, 1.12 Connectivity, 1.13 OEM Battery Optimization (India-specific), 1.14 Flutter libraries summary, 1.1 Framework, 1.2 Local Database, 1.3 Database Encryption (+35 more)
 
-### Community 12 - "Community 12"
-Cohesion: 0.08
-Nodes (1): AdministrationController
-
-### Community 13 - "Community 13"
+### Community 13 - "cost_report.py Entry Point"
 Cohesion: 0.06
 Nodes (36): 4.1 Universal Code Principles, 4.2 Controllers, 4.3 Services, 4.4 Repositories, 4.5 DTOs, 4.6 Naming Conventions — Backend, code:typescript (// ❌ WRONG — TasksService does too many things), code:typescript (// ❌ WRONG — adding a new channel requires editing this clas) (+28 more)
 
-### Community 14 - "Community 14"
+### Community 14 - "db-tunnel.sh"
 Cohesion: 0.06
 Nodes (34): 1. The Problem This Solves, 2. Why Not AI Agents for the Verification Loop, 3.0 Dependency, license and observability gates, 3.1 The Local Loop (seconds, no emulator), 3.2 Golden (Screenshot) Tests — visual regressions, zero eyeballing, 3.3 PR-Gated Emulator Integration Tests — the actual "does the app work" check, 3.4 Maestro — lower-effort alternative/complement for new flows, 3.5 Backend and Web, Same Pattern (already specified, cross-referenced here) (+26 more)
 
-### Community 15 - "Community 15"
+### Community 15 - "ssh.sh"
 Cohesion: 0.06
 Nodes (33): 1.10 Domain Modules (Modular Monolith Structure), 1.11 Backend libraries summary, 1.1 Framework, 1.2 Why Dependency Injection Matters for Fieldbrix, 1.3 Guards (RBAC + Tenant Isolation), 1.4 Interceptors (PII Masking, Logging, Response Transform), 1.5 Pipes (Validation), 1.6 ORM — Prisma (+25 more)
 
-### Community 16 - "Community 16"
+### Community 16 - "cost.sh"
 Cohesion: 0.07
 Nodes (26): 1. Secure the fresh AWS account, 2. Create the administrator using IAM Identity Center, 3. Configure the local Mac, 4. Verify before Terraform, 5. Configure hosted Sentry, 6. Credential hand-off checklist, 7. Final pre-sprint gate, AWS STS and Sentry bootstrap (+18 more)
 
-### Community 17 - "Community 17"
+### Community 17 - "apply.sh"
 Cohesion: 0.07
 Nodes (27): 1. Role roster, 2. Brief per-role journey, 3. User stories per role, 4. Cross-role edge cases (full catalog, role-tagged), 5. Flexibility — role & permission system itself, Auditor / Compliance, read-only (AU), Back Office / Accounts (AC), Business, contract & money (+19 more)
 
-### Community 18 - "Community 18"
-Cohesion: 0.09
-Nodes (1): OperationsRepository
-
-### Community 19 - "Community 19"
+### Community 19 - "plan.sh"
 Cohesion: 0.07
 Nodes (27): A1. SOLID, A2. Other Principles, code:typescript (// ❌ WRONG — invalid data travels deep before failing), code:typescript (// ❌ WRONG — three hops into unrelated domains), code:typescript (// ❌ WRONG — magic string transitions with no record of what), code:typescript (// ❌ WRONG — pyramid of doom), code:typescript (// ❌ WRONG — TasksService does too many things), code:typescript (// ❌ WRONG — adding a new channel requires editing this clas) (+19 more)
 
-### Community 20 - "Community 20"
+### Community 20 - "bootstrap.sh"
 Cohesion: 0.08
 Nodes (25): Backend Error Test, ✅ Backend (NestJS), code:block1 (VITE_SENTRY_DSN=<web-project-dsn>), code:block2 (SENTRY_DSN=<backend-project-dsn>), code:json ({), code:bash (# Trigger the backend Sentry error), code:bash (cd fieldbrix-frontend), code:bash (cd fieldbrix_app) (+17 more)
 
-### Community 21 - "Community 21"
+### Community 21 - "destroy.sh"
 Cohesion: 0.08
 Nodes (25): 1. INFRASTRUCTURE (AWS ap-south-1 Mumbai), 2. LAMBDA FUNCTIONS — Python, 3. COMPLETE COST SUMMARY, Async Layer, CDN + DNS, CI/CD, code:block1 (Service       : EC2 t4g.medium), code:block10 (INFRASTRUCTURE                          MONTHLY) (+17 more)
 
-### Community 22 - "Community 22"
+### Community 22 - "stop.sh"
 Cohesion: 0.08
 Nodes (25): 3.10 WebSockets / SSE (Real-time), 3.11 Domain Modules (Modular Monolith Structure), 3.12 Backend Libraries Summary, 3.1 Framework, 3.2 Why Dependency Injection Matters for Fieldbrix, 3.3 Guards (RBAC + Tenant Isolation), 3.4 Interceptors (PII Masking, Logging, Response Transform), 3.5 Pipes (Validation) (+17 more)
 
-### Community 23 - "Community 23"
-Cohesion: 0.14
-Nodes (2): QueueService, StorageService
-
-### Community 24 - "Community 24"
-Cohesion: 0.14
-Nodes (1): AuthorizationController
-
-### Community 25 - "Community 25"
-Cohesion: 0.1
+### Community 25 - "tenant_settings Table"
+Cohesion: 0.10
 Nodes (20): 10. Tool Landscape — What Actually Differs, 11. Applying This: The Fieldbrix Worked Example, 12. Common Failure Modes, 1. The Core Shift: From Writing Code to Verifying Code, 2. Principle 1 — Mechanical Verification Beats Agent Judgment, Always, 3. Principle 2 — Architecture for Legibility, Not Just Correctness, 4. Principle 3 — One Source of Truth, Read By Every Tool, 5. Principle 4 — The Verification Pyramid (+12 more)
 
-### Community 26 - "Community 26"
-Cohesion: 0.13
-Nodes (3): end(), AppService, DependencyHealthService
-
-### Community 27 - "Community 27"
+### Community 27 - "task_links Table"
 Cohesion: 0.11
 Nodes (17): API and endpoint rules, Binding implementation contract, code:text (Foundation → App platform → Authentication → Dynamic RBAC + ), Cross-cutting engineering gates, Dependency and milestone flow, FieldBrix Sprint Implementation Plans, Global evidence register, How to use this tracker (+9 more)
 
-### Community 28 - "Community 28"
+### Community 28 - "answer_option_selections Table"
 Cohesion: 0.15
 Nodes (18): Apex Elevator Services (composite case study), Entitlement engine, Evidence bundle, Leak panel, Offline-first mobile app, Renewal ladder (90/60/30/7-day), Same-day onboarding, Client size bands (Small/Medium/Large) (+10 more)
 
-### Community 29 - "Community 29"
+### Community 29 - "answer_lookup_selections Table"
 Cohesion: 0.12
 Nodes (17): 5.1 The Golden Rule, 5.2 Success Responses, 5.3 Error Responses, 5.4 HTTP Status Code Map, 5.5 Response Interceptor (NestJS), 5.6 Request Standards, code:json (// Single resource — HTTP 200 or 201), code:json (// Validation error — HTTP 400) (+9 more)
 
-### Community 30 - "Community 30"
-Cohesion: 0.19
-Nodes (1): AuthController
-
-### Community 31 - "Community 31"
+### Community 31 - "parts_used Table"
 Cohesion: 0.12
 Nodes (15): code:bash ($ pnpm install), code:bash (# development), code:bash (# unit tests), code:bash ($ pnpm install -g @nestjs/mau), Compile and run the project, Deployment, Description, fieldbrix-backend (+7 more)
 
-### Community 32 - "Community 32"
+### Community 32 - "import_jobs Table"
 Cohesion: 0.13
 Nodes (13): Architecture and deliverables, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Infrastructure and deployment, Initial operational contracts, Integration, test, and LambdaTest checklist (+5 more)
 
-### Community 33 - "Community 33"
+### Community 33 - "import_rows Table"
 Cohesion: 0.13
 Nodes (14): Binding dependency and observability policy, code:text (Repository and infrastructure), Delivery baseline, Dependency chain, Dynamic tenant authorization, FieldBrix MVP + Growth Roadmap, Locked authentication, email, and commercial scope, Locked authorization model (+6 more)
 
-### Community 34 - "Community 34"
+### Community 34 - "destroy.sh (duplicate)"
 Cohesion: 0.18
 Nodes (12): code:bash (aws sts get-caller-identity --profile fieldbrix), code:bash (./scripts/plan.sh prod          # validate and save a Terraf), code:text (Internet -> Elastic IP -> nginx HTTPS on EC2 t4g.small), Current bootstrap architecture, DNS, FieldBrix AWS infrastructure, Fieldbrix Infrastructure, Folder map (+4 more)
 
-### Community 35 - "Community 35"
+### Community 35 - "API Response Envelope Pattern"
 Cohesion: 0.15
 Nodes (12): package:flutter/foundation.dart, package:flutter/material.dart, package:sentry_flutter/sentry_flutter.dart, build, FieldbrixApp, FoundationScreen, MaterialApp, Scaffold (+4 more)
 
-### Community 36 - "Community 36"
+### Community 36 - "DomainException Hierarchy"
 Cohesion: 0.15
 Nodes (12): 1. Personas (brief), 2. Brief Client User Journey, 3. User Stories, 4. Supporting touchpoints (other roles, for context), Epic: AMC Contract & Renewal, Epic: Completion Confirmation, Epic: Feedback & Escalation, Epic: Self-Service Portal (Growth+, future) (+4 more)
 
-### Community 37 - "Community 37"
+### Community 37 - "Turborepo Monorepo Layout"
 Cohesion: 0.17
 Nodes (11): API and async contracts, Backend, database, and contracts, Code-principle gate, Data and architecture, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Integration, test, and LambdaTest checklist (+3 more)
 
-### Community 38 - "Community 38"
+### Community 38 - "Maestro Mobile Test Flows"
 Cohesion: 0.18
 Nodes (10): Approved exception gates, Binding dependency policy, Current registry audit snapshot, FieldBrix frontend dependency catalog, Ownership matrix, `react-data-grid@7.0.0-beta.61`, Rejected and deferred choices, Review evidence (+2 more)
 
-### Community 39 - "Community 39"
+### Community 39 - "AWS Device Farm Testing"
 Cohesion: 0.18
 Nodes (10): API contracts, Code-principle gate, Data and evaluation model, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Integration, test, and LambdaTest checklist, Logs, audit, Sentry, and alerts (+2 more)
 
@@ -445,104 +459,96 @@ Cohesion: 0.18
 Nodes (10): API contracts, Code-principle gate, Data and security model, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Integration, test, and LambdaTest checklist, Logs, audit, Sentry, and alerts (+2 more)
 
 ### Community 41 - "Community 41"
-Cohesion: 0.2
+Cohesion: 0.33
 Nodes (9): ImportPreviewDto, MasterRecordDto, PublishWorkflowDto, TaskAssignmentDto, TaskAttachmentDto, TaskDto, TaskTransitionDto, WorkflowDto (+1 more)
 
 ### Community 42 - "Community 42"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and failure policy, Sprint 16 — Reporting, PDFs, and Tenant-Aware SMTP (+1 more)
 
 ### Community 43 - "Community 43"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Dependency and Sentry implementation, Growth RC sign-off, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and RC scope, Sprint 23 — Multi-Site SLA and White-Label Portal (+1 more)
 
 ### Community 44 - "Community 44"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and state model, Sprint 10 — Task Lifecycle and Assignment (+1 more)
 
 ### Community 45 - "Community 45"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and data model, Sprint 06 — Master Records and Spreadsheet Imports (+1 more)
 
 ### Community 46 - "Community 46"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): Beta sign-off, Code-principle gate, Content/API contracts, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and template inventory, Qualification and LambdaTest checklist (+1 more)
 
 ### Community 47 - "Community 47"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and privacy model, Sprint 22 — Visit Tracking, Ratings, and Escalations (+1 more)
 
 ### Community 48 - "Community 48"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): Chaos, integration, and LambdaTest checklist, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and protocol invariants, Sprint 14 — Offline Sync and Conflict Hardening (+1 more)
 
 ### Community 49 - "Community 49"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and immutable model, Sprint 09 — Workflow Governance and Templates (+1 more)
 
 ### Community 50 - "Community 50"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and data model, Sprint 07 — Workflow Builder Foundation (+1 more)
 
 ### Community 51 - "Community 51"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and data model, Sprint 05 — Platform and Company Administration (+1 more)
 
 ### Community 52 - "Community 52"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and governance model, Sprint 15 — Customer Signature and Supervisor Review (+1 more)
 
 ### Community 53 - "Community 53"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and identity boundary, Sprint 19 — Customer Portal and Self-Service Tickets (+1 more)
 
 ### Community 54 - "Community 54"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and temporal model, Sprint 20 — Contracts, Entitlements, and Renewals (+1 more)
 
 ### Community 55 - "Community 55"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): Code-principle gate, Dependency and Sentry implementation, Implementation and hardening checklist, Observability and Sentry release gates, Outcome and release scope, Paid-pilot go/no-go, Release interface freeze, Sprint 18 — MVP Security and Paid-Pilot Release (+1 more)
 
 ### Community 56 - "Community 56"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and data model, Sprint 13 — Full Mobile Execution and Evidence (+1 more)
 
 ### Community 57 - "Community 57"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API and sync contracts, Code-principle gate, Delivery and alpha sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and mobile architecture, Sprint 12 — Mobile Foundation and Offline Walking Skeleton (+1 more)
 
 ### Community 58 - "Community 58"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and financial invariants, Sprint 21 — Invoices, Credit Notes, and Manual Status (+1 more)
 
 ### Community 59 - "Community 59"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): Code-principle gate, Dependency and Sentry implementation, Final implementation and operations checklist, Final release manifest, Full regression and LambdaTest matrix, GA go/no-go and post-launch, Outcome and change control, Security and god-mode campaign (+1 more)
 
 ### Community 60 - "Community 60"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API and job contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and data model, Sprint 11 — Bulk Work, Recurrence, Scheduling, and Notifications (+1 more)
 
 ### Community 61 - "Community 61"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): API contracts, Code-principle gate, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Logs, Sentry, audit, and metrics, Outcome and engine contract, Sprint 08 — Advanced Fields and Conditional Rules (+1 more)
 
 ### Community 62 - "Community 62"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (7): CI/CD configuration, FieldBrix GitHub Actions, .github/, Manual approval for prod, Required GitHub Secrets (Settings → Secrets → Actions), Required repository configuration, Workflows
 
 ### Community 63 - "Community 63"
-Cohesion: 0.2
+Cohesion: 0.20
 Nodes (9): Complete 46-table ownership inventory, Database baseline coverage and evolution, Database invariants that every owning sprint must test, DOCX section audit, Engineering and quality coverage, Explicitly deferred after Growth GA, Product and Sprint Traceability, Product requirements coverage (+1 more)
-
-### Community 64 - "Community 64"
-Cohesion: 0.22
-Nodes (1): AppController
-
-### Community 65 - "Community 65"
-Cohesion: 0.28
-Nodes (2): NotificationsService, TemporaryEmailAdapter
 
 ### Community 66 - "Community 66"
 Cohesion: 0.25
@@ -584,10 +590,6 @@ Nodes (7): Alerts and Sentry, code:bash (set -a; source .env; set +a), code:bash
 Cohesion: 0.25
 Nodes (7): 1. Core journey (all sizes), 2. Small client, 3. Medium client (AMC, single/few sites), 4. Large client (multi-site B2B), 5. Edge cases, corners, exceptions, 6. Flexibility / configurability, Fieldbrix — Client User Stories (brief)
 
-### Community 76 - "Community 76"
-Cohesion: 0.29
-Nodes (1): TenantContextService
-
 ### Community 77 - "Community 77"
 Cohesion: 0.33
 Nodes (6): code:bash (make install     # installs each repository's locked depende), FieldBrix, Integrated repositories, Local foundation (Sprint 01), Notes, Production safety
@@ -613,12 +615,8 @@ Cohesion: 0.29
 Nodes (6): Build-time contract, code:json ({), code:dart (import 'package:flutter/widgets.dart';), Mobile requirements, Safe verification, Sentry for Flutter
 
 ### Community 83 - "Community 83"
-Cohesion: 0.6
+Cohesion: 0.60
 Nodes (5): create_snapshot(), main(), restore_snapshot(), sync_s3(), verify_ec2()
-
-### Community 84 - "Community 84"
-Cohesion: 0.4
-Nodes (2): redact(), scrubSentryEvent()
 
 ### Community 85 - "Community 85"
 Cohesion: 0.33
@@ -737,116 +735,56 @@ Cohesion: 0.33
 Nodes (5): Acceptance criteria, Dependency and Sentry gate, Functional, Sprint 8 — Advanced Fields and Conditional Rules, Test coverage required for sign-off
 
 ### Community 114 - "Community 114"
-Cohesion: 0.4
-Nodes (2): GeneratedPluginRegistrant, -registerWithRegistry
-
-### Community 115 - "Community 115"
-Cohesion: 0.4
-Nodes (1): PlatformAdminGuard
+Cohesion: 0.33
+Nodes (3): add(), GeneratedPluginRegistrant, -registerWithRegistry
 
 ### Community 116 - "Community 116"
-Cohesion: 0.4
+Cohesion: 0.40
 Nodes (3): Cost, How photos work (presigned URLs), modules/storage/
 
 ### Community 117 - "Community 117"
-Cohesion: 0.4
+Cohesion: 0.40
 Nodes (3): Cost, Dead-letter queue (DLQ), modules/queues/
 
 ### Community 118 - "Community 118"
-Cohesion: 0.5
+Cohesion: 0.50
 Nodes (5): Phase 1: fast feedback during development, Fieldbrix Engineering Handbook, SOLID/DRY/KISS/YAGNI code principles, Field Service Platform Database Schema Reference, Fieldbrix Tech Implementation Standards
 
 ### Community 119 - "Community 119"
 Cohesion: 0.83
 Nodes (3): requiredInProduction(), stringValue(), validateEnvironment()
 
-### Community 120 - "Community 120"
-Cohesion: 0.5
-Nodes (1): TenantContextCleanupInterceptor
-
-### Community 121 - "Community 121"
-Cohesion: 0.67
-Nodes (1): RateLimitGuard
-
 ### Community 122 - "Community 122"
-Cohesion: 0.5
+Cohesion: 0.50
 Nodes (3): package:fieldbrix_app/main.dart, package:flutter_test/flutter_test.dart, main
 
-### Community 123 - "Community 123"
-Cohesion: 0.5
-Nodes (2): RunnerTests, XCTestCase
-
-### Community 124 - "Community 124"
-Cohesion: 0.5
-Nodes (2): handle_new_rx_page(), Intercept NOTIFY_DEBUGGER_ABOUT_RX_PAGES and touch the pages.
-
 ### Community 125 - "Community 125"
-Cohesion: 0.5
+Cohesion: 0.50
 Nodes (3): FieldBrix migration inventory — Sprints 02–05, Migration rules, Reapply and rollback guidance
 
 ### Community 126 - "Community 126"
-Cohesion: 0.5
+Cohesion: 0.50
 Nodes (3): fieldbrix_app, fieldbrix-mobile, Getting Started
 
 ### Community 127 - "Community 127"
-Cohesion: 0.5
+Cohesion: 0.50
 Nodes (3): Answer, Q: Why does the Terraform language server think prod/main.tf uses old module inputs such as admin_cidr, ssh_public_key_path, rds_endpoint, and sqs_queue_arns while the current module variables use private_subnet_cidr_b, engine_version, protect_database, and TLS inputs?, Source Nodes
 
 ### Community 128 - "Community 128"
-Cohesion: 0.5
+Cohesion: 0.50
 Nodes (3): Answer, Q: How should FieldBrix bootstrap and deploy the existing Vite React frontend, NestJS backend, PostgreSQL database, and a reversible Terraform create/destroy pipeline before Sprint 1?, Source Nodes
 
 ### Community 129 - "Community 129"
-Cohesion: 0.5
+Cohesion: 0.50
 Nodes (3): Answer, Q: How are the FieldBrix React admin, NestJS API, PostgreSQL database, Elastic IP, S3 releases, and Terraform deployment connected?, Source Nodes
 
 ### Community 130 - "Community 130"
-Cohesion: 0.5
+Cohesion: 0.50
 Nodes (3): Answer, Q: How is production SSL/TLS configured, including Let's Encrypt certificate issuance, nginx, automatic renewal, and expiry checks?, Source Nodes
 
 ### Community 131 - "Community 131"
-Cohesion: 0.5
+Cohesion: 0.50
 Nodes (3): fieldbrix_app, fieldbrix-mobile, Getting Started
-
-### Community 132 - "Community 132"
-Cohesion: 0.67
-Nodes (1): Minimal, observable queue worker used by the Sprint 01 local platform.
-
-### Community 133 - "Community 133"
-Cohesion: 0.67
-Nodes (0): 
-
-### Community 134 - "Community 134"
-Cohesion: 0.67
-Nodes (1): AppModule
-
-### Community 135 - "Community 135"
-Cohesion: 0.67
-Nodes (1): ResponseEnvelopeInterceptor
-
-### Community 136 - "Community 136"
-Cohesion: 0.67
-Nodes (1): CorrelationIdMiddleware
-
-### Community 137 - "Community 137"
-Cohesion: 0.67
-Nodes (1): PdfWorkerService
-
-### Community 138 - "Community 138"
-Cohesion: 0.67
-Nodes (2): FlutterSceneDelegate, SceneDelegate
-
-### Community 139 - "Community 139"
-Cohesion: 0.67
-Nodes (2): Backup and restore rehearsal, Rehearsal procedure
-
-### Community 140 - "Community 140"
-Cohesion: 0.67
-Nodes (1): Launch Screen Assets
-
-### Community 141 - "Community 141"
-Cohesion: 0.67
-Nodes (2): Configuration contract, Sentry for Python Lambdas
 
 ### Community 142 - "Community 142"
 Cohesion: 0.67
@@ -864,558 +802,245 @@ Nodes (3): .github/ CI/CD Config, OIDC AWS Auth, Required GitHub Secrets
 Cohesion: 0.67
 Nodes (3): modules/networking, Security Groups (EC2/RDS), VPC + Subnets
 
-### Community 146 - "Community 146"
-Cohesion: 1.0
-Nodes (1): Foundation workers and future Lambda packages.
-
-### Community 147 - "Community 147"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 148 - "Community 148"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 149 - "Community 149"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 150 - "Community 150"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 151 - "Community 151"
-Cohesion: 1.0
-Nodes (1): PdfWorkerModule
-
-### Community 152 - "Community 152"
-Cohesion: 1.0
-Nodes (1): DatabaseModule
-
-### Community 153 - "Community 153"
-Cohesion: 1.0
-Nodes (1): AuthModule
-
-### Community 154 - "Community 154"
-Cohesion: 1.0
-Nodes (1): TenantContextDto
-
-### Community 155 - "Community 155"
-Cohesion: 1.0
-Nodes (1): InvitationAcceptDto
-
-### Community 156 - "Community 156"
-Cohesion: 1.0
-Nodes (1): LoginDto
-
-### Community 157 - "Community 157"
-Cohesion: 1.0
-Nodes (1): DeviceRegistrationDto
-
-### Community 158 - "Community 158"
-Cohesion: 1.0
-Nodes (1): PlatformModule
-
-### Community 159 - "Community 159"
-Cohesion: 1.0
-Nodes (1): CompleteUploadDto
-
-### Community 160 - "Community 160"
-Cohesion: 1.0
-Nodes (1): AuditQueryDto
-
-### Community 161 - "Community 161"
-Cohesion: 1.0
-Nodes (1): UploadIntentDto
-
-### Community 162 - "Community 162"
-Cohesion: 1.0
-Nodes (1): IdempotencyModule
-
-### Community 163 - "Community 163"
-Cohesion: 1.0
-Nodes (1): OperationsModule
-
-### Community 164 - "Community 164"
-Cohesion: 1.0
-Nodes (1): StorageModule
-
-### Community 165 - "Community 165"
-Cohesion: 1.0
-Nodes (1): TenantContextModule
-
-### Community 166 - "Community 166"
-Cohesion: 1.0
-Nodes (1): QueueModule
-
-### Community 167 - "Community 167"
-Cohesion: 1.0
-Nodes (1): AdministrationModule
-
-### Community 168 - "Community 168"
-Cohesion: 1.0
-Nodes (1): ListDirectoryQueryDto
-
-### Community 169 - "Community 169"
-Cohesion: 1.0
-Nodes (1): AssignSkillsDto
-
-### Community 170 - "Community 170"
-Cohesion: 1.0
-Nodes (1): ListUsersQueryDto
-
-### Community 171 - "Community 171"
-Cohesion: 1.0
-Nodes (1): InviteUserDto
-
-### Community 172 - "Community 172"
-Cohesion: 1.0
-Nodes (1): TenantLimitsDto
-
-### Community 173 - "Community 173"
-Cohesion: 1.0
-Nodes (1): CompanySettingsDto
-
-### Community 174 - "Community 174"
-Cohesion: 1.0
-Nodes (1): CreateTeamDto
-
-### Community 175 - "Community 175"
-Cohesion: 1.0
-Nodes (1): SupportNoteDto
-
-### Community 176 - "Community 176"
-Cohesion: 1.0
-Nodes (1): UpdateUserDto
-
-### Community 177 - "Community 177"
-Cohesion: 1.0
-Nodes (1): UpdateBranchDto
-
-### Community 178 - "Community 178"
-Cohesion: 1.0
-Nodes (1): MembershipDto
-
-### Community 179 - "Community 179"
-Cohesion: 1.0
-Nodes (1): UpdateTenantDto
-
-### Community 180 - "Community 180"
-Cohesion: 1.0
-Nodes (1): CreateTenantDto
-
-### Community 181 - "Community 181"
-Cohesion: 1.0
-Nodes (1): ListTenantsQueryDto
-
-### Community 182 - "Community 182"
-Cohesion: 1.0
-Nodes (1): CreateSkillDto
-
-### Community 183 - "Community 183"
-Cohesion: 1.0
-Nodes (1): CreateBranchDto
-
-### Community 184 - "Community 184"
-Cohesion: 1.0
-Nodes (1): TenantReasonDto
-
-### Community 185 - "Community 185"
-Cohesion: 1.0
-Nodes (1): UpdateTeamDto
-
-### Community 186 - "Community 186"
-Cohesion: 1.0
-Nodes (1): AuthorizationModule
-
-### Community 187 - "Community 187"
-Cohesion: 1.0
-Nodes (1): AssignRolesDto
-
-### Community 188 - "Community 188"
-Cohesion: 1.0
-Nodes (1): DestructiveExecutionDto
-
-### Community 189 - "Community 189"
-Cohesion: 1.0
-Nodes (1): PermissionGrantDto
-
-### Community 190 - "Community 190"
-Cohesion: 1.0
-Nodes (1): UpdateRolePermissionsDto
-
-### Community 191 - "Community 191"
-Cohesion: 1.0
-Nodes (1): GodSessionDto
-
-### Community 192 - "Community 192"
-Cohesion: 1.0
-Nodes (1): DestructiveRequestDto
-
-### Community 193 - "Community 193"
-Cohesion: 1.0
-Nodes (1): UpdateRoleDto
-
-### Community 194 - "Community 194"
-Cohesion: 1.0
-Nodes (1): CreateRoleDto
-
-### Community 195 - "Community 195"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 196 - "Community 196"
-Cohesion: 1.0
-Nodes (1): NotificationsModule
-
-### Community 197 - "Community 197"
-Cohesion: 1.0
-Nodes (1): MainActivity
-
-### Community 198 - "Community 198"
-Cohesion: 1.0
-Nodes (1): graphify
-
-### Community 199 - "Community 199"
-Cohesion: 1.0
-Nodes (1): graphify
-
-### Community 200 - "Community 200"
-Cohesion: 1.0
-Nodes (1): Workflow: graphify
-
-### Community 201 - "Community 201"
-Cohesion: 1.0
-Nodes (1): graphify
-
-### Community 202 - "Community 202"
-Cohesion: 1.0
-Nodes (1): graphify
-
-### Community 203 - "Community 203"
-Cohesion: 1.0
-Nodes (2): tenantId-from-JWT-only rule, Row-Level Security tenant isolation
-
-### Community 204 - "Community 204"
-Cohesion: 1.0
-Nodes (2): scripts/python/ Ops Scripts, scripts/ Ops Scripts
-
-### Community 205 - "Community 205"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 206 - "Community 206"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 207 - "Community 207"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 208 - "Community 208"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 209 - "Community 209"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 210 - "Community 210"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 211 - "Community 211"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 212 - "Community 212"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 213 - "Community 213"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 214 - "Community 214"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 215 - "Community 215"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 216 - "Community 216"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 217 - "Community 217"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 218 - "Community 218"
-Cohesion: 1.0
-Nodes (1): Foundation workers and future Lambda packages.
-
-### Community 219 - "Community 219"
-Cohesion: 1.0
-Nodes (1): Minimal, observable queue worker used by the Sprint 01 local platform.
-
-### Community 220 - "Community 220"
-Cohesion: 1.0
-Nodes (1): Intercept NOTIFY_DEBUGGER_ABOUT_RX_PAGES and touch the pages.
-
-### Community 221 - "Community 221"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 222 - "Community 222"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 223 - "Community 223"
-Cohesion: 1.0
-Nodes (1): Composite (tenant_id, id) foreign key pattern
-
-### Community 224 - "Community 224"
-Cohesion: 1.0
-Nodes (1): UUIDv7 application-generated primary keys
-
-### Community 225 - "Community 225"
-Cohesion: 1.0
-Nodes (1): Operational deployment notes (partitioning, PostGIS, read replicas)
-
-### Community 226 - "Community 226"
-Cohesion: 1.0
-Nodes (1): NestJS modular monolith backend stack
-
-### Community 227 - "Community 227"
-Cohesion: 1.0
-Nodes (1): Prisma ORM (type-safe DB client)
-
-### Community 228 - "Community 228"
-Cohesion: 1.0
-Nodes (1): Client-generated idempotencyKey pattern
-
-### Community 229 - "Community 229"
-Cohesion: 1.0
-Nodes (1): Uniform API response envelope
-
-### Community 230 - "Community 230"
-Cohesion: 1.0
-Nodes (1): DomainException hierarchy
-
-### Community 231 - "Community 231"
-Cohesion: 1.0
-Nodes (1): Audit log vs operational log separation
-
-### Community 232 - "Community 232"
-Cohesion: 1.0
-Nodes (1): Turborepo monorepo layout
-
-### Community 233 - "Community 233"
-Cohesion: 1.0
-Nodes (1): Maestro declarative mobile test flows
-
-### Community 234 - "Community 234"
-Cohesion: 1.0
-Nodes (1): AWS Device Farm nightly real-device testing
+### Community 235 - "Community 235"
+Cohesion: 0.08
+Nodes (3): HttpExceptionEnvelopeFilter, now(), webdriver()
+
+### Community 238 - "Community 238"
+Cohesion: 0.06
+Nodes (12): Operations(), Props, RecordItem, Request, tabs, Item, navigation, Role (+4 more)
+
+### Community 241 - "Community 241"
+Cohesion: 0.13
+Nodes (17): Security Rules N1-N15, AI Agent Development Playbook, Architecture for Legibility, Not Just Correctness, AUTOMATED_TESTING_STRATEGY.md, The Definition of Done, ENGINEERING_HANDBOOK_FASTAPI.md, graphify-out Knowledge Graph, Humans Own Decisions, Agents Own Execution (+9 more)
+
+### Community 242 - "Community 242"
+Cohesion: 0.18
+Nodes (16): 10.10 Push Notifications, 10.11 Secure Storage, 10.12 Connectivity, 10.5 HTTP Client, 10.6 State Management, 10.7 Image Handling, 10.8 Upload Strategy, 10.9 Location & Attendance (+8 more)
+
+### Community 243 - "Community 243"
+Cohesion: 0.13
+Nodes (15): PowerSync (Self-hosted Sync Engine), JWT Authentication, Swagger/OpenAPI Auto-docs, Mobile Reference (Flutter), Dio HTTP Client, Drift Local Database, Firebase Cloud Messaging, Flutter + Riverpod (+7 more)
+
+### Community 245 - "Community 245"
+Cohesion: 0.20
+Nodes (14): 19.1 Stack Cheat Sheet, 19.2 Architectural Decisions, 19.3 Response Shape Cheatsheet, 19.4 Log Level Decision, 19.5 Error Code Reference, 19.6 PR Size Guide, code:block106 (Layer      | Technology          | Key reason), code:block107 (Question                                     Answer) (+6 more)
+
+### Community 246 - "Community 246"
+Cohesion: 0.16
+Nodes (13): 4. Create runtime parameters, 4. Create runtime secrets, 7. DNS, TLS, and application deployment, 8. Verify and operate, code:bash (aws --version), code:bash (terraform -chdir=environments/prod output static_ip), code:bash (./scripts/status.sh prod), code:bash (./scripts/secrets-init.sh prod) (+5 more)
+
+### Community 247 - "Community 247"
+Cohesion: 0.22
+Nodes (6): assignRole(), changeActiveState(), create(), invite(), revoke(), saveSettings()
+
+### Community 248 - "Community 248"
+Cohesion: 0.15
+Nodes (13): Cloudflare CDN + DNS, RDS db.t3.micro, modules/database, deletion_protection = true, RDS PostgreSQL 16, DB Password via SSM, modules/dns, Cloudflare DNS Records (+5 more)
+
+### Community 249 - "Community 249"
+Cohesion: 0.21
+Nodes (4): bootstrap(), base(), clean(), id()
+
+### Community 250 - "Community 250"
+Cohesion: 0.15
+Nodes (13): Frontend Reference (Vite + React), dnd-kit Drag and Drop, Google Maps (react-google-maps), react-i18next, Recharts, shadcn/ui + Radix, SSE Real-time Updates, TanStack Query (+5 more)
+
+### Community 252 - "Community 252"
+Cohesion: 0.15
+Nodes (13): "App not responding after EC2 start", Check AWS credits remaining, code:bash (# Check the bucket name in backend.tf matches what bootstrap), code:bash (AWS_PROFILE=fieldbrix ./scripts/status.sh prod), code:bash (# Make sure your current IP matches admin_cidr in terraform.), code:bash (./scripts/ssh.sh prod), code:bash (python scripts/python/cost_report.py), "EC2 won't start after being stopped" (+5 more)
+
+### Community 253 - "Community 253"
+Cohesion: 0.18
+Nodes (12): AWS Infrastructure Reference, GitHub Actions CI/CD Pipeline, Complete Cost Summary, EC2 t4g.medium Compute, PgBouncer (AWS Doc), modules/compute, Elastic IP (Static IP), IMDSv2 Enforcement (+4 more)
+
+### Community 254 - "Community 254"
+Cohesion: 0.17
+Nodes (11): 6.1 Migration Rules, 6.2 Query Rules, 6. DATABASE STANDARDS, 7. SECURITY RULES (ALL P0, NON-NEGOTIABLE), code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:block46 (N1.  tenantId comes from JWT only. Never from request body, ), code:block47 (Layer      | Technology          | Key reason) (+3 more)
+
+### Community 255 - "Community 255"
+Cohesion: 0.18
+Nodes (11): 2.2 Controllers, 2.3 Services, 2.4 Repositories, 2.5 DTOs, 2.6 Naming Conventions — Backend, 2. BACKEND CODE STANDARDS, code:typescript (// Controllers ONLY:), code:typescript (@Injectable()) (+3 more)
+
+### Community 256 - "Community 256"
+Cohesion: 0.18
+Nodes (11): 5.1 Log Levels, 5.2 Structured Log Format — Every Entry Is JSON, 5.3 Logger Service, 5.4 What to NEVER Log, 5.5 Audit Log vs Operational Log — Two Separate Systems, 5. LOGGING STANDARDS, code:block39 (FATAL   Process cannot continue. Immediate page.), code:json ({) (+3 more)
+
+### Community 257 - "Community 257"
+Cohesion: 0.18
+Nodes (11): 7.1 Log Levels, 7.2 Structured Log Format — Every Entry Is JSON, 7.3 Logger Service, 7.4 What to NEVER Log, 7.5 Audit Log vs Operational Log — Two Separate Systems, code:block53 (FATAL   Process cannot continue. Immediate page.), code:json ({), code:typescript (// shared/logger/fieldbrix-logger.ts) (+3 more)
+
+### Community 258 - "Community 258"
+Cohesion: 0.18
+Nodes (11): code:block31 (FATAL   Process cannot continue. Immediate page.), code:json ({), code:typescript (// shared/logger/fieldbrix-logger.ts), code:block34 (❌ NEVER:), code:block35 (OPERATIONAL LOGS (Winston → CloudWatch)), G1. Log Levels, G2. Structured Log Format — Every Entry Is JSON, G3. Logger Service (+3 more)
+
+### Community 259 - "Community 259"
+Cohesion: 0.18
+Nodes (11): code:dart (// Widgets display state and emit events. No business logic.), code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:), code:dart (// Mirrors the server envelope exactly), code:block44 (Files      : snake_case.dart             task_card.dart  tas), I1. Widget Rules, I2. Riverpod Providers, I3. Offline-First Rule (+3 more)
+
+### Community 260 - "Community 260"
+Cohesion: 0.18
+Nodes (11): code:block56 (Question                                     Answer), code:block57 (Scenario                     HTTP   success  has data  has e), code:block58 (Did the process crash or exit?                   → FATAL), code:block59 (HTTP  Code                          When), code:block60 (Lines changed   Action), O1. Architectural Decisions, O2. Response Shape Cheatsheet, O3. Log Level Decision (+3 more)
+
+### Community 262 - "Community 262"
+Cohesion: 0.20
+Nodes (10): 3.1 The Golden Rule, 3.2 Success Responses, 3.3 Error Responses, 3.4 HTTP Status Code Map, 3.5 Response Interceptor (NestJS), 3. API CONTRACT, code:json (// Single resource — HTTP 200 or 201), code:json (// Validation error — HTTP 400) (+2 more)
+
+### Community 263 - "Community 263"
+Cohesion: 0.29
+Nodes (10): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:), code:dart (// Mirrors the server envelope exactly) (+2 more)
+
+### Community 264 - "Community 264"
+Cohesion: 0.27
+Nodes (10): 8.13 Frontend libraries summary, 9.1 Component Rules, 9.2 Custom Hooks, 9.3 API Client & Error Handling, 9.4 Naming Conventions — Frontend, code:typescript (// Smart components: one per page/route. Fetch data. Pass da), code:typescript (// Named return objects — never confusing positional tuples), code:typescript (// lib/api/client.ts — unwraps the envelope automatically) (+2 more)
+
+### Community 265 - "Community 265"
+Cohesion: 0.20
+Nodes (10): code:json (// Single resource — HTTP 200 or 201), code:json (// Validation error — HTTP 400), code:block23 (200  Successful GET, successful action returning data       ), code:typescript (// shared/interceptors/response-transform.interceptor.ts), D1. The Golden Rule, D2. Success Responses, D3. Error Responses, D4. HTTP Status Code Map (+2 more)
+
+### Community 266 - "Community 266"
+Cohesion: 0.22
+Nodes (9): 10.1 Framework, 10.2 Local Database, 10.3 Database Encryption, 10.4 Offline Sync, code:block74 (SDK           : Flutter stable pinned by CI and the reposito), code:block75 (Package       : drift (pubspec/lock)), code:block76 (Package       : sqlcipher_flutter_libs), code:block77 (Package       : powersync (pubspec/lock)) (+1 more)
+
+### Community 267 - "Community 267"
+Cohesion: 0.31
+Nodes (9): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:block99 (Format: <type>(<scope>): <description>) (+1 more)
+
+### Community 268 - "Community 268"
+Cohesion: 0.31
+Nodes (8): 16.1 Comment Style, 16.2 TSDoc on All Public Service Methods, code:typescript (/**), code:block104 (N1.  tenantId comes from JWT only. Never from request body, ), code:block105 (INFRASTRUCTURE                          MONTHLY), PART 16 — DOCUMENTATION STANDARDS, PART 17 — SECURITY RULES (ALL P0, NON-NEGOTIABLE), PART 18 — COMPLETE COST SUMMARY
+
+### Community 269 - "Community 269"
+Cohesion: 0.22
+Nodes (9): 2.1 Why Turborepo, 2.2 Full Monorepo Layout, 2.3 OpenAPI → Flutter Model Generation Flow, 2.4 Module Boundary Rules, code:block10 (Tool          : Turborepo v2.x), code:block11 (fieldbrix/                          Root (Turborepo)), code:block12 (NestJS Swagger → generates openapi.json), code:block13 (Rule P0: No file in modules/ may import from infrastructure/) (+1 more)
+
+### Community 270 - "Community 270"
+Cohesion: 0.22
+Nodes (8): 1. What this schema is for, 2. Global conventions, 3. Enumerated types, 4. Shared trigger function, 7. Operational notes (from the schema's own trailing comment block), 8. Reading the schema top to bottom, code:sql (CREATE OR REPLACE FUNCTION set_updated_at() ...), Field Service Platform — Database Schema Reference
+
+### Community 271 - "Community 271"
+Cohesion: 0.22
+Nodes (9): code:typescript (// Smart components: one per page/route. Fetch data. Pass da), code:typescript (// Named return objects — never confusing positional tuples), code:typescript (// lib/api/client.ts — unwraps the envelope automatically), code:block39 (Files          : PascalCase.tsx for components, camelCase.ts), H1. Component Rules, H2. Custom Hooks, H3. API Client & Error Handling, H4. Naming Conventions — Frontend (+1 more)
+
+### Community 272 - "Community 272"
+Cohesion: 0.22
+Nodes (9): code:block49 (feature/FOS-{ticket}-{description}      feature/FOS-142-task), code:block50 (Format: <type>(<scope>): <description>), code:block51 (Author self-review before opening:), code:block52 (Security), L1. Branch Naming, L2. Commit Messages — Conventional Commits (mandatory), L3. PR Rules, L4. Code Review Checklist — Reviewer (+1 more)
+
+### Community 275 - "Community 275"
+Cohesion: 0.25
+Nodes (6): Cloudflare API token, code:block1 (A record: api.fieldbrix.in → your static EC2 IP (proxied thr), modules/dns/, Proxied = true (orange cloud icon), What this creates, Why Cloudflare instead of Route 53?
+
+### Community 276 - "Community 276"
+Cohesion: 0.29
+Nodes (8): 13.1 Migration Rules, 13.2 Query Rules, code:block93 (Runtime       : Python 3.12), code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), PART 12 — LAMBDA FUNCTIONS (Python), PART 13 — DATABASE STANDARDS, Runtime & Libraries
+
+### Community 277 - "Community 277"
+Cohesion: 0.25
+Nodes (7): code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:block55 (N1.  tenantId comes from JWT only. Never from request body, ), J1. Migration Rules, J2. Query Rules, PART J — DATABASE STANDARDS, PART N — SECURITY RULES (ALL P0, NON-NEGOTIABLE)
+
+### Community 278 - "Community 278"
+Cohesion: 0.39
+Nodes (4): compare(), empty(), evaluateRules(), validateRules()
+
+### Community 280 - "Community 280"
+Cohesion: 0.32
+Nodes (8): 1. Configure short-lived AWS access, 1a. Create your AWS account, 1b. Create an IAM user for local Terraform use, 1c. Set billing alerts BEFORE doing anything else, 2. Validate without AWS or remote state, code:bash (cp aws.env.example aws.env.local), code:bash (./scripts/validate.sh prod), Step 1 — AWS account setup
+
+### Community 281 - "Community 281"
+Cohesion: 0.25
+Nodes (8): 5. Configure non-secret inputs, 5a. Sign up at cloudflare.com (free plan), 5b. Add your domain (e.g., fieldbrix.in), 5c. Get your Zone ID, code:bash (cp environments/prod/terraform.tfvars.example \), code:bash (aws ssm get-parameter \), Step 4 — Bootstrap Terraform state, Step 5 — Cloudflare setup (free DNS + SSL)
+
+### Community 282 - "Community 282"
+Cohesion: 0.43
+Nodes (7): SQS + Lambda Async Layer, modules/queues, Dead-Letter Queue (DLQ), media-processing Queue, notifications.fifo Queue, pdf-generation.fifo Queue, scheduler.fifo Queue
+
+### Community 283 - "Community 283"
+Cohesion: 0.29
+Nodes (7): 3.6 Request Standards, code:typescript (// main.ts), code:typescript (// Every request gets a correlation ID.), code:typescript (// Rule P0: idempotencyKey required on every mutation (POST/), Correlation ID Middleware, Idempotency Rules, Validation Pipe (global)
+
+### Community 284 - "Community 284"
+Cohesion: 0.29
+Nodes (7): 4.1 Exception Hierarchy, 4.2 DomainException Base Class, 4.3 Global Exception Filter, 4. EXCEPTION HANDLING, code:block36 (DomainException (base — never throw directly)), code:typescript (// shared/exceptions/domain.exception.ts), code:typescript (// shared/filters/global-exception.filter.ts)
+
+### Community 285 - "Community 285"
+Cohesion: 0.29
+Nodes (7): 6.1 Exception Hierarchy, 6.2 DomainException Base Class, 6.3 Global Exception Filter, code:block50 (DomainException (base — never throw directly)), code:typescript (// shared/exceptions/domain.exception.ts), code:typescript (// shared/filters/global-exception.filter.ts), PART 6 — EXCEPTION HANDLING
+
+### Community 286 - "Community 286"
+Cohesion: 0.29
+Nodes (7): code:typescript (// main.ts), code:typescript (// Every request gets a correlation ID.), code:typescript (// Rule P0: idempotencyKey required on every mutation (POST/), E1. Validation Pipe (global), E2. Correlation ID Middleware, E3. Idempotency Rules, PART E — API CONTRACT: REQUEST STANDARDS
+
+### Community 287 - "Community 287"
+Cohesion: 0.29
+Nodes (7): code:block28 (DomainException (base — never throw directly)), code:typescript (// shared/exceptions/domain.exception.ts), code:typescript (// shared/filters/global-exception.filter.ts), F1. Exception Hierarchy, F2. DomainException Base Class, F3. Global Exception Filter, PART F — EXCEPTION HANDLING
+
+### Community 289 - "Community 289"
+Cohesion: 0.40
+Nodes (6): 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block97 (Unit tests (services, repositories)    : minimum 80% line co), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task), PART 14 — TESTING STANDARDS
+
+### Community 290 - "Community 290"
+Cohesion: 0.33
+Nodes (6): code:block1 (PART 1   Infrastructure (AWS ap-south-1) ............ Comput), Fieldbrix — Engineering Handbook, HOW TO USE THIS DOCUMENT, TABLE OF CONTENTS, Tech Stack Reference + Implementation Standards, combined, Verified August 2026 · Version 1.0 · Binding on all contributors
+
+### Community 291 - "Community 291"
+Cohesion: 0.33
+Nodes (6): code:block1 (PART A  Universal Code Principles .............. SOLID, DRY,), Fieldbrix — Tech Implementation Standards, HOW TO USE THIS DOCUMENT, Single source of truth for all engineering, API, logging, testing, and process standards, TABLE OF CONTENTS, Version 1.0 · August 2026 · Binding on all contributors
+
+### Community 292 - "Community 292"
+Cohesion: 0.40
+Nodes (5): S3 Object Storage, Presigned URL Upload (Mobile), modules/storage, Presigned URL Upload Pattern, S3 Buckets (photos/pdfs/exports/web)
+
+### Community 293 - "Community 293"
+Cohesion: 0.40
+Nodes (5): 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, code:block86 (Package       : flutter_foreground_task (pubspec/lock)), code:block87 (Package                       Version  Purpose), code:dart (// Widgets display state and emit events. No business logic.)
+
+### Community 294 - "Community 294"
+Cohesion: 0.40
+Nodes (5): B1. Monorepo Layout, B2. Module Boundary Rules, code:block14 (fieldbrix/                          Root (Turborepo)), code:block15 (Rule P0: No file in modules/ may import from infrastructure/), PART B — PROJECT STRUCTURE
+
+### Community 295 - "Community 295"
+Cohesion: 0.40
+Nodes (5): code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block48 (Unit tests (services, repositories)    : minimum 80% line co), K1. Test Structure — AAA (Arrange, Act, Assert), K2. Coverage Requirements, PART K — TESTING STANDARDS
+
+### Community 296 - "Community 296"
+Cohesion: 0.40
+Nodes (5): code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:typescript (/**), M1. Comment Style, M2. TSDoc on All Public Service Methods, PART M — DOCUMENTATION STANDARDS
+
+### Community 300 - "Community 300"
+Cohesion: 0.40
+Nodes (5): 5d. Create an API token, 6. Review and apply, code:bash (./scripts/plan.sh prod), code:bash (./scripts/apply.sh prod), Step 6 — Store all secrets in SSM Parameter Store (free)
+
+### Community 301 - "Community 301"
+Cohesion: 0.50
+Nodes (4): 6.1 Row-Level Security, 6.2 Why composite `(tenant_id, ...)` foreign keys everywhere, 6. Security model, code:sql (ALTER TABLE field_ops.<table> ENABLE ROW LEVEL SECURITY;)
+
+### Community 303 - "Community 303"
+Cohesion: 0.67
+Nodes (3): 3. Bootstrap remote state once, code:bash (source aws.env.local), Step 2 — Generate SSH key
+
+### Community 304 - "Community 304"
+Cohesion: 0.67
+Nodes (3): code:bash (cd environments/prod), code:block14 (→ DNS → Records → Add record), Step 9 — Point Cloudflare DNS to your server
 
 ## Knowledge Gaps
-- **989 isolated node(s):** `Foundation workers and future Lambda packages.`, `Minimal, observable queue worker used by the Sprint 01 local platform.`, `PdfWorkerModule`, `DatabaseModule`, `AuthModule` (+984 more)
+- **972 isolated node(s):** `View`, `Tenant`, `Role`, `User`, `Item` (+967 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 146`** (2 nodes): `Foundation workers and future Lambda packages.`, `__init__.py`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 147`** (2 nodes): `main()`, `cost_report.py`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 148`** (2 nodes): `main()`, `db_snapshot.py`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 149`** (2 nodes): `useApiHealth()`, `use-api-health.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 150`** (2 nodes): `getApiHealth()`, `health.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 151`** (2 nodes): `PdfWorkerModule`, `pdf-worker.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 152`** (2 nodes): `DatabaseModule`, `database.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 153`** (2 nodes): `AuthModule`, `auth.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 154`** (2 nodes): `TenantContextDto`, `tenant-context.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 155`** (2 nodes): `InvitationAcceptDto`, `invitation-accept.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 156`** (2 nodes): `LoginDto`, `login.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 157`** (2 nodes): `DeviceRegistrationDto`, `device-registration.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 158`** (2 nodes): `PlatformModule`, `platform.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 159`** (2 nodes): `CompleteUploadDto`, `complete-upload.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 160`** (2 nodes): `AuditQueryDto`, `audit-query.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 161`** (2 nodes): `UploadIntentDto`, `upload-intent.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 162`** (2 nodes): `IdempotencyModule`, `idempotency.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 163`** (2 nodes): `OperationsModule`, `operations.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 164`** (2 nodes): `StorageModule`, `storage.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 165`** (2 nodes): `TenantContextModule`, `tenant-context.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 166`** (2 nodes): `QueueModule`, `queue.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 167`** (2 nodes): `AdministrationModule`, `administration.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 168`** (2 nodes): `ListDirectoryQueryDto`, `list-directory-query.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 169`** (2 nodes): `AssignSkillsDto`, `assign-skills.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 170`** (2 nodes): `ListUsersQueryDto`, `list-users-query.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 171`** (2 nodes): `InviteUserDto`, `invite-user.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 172`** (2 nodes): `TenantLimitsDto`, `tenant-limits.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 173`** (2 nodes): `CompanySettingsDto`, `company-settings.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 174`** (2 nodes): `CreateTeamDto`, `create-team.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 175`** (2 nodes): `SupportNoteDto`, `support-note.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 176`** (2 nodes): `UpdateUserDto`, `update-user.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 177`** (2 nodes): `UpdateBranchDto`, `update-branch.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 178`** (2 nodes): `MembershipDto`, `membership.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 179`** (2 nodes): `UpdateTenantDto`, `update-tenant.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 180`** (2 nodes): `CreateTenantDto`, `create-tenant.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 181`** (2 nodes): `ListTenantsQueryDto`, `list-tenants-query.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 182`** (2 nodes): `CreateSkillDto`, `create-skill.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 183`** (2 nodes): `CreateBranchDto`, `create-branch.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 184`** (2 nodes): `TenantReasonDto`, `tenant-reason.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 185`** (2 nodes): `UpdateTeamDto`, `update-team.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 186`** (2 nodes): `AuthorizationModule`, `authorization.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 187`** (2 nodes): `AssignRolesDto`, `assign-roles.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 188`** (2 nodes): `DestructiveExecutionDto`, `destructive-execution.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 189`** (2 nodes): `PermissionGrantDto`, `permission-grant.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 190`** (2 nodes): `UpdateRolePermissionsDto`, `update-role-permissions.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 191`** (2 nodes): `GodSessionDto`, `god-session.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 192`** (2 nodes): `DestructiveRequestDto`, `destructive-request.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 193`** (2 nodes): `UpdateRoleDto`, `update-role.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 194`** (2 nodes): `CreateRoleDto`, `create-role.dto.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 195`** (2 nodes): `Permission()`, `permission.decorator.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 196`** (2 nodes): `NotificationsModule`, `notifications.module.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 197`** (2 nodes): `MainActivity`, `MainActivity.kt`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 198`** (2 nodes): `AGENTS.md`, `graphify`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 199`** (2 nodes): `CLAUDE.md`, `graphify`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 200`** (2 nodes): `graphify.md`, `Workflow: graphify`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 201`** (2 nodes): `graphify.md`, `graphify`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 202`** (2 nodes): `graphify`, `copilot-instructions.md`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 203`** (2 nodes): `tenantId-from-JWT-only rule`, `Row-Level Security tenant isolation`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 204`** (2 nodes): `scripts/python/ Ops Scripts`, `scripts/ Ops Scripts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 205`** (1 nodes): `vite.config.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 206`** (1 nodes): `eslint.config.mjs`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 207`** (1 nodes): `app.e2e-spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 208`** (1 nodes): `instrument.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 209`** (1 nodes): `app.controller.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 210`** (1 nodes): `environment.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 211`** (1 nodes): `sentry.spec.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 212`** (1 nodes): `notification-delivery.port.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 213`** (1 nodes): `Runner-Bridging-Header.h`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 214`** (1 nodes): `GeneratedPluginRegistrant.h`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 215`** (1 nodes): `build.gradle.kts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 216`** (1 nodes): `settings.gradle.kts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 217`** (1 nodes): `build.gradle.kts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 218`** (1 nodes): `Foundation workers and future Lambda packages.`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 219`** (1 nodes): `Minimal, observable queue worker used by the Sprint 01 local platform.`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 220`** (1 nodes): `Intercept NOTIFY_DEBUGGER_ABOUT_RX_PAGES and touch the pages.`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 221`** (1 nodes): `README.md`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 222`** (1 nodes): `README.md`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 223`** (1 nodes): `Composite (tenant_id, id) foreign key pattern`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 224`** (1 nodes): `UUIDv7 application-generated primary keys`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 225`** (1 nodes): `Operational deployment notes (partitioning, PostGIS, read replicas)`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 226`** (1 nodes): `NestJS modular monolith backend stack`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 227`** (1 nodes): `Prisma ORM (type-safe DB client)`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 228`** (1 nodes): `Client-generated idempotencyKey pattern`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 229`** (1 nodes): `Uniform API response envelope`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 230`** (1 nodes): `DomainException hierarchy`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 231`** (1 nodes): `Audit log vs operational log separation`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 232`** (1 nodes): `Turborepo monorepo layout`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 233`** (1 nodes): `Maestro declarative mobile test flows`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 234`** (1 nodes): `AWS Device Farm nightly real-device testing`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **107 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `OperationsController` connect `Community 4` to `Community 0`?**
-  _High betweenness centrality (0.007) - this node is a cross-community bridge._
-- **Why does `AuthorizationController` connect `Community 24` to `Community 5`?**
-  _High betweenness centrality (0.006) - this node is a cross-community bridge._
-- **Why does `PlatformService` connect `Community 0` to `Community 5`, `Community 23`?**
+- **Why does `OperationsService` connect `Community 239` to `AI Agent Development Rules`, `Community 261`, `Community 298`, `Community 235`, `Community 236`, `Community 299`, `Community 244`, `Community 278`, `Community 249`, `Community 251`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
-- **What connects `Foundation workers and future Lambda packages.`, `Minimal, observable queue worker used by the Sprint 01 local platform.`, `PdfWorkerModule` to the rest of the system?**
-  _989 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.03 - nodes in this community are weakly interconnected._
-- **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.02 - nodes in this community are weakly interconnected._
-- **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.02 - nodes in this community are weakly interconnected._
+- **Why does `now()` connect `Community 235` to `Community 288`, `Community 121`, `Community 261`, `Community 5`, `Community 297`, `Community 236`, `Community 239`, `Community 244`, `Community 247`, `Community 249`, `Community 251`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+- **Why does `PlatformService` connect `Community 236` to `Community 288`, `Backend Domain & Standards`, `Community 5`, `Community 235`, `Community 237`, `Community 273`, `Community 247`, `Community 251`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+- **What connects `View`, `Tenant`, `Role` to the rest of the system?**
+  _990 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Backend Domain & Standards` be split into smaller, more focused modules?**
+  _Cohesion score 0.05875706214689266 - nodes in this community are weakly interconnected._
+- **Should `NestJS Backend Architecture` be split into smaller, more focused modules?**
+  _Cohesion score 0.12418300653594772 - nodes in this community are weakly interconnected._
+- **Should `Terraform Ops Scripts` be split into smaller, more focused modules?**
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._

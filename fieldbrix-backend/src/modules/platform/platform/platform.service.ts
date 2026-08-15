@@ -1289,6 +1289,39 @@ export class PlatformService {
     )
       throw new ConflictException('BRANCH_TERMINOLOGY_NOT_ALLOWED');
     if (
+      next.gpsRadiusMeters !== undefined &&
+      (!Number.isInteger(next.gpsRadiusMeters) ||
+        (next.gpsRadiusMeters as number) < 5 ||
+        (next.gpsRadiusMeters as number) > 2000)
+    )
+      throw new ConflictException('INVALID_GPS_RADIUS');
+    for (const [field, requiredKeys] of Object.entries({
+      signaturePolicy: ['required'],
+      refusalPolicy: ['allowed', 'requireReason'],
+      unavailablePolicy: ['allowed', 'requireReason'],
+      approvalPolicy: ['required'],
+      latePolicy: ['graceMinutes'],
+      exceptionPolicy: ['requireReason'],
+    })) {
+      const value = (next as Record<string, unknown>)[field];
+      if (value === undefined) continue;
+      if (
+        typeof value !== 'object' ||
+        !value ||
+        requiredKeys.some((key) => !(key in value))
+      )
+        throw new ConflictException(
+          `INVALID_${field.replace(/([A-Z])/g, '_$1').toUpperCase()}`,
+        );
+    }
+    if (
+      next.latePolicy !== undefined &&
+      !Number.isInteger(
+        (next.latePolicy as { graceMinutes: unknown }).graceMinutes,
+      )
+    )
+      throw new ConflictException('INVALID_LATE_POLICY');
+    if (
       /^[0-9a-f-]{36}$/i.test(user.tenantId) &&
       /^[0-9a-f-]{36}$/i.test(user.id)
     )

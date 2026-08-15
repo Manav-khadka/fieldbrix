@@ -48,6 +48,7 @@ change. DNS remains with Cloudflare; do not introduce AWS Certificate Manager,
 Route 53, CloudFront, or autoscaling into this foundation.
 
 ## Notes
+
 - One umbrella commit contains the compatible backend, frontend, mobile, and
   infrastructure revisions. Application folders must not contain nested `.git`
   directories or be registered as submodules.

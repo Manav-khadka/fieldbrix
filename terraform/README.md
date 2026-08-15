@@ -33,10 +33,10 @@ instance; the Nest readiness endpoint verifies it with TLS.
 
 Create these public DNS records using the current `static_ip` Terraform output:
 
-| Type | Name | Value |
-|---|---|---|
-| A | `admin.fieldbrix.com` | `3.6.182.160` |
-| A | `api.fieldbrix.com` | `3.6.182.160` |
+| Type | Name                    | Value           |
+| ---- | ----------------------- | --------------- |
+| A    | `admin.fieldbrix.com` | `3.6.182.160` |
+| A    | `api.fieldbrix.com`   | `3.6.182.160` |
 
 Use TTL 300 while bootstrapping. Once both records resolve, run
 `./scripts/configure-tls.sh prod` to issue and verify one Let's

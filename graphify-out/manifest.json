@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/App.tsx": {
-    "mtime": 1786714921.5614953,
-    "ast_hash": "a007fd9956dcb0777e7408eacd21d33e",
+    "mtime": 1786715963.335059,
+    "ast_hash": "84c1da126d3571f88e8627a947db12dc",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/main.tsx": {
@@ -155,8 +155,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.module.ts": {
-    "mtime": 1786692714.2904432,
-    "ast_hash": "1571d6aaa41f925d1e6ae0ac1094127d",
+    "mtime": 1786715902.5889206,
+    "ast_hash": "a7fd349c3da6194efee724b3cf62474b",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/app.controller.spec.ts": {
@@ -665,13 +665,13 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-10-task-lifecycle.md": {
-    "mtime": 1786667081.434645,
-    "ast_hash": "1991a1ead80b2b85c7a3b5899ec20851",
+    "mtime": 1786716829.2132213,
+    "ast_hash": "af1da58b8cd8a7743284a42cc227337a",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-06-master-data.md": {
-    "mtime": 1786667081.4319608,
-    "ast_hash": "49d14dec442299ff0c3e6bf4237c420e",
+    "mtime": 1786716949.7492735,
+    "ast_hash": "f9f23f85e42c6e523a0ff5dc316c3030",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-17-industry-beta.md": {
@@ -695,18 +695,18 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-09-workflow-governance.md": {
-    "mtime": 1786667081.434178,
-    "ast_hash": "d82bac6419575798dee7fcccb742e930",
+    "mtime": 1786716822.6768343,
+    "ast_hash": "d11b6cb4bcc600265b96ceea7fbfccf4",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-07-workflow-builder.md": {
-    "mtime": 1786667081.4327357,
-    "ast_hash": "17ffa810004523f1b327707e9327b6c3",
+    "mtime": 1786716822.6764078,
+    "ast_hash": "cd03fff9fe2f381e0f7a437a7377ea25",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-05-administration.md": {
-    "mtime": 1786667081.4314787,
-    "ast_hash": "238e43687ac70a1df1b7edd296d7be3e",
+    "mtime": 1786716822.6759672,
+    "ast_hash": "6a3bfddb980f4a3ef9206f0098dc41a3",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/README.md": {
@@ -765,8 +765,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/sprintimplementationplan/sprint-08-rule-engine.md": {
-    "mtime": 1786667081.4332585,
-    "ast_hash": "7437b2bbc77aed950429d3f30da462b8",
+    "mtime": 1786716944.1865141,
+    "ast_hash": "e222ddf852c6926770d73f4c58bdf4ff",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/README.md": {
@@ -1260,8 +1260,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/platform/platform/platform.service.ts": {
-    "mtime": 1786714523.3720515,
-    "ast_hash": "6b3c2dcee64e07b90fe7c2ff2fe540f0",
+    "mtime": 1786716680.470328,
+    "ast_hash": "00fb6bdfcef416787922158a0e13bd51",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/platform/platform/platform.controller.ts": {
@@ -1305,8 +1305,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/database/database/database.service.ts": {
-    "mtime": 1786714308.6867428,
-    "ast_hash": "6c3ddbb51828e6ee3afed9329214bf15",
+    "mtime": 1786717151.801464,
+    "ast_hash": "f6423e3efee3cd2a2ddd976f02b67474",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/idempotency/idempotency.module.ts": {
@@ -1682,6 +1682,51 @@
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/025-local-development-seed.sql": {
     "mtime": 1786713523.5660784,
     "ast_hash": "db6346f192c1a10a576f5639752780ed",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/components/Operations.tsx": {
+    "mtime": 1786717501.1512394,
+    "ast_hash": "acd3b4ae2aff0b7d81cf7a96a658fc83",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/operations/operations.dto.ts": {
+    "mtime": 1786716991.565741,
+    "ast_hash": "1df0e7b2bc7c1a5c51a804aa69312134",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/operations/operations.repository.ts": {
+    "mtime": 1786717410.2262528,
+    "ast_hash": "c2963f883f8f02925b703af8e367e041",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/operations/rule-engine.ts": {
+    "mtime": 1786716917.0824783,
+    "ast_hash": "a6f27454a77681c9fd1a7d16938530eb",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/operations/operations.service.ts": {
+    "mtime": 1786717495.729986,
+    "ast_hash": "3361c16c29d6a720ac77866c9202bb14",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/operations/operations.controller.ts": {
+    "mtime": 1786717198.9390817,
+    "ast_hash": "b5c1a3bf14b9c3cf75a833121238a03d",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/operations/operations.module.ts": {
+    "mtime": 1786717051.3777547,
+    "ast_hash": "cb2951505bf63dda15e0448bca4e13dc",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/027-sprints-06-10-security-and-imports.sql": {
+    "mtime": 1786717397.377761,
+    "ast_hash": "91e33824dd19933ca02800d9accf4342",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/026-sprints-06-10-operations.sql": {
+    "mtime": 1786716523.0684376,
+    "ast_hash": "3406b2c29f0de0ceed2ffccaa1ccdefb",
     "semantic_hash": ""
   }
 }
