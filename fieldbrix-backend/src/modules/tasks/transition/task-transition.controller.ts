@@ -1,4 +1,11 @@
-import { Body, Controller, Headers, Param, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Headers,
+  Param,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { TaskTransitionService } from './task-transition.service';
 import { Permission } from '../../authorization/decorators/permission.decorator/permission.decorator';
 import { PermissionGuard } from '../../authorization/guards/permission/permission.guard';
@@ -21,9 +28,20 @@ export class TaskTransitionController {
     @Body() body: TaskTransitionDto,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/tasks/${id}/transitions`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/tasks/${id}/transitions`,
+      body,
+    );
     return this.idempotency
-      .getOrCreateAsync(key, fp, () => this.transitions.transition(id, body.targetStatus, body.reason, body.revision))
+      .getOrCreateAsync(key, fp, () =>
+        this.transitions.transition(
+          id,
+          body.targetStatus,
+          body.reason,
+          body.revision,
+        ),
+      )
       .then((r) => r.response);
   }
 
@@ -35,9 +53,15 @@ export class TaskTransitionController {
     @Body() body: { reason?: string; revision?: number },
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/tasks/${id}/cancel`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/tasks/${id}/cancel`,
+      body,
+    );
     return this.idempotency
-      .getOrCreateAsync(key, fp, () => this.transitions.cancel(id, body.reason, body.revision))
+      .getOrCreateAsync(key, fp, () =>
+        this.transitions.cancel(id, body.reason, body.revision),
+      )
       .then((r) => r.response);
   }
 
@@ -49,9 +73,15 @@ export class TaskTransitionController {
     @Body() body: { reason?: string; revision?: number },
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/tasks/${id}/reopen`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/tasks/${id}/reopen`,
+      body,
+    );
     return this.idempotency
-      .getOrCreateAsync(key, fp, () => this.transitions.reopen(id, body.reason, body.revision))
+      .getOrCreateAsync(key, fp, () =>
+        this.transitions.reopen(id, body.reason, body.revision),
+      )
       .then((r) => r.response);
   }
 }

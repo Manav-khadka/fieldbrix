@@ -182,6 +182,7 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
   }
 
   private mapWriteError(error: unknown): Error {
+    console.error('MasterRecordRepository DB Error:', error);
     const code = (error as { code?: string } | undefined)?.code;
     if (code === '23505') return new ConflictException('DUPLICATE_CODE');
     if (code === '23503') return new ConflictException('INVALID_REFERENCE');

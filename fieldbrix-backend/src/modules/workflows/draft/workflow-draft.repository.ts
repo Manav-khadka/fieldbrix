@@ -1,4 +1,8 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { randomUUID } from 'node:crypto';
 import { DatabaseService } from '../../database/database/database.service';
 
@@ -12,11 +16,13 @@ export class WorkflowDraftRepository {
     const safeLimit = Math.min(limit, 100);
     const offset = (page - 1) * safeLimit;
     const values: unknown[] = [];
-    const where: string[] = ["archived_at IS NULL"];
+    const where: string[] = ['archived_at IS NULL'];
 
     if (search) {
       values.push(`%${search.toLowerCase()}%`);
-      where.push(`(lower(name) LIKE $${values.length} OR lower(description) LIKE $${values.length})`);
+      where.push(
+        `(lower(name) LIKE $${values.length} OR lower(description) LIKE $${values.length})`,
+      );
     }
     if (status) {
       values.push(status);
@@ -66,7 +72,13 @@ export class WorkflowDraftRepository {
        VALUES (current_setting('app.tenant_id', true)::uuid, $1, $2, $3, $4, $5::jsonb)
        RETURNING id::text AS id, name, description, status, revision, schema,
                  created_at AS "createdAt", updated_at AS "updatedAt"`,
-      [payload.name, payload.description ?? '', payload.industry ?? null, payload.category ?? null, schema],
+      [
+        payload.name,
+        payload.description ?? '',
+        payload.industry ?? null,
+        payload.category ?? null,
+        schema,
+      ],
     );
     return rows[0];
   }
@@ -74,11 +86,26 @@ export class WorkflowDraftRepository {
   async update(id: string, payload: Row, revision: number): Promise<Row> {
     const setClauses: string[] = [];
     const values: unknown[] = [];
-    if (payload.name !== undefined) { values.push(payload.name); setClauses.push(`name = $${values.length}`); }
-    if (payload.description !== undefined) { values.push(payload.description); setClauses.push(`description = $${values.length}`); }
-    if (payload.industry !== undefined) { values.push(payload.industry); setClauses.push(`industry = $${values.length}`); }
-    if (payload.category !== undefined) { values.push(payload.category); setClauses.push(`category = $${values.length}`); }
-    setClauses.push('revision = revision + 1', 'updated_at = clock_timestamp()');
+    if (payload.name !== undefined) {
+      values.push(payload.name);
+      setClauses.push(`name = $${values.length}`);
+    }
+    if (payload.description !== undefined) {
+      values.push(payload.description);
+      setClauses.push(`description = $${values.length}`);
+    }
+    if (payload.industry !== undefined) {
+      values.push(payload.industry);
+      setClauses.push(`industry = $${values.length}`);
+    }
+    if (payload.category !== undefined) {
+      values.push(payload.category);
+      setClauses.push(`category = $${values.length}`);
+    }
+    setClauses.push(
+      'revision = revision + 1',
+      'updated_at = clock_timestamp()',
+    );
     values.push(id, revision);
     const rows = await this.db.tenantQuery<Row>(
       `UPDATE workflow_drafts SET ${setClauses.join(', ')}
@@ -87,14 +114,22 @@ export class WorkflowDraftRepository {
       values,
     );
     if (!rows[0]) {
-      const existing = await this.db.tenantQuery<Row>('SELECT 1 FROM workflow_drafts WHERE id = $1::uuid AND archived_at IS NULL', [id]);
+      const existing = await this.db.tenantQuery<Row>(
+        'SELECT 1 FROM workflow_drafts WHERE id = $1::uuid AND archived_at IS NULL',
+        [id],
+      );
       if (!existing[0]) throw new NotFoundException('WORKFLOW_NOT_FOUND');
       throw new ConflictException('STALE_WORKFLOW_REVISION');
     }
     return rows[0];
   }
 
-  async addToSchema(id: string, kind: 'sections' | 'fields', value: Row, revision: number): Promise<Row> {
+  async addToSchema(
+    id: string,
+    kind: 'sections' | 'fields',
+    value: Row,
+    revision: number,
+  ): Promise<Row> {
     const entry = JSON.stringify([{ id: randomUUID(), ...value }]);
     const rows = await this.db.tenantQuery<Row>(
       `UPDATE workflow_drafts
@@ -159,7 +194,12 @@ export class WorkflowDraftRepository {
     return rows[0];
   }
 
-  async reorder(workflowId: string, sectionOrder: string[] | undefined, fieldOrder: Record<string, string[]> | undefined, revision: number): Promise<Row> {
+  async reorder(
+    workflowId: string,
+    sectionOrder: string[] | undefined,
+    fieldOrder: Record<string, string[]> | undefined,
+    revision: number,
+  ): Promise<Row> {
     const current = await this.findById(workflowId);
     const schema = current.schema as Record<string, unknown>;
     const sections = (schema.sections as Row[]) ?? [];
@@ -169,7 +209,11 @@ export class WorkflowDraftRepository {
     if (sectionOrder) {
       const byId = new Map(sections.map((s) => [s.id as string, s]));
       updatedSections = sectionOrder
-        .map((sid, idx): Row => ({ ...(byId.get(sid) ?? {}), id: sid, position: idx }))
+        .map((sid, idx): Row => ({
+          ...(byId.get(sid) ?? {}),
+          id: sid,
+          position: idx,
+        }))
         .filter((s) => byId.has(s.id as string));
     }
 
@@ -181,7 +225,8 @@ export class WorkflowDraftRepository {
       for (const [sectionId, fids] of Object.entries(fieldOrder)) {
         for (const fid of fids) {
           const field = byId.get(fid);
-          if (field) updatedFields.push({ ...field, sectionId, position: globalIdx++ });
+          if (field)
+            updatedFields.push({ ...field, sectionId, position: globalIdx++ });
         }
       }
       // append fields not in fieldOrder
@@ -192,7 +237,11 @@ export class WorkflowDraftRepository {
       }
     }
 
-    const newSchema = { ...schema, sections: updatedSections, fields: updatedFields };
+    const newSchema = {
+      ...schema,
+      sections: updatedSections,
+      fields: updatedFields,
+    };
     const rows = await this.db.tenantQuery<Row>(
       `UPDATE workflow_drafts SET schema = $1::jsonb, revision = revision + 1, updated_at = clock_timestamp()
        WHERE id = $2::uuid AND revision = $3 AND archived_at IS NULL

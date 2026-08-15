@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Headers, Param, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Headers,
+  Param,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { Permission } from '../../authorization/decorators/permission.decorator/permission.decorator';
 import { PermissionGuard } from '../../authorization/guards/permission/permission.guard';
 import { IdempotencyService } from '../../idempotency/idempotency/idempotency.service';
@@ -25,13 +33,20 @@ export class TaskAttachmentController {
     @Body() body: TaskAttachmentDto,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/tasks/${id}/attachments`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/tasks/${id}/attachments`,
+      body,
+    );
     return this.idempotency
       .getOrCreateAsync(key, fp, () => this.createAttachment(id, body))
       .then((r) => r.response);
   }
 
-  private async createAttachment(taskId: string, payload: TaskAttachmentDto): Promise<Row> {
+  private async createAttachment(
+    taskId: string,
+    payload: TaskAttachmentDto,
+  ): Promise<Row> {
     const rows = await this.db.tenantQuery<Row>(
       `INSERT INTO task_attachments (tenant_id, task_id, upload_id, category, created_by)
        SELECT tenant_id, id, $2::uuid, $3, NULLIF(current_setting('app.actor_id', true), '')::uuid
@@ -58,13 +73,20 @@ export class TaskAttachmentController {
     @Body() body: TaskActionRequestDto,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/tasks/${id}/action-requests`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/tasks/${id}/action-requests`,
+      body,
+    );
     return this.idempotency
       .getOrCreateAsync(key, fp, () => this.appendActionRequest(id, body))
       .then((r) => r.response);
   }
 
-  private async appendActionRequest(taskId: string, payload: TaskActionRequestDto): Promise<Row> {
+  private async appendActionRequest(
+    taskId: string,
+    payload: TaskActionRequestDto,
+  ): Promise<Row> {
     const rows = await this.db.tenantQuery<Row>(
       `INSERT INTO task_history (tenant_id, task_id, event_type, after_state, reason)
        SELECT tenant_id, id, 'ACTION_REQUESTED', $2::jsonb, $3

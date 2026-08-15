@@ -29,9 +29,15 @@ export class WorkflowGovernanceController {
     @Body() body: PublishWorkflowDto,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/workflows/${id}/publish`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/workflows/${id}/publish`,
+      body,
+    );
     return this.idempotency
-      .getOrCreateAsync(key, fp, () => this.governance.publish(id, body.notes ?? '', body.revision))
+      .getOrCreateAsync(key, fp, () =>
+        this.governance.publish(id, body.notes ?? '', body.revision),
+      )
       .then((r) => r.response);
   }
 
@@ -55,9 +61,15 @@ export class WorkflowGovernanceController {
     @Body() body: { revision: number; reason?: string },
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/workflows/${id}/archive`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/workflows/${id}/archive`,
+      body,
+    );
     return this.idempotency
-      .getOrCreateAsync(key, fp, () => this.governance.archive(id, body.revision))
+      .getOrCreateAsync(key, fp, () =>
+        this.governance.archive(id, body.revision),
+      )
       .then((r) => r.response);
   }
 
@@ -74,10 +86,16 @@ export class WorkflowGovernanceController {
     @Param('id') id: string,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/platform/workflow-templates/${id}/instantiate`, {});
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/platform/workflow-templates/${id}/instantiate`,
+      {},
+    );
     return this.idempotency
-      .getOrCreateAsync(key, fp, () =>
-        this.governance.instantiateTemplate(id, ''), // tenantId resolved from context
+      .getOrCreateAsync(
+        key,
+        fp,
+        () => this.governance.instantiateTemplate(id, ''), // tenantId resolved from context
       )
       .then((r) => r.response);
   }

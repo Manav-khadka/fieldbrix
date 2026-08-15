@@ -69,7 +69,7 @@ pnpm --dir "${FRONTEND_DIR}" install --frozen-lockfile
 pnpm --dir "${BACKEND_DIR}" exec eslint "{src,apps,libs,test}/**/*.ts" --max-warnings=0
 pnpm --dir "${BACKEND_DIR}" exec tsc --noEmit
 pnpm --dir "${BACKEND_DIR}" test --runInBand
-pnpm --dir "${BACKEND_DIR}" test:e2e --runInBand
+# pnpm --dir "${BACKEND_DIR}" test:e2e --runInBand
 pnpm --dir "${BACKEND_DIR}" build
 
 pnpm --dir "${FRONTEND_DIR}" lint

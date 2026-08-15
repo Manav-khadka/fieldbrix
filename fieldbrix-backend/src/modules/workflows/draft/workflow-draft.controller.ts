@@ -39,7 +39,12 @@ export class WorkflowDraftController {
   @Permission('workflows.view')
   @Get('workflows')
   list(@Query() query: WorkflowQueryDto) {
-    return this.drafts.list(query.search, query.status, query.page, query.limit);
+    return this.drafts.list(
+      query.search,
+      query.status,
+      query.page,
+      query.limit,
+    );
   }
 
   @Permission('workflows.create')
@@ -75,7 +80,11 @@ export class WorkflowDraftController {
     @Body() body: CreateSectionDto,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/workflows/${id}/sections`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/workflows/${id}/sections`,
+      body,
+    );
     return this.idempotency
       .getOrCreateAsync(key, fp, () => this.drafts.addSection(id, body))
       .then((r) => r.response);
@@ -109,7 +118,11 @@ export class WorkflowDraftController {
     @Body() body: CreateFieldDto,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/workflows/${id}/fields`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/workflows/${id}/fields`,
+      body,
+    );
     return this.idempotency
       .getOrCreateAsync(key, fp, () => this.drafts.addField(id, body))
       .then((r) => r.response);
@@ -143,7 +156,11 @@ export class WorkflowDraftController {
     @Body() body: ReorderDto,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('PUT', `/workflows/${id}/order`, body);
+    const fp = this.idempotency.fingerprint(
+      'PUT',
+      `/workflows/${id}/order`,
+      body,
+    );
     return this.idempotency
       .getOrCreateAsync(key, fp, () => this.drafts.reorder(id, body))
       .then((r) => r.response);
@@ -170,7 +187,11 @@ export class WorkflowDraftController {
     @Body() body: ArchiveWorkflowDto,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/workflows/${id}/archive`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/workflows/${id}/archive`,
+      body,
+    );
     return this.idempotency
       .getOrCreateAsync(key, fp, () => this.drafts.update(id, { ...body }))
       .then((r) => r.response);
@@ -185,7 +206,11 @@ export class WorkflowDraftController {
     @Body() body: DuplicateWorkflowDto,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/workflows/${id}/duplicate`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/workflows/${id}/duplicate`,
+      body,
+    );
     return this.idempotency
       .getOrCreateAsync(key, fp, async () => {
         const source = await this.drafts.get(id);

@@ -1,7 +1,12 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { randomUUID } from 'node:crypto';
 import { WorkflowRuleRepository } from './workflow-rule.repository';
-import { evaluateRules, validateRules, type Rule, type RuleValue } from '../rule-engine';
+import {
+  evaluateRules,
+  validateRules,
+  type Rule,
+  type RuleValue,
+} from '../rule-engine';
 import { getFieldTypeRegistry } from '../field-type.registry';
 
 @Injectable()
@@ -14,8 +19,16 @@ export class WorkflowRuleService {
   }
 
   /** POST /workflows/:id/rules — add one rule */
-  async addRule(workflowId: string, rulePayload: Partial<Rule> & { conditions?: Rule['conditions']; actions?: Rule['actions'] }, revision?: number) {
-    const { revision: storedRevision, schema } = await this.repo.getSchema(workflowId);
+  async addRule(
+    workflowId: string,
+    rulePayload: Partial<Rule> & {
+      conditions?: Rule['conditions'];
+      actions?: Rule['actions'];
+    },
+    revision?: number,
+  ) {
+    const { revision: storedRevision, schema } =
+      await this.repo.getSchema(workflowId);
     const rev = revision ?? storedRevision;
     const rule: Rule = {
       id: rulePayload.id ?? randomUUID(),
@@ -30,7 +43,12 @@ export class WorkflowRuleService {
   }
 
   /** PATCH /workflows/:id/rules/:ruleId — update one rule */
-  async patchRule(workflowId: string, ruleId: string, patch: Partial<Rule>, revision?: number) {
+  async patchRule(
+    workflowId: string,
+    ruleId: string,
+    patch: Partial<Rule>,
+    revision?: number,
+  ) {
     const { revision: storedRevision } = await this.repo.getSchema(workflowId);
     const rev = revision ?? storedRevision;
     return this.repo.patchRule(workflowId, ruleId, patch, rev);
@@ -44,13 +62,21 @@ export class WorkflowRuleService {
   }
 
   /** PUT /workflows/:id/rules/order */
-  async reorderRules(workflowId: string, orderedIds: string[], revision?: number) {
-    const { revision: storedRevision, schema } = await this.repo.getSchema(workflowId);
+  async reorderRules(
+    workflowId: string,
+    orderedIds: string[],
+    revision?: number,
+  ) {
+    const { revision: storedRevision, schema } =
+      await this.repo.getSchema(workflowId);
     const rev = revision ?? storedRevision;
     const existingRules = (schema.rules as Rule[]) ?? [];
     const byId = new Map(existingRules.map((r) => [r.id, r]));
     const reordered = orderedIds
-      .map((rid, idx) => ({ ...(byId.get(rid) ?? { id: rid, conditions: [], actions: [] }), priority: orderedIds.length - idx }))
+      .map((rid, idx) => ({
+        ...(byId.get(rid) ?? { id: rid, conditions: [], actions: [] }),
+        priority: orderedIds.length - idx,
+      }))
       .filter((r) => r.id);
     return this.repo.replaceRules(workflowId, reordered, rev);
   }
@@ -74,8 +100,16 @@ export class WorkflowRuleService {
   }
 
   /** POST /workflows/:id/simulations */
-  async createSimulation(workflowId: string, payload: { name: string; answers: Record<string, unknown>; expectedOutcomes?: Record<string, unknown> }) {
-    if (!payload.name?.trim()) throw new BadRequestException('SIMULATION_NAME_REQUIRED');
+  async createSimulation(
+    workflowId: string,
+    payload: {
+      name: string;
+      answers: Record<string, unknown>;
+      expectedOutcomes?: Record<string, unknown>;
+    },
+  ) {
+    if (!payload.name?.trim())
+      throw new BadRequestException('SIMULATION_NAME_REQUIRED');
     return this.repo.createSimulation(
       workflowId,
       payload.name.trim(),

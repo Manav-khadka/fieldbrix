@@ -20,7 +20,9 @@ export type TaskStatus = (typeof TASK_STATUSES)[number];
  * Allowed target statuses for each source status.
  * Key: current status. Value: set of valid next statuses.
  */
-export const TRANSITION_MAP: Readonly<Record<TaskStatus, readonly TaskStatus[]>> = {
+export const TRANSITION_MAP: Readonly<
+  Record<TaskStatus, readonly TaskStatus[]>
+> = {
   DRAFT: ['SCHEDULED', 'CANCELLED'],
   SCHEDULED: ['ASSIGNED', 'CANCELLED'],
   ASSIGNED: ['IN_PROGRESS', 'CANCELLED'],

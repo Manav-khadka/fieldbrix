@@ -40,9 +40,15 @@ export class WorkflowRuleController {
     @Body() body: Partial<Rule> & { revision?: number },
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/workflows/${id}/rules`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/workflows/${id}/rules`,
+      body,
+    );
     return this.idempotency
-      .getOrCreateAsync(key, fp, () => this.rules.addRule(id, body, body.revision))
+      .getOrCreateAsync(key, fp, () =>
+        this.rules.addRule(id, body, body.revision),
+      )
       .then((r) => r.response);
   }
 
@@ -77,9 +83,15 @@ export class WorkflowRuleController {
     @Body() body: { orderedIds: string[]; revision?: number },
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('PUT', `/workflows/${id}/rules/order`, body);
+    const fp = this.idempotency.fingerprint(
+      'PUT',
+      `/workflows/${id}/rules/order`,
+      body,
+    );
     return this.idempotency
-      .getOrCreateAsync(key, fp, () => this.rules.reorderRules(id, body.orderedIds ?? [], body.revision))
+      .getOrCreateAsync(key, fp, () =>
+        this.rules.reorderRules(id, body.orderedIds ?? [], body.revision),
+      )
       .then((r) => r.response);
   }
 
@@ -106,10 +118,19 @@ export class WorkflowRuleController {
   createSimulation(
     @Headers() headers: Record<string, string>,
     @Param('id') id: string,
-    @Body() body: { name: string; answers: Record<string, unknown>; expectedOutcomes?: Record<string, unknown> },
+    @Body()
+    body: {
+      name: string;
+      answers: Record<string, unknown>;
+      expectedOutcomes?: Record<string, unknown>;
+    },
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/workflows/${id}/simulations`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/workflows/${id}/simulations`,
+      body,
+    );
     return this.idempotency
       .getOrCreateAsync(key, fp, () => this.rules.createSimulation(id, body))
       .then((r) => r.response);

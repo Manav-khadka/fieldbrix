@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { DatabaseModule } from '../database/database.module';
 import { AuthorizationModule } from '../authorization/authorization.module';
 import { IdempotencyModule } from '../idempotency/idempotency.module';
+import { PlatformModule } from '../platform/platform.module';
 
 import { WorkflowDraftController } from './draft/workflow-draft.controller';
 import { WorkflowDraftService } from './draft/workflow-draft.service';
@@ -16,7 +17,12 @@ import { WorkflowGovernanceService } from './governance/workflow-governance.serv
 import { WorkflowGovernanceRepository } from './governance/workflow-governance.repository';
 
 @Module({
-  imports: [DatabaseModule, AuthorizationModule, IdempotencyModule],
+  imports: [
+    DatabaseModule,
+    AuthorizationModule,
+    IdempotencyModule,
+    PlatformModule,
+  ],
   controllers: [
     WorkflowDraftController,
     WorkflowRuleController,

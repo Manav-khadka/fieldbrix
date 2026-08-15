@@ -1,16 +1,16 @@
-# Graph Report - fieldbrix  (2026-08-14)
+# Graph Report - fieldbrix  (2026-08-15)
 
 ## Corpus Check
-- 302 files · ~171,170 words
+- 371 files · ~186,368 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2597 nodes · 3294 edges · 306 communities (199 shown, 107 thin omitted)
-- Extraction: 85% EXTRACTED · 15% INFERRED · 0% AMBIGUOUS · INFERRED: 479 edges (avg confidence: 0.8)
+- 2982 nodes · 3709 edges · 332 communities (223 shown, 109 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 181 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7694f02c`
+- Built from commit: `de846696`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -33,7 +33,6 @@
 - [[_COMMUNITY_ssh.sh|ssh.sh]]
 - [[_COMMUNITY_cost.sh|cost.sh]]
 - [[_COMMUNITY_apply.sh|apply.sh]]
-- [[_COMMUNITY_Community 18|Community 18]]
 - [[_COMMUNITY_plan.sh|plan.sh]]
 - [[_COMMUNITY_bootstrap.sh|bootstrap.sh]]
 - [[_COMMUNITY_destroy.sh|destroy.sh]]
@@ -205,6 +204,7 @@
 - [[_COMMUNITY_Community 192|Community 192]]
 - [[_COMMUNITY_Community 193|Community 193]]
 - [[_COMMUNITY_Community 194|Community 194]]
+- [[_COMMUNITY_Community 195|Community 195]]
 - [[_COMMUNITY_Community 196|Community 196]]
 - [[_COMMUNITY_Community 197|Community 197]]
 - [[_COMMUNITY_Community 198|Community 198]]
@@ -238,12 +238,13 @@
 - [[_COMMUNITY_Community 241|Community 241]]
 - [[_COMMUNITY_Community 242|Community 242]]
 - [[_COMMUNITY_Community 243|Community 243]]
+- [[_COMMUNITY_Community 244|Community 244]]
 - [[_COMMUNITY_Community 245|Community 245]]
 - [[_COMMUNITY_Community 246|Community 246]]
 - [[_COMMUNITY_Community 247|Community 247]]
 - [[_COMMUNITY_Community 248|Community 248]]
-- [[_COMMUNITY_Community 249|Community 249]]
 - [[_COMMUNITY_Community 250|Community 250]]
+- [[_COMMUNITY_Community 251|Community 251]]
 - [[_COMMUNITY_Community 252|Community 252]]
 - [[_COMMUNITY_Community 253|Community 253]]
 - [[_COMMUNITY_Community 254|Community 254]]
@@ -253,6 +254,7 @@
 - [[_COMMUNITY_Community 258|Community 258]]
 - [[_COMMUNITY_Community 259|Community 259]]
 - [[_COMMUNITY_Community 260|Community 260]]
+- [[_COMMUNITY_Community 261|Community 261]]
 - [[_COMMUNITY_Community 262|Community 262]]
 - [[_COMMUNITY_Community 263|Community 263]]
 - [[_COMMUNITY_Community 264|Community 264]]
@@ -289,24 +291,50 @@
 - [[_COMMUNITY_Community 295|Community 295]]
 - [[_COMMUNITY_Community 296|Community 296]]
 - [[_COMMUNITY_Community 297|Community 297]]
+- [[_COMMUNITY_Community 298|Community 298]]
+- [[_COMMUNITY_Community 299|Community 299]]
 - [[_COMMUNITY_Community 300|Community 300]]
 - [[_COMMUNITY_Community 301|Community 301]]
 - [[_COMMUNITY_Community 302|Community 302]]
 - [[_COMMUNITY_Community 303|Community 303]]
 - [[_COMMUNITY_Community 304|Community 304]]
-- [[_COMMUNITY_Community 305|Community 305]]
+- [[_COMMUNITY_Community 306|Community 306]]
+- [[_COMMUNITY_Community 307|Community 307]]
+- [[_COMMUNITY_Community 308|Community 308]]
+- [[_COMMUNITY_Community 309|Community 309]]
+- [[_COMMUNITY_Community 310|Community 310]]
+- [[_COMMUNITY_Community 311|Community 311]]
+- [[_COMMUNITY_Community 313|Community 313]]
+- [[_COMMUNITY_Community 314|Community 314]]
+- [[_COMMUNITY_Community 315|Community 315]]
+- [[_COMMUNITY_Community 316|Community 316]]
+- [[_COMMUNITY_Community 317|Community 317]]
+- [[_COMMUNITY_Community 318|Community 318]]
+- [[_COMMUNITY_Community 319|Community 319]]
+- [[_COMMUNITY_Community 320|Community 320]]
+- [[_COMMUNITY_Community 321|Community 321]]
+- [[_COMMUNITY_Community 322|Community 322]]
+- [[_COMMUNITY_Community 323|Community 323]]
+- [[_COMMUNITY_Community 324|Community 324]]
+- [[_COMMUNITY_Community 325|Community 325]]
+- [[_COMMUNITY_Community 326|Community 326]]
+- [[_COMMUNITY_Community 327|Community 327]]
+- [[_COMMUNITY_Community 328|Community 328]]
+- [[_COMMUNITY_Community 329|Community 329]]
+- [[_COMMUNITY_Community 330|Community 330]]
+- [[_COMMUNITY_Community 331|Community 331]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `PlatformService` - 87 edges
 2. `PlatformRepository` - 83 edges
-3. `OperationsController` - 50 edges
-4. `5. Tables` - 47 edges
-5. `OperationsService` - 45 edges
-6. `AdministrationController` - 42 edges
-7. `AdministrationService` - 41 edges
-8. `OperationsRepository` - 31 edges
-9. `now()` - 28 edges
-10. `AuthorizationController` - 23 edges
+3. `5. Tables` - 47 edges
+4. `AdministrationController` - 42 edges
+5. `AdministrationService` - 41 edges
+6. `AuthorizationController` - 23 edges
+7. `AuthorizationService` - 20 edges
+8. `Fieldbrix — Local Setup Guide` - 19 edges
+9. `WorkflowDraftController` - 18 edges
+10. `Backend Reference (NestJS)` - 18 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Leak panel` --semantically_similar_to--> `Platform role roster (13 roles)`  [INFERRED] [semantically similar]
@@ -328,7 +356,7 @@
 - **Full Environment Bootstrap Flow** — terraform_local_setup_guide, scripts_readme_bootstrap_sh, scripts_readme_secrets_init_sh, scripts_readme_plan_sh, scripts_readme_apply_sh, python_readme_health_check_py [EXTRACTED 1.00]
 - **Shared Zod Schema Contract** — frontend_readme_react_hook_form_zod, frontend_readme_create_task_schema, backend_readme_create_task_dto [EXTRACTED 1.00]
 
-## Communities (306 total, 107 thin omitted)
+## Communities (332 total, 109 thin omitted)
 
 ### Community 1 - "AWS Infrastructure Stack"
 Cohesion: 0.18
@@ -341,6 +369,10 @@ Nodes (18): Backend Reference (NestJS), API Response Envelope, Audit Log (audit_
 ### Community 3 - "Terraform Ops Scripts"
 Cohesion: 0.12
 Nodes (17): Async Layer, CDN + DNS, CI/CD, code:block2 (Service       : EC2 t4g.medium), code:block3 (Service       : RDS db.t3.micro), code:block4 (Service       : PgBouncer (on EC2, not a separate server)), code:block5 (Service       : S3 (ap-south-1)), code:block6 (Service       : Cloudflare (Free tier)) (+9 more)
+
+### Community 4 - "AI Agent Development Rules"
+Cohesion: 0.07
+Nodes (3): hashPassword(), PlatformService, verifyPassword()
 
 ### Community 6 - "Cost & Sync Infrastructure"
 Cohesion: 0.08
@@ -459,8 +491,8 @@ Cohesion: 0.18
 Nodes (10): API contracts, Code-principle gate, Data and security model, Delivery and sign-off, Dependency and Sentry implementation, Implementation checklist, Integration, test, and LambdaTest checklist, Logs, audit, Sentry, and alerts (+2 more)
 
 ### Community 41 - "Community 41"
-Cohesion: 0.33
-Nodes (9): ImportPreviewDto, MasterRecordDto, PublishWorkflowDto, TaskAssignmentDto, TaskAttachmentDto, TaskDto, TaskTransitionDto, WorkflowDto (+1 more)
+Cohesion: 0.06
+Nodes (32): dependencies, react, react-dom, react-hook-form, @sentry/react, @tanstack/react-query, @tanstack/react-router, @tanstack/react-table (+24 more)
 
 ### Community 42 - "Community 42"
 Cohesion: 0.20
@@ -617,6 +649,10 @@ Nodes (6): Build-time contract, code:json ({), code:dart (import 'package:flutte
 ### Community 83 - "Community 83"
 Cohesion: 0.60
 Nodes (5): create_snapshot(), main(), restore_snapshot(), sync_s3(), verify_ec2()
+
+### Community 84 - "Community 84"
+Cohesion: 0.29
+Nodes (4): redact(), scrubSentryEvent(), queryClient, router
 
 ### Community 85 - "Community 85"
 Cohesion: 0.33
@@ -786,6 +822,10 @@ Nodes (3): Answer, Q: How is production SSL/TLS configured, including Let's Encr
 Cohesion: 0.50
 Nodes (3): fieldbrix_app, fieldbrix-mobile, Getting Started
 
+### Community 134 - "Community 134"
+Cohesion: 0.10
+Nodes (15): CUSTOMER_COLUMNS, CustomerRecord, CustomersRepository, REQUIRED_FIELDS, RowCommitResult, RowValidation, PART_COLUMNS, PartRecord (+7 more)
+
 ### Community 142 - "Community 142"
 Cohesion: 0.67
 Nodes (3): Time-boxed impersonation consent token, Role & permission system (RB1-RB8), 2-person rule on destructive platform ops
@@ -802,25 +842,73 @@ Nodes (3): .github/ CI/CD Config, OIDC AWS Auth, Required GitHub Secrets
 Cohesion: 0.67
 Nodes (3): modules/networking, Security Groups (EC2/RDS), VPC + Subnets
 
-### Community 235 - "Community 235"
-Cohesion: 0.08
-Nodes (3): HttpExceptionEnvelopeFilter, now(), webdriver()
+### Community 151 - "Community 151"
+Cohesion: 0.09
+Nodes (12): AdministrationModule, AuthModule, AuthorizationModule, DatabaseModule, IdempotencyModule, MasterDataModule, NotificationsModule, PdfWorkerModule (+4 more)
+
+### Community 152 - "Community 152"
+Cohesion: 0.09
+Nodes (8): IMPORTABLE_ENTITY_TYPES, ImportCommitDto, ImportPreviewDto, ImportsController, ImportJobRow, ImportRowOutcome, ImportsRepository, ImportsService
+
+### Community 153 - "Community 153"
+Cohesion: 0.12
+Nodes (17): ServiceTargetRecord, ServiceTargetsRepository, TARGET_CREATE_COLUMNS, TARGET_UPDATE_COLUMNS, rowToCamelCase(), toCamelCase(), toSnakeCase(), archive() (+9 more)
+
+### Community 162 - "Community 162"
+Cohesion: 0.14
+Nodes (16): fieldKeys, fired, out, result, Row, compare(), empty(), evaluateRules() (+8 more)
+
+### Community 163 - "Community 163"
+Cohesion: 0.12
+Nodes (4): PublishWorkflowDto, Row, WorkflowGovernanceRepository, WorkflowGovernanceService
+
+### Community 164 - "Community 164"
+Cohesion: 0.10
+Nodes (19): capacityRoute, customersRoute, importsRoute, layoutRoute, loginRoute, overviewRoute, partsRoute, Register (+11 more)
+
+### Community 165 - "Community 165"
+Cohesion: 0.16
+Nodes (5): ListMasterQueryDto, CreatePartDto, UpdatePartDto, PartsController, PartsService
+
+### Community 167 - "Community 167"
+Cohesion: 0.16
+Nodes (4): CustomersController, CustomersService, CreateCustomerDto, UpdateCustomerDto
+
+### Community 186 - "Community 186"
+Cohesion: 0.17
+Nodes (11): api, ApiError, getToken(), request(), Customer, CustomersPage(), Part, PartsPage() (+3 more)
+
+### Community 195 - "Community 195"
+Cohesion: 0.16
+Nodes (4): TaskAssignmentController, Row, TaskAssignmentService, TaskAssignmentDto
+
+### Community 236 - "Community 236"
+Cohesion: 0.23
+Nodes (5): ListServiceTargetsQueryDto, CreateServiceTargetDto, UpdateServiceTargetDto, ServiceTargetsService, omit()
 
 ### Community 238 - "Community 238"
 Cohesion: 0.06
 Nodes (12): Operations(), Props, RecordItem, Request, tabs, Item, navigation, Role (+4 more)
+
+### Community 239 - "Community 239"
+Cohesion: 0.38
+Nodes (10): ArchiveWorkflowDto, CreateFieldDto, CreateSectionDto, CreateWorkflowDto, DuplicateWorkflowDto, ReorderDto, UpdateFieldDto, UpdateSectionDto (+2 more)
 
 ### Community 241 - "Community 241"
 Cohesion: 0.13
 Nodes (17): Security Rules N1-N15, AI Agent Development Playbook, Architecture for Legibility, Not Just Correctness, AUTOMATED_TESTING_STRATEGY.md, The Definition of Done, ENGINEERING_HANDBOOK_FASTAPI.md, graphify-out Knowledge Graph, Humans Own Decisions, Agents Own Execution (+9 more)
 
 ### Community 242 - "Community 242"
-Cohesion: 0.18
-Nodes (16): 10.10 Push Notifications, 10.11 Secure Storage, 10.12 Connectivity, 10.5 HTTP Client, 10.6 State Management, 10.7 Image Handling, 10.8 Upload Strategy, 10.9 Location & Attendance (+8 more)
+Cohesion: 0.21
+Nodes (14): 10.3 Database Encryption, 10.4 Offline Sync, 10.5 HTTP Client, 10.6 State Management, 10.7 Image Handling, 10.8 Upload Strategy, 10.9 Location & Attendance, code:block77 (Package       : powersync (pubspec/lock)) (+6 more)
 
 ### Community 243 - "Community 243"
 Cohesion: 0.13
 Nodes (15): PowerSync (Self-hosted Sync Engine), JWT Authentication, Swagger/OpenAPI Auto-docs, Mobile Reference (Flutter), Dio HTTP Client, Drift Local Database, Firebase Cloud Messaging, Flutter + Riverpod (+7 more)
+
+### Community 244 - "Community 244"
+Cohesion: 0.27
+Nodes (4): ListSitesQueryDto, CreateSiteDto, UpdateSiteDto, SitesService
 
 ### Community 245 - "Community 245"
 Cohesion: 0.20
@@ -830,17 +918,9 @@ Nodes (14): 19.1 Stack Cheat Sheet, 19.2 Architectural Decisions, 19.3 Response 
 Cohesion: 0.16
 Nodes (13): 4. Create runtime parameters, 4. Create runtime secrets, 7. DNS, TLS, and application deployment, 8. Verify and operate, code:bash (aws --version), code:bash (terraform -chdir=environments/prod output static_ip), code:bash (./scripts/status.sh prod), code:bash (./scripts/secrets-init.sh prod) (+5 more)
 
-### Community 247 - "Community 247"
-Cohesion: 0.22
-Nodes (6): assignRole(), changeActiveState(), create(), invite(), revoke(), saveSettings()
-
 ### Community 248 - "Community 248"
 Cohesion: 0.15
 Nodes (13): Cloudflare CDN + DNS, RDS db.t3.micro, modules/database, deletion_protection = true, RDS PostgreSQL 16, DB Password via SSM, modules/dns, Cloudflare DNS Records (+5 more)
-
-### Community 249 - "Community 249"
-Cohesion: 0.21
-Nodes (4): bootstrap(), base(), clean(), id()
 
 ### Community 250 - "Community 250"
 Cohesion: 0.15
@@ -882,13 +962,17 @@ Nodes (11): code:dart (// Widgets display state and emit events. No business log
 Cohesion: 0.18
 Nodes (11): code:block56 (Question                                     Answer), code:block57 (Scenario                     HTTP   success  has data  has e), code:block58 (Did the process crash or exit?                   → FATAL), code:block59 (HTTP  Code                          When), code:block60 (Lines changed   Action), O1. Architectural Decisions, O2. Response Shape Cheatsheet, O3. Log Level Decision (+3 more)
 
+### Community 261 - "Community 261"
+Cohesion: 0.23
+Nodes (3): TaskHistoryController, Row, TaskHistoryService
+
 ### Community 262 - "Community 262"
 Cohesion: 0.20
 Nodes (10): 3.1 The Golden Rule, 3.2 Success Responses, 3.3 Error Responses, 3.4 HTTP Status Code Map, 3.5 Response Interceptor (NestJS), 3. API CONTRACT, code:json (// Single resource — HTTP 200 or 201), code:json (// Validation error — HTTP 400) (+2 more)
 
 ### Community 263 - "Community 263"
-Cohesion: 0.29
-Nodes (10): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:), code:dart (// Mirrors the server envelope exactly) (+2 more)
+Cohesion: 0.25
+Nodes (11): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:), code:dart (// Mirrors the server envelope exactly) (+3 more)
 
 ### Community 264 - "Community 264"
 Cohesion: 0.27
@@ -899,12 +983,12 @@ Cohesion: 0.20
 Nodes (10): code:json (// Single resource — HTTP 200 or 201), code:json (// Validation error — HTTP 400), code:block23 (200  Successful GET, successful action returning data       ), code:typescript (// shared/interceptors/response-transform.interceptor.ts), D1. The Golden Rule, D2. Success Responses, D3. Error Responses, D4. HTTP Status Code Map (+2 more)
 
 ### Community 266 - "Community 266"
-Cohesion: 0.22
-Nodes (9): 10.1 Framework, 10.2 Local Database, 10.3 Database Encryption, 10.4 Offline Sync, code:block74 (SDK           : Flutter stable pinned by CI and the reposito), code:block75 (Package       : drift (pubspec/lock)), code:block76 (Package       : sqlcipher_flutter_libs), code:block77 (Package       : powersync (pubspec/lock)) (+1 more)
+Cohesion: 0.40
+Nodes (5): 10.1 Framework, 10.2 Local Database, code:block74 (SDK           : Flutter stable pinned by CI and the reposito), code:block75 (Package       : drift (pubspec/lock)), code:block76 (Package       : sqlcipher_flutter_libs)
 
 ### Community 267 - "Community 267"
-Cohesion: 0.31
-Nodes (9): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:block99 (Format: <type>(<scope>): <description>) (+1 more)
+Cohesion: 0.27
+Nodes (10): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task) (+2 more)
 
 ### Community 268 - "Community 268"
 Cohesion: 0.31
@@ -931,16 +1015,16 @@ Cohesion: 0.25
 Nodes (6): Cloudflare API token, code:block1 (A record: api.fieldbrix.in → your static EC2 IP (proxied thr), modules/dns/, Proxied = true (orange cloud icon), What this creates, Why Cloudflare instead of Route 53?
 
 ### Community 276 - "Community 276"
-Cohesion: 0.29
-Nodes (8): 13.1 Migration Rules, 13.2 Query Rules, code:block93 (Runtime       : Python 3.12), code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), PART 12 — LAMBDA FUNCTIONS (Python), PART 13 — DATABASE STANDARDS, Runtime & Libraries
+Cohesion: 0.20
+Nodes (12): 13.1 Migration Rules, 13.2 Query Rules, 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block97 (Unit tests (services, repositories)    : minimum 80% line co) (+4 more)
 
 ### Community 277 - "Community 277"
-Cohesion: 0.25
-Nodes (7): code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:block55 (N1.  tenantId comes from JWT only. Never from request body, ), J1. Migration Rules, J2. Query Rules, PART J — DATABASE STANDARDS, PART N — SECURITY RULES (ALL P0, NON-NEGOTIABLE)
+Cohesion: 0.40
+Nodes (5): code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), J1. Migration Rules, J2. Query Rules, PART J — DATABASE STANDARDS
 
 ### Community 278 - "Community 278"
-Cohesion: 0.39
-Nodes (4): compare(), empty(), evaluateRules(), validateRules()
+Cohesion: 0.20
+Nodes (3): TaskTransitionDto, TaskTransitionController, TaskTransitionService
 
 ### Community 280 - "Community 280"
 Cohesion: 0.32
@@ -974,9 +1058,13 @@ Nodes (7): code:typescript (// main.ts), code:typescript (// Every request gets 
 Cohesion: 0.29
 Nodes (7): code:block28 (DomainException (base — never throw directly)), code:typescript (// shared/exceptions/domain.exception.ts), code:typescript (// shared/filters/global-exception.filter.ts), F1. Exception Hierarchy, F2. DomainException Base Class, F3. Global Exception Filter, PART F — EXCEPTION HANDLING
 
+### Community 288 - "Community 288"
+Cohesion: 0.29
+Nodes (5): PermissionScope, Role, SessionMetadata, Tenant, User
+
 ### Community 289 - "Community 289"
-Cohesion: 0.40
-Nodes (6): 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block97 (Unit tests (services, repositories)    : minimum 80% line co), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task), PART 14 — TESTING STANDARDS
+Cohesion: 0.22
+Nodes (10): ImportableEntityType, makeProcessor(), makeQr(), makeRepo(), { processor }, { processor, customers }, { processor, parts }, { processor, qr } (+2 more)
 
 ### Community 290 - "Community 290"
 Cohesion: 0.33
@@ -991,20 +1079,28 @@ Cohesion: 0.40
 Nodes (5): S3 Object Storage, Presigned URL Upload (Mobile), modules/storage, Presigned URL Upload Pattern, S3 Buckets (photos/pdfs/exports/web)
 
 ### Community 293 - "Community 293"
-Cohesion: 0.40
-Nodes (5): 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, code:block86 (Package       : flutter_foreground_task (pubspec/lock)), code:block87 (Package                       Version  Purpose), code:dart (// Widgets display state and emit events. No business logic.)
+Cohesion: 0.33
+Nodes (6): 10.12 Connectivity, 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, code:block86 (Package       : flutter_foreground_task (pubspec/lock)), code:block87 (Package                       Version  Purpose), code:dart (// Widgets display state and emit events. No business logic.)
 
 ### Community 294 - "Community 294"
 Cohesion: 0.40
 Nodes (5): B1. Monorepo Layout, B2. Module Boundary Rules, code:block14 (fieldbrix/                          Root (Turborepo)), code:block15 (Rule P0: No file in modules/ may import from infrastructure/), PART B — PROJECT STRUCTURE
 
 ### Community 295 - "Community 295"
-Cohesion: 0.40
-Nodes (5): code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block48 (Unit tests (services, repositories)    : minimum 80% line co), K1. Test Structure — AAA (Arrange, Act, Assert), K2. Coverage Requirements, PART K — TESTING STANDARDS
+Cohesion: 0.25
+Nodes (7): code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block48 (Unit tests (services, repositories)    : minimum 80% line co), code:block55 (N1.  tenantId comes from JWT only. Never from request body, ), K1. Test Structure — AAA (Arrange, Act, Assert), K2. Coverage Requirements, PART K — TESTING STANDARDS, PART N — SECURITY RULES (ALL P0, NON-NEGOTIABLE)
 
 ### Community 296 - "Community 296"
 Cohesion: 0.40
 Nodes (5): code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:typescript (/**), M1. Comment Style, M2. TSDoc on All Public Service Methods, PART M — DOCUMENTATION STANDARDS
+
+### Community 298 - "Community 298"
+Cohesion: 0.35
+Nodes (8): Row, allowed, forbidden, isAllowedTransition(), isTaskStatus(), TASK_STATUSES, TaskStatus, TRANSITION_MAP
+
+### Community 299 - "Community 299"
+Cohesion: 0.25
+Nodes (8): CapabilitiesResponse, Capability, useCapabilities(), Layout(), NAV_ITEMS, NavItem, UiState, useUiStore
 
 ### Community 300 - "Community 300"
 Cohesion: 0.40
@@ -1014,6 +1110,10 @@ Nodes (5): 5d. Create an API token, 6. Review and apply, code:bash (./scripts/pl
 Cohesion: 0.50
 Nodes (4): 6.1 Row-Level Security, 6.2 Why composite `(tenant_id, ...)` foreign keys everywhere, 6. Security model, code:sql (ALTER TABLE field_ops.<table> ENABLE ROW LEVEL SECURITY;)
 
+### Community 302 - "Community 302"
+Cohesion: 0.20
+Nodes (4): Row, PermissionGuard, TaskActionRequestDto, TaskAttachmentDto
+
 ### Community 303 - "Community 303"
 Cohesion: 0.67
 Nodes (3): 3. Bootstrap remote state once, code:bash (source aws.env.local), Step 2 — Generate SSH key
@@ -1022,24 +1122,56 @@ Nodes (3): 3. Bootstrap remote state once, code:bash (source aws.env.local), Ste
 Cohesion: 0.67
 Nodes (3): code:bash (cd environments/prod), code:block14 (→ DNS → Records → Add record), Step 9 — Point Cloudflare DNS to your server
 
+### Community 308 - "Community 308"
+Cohesion: 0.22
+Nodes (6): FIELD_TYPE_REGISTRY, FieldType, FieldTypeCategory, FieldTypeEntry, getFieldTypeRegistry(), isKnownFieldType()
+
+### Community 309 - "Community 309"
+Cohesion: 0.47
+Nodes (5): CreateTaskDto, ListTasksQueryDto, UpdateTaskDto, Row, IMMUTABLE_FIELDS
+
+### Community 322 - "Community 322"
+Cohesion: 0.40
+Nodes (5): 10.10 Push Notifications, 10.11 Secure Storage, code:block83 (Package       : firebase_messaging (pubspec/lock)), code:block84 (Package       : flutter_secure_storage (pubspec/lock)), code:block85 (Package       : connectivity_plus (pubspec/lock))
+
+### Community 323 - "Community 323"
+Cohesion: 0.40
+Nodes (4): ALLOWED_TRANSITIONS, HistoryEntry, Task, TaskDetailPage()
+
+### Community 324 - "Community 324"
+Cohesion: 0.40
+Nodes (4): FieldType, Workflow, WorkflowBuilderPage(), WorkflowSchema
+
+### Community 326 - "Community 326"
+Cohesion: 0.50
+Nodes (3): ENTITY_TYPES, ImportJob, ImportsPage()
+
+### Community 327 - "Community 327"
+Cohesion: 0.50
+Nodes (3): CapacityPage(), CapacityResponse, TeamCapacity
+
+### Community 328 - "Community 328"
+Cohesion: 0.50
+Nodes (3): STATUS_COLORS, Task, TasksListPage()
+
 ## Knowledge Gaps
-- **972 isolated node(s):** `View`, `Tenant`, `Role`, `User`, `Item` (+967 more)
+- **1098 isolated node(s):** `Production safety`, `Notes`, `CompanySettingsDto`, `CustomerRecord`, `CUSTOMER_COLUMNS` (+1093 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **107 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **109 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `OperationsService` connect `Community 239` to `AI Agent Development Rules`, `Community 261`, `Community 298`, `Community 235`, `Community 236`, `Community 299`, `Community 244`, `Community 278`, `Community 249`, `Community 251`?**
-  _High betweenness centrality (0.005) - this node is a cross-community bridge._
-- **Why does `now()` connect `Community 235` to `Community 288`, `Community 121`, `Community 261`, `Community 5`, `Community 297`, `Community 236`, `Community 239`, `Community 244`, `Community 247`, `Community 249`, `Community 251`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **Why does `PlatformService` connect `Community 236` to `Community 288`, `Backend Domain & Standards`, `Community 5`, `Community 235`, `Community 237`, `Community 273`, `Community 247`, `Community 251`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **What connects `View`, `Tenant`, `Role` to the rest of the system?**
-  _990 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `DatabaseService` connect `Community 321` to `Backend Domain & Standards`, `Community 195`, `Community 18`, `start.sh`, `Community 247`?**
+  _High betweenness centrality (0.031) - this node is a cross-community bridge._
+- **Why does `PlatformRepository` connect `Backend Domain & Standards` to `Community 288`, `Community 18`, `Community 115`?**
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+- **Why does `IdempotencyService` connect `Community 297` to `Community 240`, `Community 195`, `Community 5`?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
+- **What connects `Production safety`, `Notes`, `CompanySettingsDto` to the rest of the system?**
+  _1116 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Backend Domain & Standards` be split into smaller, more focused modules?**
-  _Cohesion score 0.05875706214689266 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05499735589635114 - nodes in this community are weakly interconnected._
 - **Should `NestJS Backend Architecture` be split into smaller, more focused modules?**
   _Cohesion score 0.12418300653594772 - nodes in this community are weakly interconnected._
 - **Should `Terraform Ops Scripts` be split into smaller, more focused modules?**

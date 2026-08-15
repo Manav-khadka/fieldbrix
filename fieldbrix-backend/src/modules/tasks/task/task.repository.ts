@@ -1,4 +1,8 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { randomUUID } from 'node:crypto';
 import { DatabaseService } from '../../database/database/database.service';
 import type { ListTasksQueryDto } from './task.dto';
@@ -29,7 +33,9 @@ const TASK_SELECT = `
 export class TaskRepository {
   constructor(private readonly db: DatabaseService) {}
 
-  async list(query: ListTasksQueryDto): Promise<{ items: Row[]; total: number; page: number; limit: number }> {
+  async list(
+    query: ListTasksQueryDto,
+  ): Promise<{ items: Row[]; total: number; page: number; limit: number }> {
     const page = Math.max(1, query.page ?? 1);
     const limit = Math.min(query.limit ?? 20, 100);
     const offset = (page - 1) * limit;
@@ -38,7 +44,9 @@ export class TaskRepository {
 
     if (query.search) {
       values.push(`%${query.search.toLowerCase()}%`);
-      where.push(`(lower(task_number) LIKE $${values.length} OR lower(description) LIKE $${values.length})`);
+      where.push(
+        `(lower(task_number) LIKE $${values.length} OR lower(description) LIKE $${values.length})`,
+      );
     }
     if (query.status) {
       values.push(query.status);
@@ -68,7 +76,12 @@ export class TaskRepository {
       ),
     ]);
 
-    return { items: rows, total: Number(countRows[0]?.count ?? 0), page, limit };
+    return {
+      items: rows,
+      total: Number(countRows[0]?.count ?? 0),
+      page,
+      limit,
+    };
   }
 
   async findById(id: string): Promise<Row> {
@@ -107,11 +120,18 @@ export class TaskRepository {
                  $9::timestamptz, $10::timestamptz, $11, $12)
          RETURNING ${TASK_SELECT}`,
         [
-          tenantId, taskNumber, payload.workflowVersionId,
-          payload.customerId ?? null, payload.siteId ?? null, payload.targetId ?? null,
-          payload.description ?? '', payload.instructions ?? '',
-          payload.scheduledAt ?? null, payload.dueAt ?? null,
-          payload.estimatedMinutes ?? null, payload.priority ?? 'NORMAL',
+          tenantId,
+          taskNumber,
+          payload.workflowVersionId,
+          payload.customerId ?? null,
+          payload.siteId ?? null,
+          payload.targetId ?? null,
+          payload.description ?? '',
+          payload.instructions ?? '',
+          payload.scheduledAt ?? null,
+          payload.dueAt ?? null,
+          payload.estimatedMinutes ?? null,
+          payload.priority ?? 'NORMAL',
         ],
       );
       const task = result.rows[0];
@@ -119,13 +139,22 @@ export class TaskRepository {
       await client.query(
         `INSERT INTO task_history (tenant_id, task_id, event_type, after_state)
          VALUES ($1::uuid, $2::uuid, 'TASK_CREATED', $3::jsonb)`,
-        [tenantId, task.id, JSON.stringify({ status: 'DRAFT', number: task.number })],
+        [
+          tenantId,
+          task.id,
+          JSON.stringify({ status: 'DRAFT', number: task.number }),
+        ],
       );
 
       await client.query(
         `INSERT INTO outbox_events (id, event_id, event_type, event_version, tenant_id, payload, status)
          VALUES ($1::uuid, $2::uuid, 'task.created.v1', 1, $3::uuid, $4::jsonb, 'PENDING')`,
-        [randomUUID(), randomUUID(), tenantId, JSON.stringify({ taskId: task.id, taskNumber: task.number })],
+        [
+          randomUUID(),
+          randomUUID(),
+          tenantId,
+          JSON.stringify({ taskId: task.id, taskNumber: task.number }),
+        ],
       );
 
       return task;
@@ -133,12 +162,24 @@ export class TaskRepository {
   }
 
   async update(id: string, payload: Row, revision: number): Promise<Row> {
-    const sets: string[] = ['revision = revision + 1', 'updated_at = clock_timestamp()'];
+    const sets: string[] = [
+      'revision = revision + 1',
+      'updated_at = clock_timestamp()',
+    ];
     const values: unknown[] = [];
-    const allowed = ['description', 'instructions', 'scheduled_at', 'due_at', 'priority'];
+    const allowed = [
+      'description',
+      'instructions',
+      'scheduled_at',
+      'due_at',
+      'priority',
+    ];
     const map: Record<string, string> = {
-      description: 'description', instructions: 'instructions',
-      scheduledAt: 'scheduled_at', dueAt: 'due_at', priority: 'priority',
+      description: 'description',
+      instructions: 'instructions',
+      scheduledAt: 'scheduled_at',
+      dueAt: 'due_at',
+      priority: 'priority',
     };
     for (const [key, col] of Object.entries(map)) {
       if (payload[key] !== undefined) {
@@ -155,7 +196,10 @@ export class TaskRepository {
       values,
     );
     if (!rows[0]) {
-      const existing = await this.db.tenantQuery('SELECT 1 FROM tasks WHERE id = $1::uuid AND archived_at IS NULL', [id]);
+      const existing = await this.db.tenantQuery(
+        'SELECT 1 FROM tasks WHERE id = $1::uuid AND archived_at IS NULL',
+        [id],
+      );
       if (!existing[0]) throw new NotFoundException('TASK_NOT_FOUND');
       throw new ConflictException('STALE_TASK_REVISION');
     }

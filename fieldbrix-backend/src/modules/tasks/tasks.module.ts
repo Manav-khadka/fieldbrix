@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { DatabaseModule } from '../database/database.module';
 import { AuthorizationModule } from '../authorization/authorization.module';
 import { IdempotencyModule } from '../idempotency/idempotency.module';
+import { PlatformModule } from '../platform/platform.module';
 
 import { TaskController } from './task/task.controller';
 import { TaskService } from './task/task.service';
@@ -19,7 +20,12 @@ import { TaskHistoryController } from './history/task-history.controller';
 import { TaskHistoryService } from './history/task-history.service';
 
 @Module({
-  imports: [DatabaseModule, AuthorizationModule, IdempotencyModule],
+  imports: [
+    DatabaseModule,
+    AuthorizationModule,
+    IdempotencyModule,
+    PlatformModule,
+  ],
   controllers: [
     TaskController,
     TaskAssignmentController,

@@ -1,4 +1,11 @@
-import { Body, Controller, Headers, Param, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Headers,
+  Param,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { TaskAssignmentService } from './task-assignment.service';
 import { Permission } from '../../authorization/decorators/permission.decorator/permission.decorator';
 import { PermissionGuard } from '../../authorization/guards/permission/permission.guard';
@@ -21,7 +28,11 @@ export class TaskAssignmentController {
     @Body() body: TaskAssignmentDto,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/tasks/${id}/assignments`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/tasks/${id}/assignments`,
+      body,
+    );
     return this.idempotency
       .getOrCreateAsync(key, fp, () => this.assignments.assign(id, body))
       .then((r) => r.response);
@@ -35,9 +46,15 @@ export class TaskAssignmentController {
     @Body() body: TaskAssignmentDto,
   ) {
     const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint('POST', `/tasks/${id}/reassign`, body);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      `/tasks/${id}/reassign`,
+      body,
+    );
     return this.idempotency
-      .getOrCreateAsync(key, fp, () => this.assignments.reassign(id, { ...body, reason: body.reason }))
+      .getOrCreateAsync(key, fp, () =>
+        this.assignments.reassign(id, { ...body, reason: body.reason }),
+      )
       .then((r) => r.response);
   }
 }

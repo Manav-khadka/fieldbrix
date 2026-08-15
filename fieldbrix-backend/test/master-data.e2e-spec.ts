@@ -40,8 +40,12 @@ describe('Master data (e2e)', () => {
       .set('Authorization', `Bearer ${token}`)
       .set('idempotency-key', randomUUID())
       .send({ name: 'Al Noor Facilities', code, email: 'ops@alnoor.example' });
+    if (created.status !== 201)
+      console.error('CREATE_CUSTOMER_ERROR:', created.body);
     expect(created.status).toBe(201);
-    const customer = (created.body as Envelope<{ id: string; code: string; revision: number }>).data;
+    const customer = (
+      created.body as Envelope<{ id: string; code: string; revision: number }>
+    ).data;
     expect(customer.code).toBe(code);
     expect(customer.revision).toBe(1);
 
@@ -57,7 +61,9 @@ describe('Master data (e2e)', () => {
       .query({ search: code, page: 1, limit: 10 })
       .set('Authorization', `Bearer ${token}`);
     expect(list.status).toBe(200);
-    const page = (list.body as Envelope<{ items: Array<{ code: string }>; total: number }>).data;
+    const page = (
+      list.body as Envelope<{ items: Array<{ code: string }>; total: number }>
+    ).data;
     expect(page.items.some((item) => item.code === code)).toBe(true);
   });
 
@@ -66,7 +72,11 @@ describe('Master data (e2e)', () => {
       .post('/sites')
       .set('Authorization', `Bearer ${token}`)
       .set('idempotency-key', randomUUID())
-      .send({ name: 'Orphan Site', code: `SITE-${randomUUID().slice(0, 8)}`, customerId: randomUUID() });
+      .send({
+        name: 'Orphan Site',
+        code: `SITE-${randomUUID().slice(0, 8)}`,
+        customerId: randomUUID(),
+      });
     expect(response.status).toBe(400);
   });
 
@@ -83,7 +93,11 @@ describe('Master data (e2e)', () => {
       .post('/sites')
       .set('Authorization', `Bearer ${token}`)
       .set('idempotency-key', randomUUID())
-      .send({ name: 'Gulf Bay Hotel', code: `SITE-${randomUUID().slice(0, 8)}`, customerId });
+      .send({
+        name: 'Gulf Bay Hotel',
+        code: `SITE-${randomUUID().slice(0, 8)}`,
+        customerId,
+      });
     expect(site.status).toBe(201);
     const siteId = (site.body as Envelope<{ id: string }>).data.id;
 
@@ -91,9 +105,20 @@ describe('Master data (e2e)', () => {
       .post('/service-targets')
       .set('Authorization', `Bearer ${token}`)
       .set('idempotency-key', randomUUID())
-      .send({ name: 'Chiller Plant A', code: `AST-${randomUUID().slice(0, 8)}`, siteId, equipmentType: 'HVAC' });
+      .send({
+        name: 'Chiller Plant A',
+        code: `AST-${randomUUID().slice(0, 8)}`,
+        siteId,
+        equipmentType: 'HVAC',
+      });
     expect(target.status).toBe(201);
-    const created = (target.body as Envelope<{ id: string; qrIdentity: string; siteId: string }>).data;
+    const created = (
+      target.body as Envelope<{
+        id: string;
+        qrIdentity: string;
+        siteId: string;
+      }>
+    ).data;
     expect(created.siteId).toBe(siteId);
     expect(created.qrIdentity).toMatch(/^fbx1\.[a-f0-9]{32}\.[a-f0-9]{8}$/);
 
@@ -101,12 +126,19 @@ describe('Master data (e2e)', () => {
       .get(`/qr-identities/${created.qrIdentity}/resolve`)
       .set('Authorization', `Bearer ${token}`);
     expect(resolved.status).toBe(200);
-    const resolution = (resolved.body as Envelope<{ target: { id: string }; site: { id: string; customerId: string } }>).data;
+    const resolution = (
+      resolved.body as Envelope<{
+        target: { id: string };
+        site: { id: string; customerId: string };
+      }>
+    ).data;
     expect(resolution.target.id).toBe(created.id);
     expect(resolution.site.customerId).toBe(customerId);
 
     const forged = await request(app.getHttpServer())
-      .get('/qr-identities/fbx1.00000000000000000000000000000000.deadbeef/resolve')
+      .get(
+        '/qr-identities/fbx1.00000000000000000000000000000000.deadbeef/resolve',
+      )
       .set('Authorization', `Bearer ${token}`);
     expect(forged.status).toBe(404);
   });
@@ -123,7 +155,11 @@ describe('Master data (e2e)', () => {
       .post('/sites')
       .set('Authorization', `Bearer ${token}`)
       .set('idempotency-key', randomUUID())
-      .send({ name: 'Only Site', code: `SITE-${randomUUID().slice(0, 8)}`, customerId });
+      .send({
+        name: 'Only Site',
+        code: `SITE-${randomUUID().slice(0, 8)}`,
+        customerId,
+      });
 
     const archiveAttempt = await request(app.getHttpServer())
       .patch(`/customers/${customerId}`)
@@ -147,7 +183,15 @@ describe('Master data (e2e)', () => {
         ],
       });
     expect(preview.status).toBe(201);
-    const job = (preview.body as Envelope<{ id: string; totalRows: number; validRows: number; errorRows: number; previewRevision: number }>).data;
+    const job = (
+      preview.body as Envelope<{
+        id: string;
+        totalRows: number;
+        validRows: number;
+        errorRows: number;
+        previewRevision: number;
+      }>
+    ).data;
     expect(job.totalRows).toBe(2);
     expect(job.validRows).toBe(1);
     expect(job.errorRows).toBe(1);
@@ -158,7 +202,13 @@ describe('Master data (e2e)', () => {
       .set('idempotency-key', randomUUID())
       .send({ previewRevision: job.previewRevision });
     expect(commit.status).toBe(201);
-    const completed = (commit.body as Envelope<{ status: string; validRows: number; errorRows: number }>).data;
+    const completed = (
+      commit.body as Envelope<{
+        status: string;
+        validRows: number;
+        errorRows: number;
+      }>
+    ).data;
     expect(completed.status).toBe('PARTIAL');
     expect(completed.validRows).toBe(1);
     expect(completed.errorRows).toBe(1);
@@ -167,7 +217,8 @@ describe('Master data (e2e)', () => {
       .get('/customers')
       .query({ search: validCode })
       .set('Authorization', `Bearer ${token}`);
-    const page = (created.body as Envelope<{ items: Array<{ code: string }> }>).data;
+    const page = (created.body as Envelope<{ items: Array<{ code: string }> }>)
+      .data;
     expect(page.items.some((item) => item.code === validCode)).toBe(true);
   });
 });

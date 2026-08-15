@@ -1,4 +1,8 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { DatabaseService } from '../../database/database/database.service';
 
 type Row = Record<string, unknown>;
@@ -13,7 +17,15 @@ export class TaskAssignmentService {
    * worker belongs to team when both are provided.
    * Closes any current open assignment atomically.
    */
-  async assign(taskId: string, payload: { workerId?: string; teamId?: string; lead?: boolean; reason?: string }): Promise<Row> {
+  async assign(
+    taskId: string,
+    payload: {
+      workerId?: string;
+      teamId?: string;
+      lead?: boolean;
+      reason?: string;
+    },
+  ): Promise<Row> {
     if (!payload.workerId && !payload.teamId)
       throw new BadRequestException('ASSIGNMENT_TARGET_REQUIRED');
 
@@ -30,7 +42,8 @@ export class TaskAssignmentService {
           'SELECT 1 FROM users WHERE id = $1::uuid AND tenant_id = $2::uuid AND active = true',
           [payload.workerId, tenantId],
         );
-        if (!worker.rows[0]) throw new BadRequestException('ACTIVE_WORKER_REQUIRED');
+        if (!worker.rows[0])
+          throw new BadRequestException('ACTIVE_WORKER_REQUIRED');
       }
 
       if (payload.teamId) {
@@ -38,7 +51,8 @@ export class TaskAssignmentService {
           'SELECT 1 FROM teams WHERE id = $1::uuid AND tenant_id = $2::uuid AND active = true',
           [payload.teamId, tenantId],
         );
-        if (!team.rows[0]) throw new BadRequestException('ACTIVE_TEAM_REQUIRED');
+        if (!team.rows[0])
+          throw new BadRequestException('ACTIVE_TEAM_REQUIRED');
       }
 
       if (payload.workerId && payload.teamId) {
@@ -46,7 +60,8 @@ export class TaskAssignmentService {
           'SELECT 1 FROM team_memberships WHERE tenant_id = $1::uuid AND team_id = $2::uuid AND user_id = $3::uuid AND ends_at IS NULL',
           [tenantId, payload.teamId, payload.workerId],
         );
-        if (!membership.rows[0]) throw new BadRequestException('WORKER_TEAM_MEMBERSHIP_REQUIRED');
+        if (!membership.rows[0])
+          throw new BadRequestException('WORKER_TEAM_MEMBERSHIP_REQUIRED');
       }
 
       // Close current active assignment
@@ -62,14 +77,28 @@ export class TaskAssignmentService {
          RETURNING id::text AS id, task_id::text AS "taskId",
                    worker_id::text AS "workerId", team_id::text AS "teamId",
                    lead, started_at AS "startedAt"`,
-        [taskId, payload.workerId ?? null, payload.teamId ?? null, payload.lead ?? false, payload.reason ?? null],
+        [
+          taskId,
+          payload.workerId ?? null,
+          payload.teamId ?? null,
+          payload.lead ?? false,
+          payload.reason ?? null,
+        ],
       );
       return result.rows[0];
     });
   }
 
   /** Reassign: identical to assign — the repository closes old and creates new */
-  reassign(taskId: string, payload: { workerId?: string; teamId?: string; lead?: boolean; reason?: string }) {
+  reassign(
+    taskId: string,
+    payload: {
+      workerId?: string;
+      teamId?: string;
+      lead?: boolean;
+      reason?: string;
+    },
+  ) {
     return this.assign(taskId, payload);
   }
 }

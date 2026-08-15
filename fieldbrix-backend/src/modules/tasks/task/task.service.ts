@@ -1,6 +1,10 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { TaskRepository } from './task.repository';
-import type { CreateTaskDto, UpdateTaskDto, ListTasksQueryDto } from './task.dto';
+import type {
+  CreateTaskDto,
+  UpdateTaskDto,
+  ListTasksQueryDto,
+} from './task.dto';
 
 const IMMUTABLE_FIELDS = ['number', 'workflowVersionId', 'taskNumber'] as const;
 

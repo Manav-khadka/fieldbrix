@@ -10,8 +10,10 @@ export class WorkflowGovernanceService {
       return await this.repo.publish(workflowId, revision, notes);
     } catch (err) {
       const msg = (err as Error).message;
-      if (msg === 'WORKFLOW_INVALID') throw new BadRequestException('WORKFLOW_INVALID');
-      if (msg === 'STALE_WORKFLOW_REVISION') throw new BadRequestException('STALE_WORKFLOW_REVISION');
+      if (msg === 'WORKFLOW_INVALID')
+        throw new BadRequestException('WORKFLOW_INVALID');
+      if (msg === 'STALE_WORKFLOW_REVISION')
+        throw new BadRequestException('STALE_WORKFLOW_REVISION');
       throw err;
     }
   }

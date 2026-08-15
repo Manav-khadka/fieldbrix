@@ -1,5 +1,8 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
-import { randomUUID } from 'node:crypto';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { DatabaseService } from '../../database/database/database.service';
 import type { Rule } from '../rule-engine';
 
@@ -10,17 +13,26 @@ export class WorkflowRuleRepository {
   constructor(private readonly db: DatabaseService) {}
 
   /** Return workflow schema (sections/fields/rules) for rule operations. */
-  async getSchema(workflowId: string): Promise<{ revision: number; schema: Row }> {
+  async getSchema(
+    workflowId: string,
+  ): Promise<{ revision: number; schema: Row }> {
     const rows = await this.db.tenantQuery<Row>(
       `SELECT revision, schema FROM workflow_drafts
        WHERE id = $1::uuid AND archived_at IS NULL`,
       [workflowId],
     );
     if (!rows[0]) throw new NotFoundException('WORKFLOW_NOT_FOUND');
-    return { revision: rows[0].revision as number, schema: rows[0].schema as Row };
+    return {
+      revision: rows[0].revision as number,
+      schema: rows[0].schema as Row,
+    };
   }
 
-  async addRule(workflowId: string, rule: Rule, revision: number): Promise<Row> {
+  async addRule(
+    workflowId: string,
+    rule: Rule,
+    revision: number,
+  ): Promise<Row> {
     const rows = await this.db.tenantQuery<Row>(
       `UPDATE workflow_drafts
        SET schema = jsonb_set(schema, '{rules}',
@@ -34,7 +46,12 @@ export class WorkflowRuleRepository {
     return rows[0];
   }
 
-  async patchRule(workflowId: string, ruleId: string, patch: Partial<Rule>, revision: number): Promise<Row> {
+  async patchRule(
+    workflowId: string,
+    ruleId: string,
+    patch: Partial<Rule>,
+    revision: number,
+  ): Promise<Row> {
     const patchJson = JSON.stringify(patch);
     const rows = await this.db.tenantQuery<Row>(
       `UPDATE workflow_drafts
@@ -51,7 +68,11 @@ export class WorkflowRuleRepository {
     return rows[0];
   }
 
-  async deleteRule(workflowId: string, ruleId: string, revision: number): Promise<Row> {
+  async deleteRule(
+    workflowId: string,
+    ruleId: string,
+    revision: number,
+  ): Promise<Row> {
     const rows = await this.db.tenantQuery<Row>(
       `UPDATE workflow_drafts
        SET schema = jsonb_set(schema, '{rules}', (
@@ -67,7 +88,11 @@ export class WorkflowRuleRepository {
     return rows[0];
   }
 
-  async replaceRules(workflowId: string, rules: Rule[], revision: number): Promise<Row> {
+  async replaceRules(
+    workflowId: string,
+    rules: Rule[],
+    revision: number,
+  ): Promise<Row> {
     const rows = await this.db.tenantQuery<Row>(
       `UPDATE workflow_drafts
        SET schema = jsonb_set(schema, '{rules}', $1::jsonb),
@@ -80,13 +105,23 @@ export class WorkflowRuleRepository {
     return rows[0];
   }
 
-  async createSimulation(workflowId: string, name: string, answers: Record<string, unknown>, expectedOutcomes: Record<string, unknown>): Promise<Row> {
+  async createSimulation(
+    workflowId: string,
+    name: string,
+    answers: Record<string, unknown>,
+    expectedOutcomes: Record<string, unknown>,
+  ): Promise<Row> {
     const rows = await this.db.tenantQuery<Row>(
       `INSERT INTO workflow_simulations (tenant_id, workflow_id, name, answers, expected_outcomes)
        SELECT tenant_id, id, $2, $3::jsonb, $4::jsonb
        FROM workflow_drafts WHERE id = $1::uuid
        RETURNING id::text AS id, workflow_id::text AS "workflowId", name, answers, expected_outcomes AS "expectedOutcomes", created_at AS "createdAt"`,
-      [workflowId, name, JSON.stringify(answers), JSON.stringify(expectedOutcomes)],
+      [
+        workflowId,
+        name,
+        JSON.stringify(answers),
+        JSON.stringify(expectedOutcomes),
+      ],
     );
     if (!rows[0]) throw new NotFoundException('WORKFLOW_NOT_FOUND');
     return rows[0];

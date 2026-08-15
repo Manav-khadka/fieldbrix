@@ -1,9 +1,4 @@
-export type RuleValue =
-  | string
-  | number
-  | boolean
-  | null
-  | string[];
+export type RuleValue = string | number | boolean | null | string[];
 
 export type RuleOperator =
   | 'equals'
@@ -109,10 +104,7 @@ export function evaluateRules(
   };
 
   [...rules]
-    .sort(
-      (a, b) =>
-        b.priority - a.priority || a.id.localeCompare(b.id),
-    )
+    .sort((a, b) => b.priority - a.priority || a.id.localeCompare(b.id))
     .forEach((rule) => {
       const allMatch = rule.conditions.every((cond) =>
         compare(answers[cond.fieldKey], cond.operator, cond.value),
@@ -164,7 +156,11 @@ export function evaluateRules(
 export function validateRules(
   rules: Rule[],
   fieldKeys: Set<string>,
-): { valid: boolean; errors: Array<{ path: string; code: string; message: string }>; warnings: [] } {
+): {
+  valid: boolean;
+  errors: Array<{ path: string; code: string; message: string }>;
+  warnings: [];
+} {
   const errors: Array<{ path: string; code: string; message: string }> = [];
   const seen = new Set<string>();
 

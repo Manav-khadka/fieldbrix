@@ -23,8 +23,9 @@ export class TaskHistoryService {
   /** Capacity summary — window: this week, grouped by team */
   async capacity(): Promise<Row> {
     // Real query: count tasks per team in the current ISO week
-    const rows = await this.db.tenantQuery<Row>(
-      `SELECT
+    const rows = await this.db
+      .tenantQuery<Row>(
+        `SELECT
          t.id::text AS "teamId",
          t.name,
          count(ta.id) FILTER (WHERE tk.status NOT IN ('CANCELLED', 'COMPLETED')) AS scheduled,
@@ -37,11 +38,19 @@ export class TaskHistoryService {
        WHERE t.active = true
        GROUP BY t.id, t.name
        ORDER BY t.name`,
-    ).catch(() => []);
+      )
+      .catch(() => []);
 
     return {
       window: 'This week',
-      teams: (rows as Array<{ teamId: string; name: string; scheduled: string | number; total: string | number }>).map((r) => ({
+      teams: (
+        rows as Array<{
+          teamId: string;
+          name: string;
+          scheduled: string | number;
+          total: string | number;
+        }>
+      ).map((r) => ({
         teamId: r.teamId,
         name: r.name,
         scheduled: Number(r.scheduled ?? 0),

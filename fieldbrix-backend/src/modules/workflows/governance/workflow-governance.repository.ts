@@ -12,7 +12,11 @@ export class WorkflowGovernanceRepository {
    * Publish: validate → lock draft → materialize snapshot → insert version →
    * update draft pointer → emit outbox event. All in one transaction.
    */
-  async publish(workflowId: string, revision: number, notes: string): Promise<Row> {
+  async publish(
+    workflowId: string,
+    revision: number,
+    notes: string,
+  ): Promise<Row> {
     return this.db.transaction(async (client) => {
       const tenantRow = await client.query<{ tenant_id: string }>(
         "SELECT current_setting('app.tenant_id', true)::uuid AS tenant_id",
@@ -56,7 +60,16 @@ export class WorkflowGovernanceRepository {
       await client.query(
         `INSERT INTO outbox_events (id, event_id, event_type, event_version, tenant_id, payload, status)
          VALUES ($1::uuid, $2::uuid, 'workflow.published.v1', 1, $3::uuid, $4::jsonb, 'PENDING')`,
-        [randomUUID(), randomUUID(), tenantId, JSON.stringify({ workflowId, versionId: version.rows[0].id, version: version.rows[0].version })],
+        [
+          randomUUID(),
+          randomUUID(),
+          tenantId,
+          JSON.stringify({
+            workflowId,
+            versionId: version.rows[0].id,
+            version: version.rows[0].version,
+          }),
+        ],
       );
 
       return version.rows[0];
@@ -98,13 +111,18 @@ export class WorkflowGovernanceRepository {
   /** Platform template catalogue (platform-level records) */
   async templates(): Promise<Row[]> {
     // Templates are platform-managed rows — use a direct query without tenant isolation
-    return this.db.tenantQuery<Row>(
-      `SELECT id::text AS id, name, description, category, field_count AS "fieldCount", status
+    return this.db
+      .tenantQuery<Row>(
+        `SELECT id::text AS id, name, description, category, field_count AS "fieldCount", status
        FROM workflow_templates WHERE archived_at IS NULL ORDER BY name`,
-    ).catch(() => ([]));  // Gracefully degrade if table not yet seeded
+      )
+      .catch(() => []); // Gracefully degrade if table not yet seeded
   }
 
-  async instantiateTemplate(templateId: string, tenantId: string): Promise<Row> {
+  async instantiateTemplate(
+    templateId: string,
+    tenantId: string,
+  ): Promise<Row> {
     const rows = await this.db.tenantQuery<Row>(
       `SELECT name, description FROM workflow_templates WHERE id = $1::uuid`,
       [templateId],
