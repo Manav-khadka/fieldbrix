@@ -30,8 +30,20 @@ jobs:
       - name: Start Postgres for the e2e suite
         run: |
           docker compose up -d postgres
-          timeout 60s bash -c 'until docker compose exec -T postgres pg_isready -U fieldbrix -d fieldbrix >/dev/null 2>&1; do sleep 2; done'
-          ./scripts/local/migrate.sh
+          # On a brand-new volume (always true in CI) the official postgres
+          # image runs docker-entrypoint-initdb.d itself: start a temporary
+          # server, apply every 0NN-*.sql file automatically, stop it, then
+          # start the real server. pg_isready can return true against that
+          # temporary server, so calling migrate.sh right after it can race
+          # the restart and get its connection killed mid-script ("terminating
+          # connection due to administrator command"). Wait for the "ready to
+          # accept connections" log line twice — once for the temp server,
+          # once for the real one — before doing anything else. migrate.sh
+          # itself is redundant here (init already applied every migration)
+          # and is intentionally not called; it exists for reapplying new
+          # migrations to a local dev volume that persists across restarts.
+          timeout 90s bash -c 'until [ "$(docker compose logs postgres 2>/dev/null | grep -c "database system is ready to accept connections")" -ge 2 ]; do sleep 2; done'
+          docker compose exec -T postgres pg_isready -U fieldbrix -d fieldbrix
 
       - name: Backend
         env:
