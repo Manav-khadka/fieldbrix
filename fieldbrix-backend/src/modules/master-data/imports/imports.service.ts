@@ -5,8 +5,10 @@ import {
 } from '@nestjs/common';
 import { ImportsRepository, type ImportRowOutcome } from './imports.repository';
 import { ImportProcessorService } from './import-processor.service';
+import { SpreadsheetParserService } from './spreadsheet-parser.service';
 import type { ImportPreviewDto } from '../dto/import.dto';
 import { omit } from '../support/case';
+import { TenantContextService } from '../../tenant-context/tenant-context/tenant-context.service';
 
 const MAX_ROWS = 5000;
 
@@ -15,14 +17,24 @@ export class ImportsService {
   constructor(
     private readonly repository: ImportsRepository,
     private readonly processor: ImportProcessorService,
+    private readonly spreadsheetParser: SpreadsheetParserService,
+    private readonly tenantContext: TenantContextService,
   ) {}
 
   async preview(dto: ImportPreviewDto) {
-    if (!Array.isArray(dto.rows) || dto.rows.length === 0)
-      throw new BadRequestException('ROWS_REQUIRED');
-    if (dto.rows.length > MAX_ROWS)
+    const rowsInput = Array.isArray(dto.rows)
+      ? dto.rows
+      : dto.uploadId
+        ? await this.spreadsheetParser.parseUpload(
+            dto.uploadId,
+            this.tenantContext.tenantId,
+          )
+        : undefined;
+    if (!rowsInput || rowsInput.length === 0)
+      throw new BadRequestException('ROWS_OR_UPLOAD_ID_REQUIRED');
+    if (rowsInput.length > MAX_ROWS)
       throw new PayloadTooLargeException('IMPORT_ROW_LIMIT_EXCEEDED');
-    const rows: ImportRowOutcome[] = dto.rows.map((row, index) => {
+    const rows: ImportRowOutcome[] = rowsInput.map((row, index) => {
       const validation = this.processor.validateRow(dto.entityType, row);
       return {
         rowNumber: index + 1,

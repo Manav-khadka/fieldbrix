@@ -3,6 +3,8 @@ import { DatabaseModule } from '../database/database.module';
 import { AuthorizationModule } from '../authorization/authorization.module';
 import { PlatformModule } from '../platform/platform.module';
 import { IdempotencyModule } from '../idempotency/idempotency.module';
+import { StorageModule } from '../storage/storage.module';
+import { TenantContextModule } from '../tenant-context/tenant-context.module';
 import { CustomersController } from './customers/customers.controller';
 import { CustomersService } from './customers/customers.service';
 import { CustomersRepository } from './customers/customers.repository';
@@ -20,6 +22,7 @@ import { ImportsController } from './imports/imports.controller';
 import { ImportsService } from './imports/imports.service';
 import { ImportsRepository } from './imports/imports.repository';
 import { ImportProcessorService } from './imports/import-processor.service';
+import { SpreadsheetParserService } from './imports/spreadsheet-parser.service';
 
 @Module({
   imports: [
@@ -27,6 +30,8 @@ import { ImportProcessorService } from './imports/import-processor.service';
     AuthorizationModule,
     PlatformModule,
     IdempotencyModule,
+    StorageModule,
+    TenantContextModule,
   ],
   controllers: [
     CustomersController,
@@ -48,6 +53,7 @@ import { ImportProcessorService } from './imports/import-processor.service';
     ImportsService,
     ImportsRepository,
     ImportProcessorService,
+    SpreadsheetParserService,
   ],
 })
 export class MasterDataModule {}

@@ -4,7 +4,11 @@ import {
   PayloadTooLargeException,
   UnsupportedMediaTypeException,
 } from '@nestjs/common';
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import {
+  S3Client,
+  PutObjectCommand,
+  GetObjectCommand,
+} from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { randomUUID } from 'node:crypto';
 
@@ -20,6 +24,9 @@ export class StorageService implements OnModuleDestroy {
     'image/jpeg',
     'image/png',
     'application/pdf',
+    'text/csv',
+    'application/vnd.ms-excel',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   ]);
   createKey(tenantId: string, filename: string) {
     return `${tenantId}/${new Date().toISOString().slice(0, 10)}/${randomUUID()}-${filename.replace(/[^a-zA-Z0-9._-]/g, '_')}`;
@@ -71,6 +78,15 @@ export class StorageService implements OnModuleDestroy {
       expiresIn,
     };
   }
+  async get(key: string): Promise<{ body: Uint8Array; contentType?: string }> {
+    const result = await this.client.send(
+      new GetObjectCommand({ Bucket: this.bucket, Key: key }),
+    );
+    const body = await result.Body?.transformToByteArray();
+    if (!body) throw new Error('EMPTY_OBJECT_BODY');
+    return { body, contentType: result.ContentType };
+  }
+
   readiness() {
     return { configured: Boolean(this.bucket), bucket: this.bucket };
   }
