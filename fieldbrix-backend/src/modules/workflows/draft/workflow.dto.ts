@@ -82,3 +82,20 @@ export class WorkflowQueryDto {
   @IsOptional() @Type(() => Number) @IsNumber() page?: number;
   @IsOptional() @Type(() => Number) @IsNumber() limit?: number;
 }
+
+export class CreateTemplateDto {
+  @IsNotEmpty() @IsString() name!: string;
+  @IsOptional() @IsString() description?: string;
+  @IsOptional() @IsString() category?: string;
+  @IsOptional() @IsString() industry?: string;
+}
+
+export class UpdateTemplateDto {
+  @IsOptional() @IsString() name?: string;
+  @IsOptional() @IsString() description?: string;
+  @IsOptional() @IsString() category?: string;
+  @IsOptional() @IsString() industry?: string;
+  @IsOptional() schema?: Record<string, unknown>;
+  @IsOptional() archived?: boolean;
+  @IsInt() @Min(1) revision!: number;
+}

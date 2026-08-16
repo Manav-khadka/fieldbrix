@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import { api } from '../api/client';
+import { useQuery } from "@tanstack/react-query";
+import { api } from "../api/client";
 
 export type Capability = string;
 
@@ -9,8 +9,8 @@ interface CapabilitiesResponse {
 
 export function useCapabilities() {
   const { data, isLoading } = useQuery<CapabilitiesResponse>({
-    queryKey: ['me', 'capabilities'],
-    queryFn: () => api.get<CapabilitiesResponse>('/me/capabilities'),
+    queryKey: ["me", "capabilities"],
+    queryFn: () => api.get<CapabilitiesResponse>("/me/capabilities"),
     staleTime: 5 * 60 * 1000, // 5 minutes
     retry: false,
   });

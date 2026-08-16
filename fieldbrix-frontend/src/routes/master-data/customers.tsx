@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { api } from '../../api/client';
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "../../api/client";
 
 interface Customer {
   id: string;
@@ -12,13 +12,18 @@ interface Customer {
 }
 
 export function CustomersPage() {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ['customers', { search, page }],
+    queryKey: ["customers", { search, page }],
     queryFn: () =>
-      api.get<{ items: Customer[]; total: number; page: number; limit: number }>(
+      api.get<{
+        items: Customer[];
+        total: number;
+        page: number;
+        limit: number;
+      }>(
         `/customers?search=${encodeURIComponent(search)}&page=${page}&limit=20`,
       ),
     placeholderData: (prev) => prev,
@@ -39,7 +44,10 @@ export function CustomersPage() {
           type="search"
           placeholder="Search by name or code…"
           value={search}
-          onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            setPage(1);
+          }}
           className="fb-search-input"
         />
       </div>
@@ -58,21 +66,37 @@ export function CustomersPage() {
           </thead>
           <tbody>
             {isLoading && (
-              <tr><td colSpan={4} className="fb-table-loading">Loading…</td></tr>
+              <tr>
+                <td colSpan={4} className="fb-table-loading">
+                  Loading…
+                </td>
+              </tr>
             )}
             {!isLoading && data?.items.length === 0 && (
-              <tr><td colSpan={4} className="fb-table-empty">No customers found</td></tr>
+              <tr>
+                <td colSpan={4} className="fb-table-empty">
+                  No customers found
+                </td>
+              </tr>
             )}
             {data?.items.map((c) => (
               <tr key={c.id}>
                 <td>{c.name}</td>
-                <td><span className="fb-badge">{c.code}</span></td>
                 <td>
-                  <span className={`fb-status fb-status--${(c.status ?? 'ACTIVE').toLowerCase()}`}>
-                    {c.status ?? 'ACTIVE'}
+                  <span className="fb-badge">{c.code}</span>
+                </td>
+                <td>
+                  <span
+                    className={`fb-status fb-status--${(c.status ?? "ACTIVE").toLowerCase()}`}
+                  >
+                    {c.status ?? "ACTIVE"}
                   </span>
                 </td>
-                <td>{c.createdAt ? new Date(c.createdAt).toLocaleDateString() : '—'}</td>
+                <td>
+                  {c.createdAt
+                    ? new Date(c.createdAt).toLocaleDateString()
+                    : "—"}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -89,7 +113,9 @@ export function CustomersPage() {
           >
             ← Prev
           </button>
-          <span className="fb-pagination-info">Page {data.page} of {Math.ceil(data.total / data.limit)}</span>
+          <span className="fb-pagination-info">
+            Page {data.page} of {Math.ceil(data.total / data.limit)}
+          </span>
           <button
             id="customers-next"
             className="fb-btn fb-btn--ghost"

@@ -18,7 +18,9 @@ export function SentryTestButton() {
   };
 
   return (
-    <div style={{ marginTop: "2rem", padding: "1rem", border: "1px solid #ccc" }}>
+    <div
+      style={{ marginTop: "2rem", padding: "1rem", border: "1px solid #ccc" }}
+    >
       <h2>Sentry Verification</h2>
       <button
         onClick={handleError}

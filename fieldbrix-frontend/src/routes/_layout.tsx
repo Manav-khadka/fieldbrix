@@ -1,6 +1,6 @@
-import { Outlet, Link, useRouter } from '@tanstack/react-router';
-import { useCapabilities } from '../hooks/useCapabilities';
-import { useUiStore } from '../store/ui.store';
+import { Outlet, Link, useRouter } from "@tanstack/react-router";
+import { useCapabilities } from "../hooks/useCapabilities";
+import { useUiStore } from "../store/ui.store";
 
 type NavItem = {
   label: string;
@@ -10,16 +10,51 @@ type NavItem = {
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { label: 'Overview', icon: '✦', path: '/' },
-  { label: 'Customers', icon: '◎', path: '/master-data/customers', permission: 'master.customers.view' },
-  { label: 'Sites', icon: '▦', path: '/master-data/sites', permission: 'master.sites.view' },
-  { label: 'Service Targets', icon: '◈', path: '/master-data/service-targets', permission: 'master.targets.view' },
-  { label: 'Parts', icon: '⌥', path: '/master-data/parts', permission: 'master.parts.view' },
-  { label: 'Imports', icon: '↥', path: '/master-data/imports', permission: 'master.imports.view' },
-  { label: 'Workflows', icon: '◌', path: '/workflows', permission: 'workflows.view' },
-  { label: 'Tasks', icon: '⌁', path: '/tasks', permission: 'tasks.view' },
-  { label: 'Capacity', icon: '⌀', path: '/scheduling/capacity', permission: 'tasks.assign' },
-  { label: 'Administration', icon: '⚙', path: '/admin' },
+  { label: "Overview", icon: "✦", path: "/" },
+  {
+    label: "Customers",
+    icon: "◎",
+    path: "/master-data/customers",
+    permission: "master.customers.view",
+  },
+  {
+    label: "Sites",
+    icon: "▦",
+    path: "/master-data/sites",
+    permission: "master.sites.view",
+  },
+  {
+    label: "Service Targets",
+    icon: "◈",
+    path: "/master-data/service-targets",
+    permission: "master.targets.view",
+  },
+  {
+    label: "Parts",
+    icon: "⌥",
+    path: "/master-data/parts",
+    permission: "master.parts.view",
+  },
+  {
+    label: "Imports",
+    icon: "↥",
+    path: "/master-data/imports",
+    permission: "master.imports.view",
+  },
+  {
+    label: "Workflows",
+    icon: "◌",
+    path: "/workflows",
+    permission: "workflows.view",
+  },
+  { label: "Tasks", icon: "⌁", path: "/tasks", permission: "tasks.view" },
+  {
+    label: "Capacity",
+    icon: "⌀",
+    path: "/scheduling/capacity",
+    permission: "tasks.assign",
+  },
+  { label: "Administration", icon: "⚙", path: "/admin" },
 ];
 
 export function Layout() {
@@ -35,7 +70,9 @@ export function Layout() {
   return (
     <div className="fb-app-shell">
       {/* Sidebar */}
-      <aside className={`fb-sidebar ${sidebarOpen ? '' : 'fb-sidebar--collapsed'}`}>
+      <aside
+        className={`fb-sidebar ${sidebarOpen ? "" : "fb-sidebar--collapsed"}`}
+      >
         <div className="fb-sidebar-header">
           <span className="fb-logo">FieldBrix</span>
           <button
@@ -44,7 +81,7 @@ export function Layout() {
             onClick={toggleSidebar}
             aria-label="Toggle sidebar"
           >
-            {sidebarOpen ? '◀' : '▶'}
+            {sidebarOpen ? "◀" : "▶"}
           </button>
         </div>
         <nav className="fb-nav" role="navigation" aria-label="Main navigation">
@@ -52,11 +89,15 @@ export function Layout() {
             <Link
               key={item.path}
               to={item.path}
-              className={`fb-nav-item ${currentPath === item.path ? 'fb-nav-item--active' : ''}`}
-              aria-current={currentPath === item.path ? 'page' : undefined}
+              className={`fb-nav-item ${currentPath === item.path ? "fb-nav-item--active" : ""}`}
+              aria-current={currentPath === item.path ? "page" : undefined}
             >
-              <span className="fb-nav-icon" aria-hidden="true">{item.icon}</span>
-              {sidebarOpen && <span className="fb-nav-label">{item.label}</span>}
+              <span className="fb-nav-icon" aria-hidden="true">
+                {item.icon}
+              </span>
+              {sidebarOpen && (
+                <span className="fb-nav-label">{item.label}</span>
+              )}
             </Link>
           ))}
         </nav>

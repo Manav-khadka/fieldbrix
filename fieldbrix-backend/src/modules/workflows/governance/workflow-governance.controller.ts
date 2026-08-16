@@ -4,14 +4,20 @@ import {
   Get,
   Headers,
   Param,
+  Patch,
   Post,
   UseGuards,
 } from '@nestjs/common';
 import { WorkflowGovernanceService } from './workflow-governance.service';
 import { Permission } from '../../authorization/decorators/permission.decorator/permission.decorator';
 import { PermissionGuard } from '../../authorization/guards/permission/permission.guard';
+import { PlatformAdminGuard } from '../../authorization/guards/platform-admin/platform-admin.guard';
 import { IdempotencyService } from '../../idempotency/idempotency/idempotency.service';
-import type { PublishWorkflowDto } from '../draft/workflow.dto';
+import type {
+  CreateTemplateDto,
+  PublishWorkflowDto,
+  UpdateTemplateDto,
+} from '../draft/workflow.dto';
 
 @Controller()
 @UseGuards(PermissionGuard)
@@ -92,11 +98,33 @@ export class WorkflowGovernanceController {
       {},
     );
     return this.idempotency
-      .getOrCreateAsync(
-        key,
-        fp,
-        () => this.governance.instantiateTemplate(id, ''), // tenantId resolved from context
-      )
+      .getOrCreateAsync(key, fp, () => this.governance.instantiateTemplate(id))
       .then((r) => r.response);
+  }
+
+  // Template authoring is platform/god-mode only — separate guard from the
+  // tenant PermissionGuard the rest of this controller uses, matching the
+  // pattern already established for /platform/tenants in AdministrationController.
+  @UseGuards(PlatformAdminGuard)
+  @Post('platform/workflow-templates')
+  createTemplate(
+    @Headers() headers: Record<string, string>,
+    @Body() body: CreateTemplateDto,
+  ) {
+    const key = this.idempotency.validate(headers['idempotency-key']);
+    const fp = this.idempotency.fingerprint(
+      'POST',
+      '/platform/workflow-templates',
+      body,
+    );
+    return this.idempotency
+      .getOrCreateAsync(key, fp, () => this.governance.createTemplate(body))
+      .then((r) => r.response);
+  }
+
+  @UseGuards(PlatformAdminGuard)
+  @Patch('platform/workflow-templates/:id')
+  updateTemplate(@Param('id') id: string, @Body() body: UpdateTemplateDto) {
+    return this.governance.updateTemplate(id, body);
   }
 }

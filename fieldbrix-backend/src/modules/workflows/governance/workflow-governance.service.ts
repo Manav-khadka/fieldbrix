@@ -40,7 +40,40 @@ export class WorkflowGovernanceService {
     return this.repo.templates();
   }
 
-  instantiateTemplate(templateId: string, tenantId: string) {
-    return this.repo.instantiateTemplate(templateId, tenantId);
+  createTemplate(payload: {
+    name: string;
+    description?: string;
+    category?: string;
+    industry?: string;
+  }) {
+    if (!payload.name?.trim())
+      throw new BadRequestException('TEMPLATE_NAME_REQUIRED');
+    return this.repo.createTemplate(payload);
+  }
+
+  async updateTemplate(
+    templateId: string,
+    payload: {
+      name?: string;
+      description?: string;
+      category?: string;
+      industry?: string;
+      schema?: Record<string, unknown>;
+      archived?: boolean;
+      revision: number;
+    },
+  ) {
+    try {
+      const { revision, ...patch } = payload;
+      return await this.repo.updateTemplate(templateId, patch, revision);
+    } catch (err) {
+      if ((err as Error).message === 'STALE_TEMPLATE_REVISION')
+        throw new BadRequestException('STALE_TEMPLATE_REVISION');
+      throw err;
+    }
+  }
+
+  instantiateTemplate(templateId: string) {
+    return this.repo.instantiateTemplate(templateId);
   }
 }

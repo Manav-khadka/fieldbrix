@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import { api } from '../../api/client';
+import { useQuery } from "@tanstack/react-query";
+import { api } from "../../api/client";
 
 interface TeamCapacity {
   teamId: string;
@@ -14,8 +14,8 @@ interface CapacityResponse {
 
 export function CapacityPage() {
   const { data, isLoading } = useQuery({
-    queryKey: ['scheduling', 'capacity'],
-    queryFn: () => api.get<CapacityResponse>('/scheduling/capacity'),
+    queryKey: ["scheduling", "capacity"],
+    queryFn: () => api.get<CapacityResponse>("/scheduling/capacity"),
     refetchInterval: 60_000, // refresh every minute
   });
 
@@ -24,7 +24,7 @@ export function CapacityPage() {
       <div className="fb-page-header">
         <div>
           <h1 className="fb-page-title">Capacity</h1>
-          <p className="fb-page-subtitle">{data?.window ?? 'This week'}</p>
+          <p className="fb-page-subtitle">{data?.window ?? "This week"}</p>
         </div>
       </div>
 
@@ -32,7 +32,10 @@ export function CapacityPage() {
 
       <div className="fb-capacity-grid">
         {data?.teams.map((team) => {
-          const util = team.total > 0 ? Math.round((team.scheduled / team.total) * 100) : 0;
+          const util =
+            team.total > 0
+              ? Math.round((team.scheduled / team.total) * 100)
+              : 0;
           return (
             <div key={team.teamId} className="fb-capacity-card">
               <h2 className="fb-capacity-team">{team.name}</h2>
@@ -44,7 +47,12 @@ export function CapacityPage() {
               <div className="fb-capacity-bar-bg">
                 <div
                   className="fb-capacity-bar"
-                  style={{ width: `${Math.min(util, 100)}%`, '--util': `${util}%` } as React.CSSProperties}
+                  style={
+                    {
+                      width: `${Math.min(util, 100)}%`,
+                      "--util": `${util}%`,
+                    } as React.CSSProperties
+                  }
                   role="progressbar"
                   aria-valuenow={util}
                   aria-valuemin={0}

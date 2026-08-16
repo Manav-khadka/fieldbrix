@@ -187,6 +187,82 @@ describe('Workflow lifecycle -> task creation (e2e)', () => {
     expect(badAttachment.status).toBe(400);
   });
 
+  const PLATFORM_ADMIN_TOKEN =
+    process.env.PLATFORM_ADMIN_TOKEN ?? 'local-platform-admin';
+  const PLATFORM_ADMIN_ID = '66666666-6666-4666-8666-666666666666';
+
+  it('rejects template authoring for a tenant user but allows it for a platform admin, and instantiate copies the schema', async () => {
+    const forbidden = await request(app.getHttpServer())
+      .post('/platform/workflow-templates')
+      .set('Authorization', `Bearer ${token}`)
+      .set('idempotency-key', randomUUID())
+      .send({ name: 'Should be forbidden' });
+    expect(forbidden.status).toBe(403);
+
+    const created = await request(app.getHttpServer())
+      .post('/platform/workflow-templates')
+      .set('x-platform-admin-token', PLATFORM_ADMIN_TOKEN)
+      .set('x-platform-admin-id', PLATFORM_ADMIN_ID)
+      .set('idempotency-key', randomUUID())
+      .send({
+        name: `Quarterly inspection ${randomUUID().slice(0, 8)}`,
+        category: 'Maintenance',
+      });
+    expect(created.status).toBe(201);
+    const template = (
+      created.body as Envelope<{ id: string; revision: number }>
+    ).data;
+
+    const updated = await request(app.getHttpServer())
+      .patch(`/platform/workflow-templates/${template.id}`)
+      .set('x-platform-admin-token', PLATFORM_ADMIN_TOKEN)
+      .set('x-platform-admin-id', PLATFORM_ADMIN_ID)
+      .send({
+        revision: template.revision,
+        schema: {
+          sections: [{ id: 'sec-1', title: 'Checklist' }],
+          fields: [
+            {
+              id: 'f-1',
+              key: 'checked',
+              type: 'BOOLEAN',
+              label: 'Checked',
+              sectionId: 'sec-1',
+            },
+          ],
+          rules: [],
+        },
+      });
+    expect(updated.status).toBe(200);
+
+    const catalogue = await request(app.getHttpServer())
+      .get('/platform/workflow-templates')
+      .set('Authorization', `Bearer ${token}`);
+    const catalogueEntry = (
+      catalogue.body as Envelope<Array<{ id: string; fieldCount: number }>>
+    ).data.find((item) => item.id === template.id);
+    expect(catalogueEntry?.fieldCount).toBe(1);
+
+    const instantiated = await request(app.getHttpServer())
+      .post(`/platform/workflow-templates/${template.id}/instantiate`)
+      .set('Authorization', `Bearer ${token}`)
+      .set('idempotency-key', randomUUID())
+      .send({});
+    expect(instantiated.status).toBe(201);
+    const draftId = (instantiated.body as Envelope<{ id: string }>).data.id;
+
+    const draftDetail = await request(app.getHttpServer())
+      .get(`/workflows/${draftId}`)
+      .set('Authorization', `Bearer ${token}`);
+    const draftSchema = (
+      draftDetail.body as Envelope<{
+        schema: { fields: Array<{ key: string }> };
+      }>
+    ).data.schema;
+    // Instantiate must copy the template's schema, not just its name/description.
+    expect(draftSchema.fields.some((f) => f.key === 'checked')).toBe(true);
+  });
+
   it('duplicate() copies sections/fields with fresh IDs, not just name/description', async () => {
     const created = await request(app.getHttpServer())
       .post('/workflows')

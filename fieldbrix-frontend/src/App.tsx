@@ -331,7 +331,9 @@ function App() {
             notify={setNotice}
           />
         )}
-        {view === ("operations" as View) && <Operations request={request} notify={setNotice} />}
+        {view === ("operations" as View) && (
+          <Operations request={request} notify={setNotice} />
+        )}
       </main>
     </div>
   );

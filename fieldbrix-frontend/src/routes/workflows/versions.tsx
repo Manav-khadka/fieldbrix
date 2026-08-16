@@ -1,6 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
-import { useParams } from '@tanstack/react-router';
-import { api } from '../../api/client';
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "@tanstack/react-router";
+import { api } from "../../api/client";
 
 interface WorkflowVersion {
   id: string;
@@ -10,10 +10,10 @@ interface WorkflowVersion {
 }
 
 export function WorkflowVersionsPage() {
-  const { id } = useParams({ from: '/layout/workflows/$id/versions' });
+  const { id } = useParams({ from: "/layout/workflows/$id/versions" });
 
   const { data: versions, isLoading } = useQuery({
-    queryKey: ['workflow-versions', id],
+    queryKey: ["workflow-versions", id],
     queryFn: () => api.get<WorkflowVersion[]>(`/workflows/${id}/versions`),
   });
 
@@ -33,13 +33,25 @@ export function WorkflowVersionsPage() {
           <tbody>
             {versions?.map((v) => (
               <tr key={v.id}>
-                <td><span className="fb-badge">v{v.version}</span></td>
-                <td><span className="fb-code">{v.hash?.slice(0, 12)}…</span></td>
-                <td>{v.publishedAt ? new Date(v.publishedAt).toLocaleString() : '—'}</td>
+                <td>
+                  <span className="fb-badge">v{v.version}</span>
+                </td>
+                <td>
+                  <span className="fb-code">{v.hash?.slice(0, 12)}…</span>
+                </td>
+                <td>
+                  {v.publishedAt
+                    ? new Date(v.publishedAt).toLocaleString()
+                    : "—"}
+                </td>
               </tr>
             ))}
             {!isLoading && !versions?.length && (
-              <tr><td colSpan={3} className="fb-table-empty">No published versions yet</td></tr>
+              <tr>
+                <td colSpan={3} className="fb-table-empty">
+                  No published versions yet
+                </td>
+              </tr>
             )}
           </tbody>
         </table>

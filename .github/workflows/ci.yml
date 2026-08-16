@@ -57,6 +57,7 @@ jobs:
         run: |
           pnpm --dir fieldbrix-frontend install --frozen-lockfile
           pnpm --dir fieldbrix-frontend lint
+          pnpm --dir fieldbrix-frontend test
           pnpm --dir fieldbrix-frontend build
 
       - uses: hashicorp/setup-terraform@v4
