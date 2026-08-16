@@ -2,6 +2,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { api } from "../../api/client";
+import { AssignmentDrawer } from "./assignment-drawer";
 
 interface Task {
   id: string;
@@ -38,6 +39,7 @@ export function TaskDetailPage() {
   const { id } = useParams({ from: "/layout/tasks/$id" });
   const qc = useQueryClient();
   const [reason, setReason] = useState("");
+  const [showAssign, setShowAssign] = useState(false);
 
   const { data: task, isLoading } = useQuery({
     queryKey: ["task", id],
@@ -89,7 +91,20 @@ export function TaskDetailPage() {
             {task.status}
           </span>
         </div>
+        <div className="fb-page-actions">
+          <button
+            id="task-assign-toggle"
+            className="fb-btn fb-btn--primary"
+            onClick={() => setShowAssign((v) => !v)}
+          >
+            {showAssign ? "Cancel" : "Assign / Reassign"}
+          </button>
+        </div>
       </div>
+
+      {showAssign && (
+        <AssignmentDrawer taskId={id} onClose={() => setShowAssign(false)} />
+      )}
 
       <div className="fb-detail-grid">
         <div className="fb-card">

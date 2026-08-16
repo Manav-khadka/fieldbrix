@@ -7,6 +7,7 @@ import { AppModule } from './../src/app.module';
 
 const SEEDED_EMAIL = 'admin@fieldbrix.local';
 const SEEDED_PASSWORD = 'ChangeMe123!';
+const SEEDED_ADMIN_ID = '22222222-2222-4222-8222-222222222222';
 
 type Envelope<T> = { data: T; error?: { code: string; message: string } };
 
@@ -108,10 +109,37 @@ describe('Workflow lifecycle -> task creation (e2e)', () => {
         description: 'First visit',
       });
     expect(task.status).toBe(201);
-    const created = (task.body as Envelope<{ number: string; status: string }>)
-      .data;
+    const created = (
+      task.body as Envelope<{ id: string; number: string; status: string }>
+    ).data;
     expect(created.number).toMatch(/^FBX-/);
     expect(created.status).toBe('DRAFT');
+
+    // Assignment used to be invisible in the audit timeline — no
+    // task_history row was ever written for it, unlike every other task
+    // mutation.
+    const assigned = await request(app.getHttpServer())
+      .post(`/tasks/${created.id}/assignments`)
+      .set('Authorization', `Bearer ${token}`)
+      .set('idempotency-key', randomUUID())
+      .send({
+        workerId: SEEDED_ADMIN_ID,
+        lead: true,
+        reason: 'first assignment',
+      });
+    expect(assigned.status).toBe(201);
+
+    const history = await request(app.getHttpServer())
+      .get(`/tasks/${created.id}/history`)
+      .set('Authorization', `Bearer ${token}`);
+    const historyEntries = (
+      history.body as Envelope<Array<{ event: string; reason?: string }>>
+    ).data;
+    expect(
+      historyEntries.some(
+        (h) => h.event === 'TASK_ASSIGNED' && h.reason === 'first assignment',
+      ),
+    ).toBe(true);
   });
 
   it('blocks new task creation once the source workflow is archived, but the version stays resolvable', async () => {

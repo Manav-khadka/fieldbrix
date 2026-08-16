@@ -3,6 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { randomUUID } from 'node:crypto';
 import { DatabaseService } from '../../database/database/database.service';
 
 type Row = Record<string, unknown>;
@@ -85,7 +86,44 @@ export class TaskAssignmentService {
           payload.reason ?? null,
         ],
       );
-      return result.rows[0];
+      const assignment = result.rows[0];
+
+      // Every other task mutation (create, transition) leaves a task_history
+      // row and an outbox event — assignment silently didn't, which meant
+      // "who was assigned and when" was invisible in the audit timeline and
+      // nothing downstream (e.g. a future notification consumer) could ever
+      // react to it.
+      await client.query(
+        `INSERT INTO task_history (tenant_id, task_id, event_type, after_state, reason)
+         VALUES ($1::uuid, $2::uuid, 'TASK_ASSIGNED', $3::jsonb, $4)`,
+        [
+          tenantId,
+          taskId,
+          JSON.stringify({
+            workerId: payload.workerId ?? null,
+            teamId: payload.teamId ?? null,
+            lead: payload.lead ?? false,
+          }),
+          payload.reason ?? null,
+        ],
+      );
+      await client.query(
+        `INSERT INTO outbox_events (id, event_id, event_type, event_version, tenant_id, payload, status)
+         VALUES ($1::uuid, $2::uuid, 'task.assigned.v1', 1, $3::uuid, $4::jsonb, 'PENDING')`,
+        [
+          randomUUID(),
+          randomUUID(),
+          tenantId,
+          JSON.stringify({
+            taskId,
+            assignmentId: assignment.id,
+            workerId: payload.workerId ?? null,
+            teamId: payload.teamId ?? null,
+          }),
+        ],
+      );
+
+      return assignment;
     });
   }
 
