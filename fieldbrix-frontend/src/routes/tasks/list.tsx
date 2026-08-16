@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { api } from "../../api/client";
+import { CreateTaskForm } from "./create-task-form";
 
 interface Task {
   id: string;
@@ -28,6 +29,7 @@ export function TasksListPage() {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("");
   const [page, setPage] = useState(1);
+  const [showCreate, setShowCreate] = useState(false);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["tasks", { search, status, page }],
@@ -45,7 +47,18 @@ export function TasksListPage() {
           <h1 className="fb-page-title">Tasks</h1>
           <p className="fb-page-subtitle">{data?.total ?? 0} total tasks</p>
         </div>
+        <div className="fb-page-actions">
+          <button
+            id="tasks-new"
+            className="fb-btn fb-btn--primary"
+            onClick={() => setShowCreate((v) => !v)}
+          >
+            {showCreate ? "Cancel" : "+ New Task"}
+          </button>
+        </div>
       </div>
+
+      {showCreate && <CreateTaskForm onCreated={() => setShowCreate(false)} />}
 
       <div className="fb-toolbar">
         <input
