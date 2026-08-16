@@ -32,14 +32,21 @@ describe('Workflow lifecycle -> task creation (e2e)', () => {
       .post('/customers')
       .set('Authorization', `Bearer ${token}`)
       .set('idempotency-key', randomUUID())
-      .send({ name: 'Workflow Test Customer', code: `WFC-${randomUUID().slice(0, 8)}` });
+      .send({
+        name: 'Workflow Test Customer',
+        code: `WFC-${randomUUID().slice(0, 8)}`,
+      });
     customerId = (customer.body as Envelope<{ id: string }>).data.id;
 
     const site = await request(app.getHttpServer())
       .post('/sites')
       .set('Authorization', `Bearer ${token}`)
       .set('idempotency-key', randomUUID())
-      .send({ name: 'Workflow Test Site', code: `WFS-${randomUUID().slice(0, 8)}`, customerId });
+      .send({
+        name: 'Workflow Test Site',
+        code: `WFS-${randomUUID().slice(0, 8)}`,
+        customerId,
+      });
     siteId = (site.body as Envelope<{ id: string }>).data.id;
   });
 
@@ -47,13 +54,18 @@ describe('Workflow lifecycle -> task creation (e2e)', () => {
     await app.close();
   });
 
-  async function createPublishedWorkflow(): Promise<{ workflowId: string; versionId: string }> {
+  async function createPublishedWorkflow(): Promise<{
+    workflowId: string;
+    versionId: string;
+  }> {
     const created = await request(app.getHttpServer())
       .post('/workflows')
       .set('Authorization', `Bearer ${token}`)
       .set('idempotency-key', randomUUID())
       .send({ name: `Test workflow ${randomUUID().slice(0, 8)}` });
-    const workflow = (created.body as Envelope<{ id: string; revision: number }>).data;
+    const workflow = (
+      created.body as Envelope<{ id: string; revision: number }>
+    ).data;
 
     const withSection = await request(app.getHttpServer())
       .post(`/workflows/${workflow.id}/sections`)
@@ -61,7 +73,8 @@ describe('Workflow lifecycle -> task creation (e2e)', () => {
       .set('idempotency-key', randomUUID())
       .send({ title: 'Arrival' });
     expect(withSection.status).toBe(201);
-    const afterSection = (withSection.body as Envelope<{ revision: number }>).data;
+    const afterSection = (withSection.body as Envelope<{ revision: number }>)
+      .data;
 
     const withField = await request(app.getHttpServer())
       .post(`/workflows/${workflow.id}/fields`)
@@ -88,9 +101,15 @@ describe('Workflow lifecycle -> task creation (e2e)', () => {
       .post('/tasks')
       .set('Authorization', `Bearer ${token}`)
       .set('idempotency-key', randomUUID())
-      .send({ workflowVersionId: versionId, customerId, siteId, description: 'First visit' });
+      .send({
+        workflowVersionId: versionId,
+        customerId,
+        siteId,
+        description: 'First visit',
+      });
     expect(task.status).toBe(201);
-    const created = (task.body as Envelope<{ number: string; status: string }>).data;
+    const created = (task.body as Envelope<{ number: string; status: string }>)
+      .data;
     expect(created.number).toMatch(/^FBX-/);
     expect(created.status).toBe('DRAFT');
   });
@@ -100,7 +119,8 @@ describe('Workflow lifecycle -> task creation (e2e)', () => {
     const beforeArchive = await request(app.getHttpServer())
       .get(`/workflows/${workflowId}`)
       .set('Authorization', `Bearer ${token}`);
-    const { revision } = (beforeArchive.body as Envelope<{ revision: number }>).data;
+    const { revision } = (beforeArchive.body as Envelope<{ revision: number }>)
+      .data;
 
     const archived = await request(app.getHttpServer())
       .post(`/workflows/${workflowId}/archive`)
@@ -113,7 +133,12 @@ describe('Workflow lifecycle -> task creation (e2e)', () => {
       .post('/tasks')
       .set('Authorization', `Bearer ${token}`)
       .set('idempotency-key', randomUUID())
-      .send({ workflowVersionId: versionId, customerId, siteId, description: 'Should be blocked' });
+      .send({
+        workflowVersionId: versionId,
+        customerId,
+        siteId,
+        description: 'Should be blocked',
+      });
     expect(blockedTask.status).toBe(400);
 
     // The version itself must remain readable for any task pinned to it before the archive.
@@ -142,7 +167,12 @@ describe('Workflow lifecycle -> task creation (e2e)', () => {
       .post('/tasks')
       .set('Authorization', `Bearer ${token}`)
       .set('idempotency-key', randomUUID())
-      .send({ workflowVersionId: versionId, customerId, siteId, description: 'Attachment check' });
+      .send({
+        workflowVersionId: versionId,
+        customerId,
+        siteId,
+        description: 'Attachment check',
+      });
     expect(task.status).toBe(201);
     const taskId = (task.body as Envelope<{ id: string }>).data.id;
 
@@ -189,7 +219,10 @@ describe('Workflow lifecycle -> task creation (e2e)', () => {
       .set('Authorization', `Bearer ${token}`);
     const schema = (
       copyDetail.body as Envelope<{
-        schema: { sections: Array<{ title: string }>; fields: Array<{ key: string }> };
+        schema: {
+          sections: Array<{ title: string }>;
+          fields: Array<{ key: string }>;
+        };
       }>
     ).data.schema;
     expect(schema.sections.some((s) => s.title === 'Safety check')).toBe(true);
