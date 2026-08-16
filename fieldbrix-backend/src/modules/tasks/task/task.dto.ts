@@ -1,4 +1,10 @@
-import { IsInt, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import {
+  IsInt,
+  IsNotEmpty,
+  IsObject,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class CreateTaskDto {
@@ -6,12 +12,15 @@ export class CreateTaskDto {
   @IsOptional() @IsString() customerId?: string;
   @IsOptional() @IsString() siteId?: string;
   @IsOptional() @IsString() targetId?: string;
+  /** Complaint/work type — e.g. "PREVENTIVE", "CORRECTIVE", "COMPLAINT". */
+  @IsOptional() @IsString() workType?: string;
   @IsOptional() @IsString() description?: string;
   @IsOptional() @IsString() instructions?: string;
   @IsOptional() @IsString() scheduledAt?: string;
   @IsOptional() @IsString() dueAt?: string;
   @IsOptional() @Type(() => Number) estimatedMinutes?: number;
   @IsOptional() @IsString() priority?: string;
+  @IsOptional() @IsObject() signaturePolicy?: { required: boolean };
 }
 
 export class UpdateTaskDto {

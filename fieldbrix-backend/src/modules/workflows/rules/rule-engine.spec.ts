@@ -351,6 +351,132 @@ describe('evaluateRules', () => {
       expect(out.evidence.filter((e) => e === 'photo').length).toBe(1);
     });
   });
+
+  describe('action: set_enabled', () => {
+    it('tracks enabled state per field key, defaulting true unless explicitly false', () => {
+      const out = evaluateRules(
+        [
+          rule({
+            actions: [
+              { type: 'set_enabled', fieldKey: 'note', value: false },
+              { type: 'set_enabled', fieldKey: 'photo' },
+            ],
+          }),
+        ],
+        {},
+      );
+      expect(out.enabled.note).toBe(false);
+      expect(out.enabled.photo).toBe(true);
+    });
+
+    it('lets the higher-priority rule win a conflict', () => {
+      const out = evaluateRules(
+        [
+          rule({
+            id: 'low',
+            priority: 0,
+            actions: [{ type: 'set_enabled', fieldKey: 'note', value: true }],
+          }),
+          rule({
+            id: 'high',
+            priority: 10,
+            actions: [{ type: 'set_enabled', fieldKey: 'note', value: false }],
+          }),
+        ],
+        {},
+      );
+      expect(out.enabled.note).toBe(false);
+    });
+  });
+
+  describe('action: set_default', () => {
+    it('records the fixed default value for a field', () => {
+      const out = evaluateRules(
+        [
+          rule({
+            actions: [
+              { type: 'set_default', fieldKey: 'condition', value: 'GOOD' },
+            ],
+          }),
+        ],
+        {},
+      );
+      expect(out.defaults.condition).toBe('GOOD');
+    });
+
+    it('lets the higher-priority rule win a conflicting default', () => {
+      const out = evaluateRules(
+        [
+          rule({
+            id: 'low',
+            priority: 0,
+            actions: [
+              { type: 'set_default', fieldKey: 'condition', value: 'GOOD' },
+            ],
+          }),
+          rule({
+            id: 'high',
+            priority: 10,
+            actions: [
+              { type: 'set_default', fieldKey: 'condition', value: 'POOR' },
+            ],
+          }),
+        ],
+        {},
+      );
+      expect(out.defaults.condition).toBe('POOR');
+    });
+  });
+
+  describe('actions: require_note / require_photo / require_signature', () => {
+    it('routes each requirement type to its own outcome bucket, deduplicated', () => {
+      const out = evaluateRules(
+        [
+          rule({
+            actions: [
+              { type: 'require_note', fieldKey: 'summary' },
+              { type: 'require_note', fieldKey: 'summary' },
+              { type: 'require_photo', fieldKey: 'evidence' },
+              { type: 'require_signature', fieldKey: 'sign_off' },
+            ],
+          }),
+        ],
+        {},
+      );
+      expect(out.requiredNotes).toEqual(['summary']);
+      expect(out.requiredPhotos).toEqual(['evidence']);
+      expect(out.requiredSignatures).toEqual(['sign_off']);
+    });
+  });
+
+  describe('actions: supervisor_alert / supervisor_review', () => {
+    it('collects supervisor alert messages', () => {
+      const out = evaluateRules(
+        [
+          rule({
+            actions: [
+              { type: 'supervisor_alert', message: 'Escalate immediately' },
+            ],
+          }),
+        ],
+        {},
+      );
+      expect(out.supervisorAlerts).toContain('Escalate immediately');
+    });
+
+    it('sets supervisorReviewRequired when a supervisor_review action fires', () => {
+      const out = evaluateRules(
+        [rule({ actions: [{ type: 'supervisor_review' }] })],
+        {},
+      );
+      expect(out.supervisorReviewRequired).toBe(true);
+    });
+
+    it('defaults supervisorReviewRequired to false with no matching rule', () => {
+      const out = evaluateRules([], {});
+      expect(out.supervisorReviewRequired).toBe(false);
+    });
+  });
 });
 
 // ─── validateRules ────────────────────────────────────────────────────────────
@@ -468,6 +594,27 @@ describe('validateRules', () => {
           actions: [
             { type: 'set_required', fieldKey: 'note', value: true },
             { type: 'set_required', fieldKey: 'note', value: false },
+          ],
+        },
+      ],
+      fieldKeys,
+    );
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((e) => e.code === 'CONTRADICTORY_ACTION')).toBe(
+      true,
+    );
+  });
+
+  it('flags a rule that both enables and disables the same field', () => {
+    const result = validateRules(
+      [
+        {
+          id: 'r1',
+          priority: 0,
+          conditions: [],
+          actions: [
+            { type: 'set_enabled', fieldKey: 'note', value: true },
+            { type: 'set_enabled', fieldKey: 'note', value: false },
           ],
         },
       ],

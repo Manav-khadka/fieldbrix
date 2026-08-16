@@ -1022,6 +1022,53 @@ export class PlatformRepository {
     );
     return rows[0];
   }
+  /**
+   * Real sync/import/inactivity health, computed on demand rather than
+   * stored as a static default. `outbox_events` is the tenant's actual sync
+   * timeline — every task/workflow/master-data/import mutation appends one
+   * (indexed by `outbox_tenant_idx (tenant_id, created_at DESC)`), so its
+   * most recent row is a far more complete activity signal than any single
+   * module's own audit trail. `DEAD_LETTERED` rows are sync deliveries that
+   * genuinely failed; recent import job failures are a second, business-
+   * level source of the same "something isn't syncing cleanly" signal.
+   */
+  async computeSyncHealth(tenantId: string): Promise<{
+    syncHealth: 'healthy' | 'degraded' | 'inactive';
+    lastActivityAt: string | null;
+  }> {
+    const [activityRows, deadLetterRows, importFailureRows] =
+      await Promise.all([
+        this.database.query<{ lastActivityAt: string | null }>(
+          'SELECT MAX(created_at) AS "lastActivityAt" FROM outbox_events WHERE tenant_id = $1::uuid',
+          [tenantId],
+        ),
+        this.database.query<{ count: string }>(
+          `SELECT count(*)::text AS count FROM outbox_events
+           WHERE tenant_id = $1::uuid AND status = 'DEAD_LETTERED'
+             AND created_at > now() - interval '24 hours'`,
+          [tenantId],
+        ),
+        this.database.query<{ count: string }>(
+          `SELECT count(*)::text AS count FROM import_jobs
+           WHERE tenant_id = $1::uuid AND status IN ('FAILED', 'PARTIAL')
+             AND updated_at > now() - interval '24 hours'`,
+          [tenantId],
+        ),
+      ]);
+    const lastActivityAt = activityRows[0]?.lastActivityAt ?? null;
+    const recentFailures =
+      Number(deadLetterRows[0]?.count ?? 0) +
+      Number(importFailureRows[0]?.count ?? 0);
+    const inactiveThresholdMs = 14 * 24 * 60 * 60_000;
+    const syncHealth =
+      !lastActivityAt ||
+      Date.now() - new Date(lastActivityAt).getTime() > inactiveThresholdMs
+        ? 'inactive'
+        : recentFailures > 0
+          ? 'degraded'
+          : 'healthy';
+    return { syncHealth, lastActivityAt };
+  }
   async insertGodSession(record: GodSessionRecord): Promise<void> {
     await this.database.transaction(async (client) => {
       await client.query('SELECT set_config($1, $2, true)', [

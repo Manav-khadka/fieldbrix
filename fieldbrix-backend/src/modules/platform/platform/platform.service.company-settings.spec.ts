@@ -87,4 +87,44 @@ describe('PlatformService.updateCompany — policy field validation', () => {
       }),
     ).rejects.toThrow('BRANCH_TERMINOLOGY_NOT_ALLOWED');
   });
+
+  it('accepts a well-formed branding patch', async () => {
+    const result = await service.updateCompany(token, {
+      colorTheme: '#1A2B3C',
+      dateFormat: 'DD/MM/YYYY',
+      numberFormat: '1.234,56',
+      logoObjectKey: 'tenants/demo/logo.png',
+    });
+    expect(result.colorTheme).toBe('#1A2B3C');
+    expect(result.dateFormat).toBe('DD/MM/YYYY');
+    expect(result.numberFormat).toBe('1.234,56');
+    expect(result.logoObjectKey).toBe('tenants/demo/logo.png');
+  });
+
+  it('rejects a color theme that is not a 6-digit hex code', async () => {
+    await expect(
+      service.updateCompany(token, { colorTheme: 'blue' }),
+    ).rejects.toThrow('INVALID_COLOR_THEME');
+    await expect(
+      service.updateCompany(token, { colorTheme: '#FFF' }),
+    ).rejects.toThrow('INVALID_COLOR_THEME');
+  });
+
+  it('rejects a date format outside the supported set', async () => {
+    await expect(
+      service.updateCompany(token, { dateFormat: 'DD-MM-YY' }),
+    ).rejects.toThrow('INVALID_DATE_FORMAT');
+  });
+
+  it('rejects a number format outside the supported set', async () => {
+    await expect(
+      service.updateCompany(token, { numberFormat: '1_234.56' }),
+    ).rejects.toThrow('INVALID_NUMBER_FORMAT');
+  });
+
+  it('rejects an empty logo object key', async () => {
+    await expect(
+      service.updateCompany(token, { logoObjectKey: '   ' }),
+    ).rejects.toThrow('INVALID_LOGO_OBJECT_KEY');
+  });
 });

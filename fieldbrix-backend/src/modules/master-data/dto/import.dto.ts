@@ -13,6 +13,7 @@ export const IMPORTABLE_ENTITY_TYPES = [
   'sites',
   'service_targets',
   'parts',
+  'users',
 ] as const;
 export type ImportableEntityType = (typeof IMPORTABLE_ENTITY_TYPES)[number];
 

@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useParams } from "@tanstack/react-router";
+import { Link, useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { api } from "../../api/client";
 
@@ -107,6 +107,13 @@ export function WorkflowBuilderPage() {
           </p>
         </div>
         <div className="fb-page-actions">
+          <Link
+            to="/workflows/$id/rules"
+            params={{ id: id }}
+            className="fb-btn fb-btn--ghost"
+          >
+            Rules →
+          </Link>
           <button
             id="workflow-publish"
             className="fb-btn fb-btn--primary"

@@ -13,7 +13,7 @@ interface ImportJob {
   createdAt: string;
 }
 
-const ENTITY_TYPES = ["customers", "sites", "service_targets", "parts"];
+const ENTITY_TYPES = ["customers", "sites", "service_targets", "parts", "users"];
 
 export function ImportsPage() {
   const [entityType, setEntityType] = useState("customers");

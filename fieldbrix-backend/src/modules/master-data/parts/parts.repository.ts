@@ -18,6 +18,6 @@ const PART_COLUMNS = ['name', 'code', 'compatibility', 'unit', 'active'];
 @Injectable()
 export class PartsRepository extends MasterRecordRepository<PartRecord> {
   constructor(database: DatabaseService) {
-    super(database, 'master_parts', PART_COLUMNS, PART_COLUMNS);
+    super(database, 'master_parts', PART_COLUMNS, PART_COLUMNS, 'part');
   }
 }

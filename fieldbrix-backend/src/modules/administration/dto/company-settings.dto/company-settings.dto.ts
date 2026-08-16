@@ -30,4 +30,9 @@ export class CompanySettingsDto {
   approvalPolicy?: { required: boolean; approverRoleKey?: string };
   @IsOptional() @IsObject() latePolicy?: { graceMinutes: number };
   @IsOptional() @IsObject() exceptionPolicy?: { requireReason: boolean };
+  @IsOptional() @IsString() colorTheme?: string;
+  @IsOptional() @IsString() dateFormat?: string;
+  @IsOptional() @IsString() numberFormat?: string;
+  /** Object-storage key of a logo already uploaded via /files/upload-intents. */
+  @IsOptional() @IsString() logoObjectKey?: string;
 }

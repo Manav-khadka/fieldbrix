@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { TaskRepository } from './task.repository';
+import { computeTimeBasedFlags, mergeTaskFlags } from './task-flags';
 import type {
   CreateTaskDto,
   UpdateTaskDto,
@@ -8,16 +9,34 @@ import type {
 
 const IMMUTABLE_FIELDS = ['number', 'workflowVersionId', 'taskNumber'] as const;
 
+type Row = Record<string, unknown>;
+
 @Injectable()
 export class TaskService {
   constructor(private readonly repo: TaskRepository) {}
 
-  list(query: ListTasksQueryDto) {
-    return this.repo.list(query);
+  private async withComputedFlags(tasks: Row[]): Promise<Row[]> {
+    if (tasks.length === 0) return tasks;
+    const deadLettered = await this.repo.findDeadLetteredTaskIds();
+    return tasks.map((task) => {
+      const computed = computeTimeBasedFlags({
+        status: String(task.status),
+        dueAt: task.dueAt as string | null | undefined,
+      });
+      if (deadLettered.has(String(task.id))) computed.push('SYNC_PENDING');
+      return { ...task, flags: mergeTaskFlags(task.flags, computed) };
+    });
   }
 
-  get(id: string) {
-    return this.repo.findById(id);
+  async list(query: ListTasksQueryDto) {
+    const result = await this.repo.list(query);
+    return { ...result, items: await this.withComputedFlags(result.items) };
+  }
+
+  async get(id: string) {
+    const task = await this.repo.findById(id);
+    const [withFlags] = await this.withComputedFlags([task]);
+    return withFlags;
   }
 
   async create(dto: CreateTaskDto) {

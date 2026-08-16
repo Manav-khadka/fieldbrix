@@ -37,7 +37,13 @@ const SITE_UPDATE_COLUMNS = SITE_CREATE_COLUMNS.filter(
 @Injectable()
 export class SitesRepository extends MasterRecordRepository<SiteRecord> {
   constructor(database: DatabaseService) {
-    super(database, 'master_sites', SITE_CREATE_COLUMNS, SITE_UPDATE_COLUMNS);
+    super(
+      database,
+      'master_sites',
+      SITE_CREATE_COLUMNS,
+      SITE_UPDATE_COLUMNS,
+      'site',
+    );
   }
 
   async customerExists(customerId: string): Promise<boolean> {

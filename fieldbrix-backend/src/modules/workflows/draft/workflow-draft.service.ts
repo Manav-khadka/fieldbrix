@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { randomUUID } from 'node:crypto';
 import { WorkflowDraftRepository } from './workflow-draft.repository';
-import { isKnownFieldType } from '../field-type.registry';
+import { getFieldTypeRegistry, isKnownFieldType } from '../field-type.registry';
 import type {
   CreateWorkflowDto,
   UpdateWorkflowDto,
@@ -11,6 +11,9 @@ import type {
   UpdateFieldDto,
   ReorderDto,
 } from './workflow.dto';
+
+const FIELD_LABEL_MAX_LENGTH = 200;
+const FIELD_HELP_MAX_LENGTH = 1000;
 
 @Injectable()
 export class WorkflowDraftService {
@@ -84,10 +87,30 @@ export class WorkflowDraftService {
       throw new BadRequestException('FIELD_KEY_TYPE_LABEL_REQUIRED');
     if (!isKnownFieldType(dto.type))
       throw new BadRequestException(`UNKNOWN_FIELD_TYPE: ${String(dto.type)}`);
+    if (dto.label.length > FIELD_LABEL_MAX_LENGTH)
+      throw new BadRequestException(
+        `FIELD_LABEL_TOO_LONG: max ${FIELD_LABEL_MAX_LENGTH} characters`,
+      );
+    if (dto.help && dto.help.length > FIELD_HELP_MAX_LENGTH)
+      throw new BadRequestException(
+        `FIELD_HELP_TOO_LONG: max ${FIELD_HELP_MAX_LENGTH} characters`,
+      );
     const current = await this.repo.findById(id);
     const rev = revision ?? (current.revision as number);
     const schema = current.schema as Record<string, unknown>;
-    const fields = (schema.fields as unknown[]) ?? [];
+    const fields = (schema.fields as Array<Record<string, unknown>>) ?? [];
+    if (fields.some((field) => field.key === dto.key))
+      throw new BadRequestException(`DUPLICATE_FIELD_KEY: ${dto.key}`);
+    const typeEntry = getFieldTypeRegistry().find(
+      (entry) => entry.type === dto.type,
+    );
+    if (typeEntry?.supportsOptions) {
+      const options =
+        (dto.config?.options as Array<{ value: string }> | undefined) ?? [];
+      const values = options.map((option) => option.value);
+      if (new Set(values).size !== values.length)
+        throw new BadRequestException('DUPLICATE_FIELD_OPTION_VALUE');
+    }
     const position = dto.position ?? fields.length;
     return this.repo.addToSchema(id, 'fields', { ...dto, position }, rev);
   }

@@ -88,6 +88,7 @@ function App() {
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   const [busy, setBusy] = useState(false);
+  const [godSession, setGodSession] = useState<GodSession | null>(null);
   const request = useCallback(
     async (path: string, options: RequestInit = {}, platform = false) => {
       const headers = new Headers(options.headers);
@@ -149,6 +150,22 @@ function App() {
   useEffect(() => {
     void refresh();
   }, [refresh]);
+  const endGodMode = useCallback(async () => {
+    if (!godSession) return;
+    try {
+      await request(
+        `/platform/god-sessions/${godSession.id}/end`,
+        { method: "POST" },
+        true,
+      );
+      setGodSession(null);
+      setNotice("God-mode context ended");
+    } catch (reason) {
+      setError(
+        reason instanceof Error ? reason.message : "Unable to end god mode",
+      );
+    }
+  }, [godSession, request]);
   const login = async (event: FormEvent) => {
     event.preventDefault();
     setBusy(true);
@@ -263,6 +280,22 @@ function App() {
             <span className="avatar">{(profile?.name ?? "A").slice(0, 1)}</span>
           </div>
         </header>
+        {godSession && (
+          <div className="god-banner app-god-banner" role="status">
+            <b>God mode active</b>
+            <span>
+              {godSession.tenantId} · expires{" "}
+              {new Date(godSession.expiresAt).toLocaleTimeString()}
+            </span>
+            <small>
+              Every action is audited. This context is not available to
+              workforce users.
+            </small>
+            <button className="secondary-button" onClick={() => void endGodMode()}>
+              End context
+            </button>
+          </div>
+        )}
         {error && (
           <div className="alert error" role="alert">
             ! {error}
@@ -291,6 +324,9 @@ function App() {
             request={request}
             refresh={refresh}
             notify={setNotice}
+            godSession={godSession}
+            onStartGodMode={setGodSession}
+            onEndGodMode={endGodMode}
           />
         )}
         {view === "company" && (
@@ -339,7 +375,7 @@ function App() {
   );
 }
 
-function Login({
+export function Login({
   identifier,
   password,
   setIdentifier,
@@ -838,6 +874,9 @@ function Tenants({
   request,
   refresh,
   notify,
+  godSession,
+  onStartGodMode,
+  onEndGodMode,
 }: {
   tenants: Tenant[];
   request: (
@@ -847,6 +886,9 @@ function Tenants({
   ) => Promise<any>;
   refresh: () => Promise<void>;
   notify: (message: string) => void;
+  godSession: GodSession | null;
+  onStartGodMode: (session: GodSession) => void;
+  onEndGodMode: () => Promise<void>;
 }) {
   const [name, setName] = useState("");
   const [usage, setUsage] = useState<Record<string, unknown> | null>(null);
@@ -964,7 +1006,14 @@ function Tenants({
           <pre>{JSON.stringify(usage, null, 2)}</pre>
         </section>
       )}
-      <GodMode tenants={tenants} request={request} notify={notify} />
+      <GodMode
+        tenants={tenants}
+        request={request}
+        notify={notify}
+        session={godSession}
+        onStart={onStartGodMode}
+        onEnd={onEndGodMode}
+      />
     </div>
   );
 }
@@ -988,6 +1037,11 @@ function Company({
   const [timezone, setTimezone] = useState("Asia/Muscat");
   const [locale, setLocale] = useState("en-GB");
   const [terminology, setTerminology] = useState("");
+  const [colorTheme, setColorTheme] = useState("#2C6E8C");
+  const [dateFormat, setDateFormat] = useState("YYYY-MM-DD");
+  const [numberFormat, setNumberFormat] = useState("1,234.56");
+  const [logoObjectKey, setLogoObjectKey] = useState("");
+  const [logoBusy, setLogoBusy] = useState(false);
   useEffect(() => {
     void request("/company")
       .then((settings) => {
@@ -996,9 +1050,52 @@ function Company({
         if (typeof settings?.locale === "string") setLocale(settings.locale);
         if (settings?.terminology && typeof settings.terminology === "object")
           setTerminology(JSON.stringify(settings.terminology));
+        if (typeof settings?.colorTheme === "string")
+          setColorTheme(settings.colorTheme);
+        if (typeof settings?.dateFormat === "string")
+          setDateFormat(settings.dateFormat);
+        if (typeof settings?.numberFormat === "string")
+          setNumberFormat(settings.numberFormat);
+        if (typeof settings?.logoObjectKey === "string")
+          setLogoObjectKey(settings.logoObjectKey);
       })
       .catch(() => undefined);
   }, [request]);
+  const uploadLogo = async (file: File) => {
+    setLogoBusy(true);
+    try {
+      const checksum = await sha256Base64(file);
+      const intent = await request("/files/upload-intents", {
+        method: "POST",
+        headers: { "idempotency-key": crypto.randomUUID() },
+        body: JSON.stringify({ mime: file.type, size: file.size, checksum }),
+      });
+      const signedUrl = String(intent.url).replace(
+        /^https?:\/\/[^/]+\.localstack:4566/,
+        `http://localhost:4566/${localObjectBucket}`,
+      );
+      const uploadResponse = await fetch(signedUrl, {
+        method: "PUT",
+        headers: intent.headers,
+        body: file,
+      });
+      if (!uploadResponse.ok)
+        throw new Error("The object store rejected the logo upload");
+      await request(`/files/${intent.uploadId}/complete`, {
+        method: "POST",
+        headers: { "idempotency-key": crypto.randomUUID() },
+        body: JSON.stringify({ checksum }),
+      });
+      setLogoObjectKey(intent.uploadId);
+      notify("Logo uploaded — save changes to apply it");
+    } catch (reason) {
+      notify(
+        reason instanceof Error ? reason.message : "Unable to upload logo",
+      );
+    } finally {
+      setLogoBusy(false);
+    }
+  };
   const add = async (event: FormEvent, kind: "branches" | "teams") => {
     event.preventDefault();
     try {
@@ -1028,6 +1125,10 @@ function Company({
           timezone,
           locale,
           terminology: parsedTerminology,
+          colorTheme,
+          dateFormat,
+          numberFormat,
+          ...(logoObjectKey ? { logoObjectKey } : {}),
         }),
       });
       notify("Company settings saved");
@@ -1101,6 +1202,53 @@ function Company({
                 onChange={(event) => setTerminology(event.target.value)}
               />
             </label>
+            <label>
+              Brand color
+              <input
+                type="color"
+                value={colorTheme}
+                onChange={(event) => setColorTheme(event.target.value)}
+              />
+            </label>
+            <label>
+              Date format
+              <select
+                value={dateFormat}
+                onChange={(event) => setDateFormat(event.target.value)}
+              >
+                <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+              </select>
+            </label>
+            <label>
+              Number format
+              <select
+                value={numberFormat}
+                onChange={(event) => setNumberFormat(event.target.value)}
+              >
+                <option value="1,234.56">1,234.56</option>
+                <option value="1.234,56">1.234,56</option>
+                <option value="1 234,56">1 234,56</option>
+              </select>
+            </label>
+            <label>
+              Logo
+              <input
+                type="file"
+                accept="image/png,image/jpeg,image/svg+xml"
+                disabled={logoBusy}
+                onChange={(event) => {
+                  const file = event.target.files?.[0];
+                  if (file) void uploadLogo(file);
+                }}
+              />
+              {logoObjectKey && (
+                <small className="form-copy">
+                  {logoBusy ? "Uploading…" : `Current logo: ${logoObjectKey}`}
+                </small>
+              )}
+            </label>
             <button
               className="primary-button"
               onClick={() => void saveSettings()}
@@ -1110,7 +1258,7 @@ function Company({
           </div>
           <div className="panel preview">
             <span className="eyebrow accent">LIVE PREVIEW</span>
-            <h3>{companyName}</h3>
+            <h3 style={{ color: colorTheme }}>{companyName}</h3>
             <p>Operations workspace</p>
             <hr />
             <span>
@@ -1118,6 +1266,16 @@ function Company({
             </span>
             <span>
               Local time <b>{timezone.replace("/", " / ")}</b>
+            </span>
+            <span>
+              Date shown as <b>{dateFormat}</b>
+            </span>
+            <span>
+              Numbers shown as <b>{numberFormat}</b>
+            </span>
+            <span className="brand-swatch-row">
+              Brand color <i style={{ background: colorTheme }} />
+              <b>{colorTheme}</b>
             </span>
           </div>
         </section>
@@ -1302,10 +1460,15 @@ function People({
   );
 }
 
+type GodSession = { id: string; tenantId: string; expiresAt: string };
+
 function GodMode({
   tenants,
   request,
   notify,
+  session,
+  onStart,
+  onEnd,
 }: {
   tenants: Tenant[];
   request: (
@@ -1314,14 +1477,12 @@ function GodMode({
     platform?: boolean,
   ) => Promise<any>;
   notify: (message: string) => void;
+  session: GodSession | null;
+  onStart: (session: GodSession) => void;
+  onEnd: () => Promise<void>;
 }) {
   const [tenantId, setTenantId] = useState(tenants[0]?.id ?? "");
   const [reason, setReason] = useState("");
-  const [session, setSession] = useState<{
-    id: string;
-    tenantId: string;
-    expiresAt: string;
-  } | null>(null);
   useEffect(() => {
     if (!tenantId && tenants[0]) setTenantId(tenants[0].id);
   }, [tenantId, tenants]);
@@ -1340,7 +1501,7 @@ function GodMode({
         },
         true,
       );
-      setSession(next);
+      onStart(next);
       notify("God-mode context started and is audited");
     } catch (error) {
       notify(
@@ -1348,26 +1509,12 @@ function GodMode({
       );
     }
   };
-  const end = async () => {
-    if (!session) return;
-    try {
-      await request(
-        `/platform/god-sessions/${session.id}/end`,
-        { method: "POST" },
-        true,
-      );
-      setSession(null);
-      notify("God-mode context ended");
-    } catch (error) {
-      notify(error instanceof Error ? error.message : "Unable to end god mode");
-    }
-  };
   return (
     <section className={`panel god-panel ${session ? "active" : ""}`}>
       <PanelTitle
         title="Platform context"
         action={session ? "End context" : undefined}
-        onClick={() => void end()}
+        onClick={() => void onEnd()}
       />
       {session ? (
         <div className="god-banner">

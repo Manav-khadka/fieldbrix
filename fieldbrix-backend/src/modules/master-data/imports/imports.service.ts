@@ -53,7 +53,7 @@ export class ImportsService {
     );
   }
 
-  async commit(importId: string, previewRevision: number) {
+  async commit(importId: string, previewRevision: number, actorToken?: string) {
     await this.repository.beginCommit(importId, previewRevision);
     const job = await this.repository.findJob(importId);
     const validRows = await this.repository.findRows(importId, 'VALID');
@@ -61,9 +61,15 @@ export class ImportsService {
     let errors = 0;
     for (const row of validRows) {
       const result = await this.processor.commitRow(
-        job.entityType as 'customers' | 'sites' | 'service_targets' | 'parts',
+        job.entityType as
+          | 'customers'
+          | 'sites'
+          | 'service_targets'
+          | 'parts'
+          | 'users',
         row.rowData,
         job.duplicateMode,
+        actorToken,
       );
       if (result.outcome === 'ERROR') {
         errors += 1;

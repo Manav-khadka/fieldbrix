@@ -154,10 +154,6 @@ export class ImportsRepository {
     eventType: string,
     payload: Record<string, unknown>,
   ): Promise<void> {
-    await this.database.tenantQuery(
-      `INSERT INTO outbox_events (id, event_id, event_type, event_version, tenant_id, payload, status)
-       VALUES (gen_random_uuid(), gen_random_uuid(), $1, 1, current_setting('app.tenant_id', true)::uuid, $2::jsonb, 'PENDING')`,
-      [eventType, JSON.stringify(payload)],
-    );
+    await this.database.emitOutboxEvent(eventType, payload);
   }
 }

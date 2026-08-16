@@ -15,6 +15,9 @@ import { StorageService } from '../../storage/storage/storage.service';
 import { QueueService } from '../../queue/queue/queue.service';
 import { NotificationsService } from '../../notifications/notifications/notifications.service';
 
+const COMPANY_DATE_FORMATS = ['YYYY-MM-DD', 'DD/MM/YYYY', 'MM/DD/YYYY'] as const;
+const COMPANY_NUMBER_FORMATS = ['1,234.56', '1.234,56', '1 234,56'] as const;
+
 type Tenant = {
   id: string;
   name: string;
@@ -891,6 +894,14 @@ export class PlatformService {
       lastActivityAt: tenant.updatedAt,
       syncHealth: 'inactive' as const,
     };
+    if (/^[0-9a-f-]{36}$/i.test(id)) {
+      const health = await this.repository.computeSyncHealth(id);
+      usage = {
+        ...usage,
+        syncHealth: health.syncHealth,
+        lastActivityAt: health.lastActivityAt ?? usage.lastActivityAt,
+      };
+    }
     this.usage.set(id, usage);
     if (/^[0-9a-f-]{36}$/i.test(id))
       void this.repository
@@ -1295,6 +1306,31 @@ export class PlatformService {
         (next.gpsRadiusMeters as number) > 2000)
     )
       throw new ConflictException('INVALID_GPS_RADIUS');
+    if (
+      next.colorTheme !== undefined &&
+      (typeof next.colorTheme !== 'string' ||
+        !/^#[0-9A-Fa-f]{6}$/.test(next.colorTheme))
+    )
+      throw new ConflictException('INVALID_COLOR_THEME');
+    if (
+      next.dateFormat !== undefined &&
+      !(COMPANY_DATE_FORMATS as readonly unknown[]).includes(next.dateFormat)
+    )
+      throw new ConflictException('INVALID_DATE_FORMAT');
+    if (
+      next.numberFormat !== undefined &&
+      !(COMPANY_NUMBER_FORMATS as readonly unknown[]).includes(
+        next.numberFormat,
+      )
+    )
+      throw new ConflictException('INVALID_NUMBER_FORMAT');
+    if (
+      next.logoObjectKey !== undefined &&
+      (typeof next.logoObjectKey !== 'string' ||
+        !next.logoObjectKey.trim() ||
+        next.logoObjectKey.length > 500)
+    )
+      throw new ConflictException('INVALID_LOGO_OBJECT_KEY');
     for (const [field, requiredKeys] of Object.entries({
       signaturePolicy: ['required'],
       refusalPolicy: ['allowed', 'requireReason'],

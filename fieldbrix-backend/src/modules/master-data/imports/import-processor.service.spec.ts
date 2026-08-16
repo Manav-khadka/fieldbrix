@@ -11,17 +11,26 @@ const makeRepo = (overrides: Record<string, unknown> = {}) => ({
 
 const makeQr = () => ({ generate: jest.fn().mockReturnValue('QR-ABC123') });
 
+const makePlatform = (overrides: Record<string, unknown> = {}) => ({
+  inviteUser: jest
+    .fn()
+    .mockResolvedValue({ invitationToken: 'invite-token', expiresAt: '' }),
+  ...overrides,
+});
+
 function makeProcessor(repoOverrides?: {
   customers?: Record<string, unknown>;
   sites?: Record<string, unknown>;
   serviceTargets?: Record<string, unknown>;
   parts?: Record<string, unknown>;
+  platform?: Record<string, unknown>;
 }) {
   const customers = makeRepo(repoOverrides?.customers);
   const sites = makeRepo(repoOverrides?.sites);
   const serviceTargets = makeRepo(repoOverrides?.serviceTargets);
   const parts = makeRepo(repoOverrides?.parts);
   const qr = makeQr();
+  const platform = makePlatform(repoOverrides?.platform);
   /* eslint-disable @typescript-eslint/no-unsafe-argument */
   const processor = new ImportProcessorService(
     customers as any,
@@ -29,9 +38,10 @@ function makeProcessor(repoOverrides?: {
     serviceTargets as any,
     parts as any,
     qr as any,
+    platform as any,
   );
   /* eslint-enable @typescript-eslint/no-unsafe-argument */
-  return { processor, customers, sites, serviceTargets, parts, qr };
+  return { processor, customers, sites, serviceTargets, parts, qr, platform };
 }
 
 // ─── validateRow ──────────────────────────────────────────────────────────────
@@ -119,6 +129,25 @@ describe('ImportProcessorService.validateRow', () => {
           code: 'BLT',
           unit: 'pcs',
         }).valid,
+      ).toBe(true);
+    });
+  });
+
+  describe('users', () => {
+    it('fails without an email', () => {
+      const r = processor.validateRow('users', {});
+      expect(r.valid).toBe(false);
+      expect(r.errorCode).toBe('REQUIRED_FIELD');
+    });
+    it('fails with a malformed email', () => {
+      const r = processor.validateRow('users', { email: 'not-an-email' });
+      expect(r.valid).toBe(false);
+      expect(r.errorCode).toBe('INVALID_EMAIL');
+    });
+    it('passes with a well-formed email', () => {
+      expect(
+        processor.validateRow('users', { email: 'tech@fieldbrix.local' })
+          .valid,
       ).toBe(true);
     });
   });
@@ -240,6 +269,53 @@ describe('ImportProcessorService.commitRow', () => {
       );
       expect(result.outcome).toBe('CREATED');
       expect(parts.create).toHaveBeenCalled();
+    });
+  });
+
+  describe('users — invitation via PlatformService', () => {
+    it('returns ERROR without an actor token, never calling inviteUser', async () => {
+      const { processor, platform } = makeProcessor();
+      const result = await processor.commitRow(
+        'users',
+        { email: 'tech@fieldbrix.local' },
+        'reject',
+      );
+      expect(result.outcome).toBe('ERROR');
+      if (result.outcome === 'ERROR')
+        expect(result.errorCode).toBe('UNAUTHORIZED');
+      expect(platform.inviteUser).not.toHaveBeenCalled();
+    });
+
+    it('invites the row email as the authenticated actor and returns CREATED', async () => {
+      const { processor, platform } = makeProcessor();
+      const result = await processor.commitRow(
+        'users',
+        { email: 'tech@fieldbrix.local' },
+        'reject',
+        'actor-token',
+      );
+      expect(result.outcome).toBe('CREATED');
+      expect(platform.inviteUser).toHaveBeenCalledWith(
+        'actor-token',
+        'tech@fieldbrix.local',
+      );
+    });
+
+    it('surfaces PlatformService.inviteUser failures as ERROR outcomes', async () => {
+      const { processor } = makeProcessor({
+        platform: {
+          inviteUser: jest.fn().mockRejectedValue(new Error('FORBIDDEN')),
+        },
+      });
+      const result = await processor.commitRow(
+        'users',
+        { email: 'tech@fieldbrix.local' },
+        'reject',
+        'actor-token',
+      );
+      expect(result.outcome).toBe('ERROR');
+      if (result.outcome === 'ERROR')
+        expect(result.errorCode).toBe('INVITE_FAILED');
     });
   });
 });

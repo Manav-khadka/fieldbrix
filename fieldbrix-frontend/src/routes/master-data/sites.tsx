@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
 import { api } from "../../api/client";
+import { SiteForm } from "./site-form";
 
 interface Site {
   id: string;
@@ -11,9 +18,25 @@ interface Site {
   createdAt: string;
 }
 
+const columnHelper = createColumnHelper<Site>();
+const columns = [
+  columnHelper.accessor("name", { header: "Name" }),
+  columnHelper.accessor("code", {
+    header: "Code",
+    cell: (info) => <span className="fb-badge">{info.getValue()}</span>,
+  }),
+  columnHelper.accessor("createdAt", {
+    header: "Created",
+    cell: (info) =>
+      info.getValue() ? new Date(info.getValue()).toLocaleDateString() : "—",
+  }),
+];
+
 export function SitesPage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [creating, setCreating] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["sites", { search, page }],
@@ -24,6 +47,13 @@ export function SitesPage() {
     placeholderData: (prev) => prev,
   });
 
+  const table = useReactTable({
+    data: data?.items ?? [],
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    manualPagination: true,
+  });
+
   return (
     <div className="fb-page">
       <div className="fb-page-header">
@@ -31,7 +61,23 @@ export function SitesPage() {
           <h1 className="fb-page-title">Sites</h1>
           <p className="fb-page-subtitle">{data?.total ?? 0} total records</p>
         </div>
+        <button
+          id="sites-add"
+          className="fb-btn fb-btn--primary"
+          onClick={() => {
+            setEditingId(null);
+            setCreating((open) => !open);
+          }}
+        >
+          {creating ? "Cancel" : "+ Add site"}
+        </button>
       </div>
+
+      {creating && <SiteForm onDone={() => setCreating(false)} />}
+      {editingId && (
+        <SiteForm siteId={editingId} onDone={() => setEditingId(null)} />
+      )}
+
       <div className="fb-toolbar">
         <input
           id="sites-search"
@@ -49,38 +95,48 @@ export function SitesPage() {
       <div className="fb-table-container">
         <table className="fb-table" role="grid">
           <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Code</th>
-              <th scope="col">Created</th>
-            </tr>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th key={header.id} scope="col">
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext(),
+                    )}
+                  </th>
+                ))}
+              </tr>
+            ))}
           </thead>
           <tbody>
             {isLoading && (
               <tr>
-                <td colSpan={3} className="fb-table-loading">
+                <td colSpan={columns.length} className="fb-table-loading">
                   Loading…
                 </td>
               </tr>
             )}
             {!isLoading && data?.items.length === 0 && (
               <tr>
-                <td colSpan={3} className="fb-table-empty">
+                <td colSpan={columns.length} className="fb-table-empty">
                   No sites found
                 </td>
               </tr>
             )}
-            {data?.items.map((s) => (
-              <tr key={s.id}>
-                <td>{s.name}</td>
-                <td>
-                  <span className="fb-badge">{s.code}</span>
-                </td>
-                <td>
-                  {s.createdAt
-                    ? new Date(s.createdAt).toLocaleDateString()
-                    : "—"}
-                </td>
+            {table.getRowModel().rows.map((row) => (
+              <tr
+                key={row.id}
+                className="fb-table-row--clickable"
+                onClick={() => {
+                  setCreating(false);
+                  setEditingId(row.original.id);
+                }}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
               </tr>
             ))}
           </tbody>

@@ -29,7 +29,13 @@ const CUSTOMER_COLUMNS = [
 @Injectable()
 export class CustomersRepository extends MasterRecordRepository<CustomerRecord> {
   constructor(database: DatabaseService) {
-    super(database, 'master_customers', CUSTOMER_COLUMNS, CUSTOMER_COLUMNS);
+    super(
+      database,
+      'master_customers',
+      CUSTOMER_COLUMNS,
+      CUSTOMER_COLUMNS,
+      'customer',
+    );
   }
 
   async hasActiveSites(customerId: string): Promise<boolean> {

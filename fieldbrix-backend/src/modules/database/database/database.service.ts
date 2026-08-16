@@ -103,6 +103,18 @@ export class DatabaseService implements OnModuleDestroy {
     }
   }
 
+  /** Append a tenant-scoped domain event for async consumers (outbox pattern). */
+  async emitOutboxEvent(
+    eventType: string,
+    payload: Record<string, unknown>,
+  ): Promise<void> {
+    await this.tenantQuery(
+      `INSERT INTO outbox_events (id, event_id, event_type, event_version, tenant_id, payload, status)
+       VALUES (gen_random_uuid(), gen_random_uuid(), $1, 1, current_setting('app.tenant_id', true)::uuid, $2::jsonb, 'PENDING')`,
+      [eventType, JSON.stringify(payload)],
+    );
+  }
+
   async transaction<T>(work: (client: PoolClient) => Promise<T>): Promise<T> {
     if (!this.pool) throw new Error('DATABASE_NOT_CONFIGURED');
     const client = await this.pool.connect();

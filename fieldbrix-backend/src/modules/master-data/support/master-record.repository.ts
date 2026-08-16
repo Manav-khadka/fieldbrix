@@ -32,6 +32,8 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
     private readonly table: string,
     private readonly createColumns: string[],
     private readonly updateColumns: string[],
+    /** e.g. 'customer', 'site' — used as `master.<entityType>.<action>.v1` outbox event types. */
+    private readonly entityType: string,
   ) {}
 
   async list(
@@ -109,7 +111,12 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
         `INSERT INTO ${this.table} (tenant_id, ${dbColumns.join(', ')}) VALUES (current_setting('app.tenant_id', true)::uuid, ${placeholders.join(', ')}) RETURNING *, id::text AS id`,
         values,
       );
-      return rowToCamelCase<T>(result[0]);
+      const record = rowToCamelCase<T>(result[0]);
+      await this.database.emitOutboxEvent(`master.${this.entityType}.created.v1`, {
+        id: record.id,
+        revision: record.revision,
+      });
+      return record;
     } catch (error) {
       throw this.mapWriteError(error);
     }
@@ -145,7 +152,12 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
         if (!existing) throw new NotFoundException('RECORD_NOT_FOUND');
         throw new ConflictException('STALE_REVISION');
       }
-      return rowToCamelCase<T>(result[0]);
+      const record = rowToCamelCase<T>(result[0]);
+      await this.database.emitOutboxEvent(`master.${this.entityType}.updated.v1`, {
+        id: record.id,
+        revision: record.revision,
+      });
+      return record;
     } catch (error) {
       if (
         error instanceof NotFoundException ||
@@ -166,7 +178,12 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
       if (!existing) throw new NotFoundException('RECORD_NOT_FOUND');
       throw new ConflictException('STALE_REVISION');
     }
-    return rowToCamelCase<T>(result[0]);
+    const record = rowToCamelCase<T>(result[0]);
+    await this.database.emitOutboxEvent(`master.${this.entityType}.archived.v1`, {
+      id: record.id,
+      revision: record.revision,
+    });
+    return record;
   }
 
   async hasActiveDependents(

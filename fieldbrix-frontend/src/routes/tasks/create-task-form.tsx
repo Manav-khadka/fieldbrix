@@ -12,11 +12,13 @@ const createTaskSchema = z.object({
   siteId: UUID,
   targetId: z.union([UUID, z.literal("")]).optional(),
   workflowId: UUID,
+  workType: z.string().optional(),
   description: z.string().max(1000).optional(),
   instructions: z.string().max(1000).optional(),
   priority: z.enum(["LOW", "NORMAL", "HIGH", "URGENT"]),
   scheduledAt: z.string().optional(),
   dueAt: z.string().optional(),
+  signatureRequired: z.boolean().optional(),
 });
 
 type CreateTaskForm = z.infer<typeof createTaskSchema>;
@@ -94,6 +96,7 @@ export function CreateTaskForm({ onCreated }: { onCreated: () => void }) {
           customerId: form.customerId,
           siteId: form.siteId,
           targetId: form.targetId || undefined,
+          workType: form.workType || undefined,
           description: form.description,
           instructions: form.instructions,
           priority: form.priority,
@@ -101,6 +104,9 @@ export function CreateTaskForm({ onCreated }: { onCreated: () => void }) {
             ? new Date(form.scheduledAt).toISOString()
             : undefined,
           dueAt: form.dueAt ? new Date(form.dueAt).toISOString() : undefined,
+          signaturePolicy: form.signatureRequired
+            ? { required: true }
+            : undefined,
         },
         crypto.randomUUID(),
       );
@@ -226,6 +232,23 @@ export function CreateTaskForm({ onCreated }: { onCreated: () => void }) {
       </div>
 
       <div className="fb-form-row">
+        <label htmlFor="task-work-type" className="fb-label">
+          Work type
+        </label>
+        <select
+          id="task-work-type"
+          className="fb-select"
+          {...register("workType")}
+        >
+          <option value="">Unspecified</option>
+          <option value="PREVENTIVE">Preventive</option>
+          <option value="CORRECTIVE">Corrective</option>
+          <option value="COMPLAINT">Complaint</option>
+          <option value="INSPECTION">Inspection</option>
+        </select>
+      </div>
+
+      <div className="fb-form-row">
         <label htmlFor="task-description" className="fb-label">
           Description
         </label>
@@ -287,6 +310,17 @@ export function CreateTaskForm({ onCreated }: { onCreated: () => void }) {
           className="fb-input"
           {...register("dueAt")}
         />
+      </div>
+
+      <div className="fb-form-row">
+        <label htmlFor="task-signature-required" className="fb-checkbox-row">
+          <input
+            id="task-signature-required"
+            type="checkbox"
+            {...register("signatureRequired")}
+          />
+          Require a signature to complete this task
+        </label>
       </div>
 
       {serverError && <div className="fb-error">{serverError}</div>}

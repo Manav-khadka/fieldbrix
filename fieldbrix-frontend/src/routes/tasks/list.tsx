@@ -12,7 +12,16 @@ interface Task {
   priority: string;
   scheduledAt?: string;
   revision: number;
+  flags?: string[];
 }
+
+const FLAG_LABELS: Record<string, string> = {
+  OVERDUE: "Overdue",
+  ESCALATED: "Escalated",
+  SYNC_PENDING: "Sync pending",
+  CUSTOMER_UNAVAILABLE: "Customer unavailable",
+  SAFETY_STOP: "Safety stop",
+};
 
 const STATUS_COLORS: Record<string, string> = {
   DRAFT: "draft",
@@ -100,20 +109,21 @@ export function TasksListPage() {
               <th scope="col">Description</th>
               <th scope="col">Status</th>
               <th scope="col">Priority</th>
+              <th scope="col">Flags</th>
               <th scope="col">Scheduled</th>
             </tr>
           </thead>
           <tbody>
             {isLoading && (
               <tr>
-                <td colSpan={5} className="fb-table-loading">
+                <td colSpan={6} className="fb-table-loading">
                   Loading…
                 </td>
               </tr>
             )}
             {!isLoading && data?.items.length === 0 && (
               <tr>
-                <td colSpan={5} className="fb-table-empty">
+                <td colSpan={6} className="fb-table-empty">
                   No tasks found
                 </td>
               </tr>
@@ -143,6 +153,22 @@ export function TasksListPage() {
                   >
                     {t.priority ?? "NORMAL"}
                   </span>
+                </td>
+                <td>
+                  {t.flags && t.flags.length > 0 ? (
+                    <span className="fb-flag-row">
+                      {t.flags.map((flag) => (
+                        <span
+                          key={flag}
+                          className={`fb-flag fb-flag--${flag.toLowerCase().replace(/_/g, "-")}`}
+                        >
+                          {FLAG_LABELS[flag] ?? flag}
+                        </span>
+                      ))}
+                    </span>
+                  ) : (
+                    "—"
+                  )}
                 </td>
                 <td>
                   {t.scheduledAt

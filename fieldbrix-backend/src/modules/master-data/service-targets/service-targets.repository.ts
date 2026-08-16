@@ -45,6 +45,7 @@ export class ServiceTargetsRepository extends MasterRecordRepository<ServiceTarg
       'master_service_targets',
       TARGET_CREATE_COLUMNS,
       TARGET_UPDATE_COLUMNS,
+      'service_target',
     );
   }
 

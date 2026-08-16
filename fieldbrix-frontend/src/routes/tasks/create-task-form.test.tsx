@@ -117,4 +117,42 @@ describe("CreateTaskForm", () => {
       expect.any(String),
     );
   });
+
+  it("includes workType and signaturePolicy when set", async () => {
+    vi.mocked(api.post).mockResolvedValue({ id: "task-1" });
+    renderWithClient(<CreateTaskForm onCreated={() => {}} />);
+
+    await screen.findByRole("option", { name: "Al Noor Facilities" });
+    fireEvent.change(screen.getByLabelText("Customer"), {
+      target: { value: CUSTOMER_ID },
+    });
+    await waitFor(() =>
+      expect(screen.getByLabelText("Site")).not.toBeDisabled(),
+    );
+    await screen.findByRole("option", { name: "Al Noor HQ" });
+    fireEvent.change(screen.getByLabelText("Site"), {
+      target: { value: SITE_ID },
+    });
+    await screen.findByRole("option", { name: "Preventive HVAC Visit" });
+    fireEvent.change(screen.getByLabelText("Workflow"), {
+      target: { value: WORKFLOW_ID },
+    });
+    fireEvent.change(screen.getByLabelText("Work type"), {
+      target: { value: "COMPLAINT" },
+    });
+    fireEvent.click(
+      screen.getByLabelText(/require a signature to complete/i),
+    );
+    fireEvent.click(screen.getByRole("button", { name: /create task/i }));
+
+    await waitFor(() => expect(api.post).toHaveBeenCalled());
+    expect(api.post).toHaveBeenCalledWith(
+      "/tasks",
+      expect.objectContaining({
+        workType: "COMPLAINT",
+        signaturePolicy: { required: true },
+      }),
+      expect.any(String),
+    );
+  });
 });

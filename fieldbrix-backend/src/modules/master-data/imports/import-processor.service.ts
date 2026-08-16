@@ -4,6 +4,7 @@ import { SitesRepository } from '../sites/sites.repository';
 import { ServiceTargetsRepository } from '../service-targets/service-targets.repository';
 import { PartsRepository } from '../parts/parts.repository';
 import { QrIdentityService } from '../service-targets/qr-identity.service';
+import { PlatformService } from '../../platform/platform/platform.service';
 import type { ImportableEntityType } from '../dto/import.dto';
 
 export type RowValidation = {
@@ -21,10 +22,13 @@ const REQUIRED_FIELDS: Record<ImportableEntityType, string[]> = {
   sites: ['name', 'code'],
   service_targets: ['name', 'code'],
   parts: ['name', 'code', 'unit'],
+  users: ['email'],
 };
 
 const cellString = (value: unknown): string =>
   typeof value === 'string' ? value : '';
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
  * Validates and commits import rows per entity type. Kept separate from
@@ -40,6 +44,7 @@ export class ImportProcessorService {
     private readonly serviceTargets: ServiceTargetsRepository,
     private readonly parts: PartsRepository,
     private readonly qrIdentity: QrIdentityService,
+    private readonly platform: PlatformService,
   ) {}
 
   validateRow(
@@ -67,6 +72,12 @@ export class ImportProcessorService {
         errorCode: 'PARENT_REQUIRED',
         message: 'siteCode is required',
       };
+    if (entityType === 'users' && !EMAIL_PATTERN.test(cellString(row.email)))
+      return {
+        valid: false,
+        errorCode: 'INVALID_EMAIL',
+        message: 'email must be a valid email address',
+      };
     return { valid: true };
   }
 
@@ -74,13 +85,47 @@ export class ImportProcessorService {
     entityType: ImportableEntityType,
     row: Record<string, unknown>,
     duplicateMode: 'reject' | 'skip' | 'update',
+    actorToken?: string,
   ): Promise<RowCommitResult> {
     if (entityType === 'customers')
       return this.commitCustomer(row, duplicateMode);
     if (entityType === 'sites') return this.commitSite(row, duplicateMode);
     if (entityType === 'service_targets')
       return this.commitServiceTarget(row, duplicateMode);
+    if (entityType === 'users') return this.commitUser(row, actorToken);
     return this.commitPart(row, duplicateMode);
+  }
+
+  // Users import a differently-shaped commit: there's no "duplicate row"
+  // concept to reject/skip/update against (PlatformService.inviteUser
+  // issues a fresh invitation every call, matching the existing invite
+  // flow's behavior — re-inviting the same email is allowed elsewhere too),
+  // and it requires the importing admin's own token so the invitation is
+  // attributed to a real actor and goes through the same
+  // 'iam.users.invite' permission check as the manual invite form.
+  private async commitUser(
+    row: Record<string, unknown>,
+    actorToken?: string,
+  ): Promise<RowCommitResult> {
+    if (!actorToken)
+      return {
+        outcome: 'ERROR',
+        errorCode: 'UNAUTHORIZED',
+        message: 'Importing users requires an authenticated actor',
+      };
+    try {
+      const invitation = await this.platform.inviteUser(
+        actorToken,
+        cellString(row.email).trim(),
+      );
+      return { outcome: 'CREATED', entityId: invitation.invitationToken };
+    } catch (error) {
+      return {
+        outcome: 'ERROR',
+        errorCode: 'INVITE_FAILED',
+        message: error instanceof Error ? error.message : 'Unable to invite user',
+      };
+    }
   }
 
   private async commitCustomer(

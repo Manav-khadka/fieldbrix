@@ -51,9 +51,10 @@ export class ImportsController {
       `/imports/${id}/commit`,
       body,
     );
+    const actorToken = headers.authorization?.replace(/^Bearer\s+/i, '');
     return this.idempotency
       .getOrCreateAsync(key, fingerprint, () =>
-        this.imports.commit(id, body.previewRevision ?? 1),
+        this.imports.commit(id, body.previewRevision ?? 1, actorToken),
       )
       .then((result) => result.response);
   }

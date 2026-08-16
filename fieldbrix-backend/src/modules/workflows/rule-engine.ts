@@ -14,10 +14,17 @@ export type RuleOperator =
 export type RuleActionType =
   | 'set_visible'
   | 'set_required'
+  | 'set_enabled'
+  | 'set_default'
   | 'require_evidence'
+  | 'require_note'
+  | 'require_photo'
+  | 'require_signature'
   | 'warning'
   | 'failure'
   | 'safety_stop'
+  | 'supervisor_alert'
+  | 'supervisor_review'
   | 'recommend_follow_up';
 
 export type RuleAction = {
@@ -43,10 +50,17 @@ export type Rule = {
 export type RuleOutcome = {
   visible: Record<string, boolean>;
   required: Record<string, boolean>;
+  enabled: Record<string, boolean>;
+  defaults: Record<string, RuleValue>;
   evidence: string[];
+  requiredNotes: string[];
+  requiredPhotos: string[];
+  requiredSignatures: string[];
   warnings: string[];
   failures: string[];
   safetyStop: boolean;
+  supervisorAlerts: string[];
+  supervisorReviewRequired: boolean;
   followUps: string[];
 };
 
@@ -96,10 +110,17 @@ export function evaluateRules(
   const outcome: RuleOutcome = {
     visible: {},
     required: {},
+    enabled: {},
+    defaults: {},
     evidence: [],
+    requiredNotes: [],
+    requiredPhotos: [],
+    requiredSignatures: [],
     warnings: [],
     failures: [],
     safetyStop: false,
+    supervisorAlerts: [],
+    supervisorReviewRequired: false,
     followUps: [],
   };
 
@@ -129,15 +150,53 @@ export function evaluateRules(
             if (action.fieldKey && !(action.fieldKey in outcome.required))
               outcome.required[action.fieldKey] = action.value === true;
             break;
+          case 'set_enabled':
+            // Same first-rule-wins conflict resolution as set_visible/
+            // set_required — priority-sorted, so the highest-priority rule
+            // to touch a field wins.
+            if (action.fieldKey && !(action.fieldKey in outcome.enabled))
+              outcome.enabled[action.fieldKey] = action.value !== false;
+            break;
+          case 'set_default':
+            if (action.fieldKey && !(action.fieldKey in outcome.defaults))
+              outcome.defaults[action.fieldKey] = action.value ?? null;
+            break;
           case 'require_evidence':
             if (action.fieldKey && !outcome.evidence.includes(action.fieldKey))
               outcome.evidence.push(action.fieldKey);
+            break;
+          case 'require_note':
+            if (
+              action.fieldKey &&
+              !outcome.requiredNotes.includes(action.fieldKey)
+            )
+              outcome.requiredNotes.push(action.fieldKey);
+            break;
+          case 'require_photo':
+            if (
+              action.fieldKey &&
+              !outcome.requiredPhotos.includes(action.fieldKey)
+            )
+              outcome.requiredPhotos.push(action.fieldKey);
+            break;
+          case 'require_signature':
+            if (
+              action.fieldKey &&
+              !outcome.requiredSignatures.includes(action.fieldKey)
+            )
+              outcome.requiredSignatures.push(action.fieldKey);
             break;
           case 'warning':
             if (action.message) outcome.warnings.push(action.message);
             break;
           case 'failure':
             if (action.message) outcome.failures.push(action.message);
+            break;
+          case 'supervisor_alert':
+            if (action.message) outcome.supervisorAlerts.push(action.message);
+            break;
+          case 'supervisor_review':
+            outcome.supervisorReviewRequired = true;
             break;
           case 'recommend_follow_up':
             if (action.message) outcome.followUps.push(action.message);
@@ -206,20 +265,29 @@ export function validateRules(
     // A single rule contradicting itself is always a configuration error,
     // independent of any other rule or evaluation order — unlike a cross-
     // rule conflict, there's no priority to resolve it by.
-    for (const type of ['set_visible', 'set_required'] as const) {
+    const contradictionVerb: Record<string, string> = {
+      set_visible: 'show',
+      set_required: 'require',
+      set_enabled: 'enable',
+    };
+    for (const type of [
+      'set_visible',
+      'set_required',
+      'set_enabled',
+    ] as const) {
       const seenValues = new Map<string, boolean>();
       rule.actions.forEach((action, j) => {
         if (action.type !== type || !action.fieldKey) return;
         const resolved =
-          type === 'set_visible'
-            ? action.value !== false
-            : action.value === true;
+          type === 'set_required'
+            ? action.value === true
+            : action.value !== false;
         const previous = seenValues.get(action.fieldKey);
         if (previous !== undefined && previous !== resolved)
           errors.push({
             path: `rules.${i}.actions.${j}`,
             code: 'CONTRADICTORY_ACTION',
-            message: `Rule "${rule.id}" both does and does not ${type === 'set_visible' ? 'show' : 'require'} field "${action.fieldKey}"`,
+            message: `Rule "${rule.id}" both does and does not ${contradictionVerb[type]} field "${action.fieldKey}"`,
           });
         seenValues.set(action.fieldKey, resolved);
       });

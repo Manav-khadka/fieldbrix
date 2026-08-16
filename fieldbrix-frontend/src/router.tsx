@@ -16,11 +16,12 @@ import { PartsPage } from "./routes/master-data/parts";
 import { ImportsPage } from "./routes/master-data/imports";
 import { WorkflowsListPage } from "./routes/workflows/list";
 import { WorkflowBuilderPage } from "./routes/workflows/builder";
+import { WorkflowRulesPage } from "./routes/workflows/rules";
 import { WorkflowVersionsPage } from "./routes/workflows/versions";
 import { TasksListPage } from "./routes/tasks/list";
 import { TaskDetailPage } from "./routes/tasks/detail";
 import { CapacityPage } from "./routes/tasks/capacity";
-import LegacyAdminApp from "./App";
+import LegacyAdminApp, { Login } from "./App";
 
 const API_BASE =
   (import.meta.env.VITE_API_URL as string | undefined) ??
@@ -31,13 +32,13 @@ function LoginPage() {
   const navigate = useNavigate();
   const [identifier, setIdentifier] = useState("admin@fieldbrix.local");
   const [password, setPassword] = useState("ChangeMe123!");
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError(null);
+    setError("");
     try {
       const res = await fetch(`${API_BASE}/auth/login`, {
         method: "POST",
@@ -65,52 +66,28 @@ function LoginPage() {
     }
   };
 
+  const forgotPassword = async (forgottenIdentifier: string) => {
+    await fetch(`${API_BASE}/auth/password/forgot`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "idempotency-key": crypto.randomUUID(),
+      },
+      body: JSON.stringify({ identifier: forgottenIdentifier }),
+    });
+  };
+
   return (
-    <div className="fb-login-shell">
-      <div className="fb-login-card">
-        <h1 className="fb-login-title">FieldBrix</h1>
-        <p className="fb-login-subtitle">Sign in to your workspace</p>
-        <form className="fb-login-form" onSubmit={(e) => void handleLogin(e)}>
-          <div className="fb-form-row">
-            <label htmlFor="login-identifier" className="fb-label">
-              Email
-            </label>
-            <input
-              id="login-identifier"
-              type="email"
-              className="fb-input"
-              value={identifier}
-              onChange={(e) => setIdentifier(e.target.value)}
-              autoComplete="email"
-              required
-            />
-          </div>
-          <div className="fb-form-row">
-            <label htmlFor="login-password" className="fb-label">
-              Password
-            </label>
-            <input
-              id="login-password"
-              type="password"
-              className="fb-input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password"
-              required
-            />
-          </div>
-          {error && <div className="fb-error">{error}</div>}
-          <button
-            id="login-submit"
-            type="submit"
-            className="fb-btn fb-btn--primary fb-btn--full"
-            disabled={loading}
-          >
-            {loading ? "Signing in…" : "Sign in"}
-          </button>
-        </form>
-      </div>
-    </div>
+    <Login
+      identifier={identifier}
+      password={password}
+      setIdentifier={setIdentifier}
+      setPassword={setPassword}
+      onSubmit={(e) => void handleLogin(e)}
+      error={error}
+      busy={loading}
+      onForgot={forgotPassword}
+    />
   );
 }
 
@@ -194,6 +171,11 @@ const workflowBuilderRoute = createRoute({
   path: "/workflows/$id/builder",
   component: WorkflowBuilderPage,
 });
+const workflowRulesRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/workflows/$id/rules",
+  component: WorkflowRulesPage,
+});
 const workflowVersionsRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/workflows/$id/versions",
@@ -229,6 +211,7 @@ const routeTree = rootRoute.addChildren([
     importsRoute,
     workflowsListRoute,
     workflowBuilderRoute,
+    workflowRulesRoute,
     workflowVersionsRoute,
     tasksListRoute,
     taskDetailRoute,

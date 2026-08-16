@@ -15,7 +15,16 @@ interface Task {
   scheduledAt?: string;
   dueAt?: string;
   workflowVersionId: string;
+  flags?: string[];
 }
+
+const FLAG_LABELS: Record<string, string> = {
+  OVERDUE: "Overdue",
+  ESCALATED: "Escalated",
+  SYNC_PENDING: "Sync pending",
+  CUSTOMER_UNAVAILABLE: "Customer unavailable",
+  SAFETY_STOP: "Safety stop",
+};
 interface HistoryEntry {
   id: string;
   event: string;
@@ -90,6 +99,18 @@ export function TaskDetailPage() {
           >
             {task.status}
           </span>
+          {task.flags && task.flags.length > 0 && (
+            <span className="fb-flag-row">
+              {task.flags.map((flag) => (
+                <span
+                  key={flag}
+                  className={`fb-flag fb-flag--${flag.toLowerCase().replace(/_/g, "-")}`}
+                >
+                  {FLAG_LABELS[flag] ?? flag}
+                </span>
+              ))}
+            </span>
+          )}
         </div>
         <div className="fb-page-actions">
           <button

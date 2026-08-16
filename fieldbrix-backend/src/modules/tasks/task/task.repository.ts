@@ -15,6 +15,8 @@ const TASK_SELECT = `
   status,
   flags,
   priority,
+  work_type AS "workType",
+  signature_policy AS "signaturePolicy",
   description,
   instructions,
   scheduled_at AS "scheduledAt",
@@ -93,6 +95,21 @@ export class TaskRepository {
     return rows[0];
   }
 
+  /**
+   * Task IDs with a dead-lettered outbox event in the last 24h — the
+   * SYNC_PENDING signal. Task-related outbox events (`task.created.v1`,
+   * `task.assigned.v1`, `task.transitioned.v1`, ...) all carry `taskId` in
+   * their payload, so this is a single query rather than one per task.
+   */
+  async findDeadLetteredTaskIds(): Promise<Set<string>> {
+    const rows = await this.db.tenantQuery<{ taskId: string }>(
+      `SELECT DISTINCT payload->>'taskId' AS "taskId" FROM outbox_events
+       WHERE status = 'DEAD_LETTERED' AND payload ? 'taskId'
+         AND created_at > now() - interval '24 hours'`,
+    );
+    return new Set(rows.map((r) => r.taskId).filter(Boolean));
+  }
+
   async create(payload: Row): Promise<Row> {
     return this.db.transaction(async (client) => {
       const tenant = await client.query<{ id: string }>(
@@ -122,9 +139,10 @@ export class TaskRepository {
       const result = await client.query<Row>(
         `INSERT INTO tasks
            (tenant_id, task_number, workflow_version_id, customer_id, site_id, target_id,
-            description, instructions, scheduled_at, due_at, estimated_minutes, priority)
+            description, instructions, scheduled_at, due_at, estimated_minutes, priority,
+            work_type, signature_policy)
          VALUES ($1::uuid, $2, $3::uuid, $4::uuid, $5::uuid, $6::uuid, $7, $8,
-                 $9::timestamptz, $10::timestamptz, $11, $12)
+                 $9::timestamptz, $10::timestamptz, $11, $12, $13, $14::jsonb)
          RETURNING ${TASK_SELECT}`,
         [
           tenantId,
@@ -139,6 +157,8 @@ export class TaskRepository {
           payload.dueAt ?? null,
           payload.estimatedMinutes ?? null,
           payload.priority ?? 'NORMAL',
+          payload.workType ?? null,
+          payload.signaturePolicy ? JSON.stringify(payload.signaturePolicy) : null,
         ],
       );
       const task = result.rows[0];

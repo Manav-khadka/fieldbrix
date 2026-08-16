@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
 import { api } from "../../api/client";
+import { ServiceTargetForm } from "./service-target-form";
 
 interface ServiceTarget {
   id: string;
@@ -11,9 +18,29 @@ interface ServiceTarget {
   createdAt: string;
 }
 
+const columnHelper = createColumnHelper<ServiceTarget>();
+const columns = [
+  columnHelper.accessor("name", { header: "Name" }),
+  columnHelper.accessor("code", {
+    header: "Code",
+    cell: (info) => <span className="fb-badge">{info.getValue()}</span>,
+  }),
+  columnHelper.accessor("qrIdentity", {
+    header: "QR Identity",
+    cell: (info) => <span className="fb-code">{info.getValue() ?? "—"}</span>,
+  }),
+  columnHelper.accessor("createdAt", {
+    header: "Created",
+    cell: (info) =>
+      info.getValue() ? new Date(info.getValue()).toLocaleDateString() : "—",
+  }),
+];
+
 export function ServiceTargetsPage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [creating, setCreating] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["service-targets", { search, page }],
@@ -29,6 +56,13 @@ export function ServiceTargetsPage() {
     placeholderData: (prev) => prev,
   });
 
+  const table = useReactTable({
+    data: data?.items ?? [],
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    manualPagination: true,
+  });
+
   return (
     <div className="fb-page">
       <div className="fb-page-header">
@@ -36,7 +70,26 @@ export function ServiceTargetsPage() {
           <h1 className="fb-page-title">Service Targets</h1>
           <p className="fb-page-subtitle">{data?.total ?? 0} total records</p>
         </div>
+        <button
+          id="targets-add"
+          className="fb-btn fb-btn--primary"
+          onClick={() => {
+            setEditingId(null);
+            setCreating((open) => !open);
+          }}
+        >
+          {creating ? "Cancel" : "+ Add service target"}
+        </button>
       </div>
+
+      {creating && <ServiceTargetForm onDone={() => setCreating(false)} />}
+      {editingId && (
+        <ServiceTargetForm
+          targetId={editingId}
+          onDone={() => setEditingId(null)}
+        />
+      )}
+
       <div className="fb-toolbar">
         <input
           id="targets-search"
@@ -54,42 +107,48 @@ export function ServiceTargetsPage() {
       <div className="fb-table-container">
         <table className="fb-table" role="grid">
           <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Code</th>
-              <th scope="col">QR Identity</th>
-              <th scope="col">Created</th>
-            </tr>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th key={header.id} scope="col">
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext(),
+                    )}
+                  </th>
+                ))}
+              </tr>
+            ))}
           </thead>
           <tbody>
             {isLoading && (
               <tr>
-                <td colSpan={4} className="fb-table-loading">
+                <td colSpan={columns.length} className="fb-table-loading">
                   Loading…
                 </td>
               </tr>
             )}
             {!isLoading && data?.items.length === 0 && (
               <tr>
-                <td colSpan={4} className="fb-table-empty">
+                <td colSpan={columns.length} className="fb-table-empty">
                   No service targets found
                 </td>
               </tr>
             )}
-            {data?.items.map((t) => (
-              <tr key={t.id}>
-                <td>{t.name}</td>
-                <td>
-                  <span className="fb-badge">{t.code}</span>
-                </td>
-                <td>
-                  <span className="fb-code">{t.qrIdentity ?? "—"}</span>
-                </td>
-                <td>
-                  {t.createdAt
-                    ? new Date(t.createdAt).toLocaleDateString()
-                    : "—"}
-                </td>
+            {table.getRowModel().rows.map((row) => (
+              <tr
+                key={row.id}
+                className="fb-table-row--clickable"
+                onClick={() => {
+                  setCreating(false);
+                  setEditingId(row.original.id);
+                }}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
               </tr>
             ))}
           </tbody>
