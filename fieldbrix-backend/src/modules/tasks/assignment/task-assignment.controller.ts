@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   Headers,
   Param,
   Post,
@@ -19,6 +20,12 @@ export class TaskAssignmentController {
     private readonly assignments: TaskAssignmentService,
     private readonly idempotency: IdempotencyService,
   ) {}
+
+  @Permission('tasks.view')
+  @Get('tasks/:id/assignments')
+  current(@Param('id') id: string) {
+    return this.assignments.current(id);
+  }
 
   @Permission('tasks.assign')
   @Post('tasks/:id/assignments')

@@ -140,6 +140,32 @@ describe('Workflow lifecycle -> task creation (e2e)', () => {
         (h) => h.event === 'TASK_ASSIGNED' && h.reason === 'first assignment',
       ),
     ).toBe(true);
+
+    const current = await request(app.getHttpServer())
+      .get(`/tasks/${created.id}/assignments`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(current.status).toBe(200);
+    const currentAssignment = (
+      current.body as Envelope<{ workerId: string; lead: boolean } | null>
+    ).data;
+    expect(currentAssignment?.workerId).toBe(SEEDED_ADMIN_ID);
+    expect(currentAssignment?.lead).toBe(true);
+  });
+
+  it('returns null for a task with no current assignment', async () => {
+    const { versionId } = await createPublishedWorkflow();
+    const task = await request(app.getHttpServer())
+      .post('/tasks')
+      .set('Authorization', `Bearer ${token}`)
+      .set('idempotency-key', randomUUID())
+      .send({ workflowVersionId: versionId, customerId, siteId });
+    const taskId = (task.body as Envelope<{ id: string }>).data.id;
+
+    const current = await request(app.getHttpServer())
+      .get(`/tasks/${taskId}/assignments`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(current.status).toBe(200);
+    expect((current.body as Envelope<null>).data).toBeNull();
   });
 
   it('blocks new task creation once the source workflow is archived, but the version stays resolvable', async () => {

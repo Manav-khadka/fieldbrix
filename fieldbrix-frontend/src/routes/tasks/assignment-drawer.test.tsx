@@ -21,7 +21,13 @@ function renderWithClient(ui: ReactElement) {
   );
 }
 
-function mockGetResponses() {
+function mockGetResponses(
+  currentAssignment: {
+    workerId: string | null;
+    teamId: string | null;
+    lead: boolean;
+  } | null = null,
+) {
   vi.mocked(api.get).mockImplementation((path: string) => {
     if (path.startsWith("/users"))
       return Promise.resolve({
@@ -34,6 +40,8 @@ function mockGetResponses() {
           { id: "inactive-team", name: "Retired Team", active: false },
         ],
       });
+    if (path.includes("/assignments"))
+      return Promise.resolve(currentAssignment);
     return Promise.resolve({ data: [] });
   });
 }
@@ -109,5 +117,22 @@ describe("AssignmentDrawer", () => {
       expect(screen.getByText("ACTIVE_WORKER_REQUIRED")).toBeInTheDocument();
     });
     expect(onClose).not.toHaveBeenCalled();
+  });
+
+  it("pre-fills the form from the task's current assignment and labels the action as reassign", async () => {
+    mockGetResponses({ workerId: WORKER_ID, teamId: null, lead: true });
+    renderWithClient(<AssignmentDrawer taskId="task-1" onClose={() => {}} />);
+
+    await waitFor(() =>
+      expect(screen.getByLabelText<HTMLSelectElement>("Worker").value).toBe(
+        WORKER_ID,
+      ),
+    );
+    expect(
+      screen.getByLabelText<HTMLInputElement>(
+        "Responsible lead (final submission authority)",
+      ).checked,
+    ).toBe(true);
+    expect(screen.getByText("Reassign task")).toBeInTheDocument();
   });
 });

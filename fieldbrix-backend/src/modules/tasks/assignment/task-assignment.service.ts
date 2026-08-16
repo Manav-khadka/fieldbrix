@@ -139,4 +139,21 @@ export class TaskAssignmentService {
   ) {
     return this.assign(taskId, payload);
   }
+
+  /**
+   * The single open assignment for a task, or null if unassigned. `assign()`
+   * always closes any prior open row before inserting the new one, so at
+   * most one row with `ended_at IS NULL` can ever exist per task — this is
+   * a lookup, not an aggregation.
+   */
+  async current(taskId: string): Promise<Row | null> {
+    const rows = await this.db.tenantQuery<Row>(
+      `SELECT id::text AS id, task_id::text AS "taskId",
+              worker_id::text AS "workerId", team_id::text AS "teamId",
+              lead, reason, started_at AS "startedAt"
+       FROM task_assignments WHERE task_id = $1::uuid AND ended_at IS NULL`,
+      [taskId],
+    );
+    return rows[0] ?? null;
+  }
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { api } from "../../api/client";
 
@@ -12,22 +12,26 @@ interface TeamOption {
   name: string;
   active: boolean;
 }
+interface CurrentAssignment {
+  workerId: string | null;
+  teamId: string | null;
+  lead: boolean;
+}
 
 export function AssignmentDrawer({
   taskId,
-  currentAssignment,
   onClose,
 }: {
   taskId: string;
-  currentAssignment?: { workerId?: string; teamId?: string; lead?: boolean };
   onClose: () => void;
 }) {
   const qc = useQueryClient();
-  const [workerId, setWorkerId] = useState(currentAssignment?.workerId ?? "");
-  const [teamId, setTeamId] = useState(currentAssignment?.teamId ?? "");
-  const [lead, setLead] = useState(currentAssignment?.lead ?? false);
+  const [workerId, setWorkerId] = useState("");
+  const [teamId, setTeamId] = useState("");
+  const [lead, setLead] = useState(false);
   const [reason, setReason] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const prefilled = useRef(false);
 
   const { data: users } = useQuery({
     queryKey: ["users", "for-assignment-drawer"],
@@ -38,6 +42,25 @@ export function AssignmentDrawer({
     queryFn: () => api.get<{ data: TeamOption[] }>("/teams?limit=100"),
   });
   const activeTeams = (teams?.data ?? []).filter((t) => t.active);
+
+  const { data: current } = useQuery({
+    queryKey: ["task-assignment", taskId],
+    queryFn: () =>
+      api.get<CurrentAssignment | null>(`/tasks/${taskId}/assignments`),
+  });
+
+  // Pre-fill from the task's current assignment exactly once, the first
+  // time it loads — after that, further updates to `current` (e.g. from a
+  // background refetch) must never silently overwrite what the user is
+  // actively editing in the form.
+  useEffect(() => {
+    if (prefilled.current || current === undefined) return;
+    prefilled.current = true;
+    if (!current) return;
+    setWorkerId(current.workerId ?? "");
+    setTeamId(current.teamId ?? "");
+    setLead(current.lead);
+  }, [current]);
 
   const assignMutation = useMutation({
     mutationFn: () =>
@@ -55,6 +78,7 @@ export function AssignmentDrawer({
       setError(null);
       await qc.invalidateQueries({ queryKey: ["task", taskId] });
       await qc.invalidateQueries({ queryKey: ["task-history", taskId] });
+      await qc.invalidateQueries({ queryKey: ["task-assignment", taskId] });
       onClose();
     },
     onError: (err) => {
@@ -68,7 +92,9 @@ export function AssignmentDrawer({
 
   return (
     <div className="fb-card" role="dialog" aria-label="Assign task">
-      <h2 className="fb-card-title">Assign task</h2>
+      <h2 className="fb-card-title">
+        {current ? "Reassign task" : "Assign task"}
+      </h2>
 
       <div className="fb-form-row">
         <label htmlFor="assign-worker" className="fb-label">
