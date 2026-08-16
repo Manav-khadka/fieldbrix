@@ -46,6 +46,11 @@ variable "tls_contact_email" {
     error_message = "tls_contact_email must be empty or a valid email address."
   }
 }
+variable "github_repo" {
+  type        = string
+  default     = "Manav-khadka/fieldbrix"
+  description = "GitHub \"owner/repo\" trusted to assume the CI deploy role via OIDC."
+}
 variable "protect_database" {
   type        = bool
   default     = false

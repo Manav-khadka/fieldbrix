@@ -25,6 +25,10 @@ output "api_url" {
   value       = "https://${var.api_domain}"
   description = "TLS-protected API hostname after its A record points to static_ip."
 }
+output "github_deploy_role_arn" {
+  value       = module.ci_deploy.deploy_role_arn
+  description = "Set as the AWS_DEPLOY_ROLE_ARN GitHub Actions repo secret: gh secret set AWS_DEPLOY_ROLE_ARN --body \"$(terraform output -raw github_deploy_role_arn)\""
+}
 output "queue_urls" {
   description = "Application queue endpoints used by the API and workers."
   value = {
