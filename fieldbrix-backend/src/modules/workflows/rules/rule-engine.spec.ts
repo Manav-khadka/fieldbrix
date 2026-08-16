@@ -285,6 +285,28 @@ describe('evaluateRules', () => {
       void fired;
     });
 
+    it('higher-priority rule wins a set_visible/set_required conflict, not the last one processed', () => {
+      const out = evaluateRules(
+        [
+          {
+            id: 'low',
+            priority: 1,
+            conditions: [],
+            actions: [{ type: 'set_visible', fieldKey: 'x', value: false }],
+          },
+          {
+            id: 'high',
+            priority: 10,
+            conditions: [],
+            actions: [{ type: 'set_visible', fieldKey: 'x', value: true }],
+          },
+        ],
+        {},
+      );
+      // priority 10 beats priority 1 regardless of iteration order.
+      expect(out.visible.x).toBe(true);
+    });
+
     it('equal priority resolves by id ASC', () => {
       const out = evaluateRules(
         [
@@ -413,5 +435,87 @@ describe('validateRules', () => {
 
   it('returns valid=true for empty rule set', () => {
     expect(validateRules([], fieldKeys).valid).toBe(true);
+  });
+
+  it('flags a rule that both shows and hides the same field', () => {
+    const result = validateRules(
+      [
+        {
+          id: 'r1',
+          priority: 0,
+          conditions: [],
+          actions: [
+            { type: 'set_visible', fieldKey: 'photo', value: true },
+            { type: 'set_visible', fieldKey: 'photo', value: false },
+          ],
+        },
+      ],
+      fieldKeys,
+    );
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((e) => e.code === 'CONTRADICTORY_ACTION')).toBe(
+      true,
+    );
+  });
+
+  it('flags a rule that both requires and un-requires the same field', () => {
+    const result = validateRules(
+      [
+        {
+          id: 'r1',
+          priority: 0,
+          conditions: [],
+          actions: [
+            { type: 'set_required', fieldKey: 'note', value: true },
+            { type: 'set_required', fieldKey: 'note', value: false },
+          ],
+        },
+      ],
+      fieldKeys,
+    );
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((e) => e.code === 'CONTRADICTORY_ACTION')).toBe(
+      true,
+    );
+  });
+
+  it('does not flag two set_visible actions on different fields, or two agreeing actions on the same field', () => {
+    const result = validateRules(
+      [
+        {
+          id: 'r1',
+          priority: 0,
+          conditions: [],
+          actions: [
+            { type: 'set_visible', fieldKey: 'photo', value: true },
+            { type: 'set_visible', fieldKey: 'note', value: false },
+            { type: 'set_visible', fieldKey: 'photo', value: true },
+          ],
+        },
+      ],
+      fieldKeys,
+    );
+    expect(result.valid).toBe(true);
+  });
+
+  it('does not flag conflicting set_visible actions across two different rules — that is resolved by priority at evaluation time, not a structural error', () => {
+    const result = validateRules(
+      [
+        {
+          id: 'low',
+          priority: 1,
+          conditions: [],
+          actions: [{ type: 'set_visible', fieldKey: 'photo', value: false }],
+        },
+        {
+          id: 'high',
+          priority: 10,
+          conditions: [],
+          actions: [{ type: 'set_visible', fieldKey: 'photo', value: true }],
+        },
+      ],
+      fieldKeys,
+    );
+    expect(result.valid).toBe(true);
   });
 });

@@ -117,11 +117,16 @@ export function evaluateRules(
             outcome.safetyStop = true;
             break;
           case 'set_visible':
-            if (action.fieldKey)
+            // Rules are iterated highest-priority-first; the first rule to
+            // set a given field wins a conflict. Assigning unconditionally
+            // here would let whichever conflicting rule happens to be
+            // processed *last* (i.e. the lowest priority one) silently win
+            // instead, defeating the entire purpose of `priority`.
+            if (action.fieldKey && !(action.fieldKey in outcome.visible))
               outcome.visible[action.fieldKey] = action.value !== false;
             break;
           case 'set_required':
-            if (action.fieldKey)
+            if (action.fieldKey && !(action.fieldKey in outcome.required))
               outcome.required[action.fieldKey] = action.value === true;
             break;
           case 'require_evidence':
@@ -197,6 +202,28 @@ export function validateRules(
           message: `Unknown field "${action.fieldKey}"`,
         });
     });
+
+    // A single rule contradicting itself is always a configuration error,
+    // independent of any other rule or evaluation order — unlike a cross-
+    // rule conflict, there's no priority to resolve it by.
+    for (const type of ['set_visible', 'set_required'] as const) {
+      const seenValues = new Map<string, boolean>();
+      rule.actions.forEach((action, j) => {
+        if (action.type !== type || !action.fieldKey) return;
+        const resolved =
+          type === 'set_visible'
+            ? action.value !== false
+            : action.value === true;
+        const previous = seenValues.get(action.fieldKey);
+        if (previous !== undefined && previous !== resolved)
+          errors.push({
+            path: `rules.${i}.actions.${j}`,
+            code: 'CONTRADICTORY_ACTION',
+            message: `Rule "${rule.id}" both does and does not ${type === 'set_visible' ? 'show' : 'require'} field "${action.fieldKey}"`,
+          });
+        seenValues.set(action.fieldKey, resolved);
+      });
+    }
   });
 
   return { valid: errors.length === 0, errors, warnings: [] };
