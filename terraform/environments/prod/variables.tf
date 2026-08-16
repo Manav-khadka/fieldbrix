@@ -46,10 +46,10 @@ variable "tls_contact_email" {
     error_message = "tls_contact_email must be empty or a valid email address."
   }
 }
-variable "github_repo" {
+variable "github_repo_sub" {
   type        = string
-  default     = "Manav-khadka/fieldbrix"
-  description = "GitHub \"owner/repo\" trusted to assume the CI deploy role via OIDC."
+  default     = "Manav-khadka@96826294/fieldbrix@1333637235"
+  description = "GitHub OIDC sub claim's repo segment (owner_login@owner_id/repo_name@repo_id, not plain owner/repo) trusted to assume the CI deploy role."
 }
 variable "protect_database" {
   type        = bool

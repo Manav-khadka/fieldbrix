@@ -87,7 +87,7 @@ module "ci_deploy" {
   source                = "../../modules/ci-deploy"
   env                   = var.env
   region                = var.region
-  github_repo           = var.github_repo
+  github_repo_sub       = var.github_repo_sub
   tfstate_bucket        = "fieldbrix-tfstate-059763918790" # matches backend.tf
   deployment_bucket_arn = module.storage.web_bucket_arn
   instance_id           = module.compute.instance_id
