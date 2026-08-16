@@ -100,12 +100,19 @@ export class TaskRepository {
       );
       const tenantId = tenant.rows[0].id;
 
-      // Validate workflow version belongs to tenant
-      const version = await client.query<{ id: string }>(
-        'SELECT id FROM workflow_versions WHERE tenant_id = $1::uuid AND id = $2::uuid',
+      // Validate workflow version belongs to tenant and its source workflow
+      // is not archived — archiving must block new assignment while still
+      // preserving pinned rendering for tasks created before the archive.
+      const version = await client.query<{ id: string; draftStatus: string }>(
+        `SELECT v.id, d.status AS "draftStatus"
+         FROM workflow_versions v
+         JOIN workflow_drafts d ON d.id = v.workflow_id AND d.tenant_id = v.tenant_id
+         WHERE v.tenant_id = $1::uuid AND v.id = $2::uuid`,
         [tenantId, payload.workflowVersionId],
       );
       if (!version.rows[0]) throw new Error('PUBLISHED_WORKFLOW_REQUIRED');
+      if (version.rows[0].draftStatus === 'ARCHIVED')
+        throw new Error('WORKFLOW_ARCHIVED');
 
       const numRow = await client.query<{ task_number: string }>(
         "SELECT 'FBX-' || lpad(nextval('task_number_sequence')::text, 7, '0') AS task_number",
@@ -167,13 +174,6 @@ export class TaskRepository {
       'updated_at = clock_timestamp()',
     ];
     const values: unknown[] = [];
-    const allowed = [
-      'description',
-      'instructions',
-      'scheduled_at',
-      'due_at',
-      'priority',
-    ];
     const map: Record<string, string> = {
       description: 'description',
       instructions: 'instructions',
@@ -187,7 +187,6 @@ export class TaskRepository {
         sets.push(`${col} = $${values.length}`);
       }
     }
-    void allowed; // suppress unused
     values.push(id, revision);
     const rows = await this.db.tenantQuery<Row>(
       `UPDATE tasks SET ${sets.join(', ')}

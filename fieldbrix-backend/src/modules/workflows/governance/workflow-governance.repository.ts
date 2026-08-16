@@ -38,16 +38,22 @@ export class WorkflowGovernanceRepository {
         notes,
       };
 
+      // $3 and $4 carry the same JSON text but are bound as two separate
+      // parameters (not the same placeholder reused) — Postgres unifies a
+      // single positional parameter to one inferred type across all of its
+      // occurrences, so casting the same $n to both ::bytea and ::jsonb in
+      // one statement fails with "cannot cast type bytea to jsonb".
+      const snapshotJson = JSON.stringify(snapshot);
       const version = await client.query<Row>(
         `INSERT INTO workflow_versions
            (tenant_id, workflow_id, version, content_hash, snapshot)
          SELECT tenant_id, id,
                 COALESCE((SELECT max(version) + 1 FROM workflow_versions WHERE workflow_id = $1::uuid AND tenant_id = $2::uuid), 1),
                 encode(sha256($3::bytea), 'hex'),
-                $3::jsonb
+                $4::jsonb
          FROM workflow_drafts WHERE id = $1::uuid AND tenant_id = $2::uuid
          RETURNING id::text AS id, version, content_hash AS hash, snapshot, published_at AS "publishedAt"`,
-        [workflowId, tenantId, JSON.stringify(snapshot)],
+        [workflowId, tenantId, snapshotJson, snapshotJson],
       );
 
       await client.query(
@@ -79,16 +85,19 @@ export class WorkflowGovernanceRepository {
   async versions(workflowId: string): Promise<Row[]> {
     return this.db.tenantQuery<Row>(
       `SELECT id::text AS id, version, content_hash AS hash, snapshot,
-              published_at AS "publishedAt", created_at AS "createdAt"
+              published_at AS "publishedAt"
        FROM workflow_versions WHERE workflow_id = $1::uuid ORDER BY version DESC`,
       [workflowId],
     );
   }
 
   async getVersion(versionId: string): Promise<Row> {
+    // workflow_versions has no separate created_at column — published_at
+    // (set once, at insert time, since versions are immutable) is the only
+    // and correct creation timestamp.
     const rows = await this.db.tenantQuery<Row>(
       `SELECT id::text AS id, workflow_id::text AS "workflowId", version, content_hash AS hash,
-              snapshot, published_at AS "publishedAt", created_at AS "createdAt"
+              snapshot, published_at AS "publishedAt"
        FROM workflow_versions WHERE id = $1::uuid`,
       [versionId],
     );
@@ -108,15 +117,15 @@ export class WorkflowGovernanceRepository {
     return rows[0];
   }
 
-  /** Platform template catalogue (platform-level records) */
+  /** Platform template catalogue. `workflow_templates` is `LIKE workflow_drafts` —
+   * it has no dedicated field-count column, so the count is derived from the
+   * stored schema rather than a denormalized counter that could drift. */
   async templates(): Promise<Row[]> {
-    // Templates are platform-managed rows — use a direct query without tenant isolation
-    return this.db
-      .tenantQuery<Row>(
-        `SELECT id::text AS id, name, description, category, field_count AS "fieldCount", status
+    return this.db.tenantQuery<Row>(
+      `SELECT id::text AS id, name, description, category, status,
+              jsonb_array_length(COALESCE(schema->'fields', '[]'::jsonb)) AS "fieldCount"
        FROM workflow_templates WHERE archived_at IS NULL ORDER BY name`,
-      )
-      .catch(() => []); // Gracefully degrade if table not yet seeded
+    );
   }
 
   async instantiateTemplate(

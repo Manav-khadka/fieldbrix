@@ -16,7 +16,6 @@ import { Permission } from '../../authorization/decorators/permission.decorator/
 import { PermissionGuard } from '../../authorization/guards/permission/permission.guard';
 import { IdempotencyService } from '../../idempotency/idempotency/idempotency.service';
 import {
-  ArchiveWorkflowDto,
   CreateFieldDto,
   CreateSectionDto,
   CreateWorkflowDto,
@@ -178,24 +177,11 @@ export class WorkflowDraftController {
     return this.drafts.preview(id);
   }
 
-  // Archive lives here (governance action on a draft)
-  @Permission('workflows.archive')
-  @Post('workflows/:id/archive')
-  archive(
-    @Headers() headers: Record<string, string>,
-    @Param('id') id: string,
-    @Body() body: ArchiveWorkflowDto,
-  ) {
-    const key = this.idempotency.validate(headers['idempotency-key']);
-    const fp = this.idempotency.fingerprint(
-      'POST',
-      `/workflows/${id}/archive`,
-      body,
-    );
-    return this.idempotency
-      .getOrCreateAsync(key, fp, () => this.drafts.update(id, { ...body }))
-      .then((r) => r.response);
-  }
+  // Archive is a governance action — the real handler lives in
+  // WorkflowGovernanceController (POST /workflows/:id/archive). A duplicate
+  // route used to be registered here that silently no-op'd through
+  // WorkflowDraftService.update() instead of the real archive/lock/immutable
+  // path; removed to eliminate the route collision and the dead behavior.
 
   // Duplicate — creates a new independent draft
   @Permission('workflows.create')
@@ -212,13 +198,7 @@ export class WorkflowDraftController {
       body,
     );
     return this.idempotency
-      .getOrCreateAsync(key, fp, async () => {
-        const source = await this.drafts.get(id);
-        return this.drafts.create({
-          name: body.name ?? `${source.name as string} copy`,
-          description: source.description as string,
-        });
-      })
+      .getOrCreateAsync(key, fp, () => this.drafts.duplicate(id, body.name))
       .then((r) => r.response);
   }
 }

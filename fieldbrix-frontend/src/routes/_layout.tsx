@@ -19,6 +19,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Workflows', icon: '◌', path: '/workflows', permission: 'workflows.view' },
   { label: 'Tasks', icon: '⌁', path: '/tasks', permission: 'tasks.view' },
   { label: 'Capacity', icon: '⌀', path: '/scheduling/capacity', permission: 'tasks.assign' },
+  { label: 'Administration', icon: '⚙', path: '/admin' },
 ];
 
 export function Layout() {

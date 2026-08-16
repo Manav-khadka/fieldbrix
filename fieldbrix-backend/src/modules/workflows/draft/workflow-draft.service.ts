@@ -1,4 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
+import { randomUUID } from 'node:crypto';
 import { WorkflowDraftRepository } from './workflow-draft.repository';
 import { isKnownFieldType } from '../field-type.registry';
 import type {
@@ -142,6 +143,46 @@ export class WorkflowDraftService {
     if (uniqueKeys.size !== keys.length)
       errors.push({ path: 'fields', message: 'Duplicate field keys detected' });
     return { valid: errors.length === 0, errors, warnings: [] };
+  }
+
+  /**
+   * Deep-copies the source draft's schema into a new, fully independent
+   * draft: sections/fields/rules all get fresh IDs so the copy shares no
+   * mutable children with its source. Rules reference fields by their
+   * stable `key`, not `id`, so field keys are preserved as-is.
+   */
+  async duplicate(id: string, name?: string) {
+    const source = await this.repo.findById(id);
+    const schema = (source.schema as Record<string, unknown>) ?? {};
+    const sectionIdMap = new Map<string, string>();
+    const sections = (
+      (schema.sections as Array<Record<string, unknown>>) ?? []
+    ).map((section) => {
+      const newId = randomUUID();
+      sectionIdMap.set(String(section.id), newId);
+      return { ...section, id: newId };
+    });
+    const fields = (
+      (schema.fields as Array<Record<string, unknown>>) ?? []
+    ).map((field) => {
+      const sectionId =
+        typeof field.sectionId === 'string' ? field.sectionId : undefined;
+      return {
+        ...field,
+        id: randomUUID(),
+        sectionId: sectionId
+          ? (sectionIdMap.get(sectionId) ?? sectionId)
+          : sectionId,
+      };
+    });
+    const rules = ((schema.rules as Array<Record<string, unknown>>) ?? []).map(
+      (rule) => ({ ...rule, id: randomUUID() }),
+    );
+    return this.repo.create({
+      name: name?.trim() || `${String(source.name)} copy`,
+      description: source.description,
+      schema: { sections, fields, rules },
+    });
   }
 
   async preview(id: string) {

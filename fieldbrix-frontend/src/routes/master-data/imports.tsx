@@ -9,6 +9,7 @@ interface ImportJob {
   totalRows: number;
   validRows: number;
   errorRows: number;
+  previewRevision: number;
   createdAt: string;
 }
 
@@ -49,7 +50,9 @@ export function ImportsPage() {
     if (!previewResult) return;
     setSubmitting(true);
     try {
-      await api.post(`/imports/${previewResult.id}/commit`, { previewRevision: 1 });
+      await api.post(`/imports/${previewResult.id}/commit`, {
+        previewRevision: previewResult.previewRevision,
+      });
       await refetch();
       setPreviewResult(null);
       setRows('');

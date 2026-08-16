@@ -22,12 +22,12 @@ Status values: `NOT STARTED` · `IN PROGRESS` · `BLOCKED` · `IN QA` · `DONE`
 | 02 | [Application platform](sprint-02-application-platform.md) | — | NOT STARTED | TBD | TBD | — | — | — |
 | 03 | [Authentication](sprint-03-authentication.md) | — | NOT STARTED | TBD | TBD | — | — | — |
 | 04 | [Dynamic authorization and god mode](sprint-04-authorization.md) | — | NOT STARTED | TBD | TBD | — | — | — |
-| 05 | [Platform and company administration](sprint-05-administration.md) | — | NOT STARTED | TBD | TBD | — | — | — |
-| 06 | [Master data and imports](sprint-06-master-data.md) | — | NOT STARTED | TBD | TBD | — | — | — |
-| 07 | [Workflow builder](sprint-07-workflow-builder.md) | — | NOT STARTED | TBD | TBD | — | — | — |
-| 08 | [Rule engine](sprint-08-rule-engine.md) | — | NOT STARTED | TBD | TBD | — | — | — |
-| 09 | [Workflow governance](sprint-09-workflow-governance.md) | — | NOT STARTED | TBD | TBD | — | — | — |
-| 10 | [Task lifecycle](sprint-10-task-lifecycle.md) | — | NOT STARTED | TBD | TBD | — | — | — |
+| 05 | [Platform and company administration](sprint-05-administration.md) | — | IN PROGRESS | TBD | TBD | — | — | [Sprint evidence](sprint-05-administration.md#implementation-checklist) |
+| 06 | [Master data and imports](sprint-06-master-data.md) | — | IN PROGRESS | TBD | TBD | — | — | [Sprint evidence](sprint-06-master-data.md#implementation-checklist) |
+| 07 | [Workflow builder](sprint-07-workflow-builder.md) | — | IN PROGRESS | TBD | TBD | — | — | [Sprint evidence](sprint-07-workflow-builder.md#implementation-checklist) |
+| 08 | [Rule engine](sprint-08-rule-engine.md) | — | IN PROGRESS | TBD | TBD | — | — | [Sprint evidence](sprint-08-rule-engine.md#implementation-checklist) |
+| 09 | [Workflow governance](sprint-09-workflow-governance.md) | — | IN PROGRESS | TBD | TBD | — | — | [Sprint evidence](sprint-09-workflow-governance.md#implementation-checklist) |
+| 10 | [Task lifecycle](sprint-10-task-lifecycle.md) | — | IN PROGRESS | TBD | TBD | — | — | [Sprint evidence](sprint-10-task-lifecycle.md#implementation-checklist) |
 | 11 | [Scheduling and notifications](sprint-11-scheduling.md) | — | NOT STARTED | TBD | TBD | — | — | — |
 | 12 | [Mobile alpha](sprint-12-mobile-alpha.md) | Internal alpha | NOT STARTED | TBD | TBD | — | — | — |
 | 13 | [Mobile execution](sprint-13-mobile-execution.md) | — | NOT STARTED | TBD | TBD | — | — | — |

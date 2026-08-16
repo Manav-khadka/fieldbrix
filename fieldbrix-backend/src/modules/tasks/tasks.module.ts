@@ -15,6 +15,7 @@ import { TaskTransitionController } from './transition/task-transition.controlle
 import { TaskTransitionService } from './transition/task-transition.service';
 
 import { TaskAttachmentController } from './attachment/task-attachment.controller';
+import { TaskAttachmentService } from './attachment/task-attachment.service';
 
 import { TaskHistoryController } from './history/task-history.controller';
 import { TaskHistoryService } from './history/task-history.service';
@@ -38,6 +39,7 @@ import { TaskHistoryService } from './history/task-history.service';
     TaskRepository,
     TaskAssignmentService,
     TaskTransitionService,
+    TaskAttachmentService,
     TaskHistoryService,
   ],
 })

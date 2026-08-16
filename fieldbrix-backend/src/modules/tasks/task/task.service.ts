@@ -26,8 +26,11 @@ export class TaskService {
     try {
       return await this.repo.create(dto as unknown as Record<string, unknown>);
     } catch (err) {
-      if ((err as Error).message === 'PUBLISHED_WORKFLOW_REQUIRED')
+      const message = (err as Error).message;
+      if (message === 'PUBLISHED_WORKFLOW_REQUIRED')
         throw new BadRequestException('PUBLISHED_WORKFLOW_REQUIRED');
+      if (message === 'WORKFLOW_ARCHIVED')
+        throw new BadRequestException('WORKFLOW_ARCHIVED');
       throw err;
     }
   }

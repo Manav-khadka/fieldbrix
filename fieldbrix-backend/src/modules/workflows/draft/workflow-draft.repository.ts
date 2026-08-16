@@ -66,7 +66,9 @@ export class WorkflowDraftRepository {
   }
 
   async create(payload: Row): Promise<Row> {
-    const schema = JSON.stringify({ sections: [], fields: [], rules: [] });
+    const schema = JSON.stringify(
+      payload.schema ?? { sections: [], fields: [], rules: [] },
+    );
     const rows = await this.db.tenantQuery<Row>(
       `INSERT INTO workflow_drafts (tenant_id, name, description, industry, category, schema)
        VALUES (current_setting('app.tenant_id', true)::uuid, $1, $2, $3, $4, $5::jsonb)

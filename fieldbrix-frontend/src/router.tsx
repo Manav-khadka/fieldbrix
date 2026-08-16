@@ -20,6 +20,7 @@ import { WorkflowVersionsPage } from './routes/workflows/versions';
 import { TasksListPage } from './routes/tasks/list';
 import { TaskDetailPage } from './routes/tasks/detail';
 import { CapacityPage } from './routes/tasks/capacity';
+import LegacyAdminApp from './App';
 
 const API_BASE =
   (import.meta.env.VITE_API_URL as string | undefined) ??
@@ -127,6 +128,18 @@ const loginRoute = createRoute({
   },
 });
 
+// Legacy platform/company administration console (tenants, company settings,
+// people, roles, security, files, sessions — sprints 01-05). Not yet ported
+// to the router/page architecture; mounted as-is so it stays reachable
+// instead of being orphaned by the sprint 06-10 router migration. It gates
+// its own login/session state, so it is intentionally NOT nested under
+// layoutRoute's guard.
+const adminRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/admin',
+  component: LegacyAdminApp,
+});
+
 const overviewRoute = createRoute({ getParentRoute: () => layoutRoute, path: '/', component: OverviewPage });
 
 // Master Data
@@ -148,6 +161,7 @@ const capacityRoute = createRoute({ getParentRoute: () => layoutRoute, path: '/s
 
 const routeTree = rootRoute.addChildren([
   loginRoute,
+  adminRoute,
   layoutRoute.addChildren([
     overviewRoute,
     customersRoute,

@@ -58,7 +58,7 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
     const whereClause = where.join(' AND ');
     const [items, count] = await Promise.all([
       this.database.tenantQuery<Row>(
-        `SELECT *, id::text AS id FROM ${this.table} WHERE ${whereClause} ORDER BY created_at DESC, id ASC LIMIT $${values.length + 1} OFFSET $${values.length + 2}`,
+        `SELECT t.*, t.id::text AS id FROM ${this.table} t WHERE ${whereClause} ORDER BY t.created_at DESC, t.id ASC LIMIT $${values.length + 1} OFFSET $${values.length + 2}`,
         [...values, limit, (page - 1) * limit],
       ),
       this.database.tenantQuery<{ count: string }>(
@@ -182,7 +182,6 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
   }
 
   private mapWriteError(error: unknown): Error {
-    console.error('MasterRecordRepository DB Error:', error);
     const code = (error as { code?: string } | undefined)?.code;
     if (code === '23505') return new ConflictException('DUPLICATE_CODE');
     if (code === '23503') return new ConflictException('INVALID_REFERENCE');
