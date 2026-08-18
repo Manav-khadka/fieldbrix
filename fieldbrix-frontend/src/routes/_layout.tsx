@@ -101,6 +101,41 @@ export function Layout() {
             </Link>
           ))}
         </nav>
+        <div
+          className="fb-sidebar-footer"
+          style={{
+            padding: "1rem",
+            marginTop: "auto",
+            borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+          }}
+        >
+          <button
+            onClick={() => {
+              localStorage.removeItem("fieldbrix_token");
+              localStorage.removeItem("fieldbrix_refresh_token");
+              window.location.href = "/login";
+            }}
+            className="fb-signout-button"
+            style={{
+              background: "transparent",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              color: "#fff",
+              borderRadius: "6px",
+              padding: "0.4rem 0.8rem",
+              fontSize: "0.85rem",
+              cursor: "pointer",
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
+            }}
+            aria-label="Sign out"
+          >
+            <span aria-hidden="true">⎋</span>
+            {sidebarOpen && <span>Sign out</span>}
+          </button>
+        </div>
       </aside>
 
       {/* Main content */}

@@ -4,7 +4,10 @@ import { api } from "../api/client";
 export type Capability = string;
 
 interface CapabilitiesResponse {
-  capabilities: Capability[];
+  capabilities?: Capability[];
+  grants?: Capability[];
+  scopes?: Record<string, string[]>;
+  features?: string[];
 }
 
 export function useCapabilities() {
@@ -15,7 +18,7 @@ export function useCapabilities() {
     retry: false,
   });
 
-  const capabilities = data?.capabilities ?? [];
+  const capabilities = data?.grants ?? data?.capabilities ?? [];
 
   return {
     capabilities,
