@@ -18,6 +18,13 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   };
   const res = await fetch(`${API_BASE}${path}`, { ...init, headers });
   if (!res.ok) {
+    if (res.status === 401) {
+      localStorage.removeItem("fieldbrix_token");
+      localStorage.removeItem("fieldbrix_refresh_token");
+      if (typeof window !== "undefined" && window.location.pathname !== "/login") {
+        window.location.href = "/login";
+      }
+    }
     const body = (await res.json().catch(() => ({}))) as Record<
       string,
       unknown

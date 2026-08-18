@@ -101,7 +101,17 @@ function App() {
       }
       const result = await fetch(`${api}${path}`, { ...options, headers });
       const body = await result.json().catch(() => ({}));
-      if (!result.ok) throw new Error(body.error?.message ?? "Request failed");
+      if (!result.ok) {
+        if (result.status === 401) {
+          localStorage.removeItem("fieldbrix_token");
+          localStorage.removeItem("fieldbrix_refresh_token");
+          setToken("");
+          if (typeof window !== "undefined" && window.location.pathname !== "/login") {
+            window.location.href = "/login";
+          }
+        }
+        throw new Error(body.error?.message ?? body.message ?? "Request failed");
+      }
       return body.data;
     },
     [token],
@@ -148,9 +158,18 @@ function App() {
       setTenants(toArray(tenantData));
       setError("");
     } catch (reason) {
-      setError(
-        reason instanceof Error ? reason.message : "Unable to load workspace",
-      );
+      const msg =
+        reason instanceof Error ? reason.message : "Unable to load workspace";
+      if (msg === "UNAUTHORIZED" || msg.includes("UNAUTHORIZED")) {
+        localStorage.removeItem("fieldbrix_token");
+        localStorage.removeItem("fieldbrix_refresh_token");
+        setToken("");
+        if (typeof window !== "undefined" && window.location.pathname !== "/login") {
+          window.location.href = "/login";
+        }
+        return;
+      }
+      setError(msg);
     } finally {
       setBusy(false);
     }
