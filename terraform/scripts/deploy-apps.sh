@@ -116,6 +116,7 @@ PARAMETERS=$(jq -cn \
   --arg applicationQueueUrl "${APPLICATION_QUEUE_URL}" \
   --arg platformAdminToken "${PLATFORM_ADMIN_TOKEN}" \
   --arg platformAdminReauth "${PLATFORM_ADMIN_REAUTH}" \
+  --arg adminOrigin "${ADMIN_URL}" \
   '{commands:[
     "set -euo pipefail",
     ("release=" + $release),
@@ -126,7 +127,7 @@ PARAMETERS=$(jq -cn \
     "aws s3 cp s3://$bucket/releases/$release/api.tar.gz /tmp/api.tar.gz --region $region --only-show-errors",
     "tar -xzf /tmp/admin.tar.gz -C /opt/fieldbrix/admin/releases/$release",
     "tar -xzf /tmp/api.tar.gz -C /opt/fieldbrix/backend/releases/$release",
-    ("printf \"%s\\n\" \"APP_VERSION=" + $version + "\" \"APP_COMMIT_SHA=" + $commit + "\" \"APP_BUILD_TIME=" + $buildTime + "\" \"SENTRY_RELEASE=fieldbrix-backend@" + $commit + "\" \"SENTRY_DSN=" + $sentryDsn + "\" \"S3_BUCKET=" + $applicationBucket + "\" \"SQS_QUEUE_URL=" + $applicationQueueUrl + "\" \"PLATFORM_ADMIN_TOKEN=" + $platformAdminToken + "\" \"PLATFORM_ADMIN_REAUTH=" + $platformAdminReauth + "\" > /opt/fieldbrix/backend/releases/$release/release.env"),
+    ("printf \"%s\\n\" \"APP_VERSION=" + $version + "\" \"APP_COMMIT_SHA=" + $commit + "\" \"APP_BUILD_TIME=" + $buildTime + "\" \"SENTRY_RELEASE=fieldbrix-backend@" + $commit + "\" \"SENTRY_DSN=" + $sentryDsn + "\" \"S3_BUCKET=" + $applicationBucket + "\" \"SQS_QUEUE_URL=" + $applicationQueueUrl + "\" \"PLATFORM_ADMIN_TOKEN=" + $platformAdminToken + "\" \"PLATFORM_ADMIN_REAUTH=" + $platformAdminReauth + "\" \"ADMIN_ORIGIN=" + $adminOrigin + "\" > /opt/fieldbrix/backend/releases/$release/release.env"),
     "chown -R ec2-user:ec2-user /opt/fieldbrix/admin/releases/$release /opt/fieldbrix/backend/releases/$release",
     "PNPM_BIN=$(command -v /usr/local/bin/pnpm || command -v /usr/bin/pnpm || command -v pnpm || echo pnpm)",
     "cd /opt/fieldbrix/backend/releases/$release && sudo -u ec2-user env PATH=\"$PATH:/usr/local/bin:/usr/bin\" $PNPM_BIN install --prod --frozen-lockfile",
