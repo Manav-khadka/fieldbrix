@@ -51,13 +51,24 @@ function LoginPage() {
         };
         throw new Error(body.message ?? "Login failed");
       }
-      const data = (await res.json()) as {
-        data?: { token?: string };
+      const body = (await res.json()) as {
+        data?: { accessToken?: string; refreshToken?: string; token?: string };
+        accessToken?: string;
         token?: string;
       };
       const token =
-        data?.data?.token ?? (data as { token?: string }).token ?? "";
+        body?.data?.accessToken ??
+        body?.data?.token ??
+        body?.accessToken ??
+        body?.token ??
+        "";
+      if (!token) {
+        throw new Error("No authentication token returned from server");
+      }
       localStorage.setItem("fieldbrix_token", token);
+      if (body?.data?.refreshToken) {
+        localStorage.setItem("fieldbrix_refresh_token", body.data.refreshToken);
+      }
       await navigate({ to: "/" });
     } catch (err) {
       setError((err as Error).message ?? "Login failed");
