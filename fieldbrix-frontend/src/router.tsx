@@ -21,6 +21,8 @@ import { WorkflowVersionsPage } from "./routes/workflows/versions";
 import { TasksListPage } from "./routes/tasks/list";
 import { TaskDetailPage } from "./routes/tasks/detail";
 import { CapacityPage } from "./routes/tasks/capacity";
+import { SchedulingCalendarPage } from "./routes/scheduling/calendar";
+import { ReviewQueuePage } from "./routes/tasks/review-queue";
 import LegacyAdminApp, { Login } from "./App";
 
 const API_BASE =
@@ -209,6 +211,16 @@ const capacityRoute = createRoute({
   path: "/scheduling/capacity",
   component: CapacityPage,
 });
+const calendarRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/scheduling/calendar",
+  component: SchedulingCalendarPage,
+});
+const reviewQueueRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/tasks/review-queue",
+  component: ReviewQueuePage,
+});
 
 const routeTree = rootRoute.addChildren([
   loginRoute,
@@ -227,6 +239,8 @@ const routeTree = rootRoute.addChildren([
     tasksListRoute,
     taskDetailRoute,
     capacityRoute,
+    calendarRoute,
+    reviewQueueRoute,
   ]),
 ]);
 

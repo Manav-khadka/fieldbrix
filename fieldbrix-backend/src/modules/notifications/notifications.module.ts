@@ -1,14 +1,24 @@
 import { Module } from '@nestjs/common';
-import { NotificationsService } from './notifications/notifications.service';
+import { DatabaseModule } from '../database/database.module';
+import { PlatformModule } from '../platform/platform.module';
+import { AuthorizationModule } from '../authorization/authorization.module';
+import { NotificationsService as LegacyNotificationsService } from './notifications/notifications.service';
 import { NOTIFICATION_DELIVERY } from './ports/notification-delivery.port/notification-delivery.port';
 import { TemporaryEmailAdapter } from './adapters/temporary-email.adapter/temporary-email.adapter';
+import { NotificationsController } from './inbox/notifications.controller';
+import { NotificationsService } from './inbox/notifications.service';
+import { NotificationsRepository } from './inbox/notifications.repository';
 
 @Module({
+  imports: [DatabaseModule, PlatformModule, AuthorizationModule],
+  controllers: [NotificationsController],
   providers: [
-    NotificationsService,
+    LegacyNotificationsService,
     TemporaryEmailAdapter,
     { provide: NOTIFICATION_DELIVERY, useExisting: TemporaryEmailAdapter },
+    NotificationsService,
+    NotificationsRepository,
   ],
-  exports: [NotificationsService],
+  exports: [LegacyNotificationsService, NotificationsService],
 })
 export class NotificationsModule {}

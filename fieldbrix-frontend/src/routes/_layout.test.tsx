@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Layout } from "./_layout";
 import { useCapabilities } from "../hooks/useCapabilities";
 import { useUiStore } from "../store/ui.store";
@@ -15,6 +16,15 @@ vi.mock("@tanstack/react-router", () => ({
   useRouter: () => ({ state: { location: { pathname: "/" } } }),
 }));
 
+function renderWithQuery(ui: ReactNode) {
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  });
+  return render(
+    <QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>,
+  );
+}
+
 describe("Layout navigation", () => {
   beforeEach(() => {
     useUiStore.setState({ sidebarOpen: true });
@@ -26,7 +36,7 @@ describe("Layout navigation", () => {
       isLoading: true,
       can: () => false,
     });
-    render(<Layout />);
+    renderWithQuery(<Layout />);
     // Overview has no permission requirement and is always visible.
     expect(screen.getByText("Overview")).toBeInTheDocument();
     // isLoading:true shows every item optimistically per the component's
@@ -41,7 +51,7 @@ describe("Layout navigation", () => {
       isLoading: false,
       can: (permission: string) => permission === "tasks.view",
     });
-    render(<Layout />);
+    renderWithQuery(<Layout />);
     expect(screen.getByText("Tasks")).toBeInTheDocument();
     expect(screen.queryByText("Customers")).not.toBeInTheDocument();
     expect(screen.queryByText("Workflows")).not.toBeInTheDocument();
@@ -53,7 +63,7 @@ describe("Layout navigation", () => {
       isLoading: false,
       can: () => false,
     });
-    render(<Layout />);
+    renderWithQuery(<Layout />);
     expect(screen.getByText("Administration")).toBeInTheDocument();
   });
 });

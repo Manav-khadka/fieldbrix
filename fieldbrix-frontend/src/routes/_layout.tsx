@@ -1,6 +1,7 @@
 import { Outlet, Link, useRouter } from "@tanstack/react-router";
 import { useCapabilities } from "../hooks/useCapabilities";
 import { useUiStore } from "../store/ui.store";
+import { NotificationBell } from "../components/NotificationBell";
 
 type NavItem = {
   label: string;
@@ -49,10 +50,20 @@ const NAV_ITEMS: NavItem[] = [
   },
   { label: "Tasks", icon: "⌁", path: "/tasks", permission: "tasks.view" },
   {
+    label: "Schedules",
+    icon: "📅",
+    path: "/scheduling/calendar",
+  },
+  {
     label: "Capacity",
     icon: "⌀",
     path: "/scheduling/capacity",
     permission: "tasks.assign",
+  },
+  {
+    label: "Review Queue",
+    icon: "✓",
+    path: "/tasks/review-queue",
   },
   { label: "Administration", icon: "⚙", path: "/admin" },
 ];
@@ -140,6 +151,18 @@ export function Layout() {
 
       {/* Main content */}
       <main className="fb-main">
+        <header
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            padding: "0.5rem 1.5rem",
+            borderBottom: "1px solid #e2e8f0",
+            background: "#ffffff",
+          }}
+        >
+          <NotificationBell />
+        </header>
         <Outlet />
       </main>
     </div>

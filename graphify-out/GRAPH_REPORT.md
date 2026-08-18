@@ -1,16 +1,16 @@
-# Graph Report - fieldbrix  (2026-08-16)
+# Graph Report - fieldbrix  (2026-08-19)
 
 ## Corpus Check
-- 579 files · ~210,338 words
+- 579 files · ~210,892 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 28368 nodes · 29436 edges · 4858 communities (4754 shown, 104 thin omitted)
+- 28369 nodes · 29388 edges · 4870 communities (4757 shown, 113 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 179 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `06e03786`
+- Built from commit: `28545981`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -4819,6 +4819,18 @@
 - [[_COMMUNITY_Community 4828|Community 4828]]
 - [[_COMMUNITY_Community 4829|Community 4829]]
 - [[_COMMUNITY_Community 4830|Community 4830]]
+- [[_COMMUNITY_Community 4858|Community 4858]]
+- [[_COMMUNITY_Community 4859|Community 4859]]
+- [[_COMMUNITY_Community 4860|Community 4860]]
+- [[_COMMUNITY_Community 4861|Community 4861]]
+- [[_COMMUNITY_Community 4862|Community 4862]]
+- [[_COMMUNITY_Community 4863|Community 4863]]
+- [[_COMMUNITY_Community 4864|Community 4864]]
+- [[_COMMUNITY_Community 4865|Community 4865]]
+- [[_COMMUNITY_Community 4866|Community 4866]]
+- [[_COMMUNITY_Community 4867|Community 4867]]
+- [[_COMMUNITY_Community 4868|Community 4868]]
+- [[_COMMUNITY_Community 4869|Community 4869]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `files` - 101 edges
@@ -4835,14 +4847,14 @@
 ## Surprising Connections (you probably didn't know these)
 - `Leak panel` --semantically_similar_to--> `Platform role roster (13 roles)`  [INFERRED] [semantically similar]
   docs/CASE_STUDY.md → docs/PLATFORM_USER_STORIES.md
+- `Layout()` --calls--> `useCapabilities()`  [EXTRACTED]
+  routes/_layout.tsx → hooks/useCapabilities.ts
+- `Layout()` --calls--> `useUiStore`  [EXTRACTED]
+  routes/_layout.tsx → fieldbrix-frontend/src/store/ui.store.ts
 - `Log groups` --references--> `modules/monitoring`  [EXTRACTED]
   terraform/modules/monitoring/README.md → docs/terraform/modules/monitoring/README.md
 - `SSL strict mode` --references--> `modules/dns`  [EXTRACTED]
   terraform/modules/dns/README.md → docs/terraform/modules/dns/README.md
-- `Row-Level Security tenant isolation` --references--> `tenantId-from-JWT-only rule`  [EXTRACTED]
-  docs/fieldbrix-schema.sql → docs/ENGINEERING_HANDBOOK.md
-- `Apex Elevator Services (composite case study)` --cites--> `firstdoc_fable_5.md (ICP/blueprint source doc)`  [EXTRACTED]
-  docs/CASE_STUDY.md → firstdoc_fable_5.md (external)
 
 ## Hyperedges (group relationships)
 - **Layered tenant isolation: composite FK + RLS + JWT-only tenantId** — docs_fieldbrix_schema_tenant_isolation_composite_fk, docs_fieldbrix_schema_row_level_security, docs_engineering_handbook_tenant_isolation_jwt [INFERRED 0.85]
@@ -4852,7 +4864,7 @@
 - **Full Environment Bootstrap Flow** — terraform_local_setup_guide, scripts_readme_bootstrap_sh, scripts_readme_secrets_init_sh, scripts_readme_plan_sh, scripts_readme_apply_sh, python_readme_health_check_py [EXTRACTED 1.00]
 - **Shared Zod Schema Contract** — frontend_readme_react_hook_form_zod, frontend_readme_create_task_schema, backend_readme_create_task_dto [EXTRACTED 1.00]
 
-## Communities (4858 total, 104 thin omitted)
+## Communities (4870 total, 113 thin omitted)
 
 ### Community 1 - "AWS Infrastructure Stack"
 Cohesion: 0.18
@@ -4875,8 +4887,8 @@ Cohesion: 0.08
 Nodes (25): 2.1 Universal Code Principles, code:typescript (// ❌ WRONG — TasksService does too many things), code:typescript (// ❌ WRONG — adding a new channel requires editing this clas), code:typescript (// ❌ WRONG — throws where base class promises a return value), code:typescript (// ❌ WRONG — fat interface forces every implementor to stub ), code:typescript (// ❌ WRONG — hardcoded concrete dependency), code:typescript (// ❌ WRONG — tenant isolation check duplicated), code:block18 (Signs you are over-engineering:) (+17 more)
 
 ### Community 7 - "React Frontend Stack"
-Cohesion: 0.12
-Nodes (16): code:bash (cd ../../   # back to infra root), code:bash (# Install Python dependencies for ops scripts), code:bash (# Easy way (uses the script):), code:bash (# In one terminal — create the tunnel), code:bash (# Stop before sleeping (~saves $14/month if done nightly + w), code:block19 (Always on:              ~$31/month  →  $100 lasts about 3.2 ), code:block25 (environments/prod/   Terraform config for production), Credential reference (+8 more)
+Cohesion: 0.14
+Nodes (13): code:bash (cd ../../   # back to infra root), code:bash (# Install Python dependencies for ops scripts), code:bash (# Easy way (uses the script):), code:bash (# In one terminal — create the tunnel), code:block25 (environments/prod/   Terraform config for production), Credential reference, Fieldbrix — Local Setup Guide, From zero to a running stack, step by step (+5 more)
 
 ### Community 8 - "CI/CD & Terraform Config"
 Cohesion: 0.08
@@ -4931,8 +4943,8 @@ Cohesion: 0.08
 Nodes (25): 3.10 WebSockets / SSE (Real-time), 3.11 Domain Modules (Modular Monolith Structure), 3.12 Backend Libraries Summary, 3.1 Framework, 3.2 Why Dependency Injection Matters for Fieldbrix, 3.3 Guards (RBAC + Tenant Isolation), 3.4 Interceptors (PII Masking, Logging, Response Transform), 3.5 Pipes (Validation) (+17 more)
 
 ### Community 23 - "start.sh"
-Cohesion: 0.05
-Nodes (26): CustomersRepository, IMPORTABLE_ENTITY_TYPES, ImportableEntityType, ImportCommitDto, ImportPreviewDto, cellString(), ImportProcessorService, REQUIRED_FIELDS (+18 more)
+Cohesion: 0.07
+Nodes (24): CustomersRepository, IMPORTABLE_ENTITY_TYPES, ImportableEntityType, ImportCommitDto, ImportPreviewDto, cellString(), ImportProcessorService, REQUIRED_FIELDS (+16 more)
 
 ### Community 25 - "tenant_settings Table"
 Cohesion: 0.10
@@ -5159,7 +5171,7 @@ Cohesion: 0.60
 Nodes (5): create_snapshot(), main(), restore_snapshot(), sync_s3(), verify_ec2()
 
 ### Community 84 - "Community 84"
-Cohesion: 0.14
+Cohesion: 0.17
 Nodes (8): initializeSentry(), redact(), scrubSentryEvent(), event, redact(), scrubSentryEvent(), queryClient, router
 
 ### Community 85 - "Community 85"
@@ -5335,8 +5347,8 @@ Cohesion: 0.50
 Nodes (3): fieldbrix_app, fieldbrix-mobile, Getting Started
 
 ### Community 133 - "Community 133"
-Cohesion: 0.19
-Nodes (14): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Widgets display state and emit events. No business logic.), code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:) (+6 more)
+Cohesion: 0.25
+Nodes (11): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:), code:dart (// Mirrors the server envelope exactly) (+3 more)
 
 ### Community 134 - "Community 134"
 Cohesion: 0.08
@@ -5348,7 +5360,7 @@ Nodes (16): dependencies, @aws-sdk/client-s3, @aws-sdk/client-sqs, @aws-sdk/s3-r
 
 ### Community 136 - "Community 136"
 Cohesion: 0.15
-Nodes (12): code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block48 (Unit tests (services, repositories)    : minimum 80% line co), code:block55 (N1.  tenantId comes from JWT only. Never from request body, ), J1. Migration Rules, J2. Query Rules, K1. Test Structure — AAA (Arrange, Act, Assert) (+4 more)
+Nodes (12): B1. Monorepo Layout, B2. Module Boundary Rules, code:block14 (fieldbrix/                          Root (Turborepo)), code:block15 (Rule P0: No file in modules/ may import from infrastructure/), code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:block55 (N1.  tenantId comes from JWT only. Never from request body, ), J1. Migration Rules (+4 more)
 
 ### Community 138 - "Community 138"
 Cohesion: 0.40
@@ -5371,52 +5383,48 @@ Cohesion: 0.67
 Nodes (3): modules/networking, Security Groups (EC2/RDS), VPC + Subnets
 
 ### Community 151 - "Community 151"
-Cohesion: 0.06
-Nodes (37): AdministrationModule, AdministrationModule, AuthModule, AuthModule, AuthorizationModule, AuthorizationModule, CorrelationIdMiddleware, DatabaseModule (+29 more)
+Cohesion: 0.05
+Nodes (38): AdministrationModule, AdministrationModule, AuthModule, AuthModule, AuthorizationModule, AuthorizationModule, CorrelationIdMiddleware, DatabaseModule (+30 more)
 
 ### Community 152 - "Community 152"
 Cohesion: 0.04
 Nodes (44): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (+36 more)
 
 ### Community 153 - "Community 153"
-Cohesion: 0.05
-Nodes (33): CUSTOMER_COLUMNS, CustomerRecord, DatabaseService, ImportJobRow, ImportRowOutcome, ImportsRepository, PART_COLUMNS, PartRecord (+25 more)
+Cohesion: 0.03
+Nodes (47): Row, CUSTOMER_COLUMNS, CustomerRecord, DatabaseService, Row, TaskHistoryService, ImportJobRow, ImportRowOutcome (+39 more)
 
 ### Community 158 - "Community 158"
 Cohesion: 0.04
 Nodes (44): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (+36 more)
 
 ### Community 162 - "Community 162"
-Cohesion: 0.05
-Nodes (19): fieldKeys, fired, out, result, WorkflowRuleController, Row, WorkflowRuleRepository, WorkflowRuleService (+11 more)
+Cohesion: 0.07
+Nodes (18): fieldKeys, fired, out, result, Row, WorkflowRuleRepository, WorkflowRuleService, compare() (+10 more)
 
 ### Community 163 - "Community 163"
 Cohesion: 0.09
 Nodes (3): Row, WorkflowGovernanceRepository, WorkflowGovernanceService
 
 ### Community 164 - "Community 164"
-Cohesion: 0.06
-Nodes (30): ENTITY_TYPES, ImportJob, ImportsPage(), adminRoute, capacityRoute, customersRoute, importsRoute, layoutRoute (+22 more)
+Cohesion: 0.08
+Nodes (21): adminRoute, capacityRoute, customersRoute, importsRoute, layoutRoute, loginRoute, overviewRoute, partsRoute (+13 more)
 
 ### Community 165 - "Community 165"
-Cohesion: 0.24
-Nodes (10): 13.1 Migration Rules, 13.2 Query Rules, 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block97 (Unit tests (services, repositories)    : minimum 80% line co) (+2 more)
+Cohesion: 0.12
+Nodes (21): 13.1 Migration Rules, 13.2 Query Rules, 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, 16.1 Comment Style, 16.2 TSDoc on All Public Service Methods, code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:typescript (/**) (+13 more)
 
 ### Community 167 - "Community 167"
-Cohesion: 0.03
-Nodes (31): TaskAssignmentController, CustomersController, CustomersService, CreateTemplateDto, PublishWorkflowDto, UpdateTemplateDto, CreateCustomerDto, UpdateCustomerDto (+23 more)
+Cohesion: 0.05
+Nodes (29): AssignRolesDto, CreateRoleDto, CustomersService, DestructiveExecutionDto, DestructiveRequestDto, CreateCustomerDto, UpdateCustomerDto, ListMasterQueryDto (+21 more)
 
 ### Community 186 - "Community 186"
-Cohesion: 0.09
-Nodes (24): api, ApiError, getToken(), request(), CustomerDetail, CustomerForm(), CustomerFormValues, customerSchema (+16 more)
+Cohesion: 0.12
+Nodes (13): api, ApiError, getToken(), request(), ENTITY_TYPES, ImportJob, ImportsPage(), OverviewPage() (+5 more)
 
 ### Community 195 - "Community 195"
-Cohesion: 0.04
-Nodes (25): Row, TaskHistoryService, TenantContextCleanupInterceptor, COMPANY_DATE_FORMATS, COMPANY_NUMBER_FORMATS, hash, PermissionScope, Role (+17 more)
-
-### Community 196 - "Community 196"
-Cohesion: 0.07
-Nodes (10): AssignRolesDto, AuthorizationService, CreateRoleDto, DestructiveExecutionDto, DestructiveRequestDto, GodSessionDto, PermissionGrantDto, PlatformAdminGuard (+2 more)
+Cohesion: 0.06
+Nodes (14): TenantContextCleanupInterceptor, COMPANY_DATE_FORMATS, COMPANY_NUMBER_FORMATS, hash, PermissionScope, Role, SessionMetadata, Tenant (+6 more)
 
 ### Community 238 - "Community 238"
 Cohesion: 0.06
@@ -5464,7 +5472,7 @@ Nodes (13): Frontend Reference (Vite + React), dnd-kit Drag and Drop, Google Map
 
 ### Community 251 - "Community 251"
 Cohesion: 0.05
-Nodes (26): Row, WorkflowDraftRepository, dto, { service }, { service, repo }, repo, schema, service (+18 more)
+Nodes (29): Row, WorkflowDraftRepository, dto, { service }, { service, repo }, repo, schema, service (+21 more)
 
 ### Community 252 - "Community 252"
 Cohesion: 0.15
@@ -5527,12 +5535,12 @@ Cohesion: 0.18
 Nodes (11): 2.2 Controllers, 2.3 Services, 2.4 Repositories, 2.5 DTOs, 2.6 Naming Conventions — Backend, 2. BACKEND CODE STANDARDS, code:typescript (// Controllers ONLY:), code:typescript (@Injectable()) (+3 more)
 
 ### Community 267 - "Community 267"
-Cohesion: 0.27
-Nodes (10): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task) (+2 more)
+Cohesion: 0.31
+Nodes (9): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task), code:block99 (Format: <type>(<scope>): <description>) (+1 more)
 
 ### Community 268 - "Community 268"
-Cohesion: 0.16
-Nodes (14): 16.1 Comment Style, 16.2 TSDoc on All Public Service Methods, code:block1 (PART 1   Infrastructure (AWS ap-south-1) ............ Comput), code:typescript (/**), code:block104 (N1.  tenantId comes from JWT only. Never from request body, ), code:block105 (INFRASTRUCTURE                          MONTHLY), Fieldbrix — Engineering Handbook, HOW TO USE THIS DOCUMENT (+6 more)
+Cohesion: 0.33
+Nodes (6): code:block1 (PART 1   Infrastructure (AWS ap-south-1) ............ Comput), Fieldbrix — Engineering Handbook, HOW TO USE THIS DOCUMENT, TABLE OF CONTENTS, Tech Stack Reference + Implementation Standards, combined, Verified August 2026 · Version 1.0 · Binding on all contributors
 
 ### Community 269 - "Community 269"
 Cohesion: 0.22
@@ -5628,15 +5636,15 @@ Nodes (5): S3 Object Storage, Presigned URL Upload (Mobile), modules/storage, Pr
 
 ### Community 293 - "Community 293"
 Cohesion: 0.10
-Nodes (29): 10.10 Push Notifications, 10.11 Secure Storage, 10.12 Connectivity, 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, 10.1 Framework, 10.2 Local Database, 10.3 Database Encryption (+21 more)
+Nodes (30): 10.10 Push Notifications, 10.11 Secure Storage, 10.12 Connectivity, 10.13 OEM Battery Optimization (India-specific), 10.14 Flutter libraries summary, 10.1 Framework, 10.2 Local Database, 10.3 Database Encryption (+22 more)
 
 ### Community 294 - "Community 294"
 Cohesion: 0.06
 Nodes (34): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (+26 more)
 
 ### Community 295 - "Community 295"
-Cohesion: 0.40
-Nodes (5): B1. Monorepo Layout, B2. Module Boundary Rules, code:block14 (fieldbrix/                          Root (Turborepo)), code:block15 (Rule P0: No file in modules/ may import from infrastructure/), PART B — PROJECT STRUCTURE
+Cohesion: 0.13
+Nodes (12): CreateTaskForm, createTaskSchema, Customer, ServiceTarget, Site, onCreated, UUID, Workflow (+4 more)
 
 ### Community 296 - "Community 296"
 Cohesion: 0.40
@@ -5647,7 +5655,7 @@ Cohesion: 0.23
 Nodes (9): Row, allowed, forbidden, TaskTransitionService, isAllowedTransition(), isTaskStatus(), TASK_STATUSES, TaskStatus (+1 more)
 
 ### Community 299 - "Community 299"
-Cohesion: 0.23
+Cohesion: 0.19
 Nodes (9): CapabilitiesResponse, Capability, { result }, useCapabilities(), Layout(), NAV_ITEMS, NavItem, UiState (+1 more)
 
 ### Community 300 - "Community 300"
@@ -5659,8 +5667,8 @@ Cohesion: 0.50
 Nodes (4): 6.1 Row-Level Security, 6.2 Why composite `(tenant_id, ...)` foreign keys everywhere, 6. Security model, code:sql (ALTER TABLE field_ops.<table> ENABLE ROW LEVEL SECURITY;)
 
 ### Community 302 - "Community 302"
-Cohesion: 0.05
-Nodes (25): TaskAttachmentController, Row, TaskAttachmentService, TaskController, CreateTaskDto, ListTasksQueryDto, TaskActionRequestDto, TaskAttachmentDto (+17 more)
+Cohesion: 0.06
+Nodes (25): Row, TaskAttachmentService, CreateTaskDto, ListTasksQueryDto, TaskActionRequestDto, TaskAssignmentDto, TaskAttachmentDto, TaskTransitionDto (+17 more)
 
 ### Community 303 - "Community 303"
 Cohesion: 0.67
@@ -5675,8 +5683,8 @@ Cohesion: 0.06
 Nodes (34): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (+26 more)
 
 ### Community 306 - "Community 306"
-Cohesion: 0.13
-Nodes (12): CreateTaskForm, createTaskSchema, Customer, ServiceTarget, Site, onCreated, UUID, Workflow (+4 more)
+Cohesion: 0.20
+Nodes (8): PartDetail, PartForm(), PartFormValues, partSchema, columnHelper, columns, Part, PartsPage()
 
 ### Community 308 - "Community 308"
 Cohesion: 0.06
@@ -5727,7 +5735,7 @@ Cohesion: 0.07
 Nodes (29): files, index.d.ts, index.js, license, package.json, readme.md, checkedAt, integrity (+21 more)
 
 ### Community 323 - "Community 323"
-Cohesion: 0.15
+Cohesion: 0.13
 Nodes (10): AssignmentDrawer(), CurrentAssignment, TeamOption, onClose, UserOption, ALLOWED_TRANSITIONS, FLAG_LABELS, HistoryEntry (+2 more)
 
 ### Community 324 - "Community 324"
@@ -5871,8 +5879,8 @@ Cohesion: 0.09
 Nodes (21): compilerOptions, allowSyntheticDefaultImports, declaration, emitDecoratorMetadata, esModuleInterop, experimentalDecorators, forceConsistentCasingInFileNames, incremental (+13 more)
 
 ### Community 360 - "Community 360"
-Cohesion: 0.11
-Nodes (18): Action, ACTION_TYPES, ACTIONS_NEEDING_BOOLEAN_VALUE, ACTIONS_NEEDING_FIELD, ACTIONS_NEEDING_MESSAGE, ACTIONS_NEEDING_TEXT_VALUE, Condition, emptyAction() (+10 more)
+Cohesion: 0.12
+Nodes (17): Action, ACTION_TYPES, ACTIONS_NEEDING_BOOLEAN_VALUE, ACTIONS_NEEDING_FIELD, ACTIONS_NEEDING_MESSAGE, ACTIONS_NEEDING_TEXT_VALUE, Condition, emptyAction() (+9 more)
 
 ### Community 361 - "Community 361"
 Cohesion: 0.10
@@ -5896,7 +5904,7 @@ Nodes (15): files, lib/etc/roles/dpub/docQnaRole.js, lib/etc/roles/literal/listb
 
 ### Community 366 - "Community 366"
 Cohesion: 0.12
-Nodes (15): files, lib/interceptor/response-error.js, lib/web/fetch/LICENSE, scripts/strip-comments.js, checkedAt, integrity, mode, size (+7 more)
+Nodes (15): files, lib/interceptor/dump.js, lib/web/webidl/index.js, scripts/strip-comments.js, checkedAt, integrity, mode, size (+7 more)
 
 ### Community 367 - "Community 367"
 Cohesion: 0.12
@@ -5908,7 +5916,7 @@ Nodes (15): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (
 
 ### Community 369 - "Community 369"
 Cohesion: 0.12
-Nodes (15): files, helpers/createClass.js, helpers/esm/classPrivateFieldDestructureSet.js, helpers/esm/classPrivateMethodInitSpec.js, checkedAt, integrity, mode, size (+7 more)
+Nodes (15): files, helpers/createSuper.js, helpers/esm/classPrivateFieldLooseKey.js, helpers/esm/classPrivateMethodInitSpec.js, checkedAt, integrity, mode, size (+7 more)
 
 ### Community 370 - "Community 370"
 Cohesion: 0.12
@@ -5928,7 +5936,7 @@ Nodes (15): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (
 
 ### Community 374 - "Community 374"
 Cohesion: 0.12
-Nodes (15): files, lib/etc/roles/dpub/docTipRole.js, lib/etc/roles/literal/listRole.js, lib/etc/roles/literal/mathRole.js, checkedAt, integrity, mode, size (+7 more)
+Nodes (15): files, lib/etc/roles/dpub/docTipRole.js, lib/etc/roles/literal/imgRole.js, lib/etc/roles/literal/mathRole.js, checkedAt, integrity, mode, size (+7 more)
 
 ### Community 375 - "Community 375"
 Cohesion: 0.12
@@ -5964,11 +5972,11 @@ Nodes (15): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (
 
 ### Community 383 - "Community 383"
 Cohesion: 0.12
-Nodes (15): files, lib/generated/idl/CSSGroupingRule.js, lib/jsdom/living/css/properties/backgroundClip.js, lib/jsdom/living/nodes/ChildNode-impl.js, checkedAt, integrity, mode, size (+7 more)
+Nodes (15): files, lib/generated/idl/CloseEvent.js, lib/generated/idl/CSSGroupingRule.js, lib/jsdom/living/css/helpers/css-values.js, checkedAt, integrity, mode, size (+7 more)
 
 ### Community 384 - "Community 384"
 Cohesion: 0.12
-Nodes (15): checkedAt, integrity, mode, size, files, class-validator/dist/class-validator.module.js.map, class-validator/dist/class-validator.umd.js, typanion/dist/typanion.umd.js (+7 more)
+Nodes (15): checkedAt, integrity, mode, size, files, class-validator/dist/class-validator.module.js.map, class-validator/dist/class-validator.umd.js, typanion/package.json (+7 more)
 
 ### Community 385 - "Community 385"
 Cohesion: 0.12
@@ -5992,7 +6000,7 @@ Nodes (9): Customer, SiteDetail, SiteForm(), SiteFormValues, siteSchema, columnH
 
 ### Community 392 - "Community 392"
 Cohesion: 0.18
-Nodes (10): files, v4/classic/compat.d.cts, v4/classic/schemas.cjs, name, requiresBuild, checkedAt, integrity, mode (+2 more)
+Nodes (10): files, v4/classic/compat.d.cts, v4/classic/parse.cjs, name, requiresBuild, checkedAt, integrity, mode (+2 more)
 
 ### Community 393 - "Community 393"
 Cohesion: 0.18
@@ -6003,8 +6011,8 @@ Cohesion: 0.18
 Nodes (11): 4.2 Controllers, 4.3 Services, 4.4 Repositories, 4.5 DTOs, 4.6 Naming Conventions — Backend, code:typescript (// Controllers ONLY:), code:typescript (@Injectable()), code:typescript (// Repositories ONLY contain Prisma queries.) (+3 more)
 
 ### Community 395 - "Community 395"
-Cohesion: 0.29
-Nodes (9): main(), check_ec2(), check_eip(), check_rds(), check_runtime_parameters(), check_s3(), check_sqs(), main() (+1 more)
+Cohesion: 0.21
+Nodes (10): main(), check_ec2(), check_eip(), check_rds(), check_runtime_parameters(), check_s3(), check_sqs(), main() (+2 more)
 
 ### Community 397 - "Community 397"
 Cohesion: 0.20
@@ -6033,6 +6041,10 @@ Nodes (9): checkedAt, integrity, mode, size, files, dist/accessible-description.
 ### Community 405 - "Community 405"
 Cohesion: 0.25
 Nodes (7): configVersion, flutterRoot, flutterVersion, generator, generatorVersion, packages, pubCache
+
+### Community 406 - "Community 406"
+Cohesion: 0.40
+Nodes (5): lib/etc/roles/dpub/docTipRole.js, checkedAt, integrity, mode, size
 
 ### Community 407 - "Community 407"
 Cohesion: 0.33
@@ -6592,7 +6604,7 @@ Nodes (5): lib/etc/roles/dpub/docSubtitleRole.js, checkedAt, integrity, mode, si
 
 ### Community 546 - "Community 546"
 Cohesion: 0.40
-Nodes (5): lib/etc/roles/dpub/docTipRole.js, checkedAt, integrity, mode, size
+Nodes (5): lib/etc/roles/literal/mainRole.js, checkedAt, integrity, mode, size
 
 ### Community 547 - "Community 547"
 Cohesion: 0.40
@@ -6735,8 +6747,8 @@ Cohesion: 0.40
 Nodes (5): lib/etc/roles/literal/groupRole.js, checkedAt, integrity, mode, size
 
 ### Community 582 - "Community 582"
-Cohesion: 0.40
-Nodes (5): lib/etc/roles/literal/headingRole.js, checkedAt, integrity, mode, size
+Cohesion: 0.20
+Nodes (8): CustomerDetail, CustomerForm(), CustomerFormValues, customerSchema, columnHelper, columns, Customer, CustomersPage()
 
 ### Community 583 - "Community 583"
 Cohesion: 0.40
@@ -6764,7 +6776,7 @@ Nodes (5): lib/etc/roles/literal/logRole.js, checkedAt, integrity, mode, size
 
 ### Community 589 - "Community 589"
 Cohesion: 0.40
-Nodes (5): lib/etc/roles/literal/mainRole.js, checkedAt, integrity, mode, size
+Nodes (5): lib/interceptor/response-error.js, checkedAt, integrity, mode, size
 
 ### Community 590 - "Community 590"
 Cohesion: 0.40
@@ -7908,11 +7920,7 @@ Nodes (5): lib/interceptor/deduplicate.js, checkedAt, integrity, mode, size
 
 ### Community 875 - "Community 875"
 Cohesion: 0.40
-Nodes (5): lib/interceptor/dns.js, checkedAt, integrity, mode, size
-
-### Community 876 - "Community 876"
-Cohesion: 0.40
-Nodes (5): lib/interceptor/dump.js, checkedAt, integrity, mode, size
+Nodes (5): lib/web/websocket/frame.js, checkedAt, integrity, mode, size
 
 ### Community 877 - "Community 877"
 Cohesion: 0.40
@@ -8048,7 +8056,7 @@ Nodes (5): lib/web/fetch/formdata-parser.js, checkedAt, integrity, mode, size
 
 ### Community 910 - "Community 910"
 Cohesion: 0.40
-Nodes (5): lib/web/fetch/global.js, checkedAt, integrity, mode, size
+Nodes (5): lib/index-legacy.d.ts, checkedAt, integrity, mode, size
 
 ### Community 911 - "Community 911"
 Cohesion: 0.40
@@ -8072,7 +8080,7 @@ Nodes (5): lib/web/infra/index.js, checkedAt, integrity, mode, size
 
 ### Community 916 - "Community 916"
 Cohesion: 0.40
-Nodes (5): lib/web/webidl/index.js, checkedAt, integrity, mode, size
+Nodes (5): lib/interceptor/dns.js, checkedAt, integrity, mode, size
 
 ### Community 917 - "Community 917"
 Cohesion: 0.40
@@ -8085,10 +8093,6 @@ Nodes (5): lib/web/websocket/constants.js, checkedAt, integrity, mode, size
 ### Community 919 - "Community 919"
 Cohesion: 0.40
 Nodes (5): lib/web/websocket/events.js, checkedAt, integrity, mode, size
-
-### Community 920 - "Community 920"
-Cohesion: 0.40
-Nodes (5): lib/web/websocket/frame.js, checkedAt, integrity, mode, size
 
 ### Community 921 - "Community 921"
 Cohesion: 0.40
@@ -9870,17 +9874,13 @@ Nodes (5): helpers/classStaticPrivateMethodSet.js, checkedAt, integrity, mode, s
 Cohesion: 0.40
 Nodes (5): helpers/construct.js, checkedAt, integrity, mode, size
 
-### Community 1366 - "Community 1366"
-Cohesion: 0.40
-Nodes (5): helpers/createForOfIteratorHelper.js, checkedAt, integrity, mode, size
-
 ### Community 1367 - "Community 1367"
 Cohesion: 0.40
 Nodes (5): helpers/createForOfIteratorHelperLoose.js, checkedAt, integrity, mode, size
 
 ### Community 1368 - "Community 1368"
 Cohesion: 0.40
-Nodes (5): helpers/createSuper.js, checkedAt, integrity, mode, size
+Nodes (5): lib/web/fetch/LICENSE, checkedAt, integrity, mode, size
 
 ### Community 1369 - "Community 1369"
 Cohesion: 0.40
@@ -10020,7 +10020,7 @@ Nodes (5): helpers/esm/classNameTDZError.js, checkedAt, integrity, mode, size
 
 ### Community 1403 - "Community 1403"
 Cohesion: 0.40
-Nodes (5): helpers/esm/classPrivateFieldGet2.js, checkedAt, integrity, mode, size
+Nodes (5): v4/core/api.cjs, checkedAt, integrity, mode, size
 
 ### Community 1404 - "Community 1404"
 Cohesion: 0.40
@@ -10036,7 +10036,7 @@ Nodes (5): helpers/esm/classPrivateFieldLooseBase.js, checkedAt, integrity, mode
 
 ### Community 1407 - "Community 1407"
 Cohesion: 0.40
-Nodes (5): helpers/esm/classPrivateFieldLooseKey.js, checkedAt, integrity, mode, size
+Nodes (5): helpers/createClass.js, checkedAt, integrity, mode, size
 
 ### Community 1408 - "Community 1408"
 Cohesion: 0.40
@@ -12064,7 +12064,7 @@ Nodes (5): lib/comments/removeComments.js.map, checkedAt, integrity, mode, size
 
 ### Community 1914 - "Community 1914"
 Cohesion: 0.40
-Nodes (5): lib/constants/generated/index.js, checkedAt, integrity, mode, size
+Nodes (5): helpers/esm/classPrivateFieldDestructureSet.js, checkedAt, integrity, mode, size
 
 ### Community 1915 - "Community 1915"
 Cohesion: 0.40
@@ -12212,7 +12212,7 @@ Nodes (5): lib/definitions/jsx.js.map, checkedAt, integrity, mode, size
 
 ### Community 1951 - "Community 1951"
 Cohesion: 0.40
-Nodes (5): lib/definitions/misc.js, checkedAt, integrity, mode, size
+Nodes (5): lib/definitions/typescript.js, checkedAt, integrity, mode, size
 
 ### Community 1952 - "Community 1952"
 Cohesion: 0.40
@@ -12225,10 +12225,6 @@ Nodes (5): lib/definitions/placeholders.js, checkedAt, integrity, mode, size
 ### Community 1954 - "Community 1954"
 Cohesion: 0.40
 Nodes (5): lib/definitions/placeholders.js.map, checkedAt, integrity, mode, size
-
-### Community 1955 - "Community 1955"
-Cohesion: 0.40
-Nodes (5): lib/definitions/typescript.js, checkedAt, integrity, mode, size
 
 ### Community 1956 - "Community 1956"
 Cohesion: 0.40
@@ -12245,10 +12241,6 @@ Nodes (5): lib/definitions/utils.js.map, checkedAt, integrity, mode, size
 ### Community 1959 - "Community 1959"
 Cohesion: 0.40
 Nodes (5): lib/index.js, checkedAt, integrity, mode, size
-
-### Community 1960 - "Community 1960"
-Cohesion: 0.40
-Nodes (5): lib/index-legacy.d.ts, checkedAt, integrity, mode, size
 
 ### Community 1961 - "Community 1961"
 Cohesion: 0.40
@@ -13536,7 +13528,7 @@ Nodes (5): lib/etc/roles/dpub/docQnaRole.js, checkedAt, integrity, mode, size
 
 ### Community 2282 - "Community 2282"
 Cohesion: 0.40
-Nodes (5): lib/etc/roles/dpub/docSubtitleRole.js, checkedAt, integrity, mode, size
+Nodes (5): lib/constants/generated/index.js, checkedAt, integrity, mode, size
 
 ### Community 2283 - "Community 2283"
 Cohesion: 0.40
@@ -13684,11 +13676,11 @@ Nodes (5): lib/etc/roles/literal/headingRole.js, checkedAt, integrity, mode, siz
 
 ### Community 2319 - "Community 2319"
 Cohesion: 0.40
-Nodes (5): lib/etc/roles/literal/imgRole.js, checkedAt, integrity, mode, size
+Nodes (5): lib/etc/roles/literal/headingRole.js, checkedAt, integrity, mode, size
 
 ### Community 2320 - "Community 2320"
 Cohesion: 0.40
-Nodes (5): lib/etc/roles/literal/insertionRole.js, checkedAt, integrity, mode, size
+Nodes (5): lib/definitions/misc.js, checkedAt, integrity, mode, size
 
 ### Community 2321 - "Community 2321"
 Cohesion: 0.40
@@ -15012,7 +15004,7 @@ Nodes (5): v4/classic/external.cjs, checkedAt, integrity, mode, size
 
 ### Community 2651 - "Community 2651"
 Cohesion: 0.40
-Nodes (5): v4/classic/index.cjs, checkedAt, integrity, mode, size
+Nodes (5): v4/core/api.d.cts, checkedAt, integrity, mode, size
 
 ### Community 2652 - "Community 2652"
 Cohesion: 0.40
@@ -15020,15 +15012,15 @@ Nodes (5): v4/classic/iso.cjs, checkedAt, integrity, mode, size
 
 ### Community 2653 - "Community 2653"
 Cohesion: 0.40
-Nodes (5): v4/classic/parse.cjs, checkedAt, integrity, mode, size
+Nodes (5): lib/etc/roles/dpub/docSubtitleRole.js, checkedAt, integrity, mode, size
 
 ### Community 2654 - "Community 2654"
 Cohesion: 0.40
-Nodes (5): v4/core/api.cjs, checkedAt, integrity, mode, size
+Nodes (5): lib/web/fetch/global.js, checkedAt, integrity, mode, size
 
 ### Community 2655 - "Community 2655"
 Cohesion: 0.40
-Nodes (5): v4/core/api.d.cts, checkedAt, integrity, mode, size
+Nodes (5): helpers/createForOfIteratorHelper.js, checkedAt, integrity, mode, size
 
 ### Community 2656 - "Community 2656"
 Cohesion: 0.40
@@ -21344,7 +21336,7 @@ Nodes (5): lib/generated/idl/CharacterData.js, checkedAt, integrity, mode, size
 
 ### Community 4234 - "Community 4234"
 Cohesion: 0.40
-Nodes (5): lib/generated/idl/CloseEvent.js, checkedAt, integrity, mode, size
+Nodes (5): lib/etc/roles/literal/insertionRole.js, checkedAt, integrity, mode, size
 
 ### Community 4235 - "Community 4235"
 Cohesion: 0.40
@@ -21448,7 +21440,7 @@ Nodes (5): lib/jsdom/living/css/helpers/css-parser.js, checkedAt, integrity, mod
 
 ### Community 4260 - "Community 4260"
 Cohesion: 0.40
-Nodes (5): lib/jsdom/living/css/helpers/css-values.js, checkedAt, integrity, mode, size
+Nodes (5): helpers/esm/classPrivateFieldGet2.js, checkedAt, integrity, mode, size
 
 ### Community 4261 - "Community 4261"
 Cohesion: 0.40
@@ -21456,7 +21448,7 @@ Nodes (5): lib/jsdom/living/css/properties/background.js, checkedAt, integrity, 
 
 ### Community 4262 - "Community 4262"
 Cohesion: 0.40
-Nodes (5): lib/jsdom/living/css/properties/backgroundAttachment.js, checkedAt, integrity, mode, size
+Nodes (5): v4/classic/index.cjs, checkedAt, integrity, mode, size
 
 ### Community 4263 - "Community 4263"
 Cohesion: 0.40
@@ -21592,11 +21584,7 @@ Nodes (5): lib/jsdom/living/events/BlobEvent-impl.js, checkedAt, integrity, mode
 
 ### Community 4296 - "Community 4296"
 Cohesion: 0.40
-Nodes (5): lib/jsdom/living/events/CloseEvent-impl.js, checkedAt, integrity, mode, size
-
-### Community 4297 - "Community 4297"
-Cohesion: 0.40
-Nodes (5): lib/jsdom/living/events/CompositionEvent-impl.js, checkedAt, integrity, mode, size
+Nodes (5): code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block48 (Unit tests (services, repositories)    : minimum 80% line co), K1. Test Structure — AAA (Arrange, Act, Assert), K2. Coverage Requirements, PART K — TESTING STANDARDS
 
 ### Community 4298 - "Community 4298"
 Cohesion: 0.40
@@ -22916,11 +22904,11 @@ Nodes (5): typanion/dist/typanion.js, checkedAt, integrity, mode, size
 
 ### Community 4627 - "Community 4627"
 Cohesion: 0.40
-Nodes (5): typanion/dist/typanion.module.js, checkedAt, integrity, mode, size
+Nodes (5): typanion/dist/typanion.umd.js, checkedAt, integrity, mode, size
 
 ### Community 4628 - "Community 4628"
 Cohesion: 0.40
-Nodes (5): typanion/package.json, checkedAt, integrity, mode, size
+Nodes (5): lib/etc/roles/literal/listRole.js, checkedAt, integrity, mode, size
 
 ### Community 4629 - "Community 4629"
 Cohesion: 0.40
@@ -23654,21 +23642,57 @@ Nodes (3): configVersion, packages, roots
 Cohesion: 0.83
 Nodes (3): requiredInProduction(), stringValue(), validateEnvironment()
 
+### Community 4858 - "Community 4858"
+Cohesion: 0.40
+Nodes (5): v4/classic/schemas.cjs, checkedAt, integrity, mode, size
+
+### Community 4861 - "Community 4861"
+Cohesion: 0.67
+Nodes (3): code:bash (# Stop before sleeping (~saves $14/month if done nightly + w), code:block19 (Always on:              ~$31/month  →  $100 lasts about 3.2 ), Step 13 — Stop/start to save money (IMPORTANT)
+
+### Community 4862 - "Community 4862"
+Cohesion: 0.40
+Nodes (5): lib/jsdom/living/css/properties/backgroundClip.js, checkedAt, integrity, mode, size
+
+### Community 4863 - "Community 4863"
+Cohesion: 0.40
+Nodes (5): lib/jsdom/living/nodes/ChildNode-impl.js, checkedAt, integrity, mode, size
+
+### Community 4864 - "Community 4864"
+Cohesion: 0.40
+Nodes (5): lib/jsdom/living/css/properties/backgroundAttachment.js, checkedAt, integrity, mode, size
+
+### Community 4865 - "Community 4865"
+Cohesion: 0.40
+Nodes (5): lib/jsdom/living/events/CloseEvent-impl.js, checkedAt, integrity, mode, size
+
+### Community 4866 - "Community 4866"
+Cohesion: 0.40
+Nodes (5): lib/jsdom/living/events/CompositionEvent-impl.js, checkedAt, integrity, mode, size
+
+### Community 4867 - "Community 4867"
+Cohesion: 0.40
+Nodes (5): typanion/dist/typanion.module.js, checkedAt, integrity, mode, size
+
+### Community 4869 - "Community 4869"
+Cohesion: 0.40
+Nodes (4): FieldType, Workflow, WorkflowBuilderPage(), WorkflowSchema
+
 ## Knowledge Gaps
-- **20764 isolated node(s):** `AWS_PROFILE`, `AWS_PROFILE`, `AWS_PROFILE`, `AWS_PROFILE`, `AWS_PROFILE` (+20759 more)
+- **20764 isolated node(s):** `View`, `Tenant`, `Role`, `User`, `Item` (+20759 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **104 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **113 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `files` connect `Community 382` to `Community 3693`, `Community 3694`, `Community 3695`, `Community 3696`, `Community 3697`, `Community 3698`, `Community 3699`, `Community 3700`, `Community 3701`, `Community 3702`, `Community 3703`, `Community 3704`, `Community 3705`, `Community 3706`, `Community 3707`, `Community 3708`, `Community 3709`, `Community 3710`, `Community 3711`, `Community 3712`, `Community 3713`, `Community 3714`, `Community 3715`, `Community 3716`, `Community 3717`, `Community 3718`, `Community 3719`, `Community 3720`, `Community 3721`, `Community 3722`, `Community 3723`, `Community 3724`, `Community 3725`, `Community 3726`, `Community 3727`, `Community 3728`, `Community 3729`, `Community 3730`, `Community 3731`, `Community 3732`, `Community 3733`, `Community 3734`, `Community 3735`, `Community 3736`, `Community 3737`, `Community 3738`, `Community 3739`, `Community 3740`, `Community 3741`, `Community 3742`, `Community 3743`, `Community 3744`, `Community 3745`, `Community 3746`, `Community 3747`, `Community 3748`, `Community 3749`, `Community 3750`, `Community 3751`, `Community 3752`, `Community 3753`, `Community 3754`, `Community 3755`, `Community 3756`, `Community 3757`, `Community 3758`, `Community 3759`, `Community 3760`, `Community 3761`, `Community 3762`, `Community 3763`, `Community 3764`, `Community 3765`, `Community 3766`, `Community 3767`, `Community 3768`, `Community 3769`, `Community 3770`, `Community 3771`, `Community 3772`, `Community 3773`, `Community 3774`, `Community 3775`, `Community 3776`, `Community 3777`, `Community 3778`, `Community 3779`, `Community 3780`, `Community 3781`, `Community 3782`, `Community 3783`, `Community 3784`, `Community 3785`, `Community 3786`, `Community 3787`, `Community 3788`, `Community 3789`?**
+- **Why does `files` connect `Community 397` to `Community 640`, `Community 641`, `Community 642`, `Community 643`, `Community 644`, `Community 645`, `Community 646`, `Community 647`, `Community 648`, `Community 649`, `Community 650`, `Community 651`, `Community 652`, `Community 653`, `Community 654`, `Community 655`, `Community 656`, `Community 657`, `Community 658`, `Community 659`, `Community 660`, `Community 661`, `Community 662`, `Community 663`, `Community 664`, `Community 665`, `Community 666`, `Community 667`, `Community 668`, `Community 669`, `Community 670`, `Community 671`, `Community 672`, `Community 673`, `Community 674`, `Community 675`, `Community 676`, `Community 677`, `Community 678`, `Community 679`, `Community 680`, `Community 681`, `Community 682`, `Community 683`, `Community 684`, `Community 685`, `Community 686`, `Community 687`, `Community 688`, `Community 689`, `Community 690`, `Community 691`, `Community 692`, `Community 693`, `Community 694`, `Community 695`, `Community 696`, `Community 697`, `Community 698`, `Community 699`, `Community 700`, `Community 701`, `Community 702`, `Community 703`, `Community 630`, `Community 631`, `Community 632`, `Community 633`, `Community 634`, `Community 635`, `Community 636`, `Community 637`, `Community 638`, `Community 639`?**
   _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **Why does `files` connect `Community 375` to `Community 2560`, `Community 2561`, `Community 2562`, `Community 2563`, `Community 2564`, `Community 2565`, `Community 2566`, `Community 2567`, `Community 2568`, `Community 2569`, `Community 2570`, `Community 2571`, `Community 2572`, `Community 2573`, `Community 2574`, `Community 2575`, `Community 2576`, `Community 2577`, `Community 2578`, `Community 2579`, `Community 2580`, `Community 2581`, `Community 2582`, `Community 2583`, `Community 2584`, `Community 2585`, `Community 2586`, `Community 2587`, `Community 2588`, `Community 2589`, `Community 2590`, `Community 2591`, `Community 2592`, `Community 2593`, `Community 2594`, `Community 2595`, `Community 2596`, `Community 2597`, `Community 2598`, `Community 2599`, `Community 2600`, `Community 2601`, `Community 2602`, `Community 2603`, `Community 2604`, `Community 2605`, `Community 2606`, `Community 2607`, `Community 2608`, `Community 2609`, `Community 2610`, `Community 2611`, `Community 2612`, `Community 2613`, `Community 2614`, `Community 2615`, `Community 2616`, `Community 2617`, `Community 2618`, `Community 2619`, `Community 2620`, `Community 2621`, `Community 2622`, `Community 2623`, `Community 2624`, `Community 2625`, `Community 2626`, `Community 2627`, `Community 2628`, `Community 2532`, `Community 2533`, `Community 2534`, `Community 2535`, `Community 2536`, `Community 2537`, `Community 2538`, `Community 2539`, `Community 2540`, `Community 2541`, `Community 2542`, `Community 2543`, `Community 2544`, `Community 2545`, `Community 2546`, `Community 2547`, `Community 2548`, `Community 2549`, `Community 2550`, `Community 2551`, `Community 2552`, `Community 2553`, `Community 2554`, `Community 2555`, `Community 2556`, `Community 2557`, `Community 2558`, `Community 2559`?**
+- **Why does `PlatformRepository` connect `Community 64` to `Community 195`, `Community 167`, `Community 264`, `Community 151`, `Community 153`?**
   _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **Why does `files` connect `Community 368` to `Community 1059`, `Community 1060`, `Community 1061`, `Community 1062`, `Community 1063`, `Community 1064`, `Community 1065`, `Community 1066`, `Community 1067`, `Community 1068`, `Community 1069`, `Community 1070`, `Community 1071`, `Community 1072`, `Community 1073`, `Community 1074`, `Community 1075`, `Community 1076`, `Community 1077`, `Community 1078`, `Community 1079`, `Community 1080`, `Community 1081`, `Community 1082`, `Community 1083`, `Community 1084`, `Community 1085`, `Community 1086`, `Community 1087`, `Community 1088`, `Community 1089`, `Community 1090`, `Community 1091`, `Community 1092`, `Community 1093`, `Community 1094`, `Community 1095`, `Community 1096`, `Community 1097`, `Community 1098`, `Community 1099`, `Community 1100`, `Community 1101`, `Community 1102`, `Community 1103`, `Community 1104`, `Community 1105`, `Community 1106`, `Community 1107`, `Community 1108`, `Community 1109`, `Community 1110`, `Community 1111`, `Community 1112`, `Community 1113`, `Community 1114`, `Community 1115`, `Community 1116`, `Community 1117`, `Community 1118`, `Community 1119`, `Community 1120`, `Community 1121`, `Community 1122`, `Community 1123`, `Community 1124`, `Community 1125`, `Community 1126`, `Community 1127`, `Community 1128`, `Community 1129`, `Community 1130`, `Community 1131`, `Community 1132`, `Community 1133`, `Community 1134`, `Community 1135`, `Community 1136`, `Community 1137`, `Community 1138`, `Community 1139`, `Community 1140`, `Community 1141`, `Community 1142`, `Community 1143`, `Community 1144`, `Community 1145`, `Community 1146`, `Community 1147`, `Community 1148`, `Community 1149`, `Community 1150`, `Community 1151`, `Community 1152`, `Community 1153`, `Community 1154`, `Community 1155`?**
+- **Why does `files` connect `Community 400` to `Community 4110`, `Community 4111`, `Community 4112`, `Community 4113`, `Community 4114`, `Community 4115`, `Community 4116`, `Community 4117`, `Community 4118`, `Community 4119`, `Community 4120`, `Community 4121`, `Community 4122`, `Community 4123`, `Community 4124`, `Community 4125`, `Community 4126`, `Community 4127`, `Community 4128`, `Community 4129`, `Community 4130`, `Community 4131`, `Community 4132`, `Community 4133`, `Community 4134`, `Community 4135`, `Community 4136`, `Community 4137`, `Community 4138`, `Community 4139`, `Community 4140`, `Community 4141`, `Community 4142`, `Community 4143`, `Community 4144`, `Community 4145`, `Community 4146`, `Community 4147`, `Community 4148`, `Community 4149`, `Community 4150`, `Community 4151`, `Community 4152`, `Community 4153`, `Community 4154`, `Community 4155`, `Community 4156`, `Community 4157`, `Community 4158`, `Community 4159`, `Community 4160`, `Community 4161`, `Community 4162`, `Community 4163`, `Community 4164`, `Community 4165`, `Community 4166`, `Community 4167`, `Community 4168`, `Community 4169`, `Community 4170`, `Community 4171`, `Community 4172`, `Community 4173`, `Community 4174`, `Community 4175`, `Community 4176`, `Community 4177`, `Community 4178`, `Community 4179`, `Community 4180`, `Community 4181`, `Community 4182`, `Community 4183`, `Community 4184`, `Community 4185`, `Community 4186`, `Community 4187`, `Community 4188`, `Community 4189`, `Community 4190`, `Community 4191`, `Community 4192`, `Community 4193`, `Community 4194`, `Community 4195`, `Community 4196`, `Community 4197`?**
   _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **What connects `Foundation workers and future Lambda packages.`, `Minimal, observable queue worker used by the Sprint 01 local platform.`, `AWS_PROFILE` to the rest of the system?**
+- **What connects `View`, `Tenant`, `Role` to the rest of the system?**
   _20782 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Backend Domain & Standards` be split into smaller, more focused modules?**
   _Cohesion score 0.05499735589635114 - nodes in this community are weakly interconnected._
