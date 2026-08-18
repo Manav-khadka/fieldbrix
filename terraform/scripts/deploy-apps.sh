@@ -97,8 +97,9 @@ fi
 tar -czf "${ARTIFACT_DIR}/api.tar.gz" \
   --exclude='*.map' -C "${BACKEND_DIR}" dist package.json pnpm-lock.yaml
 tar -czf "${ARTIFACT_DIR}/admin.tar.gz" --exclude='*.map' -C "${FRONTEND_DIR}/dist" .
+tar -czf "${ARTIFACT_DIR}/migrations.tar.gz" -C "${ROOT_DIR}/local/postgres" init
 
-for artifact in api.tar.gz admin.tar.gz; do
+for artifact in api.tar.gz admin.tar.gz migrations.tar.gz; do
   aws s3 cp "${ARTIFACT_DIR}/${artifact}" \
     "s3://${DEPLOYMENT_BUCKET}/releases/${RELEASE_ID}/${artifact}" \
     --only-show-errors "${AWS_OPTIONS[@]}"
@@ -125,8 +126,18 @@ PARAMETERS=$(jq -cn \
     "install -d /opt/fieldbrix/admin/releases/$release /opt/fieldbrix/backend/releases/$release",
     "aws s3 cp s3://$bucket/releases/$release/admin.tar.gz /tmp/admin.tar.gz --region $region --only-show-errors",
     "aws s3 cp s3://$bucket/releases/$release/api.tar.gz /tmp/api.tar.gz --region $region --only-show-errors",
+    "aws s3 cp s3://$bucket/releases/$release/migrations.tar.gz /tmp/migrations.tar.gz --region $region --only-show-errors",
     "tar -xzf /tmp/admin.tar.gz -C /opt/fieldbrix/admin/releases/$release",
     "tar -xzf /tmp/api.tar.gz -C /opt/fieldbrix/backend/releases/$release",
+    "install -d /opt/fieldbrix/backend/releases/$release/migrations",
+    "tar -xzf /tmp/migrations.tar.gz -C /opt/fieldbrix/backend/releases/$release/migrations",
+    "DB_HOST=$(grep \"^DB_HOST=\" /etc/fieldbrix/backend.env | cut -d= -f2-)",
+    "DB_PORT=$(grep \"^DB_PORT=\" /etc/fieldbrix/backend.env | cut -d= -f2-)",
+    "DB_NAME=$(grep \"^DB_NAME=\" /etc/fieldbrix/backend.env | cut -d= -f2-)",
+    "DB_USER=$(grep \"^DB_USER=\" /etc/fieldbrix/backend.env | cut -d= -f2-)",
+    "DB_PASS_B64=$(grep \"^DB_PASSWORD_B64=\" /etc/fieldbrix/backend.env | cut -d= -f2-)",
+    "DB_PASS=$(printf \"%s\" \"$DB_PASS_B64\" | base64 -d)",
+    "for f in $(ls /opt/fieldbrix/backend/releases/$release/migrations/init/*.sql | sort); do echo \"Running migration $(basename $f)...\"; PGPASSWORD=\"$DB_PASS\" psql -h \"$DB_HOST\" -p \"$DB_PORT\" -U \"$DB_USER\" -d \"$DB_NAME\" -v ON_ERROR_STOP=0 -f \"$f\" || true; done",
     ("printf \"%s\\n\" \"APP_VERSION=" + $version + "\" \"APP_COMMIT_SHA=" + $commit + "\" \"APP_BUILD_TIME=" + $buildTime + "\" \"SENTRY_RELEASE=fieldbrix-backend@" + $commit + "\" \"SENTRY_DSN=" + $sentryDsn + "\" \"S3_BUCKET=" + $applicationBucket + "\" \"SQS_QUEUE_URL=" + $applicationQueueUrl + "\" \"PLATFORM_ADMIN_TOKEN=" + $platformAdminToken + "\" \"PLATFORM_ADMIN_REAUTH=" + $platformAdminReauth + "\" \"ADMIN_ORIGIN=" + $adminOrigin + "\" > /opt/fieldbrix/backend/releases/$release/release.env"),
     "chown -R ec2-user:ec2-user /opt/fieldbrix/admin/releases/$release /opt/fieldbrix/backend/releases/$release",
     "PNPM_BIN=$(command -v /usr/local/bin/pnpm || command -v /usr/bin/pnpm || command -v pnpm || echo pnpm)",
