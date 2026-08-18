@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { PlatformService } from './platform/platform.service';
 import { PlatformController } from './platform/platform.controller';
 import { PlatformRepository } from './platform.repository/platform.repository';
@@ -16,7 +16,7 @@ import { IdempotencyModule } from '../idempotency/idempotency.module';
     TenantContextModule,
     StorageModule,
     QueueModule,
-    NotificationsModule,
+    forwardRef(() => NotificationsModule),
     IdempotencyModule,
   ],
   controllers: [PlatformController],

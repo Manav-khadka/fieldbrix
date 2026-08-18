@@ -1,8 +1,10 @@
 import {
   Body,
   Controller,
+  forwardRef,
   Get,
   Headers,
+  Inject,
   Param,
   Post,
   UnauthorizedException,
@@ -18,6 +20,7 @@ import { CreateNotificationDto } from './notifications.dto';
 export class NotificationsController {
   constructor(
     private readonly notificationsService: NotificationsService,
+    @Inject(forwardRef(() => PlatformService))
     private readonly platform: PlatformService,
   ) {}
 

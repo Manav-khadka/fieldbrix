@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { DatabaseModule } from '../database/database.module';
 import { PlatformModule } from '../platform/platform.module';
 import { AuthorizationModule } from '../authorization/authorization.module';
@@ -10,7 +10,11 @@ import { NotificationsService } from './inbox/notifications.service';
 import { NotificationsRepository } from './inbox/notifications.repository';
 
 @Module({
-  imports: [DatabaseModule, PlatformModule, AuthorizationModule],
+  imports: [
+    DatabaseModule,
+    forwardRef(() => PlatformModule),
+    AuthorizationModule,
+  ],
   controllers: [NotificationsController],
   providers: [
     LegacyNotificationsService,
