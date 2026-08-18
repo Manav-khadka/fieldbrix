@@ -211,6 +211,13 @@ const capacityRoute = createRoute({
   path: "/scheduling/capacity",
   component: CapacityPage,
 });
+const schedulingIndexRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/scheduling",
+  beforeLoad: () => {
+    throw redirect({ to: "/scheduling/calendar" });
+  },
+});
 const calendarRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/scheduling/calendar",
@@ -239,6 +246,7 @@ const routeTree = rootRoute.addChildren([
     tasksListRoute,
     taskDetailRoute,
     capacityRoute,
+    schedulingIndexRoute,
     calendarRoute,
     reviewQueueRoute,
   ]),
