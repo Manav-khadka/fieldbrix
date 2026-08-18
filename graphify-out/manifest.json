@@ -185,8 +185,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/test/widget_test.dart": {
-    "mtime": 1786674365.3225439,
-    "ast_hash": "226c994b747f8e39ae0d7767e8eee87e",
+    "mtime": 1787087076.176622,
+    "ast_hash": "98e20c34067c7559a182088a52e28a7d",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/ios/RunnerTests/RunnerTests.swift": {
@@ -270,8 +270,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/lib/main.dart": {
-    "mtime": 1786709898.395483,
-    "ast_hash": "4c448a7263e6bcaaa1a0b4416ea7a818",
+    "mtime": 1787087040.8121088,
+    "ast_hash": "ad69a95f2e25c6f6c3d419c3a7ca1346",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/.dart_tool/package_config.json": {
@@ -1420,8 +1420,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/notifications/notifications.module.ts": {
-    "mtime": 1786714308.701832,
-    "ast_hash": "c72db329311b3c88f1a0af93454c1d29",
+    "mtime": 1787086394.3773742,
+    "ast_hash": "b6e5d13adc5293fdf13d91474da327a7",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/notifications/notifications/notifications.service.ts": {
@@ -1700,8 +1700,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/router.tsx": {
-    "mtime": 1787083402.7205431,
-    "ast_hash": "71ee73e5d42c5b5de6528f2fcebf73e5",
+    "mtime": 1787086903.5007367,
+    "ast_hash": "ad808a2a77abdef3f1d043949d9aa749",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/hooks/useCapabilities.ts": {
@@ -1720,8 +1720,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/routes/_layout.tsx": {
-    "mtime": 1787084724.9740875,
-    "ast_hash": "a52412425e6222e610c6723d2adb7a20",
+    "mtime": 1787086888.45417,
+    "ast_hash": "41129569a323e8a5b9f8bfb0f684ae2f",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/routes/tasks/capacity.tsx": {
@@ -1790,8 +1790,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/tasks.module.ts": {
-    "mtime": 1786861133.1009884,
-    "ast_hash": "0b1806d3215fda6f33a7f482aaaf520a",
+    "mtime": 1787086711.045931,
+    "ast_hash": "b8a5f437a22057094ae154cdcbfa18fd",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/transition/task-transition.service.ts": {
@@ -2110,8 +2110,8 @@
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/routes/_layout.test.tsx": {
-    "mtime": 1786862658.860701,
-    "ast_hash": "339c9a91dffe0bdb73e617b0a09f9ab4",
+    "mtime": 1787086949.1514318,
+    "ast_hash": "2f39d60010cc10e6e032c9ef72776ed9",
     "semantic_hash": ""
   },
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/routes/master-data/customers.test.tsx": {
@@ -3112,6 +3112,176 @@
   "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/031-sprint-10-task-worktype-signature.sql": {
     "mtime": 1786883666.8091936,
     "ast_hash": "e232006f607f109caf9a08544fd4457a",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/components/NotificationBell.tsx": {
+    "mtime": 1787086862.668438,
+    "ast_hash": "3872434654266b7d17bd32cb1af987f9",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/routes/tasks/review-queue.tsx": {
+    "mtime": 1787086855.8274155,
+    "ast_hash": "47a79ac9dbeb126c165eb62e9b584ca1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/routes/scheduling/recurrence-form.tsx": {
+    "mtime": 1787086971.2242045,
+    "ast_hash": "a35604fcf0b0b8c1a0ea9cd7c2364aab",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-frontend/src/routes/scheduling/calendar.tsx": {
+    "mtime": 1787086847.342177,
+    "ast_hash": "f6ac9b1ef2fb4fa422b17a941e9fb0b7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/recurrence/recurrence.repository.ts": {
+    "mtime": 1787086276.3445973,
+    "ast_hash": "3f324330e10e0230ef8933eb1684c8a1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/recurrence/recurrence.dto.ts": {
+    "mtime": 1787086266.601993,
+    "ast_hash": "c35c1c5fcb777a6e24edb7aada23b902",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/recurrence/recurrence.service.spec.ts": {
+    "mtime": 1787086797.9441044,
+    "ast_hash": "44c4ddba9f7ea7c2b9d94c7bab557415",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/recurrence/recurrence.service.ts": {
+    "mtime": 1787086746.8302362,
+    "ast_hash": "acc5845241d15974206bafc128782a52",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/recurrence/recurrence.controller.ts": {
+    "mtime": 1787086292.4200191,
+    "ast_hash": "e5003038b3172878a1d3e638ac1fe868",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/execution/task-run.dto.ts": {
+    "mtime": 1787086435.2719052,
+    "ast_hash": "a81f17e401fd4bc5b7e15c62130f5785",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/execution/task-run.controller.ts": {
+    "mtime": 1787086614.919683,
+    "ast_hash": "4bdeca9f28dd490ad1ba1876fb2bcdf7",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/execution/task-run.service.ts": {
+    "mtime": 1787086606.176243,
+    "ast_hash": "fc4c32dfd1caa9a5ca095f06ce02b075",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/execution/task-run.repository.ts": {
+    "mtime": 1787086469.3806024,
+    "ast_hash": "98403f87e69eea1cad10debb24e31a07",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/review/review.dto.ts": {
+    "mtime": 1787086660.3138964,
+    "ast_hash": "3bd05d833590e147e40218d6b3bf91bc",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/review/review.service.ts": {
+    "mtime": 1787086761.7761514,
+    "ast_hash": "e7b590b65667639054319375473818ae",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/review/review.service.spec.ts": {
+    "mtime": 1787086808.2096899,
+    "ast_hash": "e61bee3c0a5de4ba77f1a84c0251441b",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/review/review.controller.ts": {
+    "mtime": 1787086688.0083926,
+    "ast_hash": "30c4d2c685911ea5954bd969e5ebc347",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/review/review.repository.ts": {
+    "mtime": 1787086669.3082566,
+    "ast_hash": "dfbc883215bab9918f32351d9e879eff",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/sync/sync.controller.ts": {
+    "mtime": 1787086650.9725409,
+    "ast_hash": "6e77a1905b63d16703487d25664db206",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/sync/sync.service.ts": {
+    "mtime": 1787086775.979543,
+    "ast_hash": "9c59fef2241e8f88e4d22d3d1d75785e",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/sync/sync.repository.ts": {
+    "mtime": 1787086634.5813618,
+    "ast_hash": "0796406f4237ef0d3d7f0f794f5c5640",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/sync/sync.service.spec.ts": {
+    "mtime": 1787086818.1795263,
+    "ast_hash": "df0dbe46eb7025bc34f24b26b83156fb",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/tasks/sync/sync.dto.ts": {
+    "mtime": 1787086624.6389806,
+    "ast_hash": "c8292094ff3d679450bea708d3980ed1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/notifications/inbox/notifications.repository.ts": {
+    "mtime": 1787086308.6958232,
+    "ast_hash": "d517ea021882cd610a5633c7157069d1",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/notifications/inbox/notifications.controller.ts": {
+    "mtime": 1787086325.2775722,
+    "ast_hash": "cf590d2230e053517627e4da645f4841",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/notifications/inbox/notifications.service.ts": {
+    "mtime": 1787086317.2278764,
+    "ast_hash": "be89e77b9a6db698670816f71e234532",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix-backend/src/modules/notifications/inbox/notifications.dto.ts": {
+    "mtime": 1787086300.1578462,
+    "ast_hash": "ee0de0c5467a0a074860ce2bcb43be34",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/032-sprint-11-recurrence-and-notifications.sql": {
+    "mtime": 1787086234.0402992,
+    "ast_hash": "0821cc7dc5d9e4ebafe18d25105e3d48",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/033-sprint-13-mobile-execution-and-evidence.sql": {
+    "mtime": 1787086243.0394912,
+    "ast_hash": "188fe181e123a2f172936248375ff114",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/034-sprint-14-sync-mutations.sql": {
+    "mtime": 1787086250.5249572,
+    "ast_hash": "260285b1c8b7b376be7704633e012062",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/local/postgres/init/035-sprint-15-signatures-and-reviews.sql": {
+    "mtime": 1787086258.4691684,
+    "ast_hash": "2cd4ec1bdce082f4c6639e1959138258",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/lib/src/models/duty_state.dart": {
+    "mtime": 1787087008.1248994,
+    "ast_hash": "ca1b546c4a78a33a2f1d69ab57302ebf",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/lib/src/models/task_model.dart": {
+    "mtime": 1787087001.8916907,
+    "ast_hash": "d48391166d83938d91c76eb2ea54e0bd",
+    "semantic_hash": ""
+  },
+  "/Users/manavgenius/Desktop/ISL_FINAL/fieldbrix/fieldbrix_app/lib/src/screens/home_tasks_screen.dart": {
+    "mtime": 1787087053.8671064,
+    "ast_hash": "67792d1ab7ad2c2f08677eec3418f87e",
     "semantic_hash": ""
   }
 }

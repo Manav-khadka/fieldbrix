@@ -1,5 +1,8 @@
 import { RecurrenceService } from './recurrence.service';
-import { RecurrenceRecord, RecurrenceRepository } from './recurrence.repository';
+import {
+  RecurrenceRecord,
+  RecurrenceRepository,
+} from './recurrence.repository';
 import { TaskService } from '../task/task.service';
 
 describe('RecurrenceService', () => {
@@ -64,7 +67,7 @@ describe('RecurrenceService', () => {
     taskService.create.mockResolvedValue({
       id: 'task-new-1',
       taskNumber: 'TSK-2001',
-    } as any);
+    });
 
     const result = await service.handleException('rec-1', {
       occurrenceDate: '2026-08-25',
@@ -75,6 +78,7 @@ describe('RecurrenceService', () => {
 
     expect(result.action).toBe('RESCHEDULE');
     expect(result.newTaskId).toBe('task-new-1');
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- jest.fn() mock
     expect(repo.recordException).toHaveBeenCalledWith(
       'rec-1',
       '2026-08-25',

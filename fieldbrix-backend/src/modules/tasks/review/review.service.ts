@@ -65,7 +65,7 @@ export class ReviewService {
 
     await this.repository.recordReview(originalTaskId, reviewerId, {
       status: 'APPROVED',
-      comments: `Approved with follow-up task ${followUp.taskNumber}`,
+      comments: `Approved with follow-up task ${String(followUp.taskNumber)}`,
       followUpTaskId: String(followUp.id),
     });
 

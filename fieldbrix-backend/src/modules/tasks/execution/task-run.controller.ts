@@ -55,18 +55,12 @@ export class TaskRunController {
   }
 
   @Post('runs/:runId/answers')
-  saveAnswer(
-    @Param('runId') runId: string,
-    @Body() body: SubmitAnswersDto,
-  ) {
+  saveAnswer(@Param('runId') runId: string, @Body() body: SubmitAnswersDto) {
     return this.taskRunService.saveAnswer(runId, body);
   }
 
   @Post('runs/:runId/parts')
-  recordPart(
-    @Param('runId') runId: string,
-    @Body() body: RecordPartUsedDto,
-  ) {
+  recordPart(@Param('runId') runId: string, @Body() body: RecordPartUsedDto) {
     return this.taskRunService.recordPart(runId, body);
   }
 

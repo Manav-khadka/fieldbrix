@@ -40,10 +40,7 @@ export class SyncService {
             notes?: string;
           };
           await this.taskRunService.recordPart(runId, payload);
-        } else if (
-          item.entityType === 'evidence' &&
-          item.action === 'record'
-        ) {
+        } else if (item.entityType === 'evidence' && item.action === 'record') {
           const runId = item.entityId;
           const payload = item.payload as {
             uploadId: string;

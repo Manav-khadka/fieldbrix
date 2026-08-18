@@ -51,6 +51,7 @@ describe('SyncService', () => {
 
     expect(result.processed).toBe(1);
     expect(result.mutations[0].status).toBe('APPLIED');
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- jest.fn() mock
     expect(taskRunService.saveAnswer).toHaveBeenCalledWith('run-1', {
       sectionId: 'sec-1',
       fieldKey: 'temp',

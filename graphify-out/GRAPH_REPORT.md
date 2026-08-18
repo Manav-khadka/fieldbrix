@@ -1,16 +1,16 @@
 # Graph Report - fieldbrix  (2026-08-19)
 
 ## Corpus Check
-- 579 files · ~210,892 words
+- 613 files · ~219,480 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 28369 nodes · 29388 edges · 4870 communities (4757 shown, 113 thin omitted)
+- 28556 nodes · 29752 edges · 4877 communities (4759 shown, 118 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 179 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `28545981`
+- Built from commit: `5c9819f7`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -215,6 +215,7 @@
 - [[_COMMUNITY_Community 202|Community 202]]
 - [[_COMMUNITY_Community 203|Community 203]]
 - [[_COMMUNITY_Community 204|Community 204]]
+- [[_COMMUNITY_Community 212|Community 212]]
 - [[_COMMUNITY_Community 218|Community 218]]
 - [[_COMMUNITY_Community 219|Community 219]]
 - [[_COMMUNITY_Community 220|Community 220]]
@@ -4831,6 +4832,13 @@
 - [[_COMMUNITY_Community 4867|Community 4867]]
 - [[_COMMUNITY_Community 4868|Community 4868]]
 - [[_COMMUNITY_Community 4869|Community 4869]]
+- [[_COMMUNITY_Community 4870|Community 4870]]
+- [[_COMMUNITY_Community 4871|Community 4871]]
+- [[_COMMUNITY_Community 4872|Community 4872]]
+- [[_COMMUNITY_Community 4873|Community 4873]]
+- [[_COMMUNITY_Community 4874|Community 4874]]
+- [[_COMMUNITY_Community 4875|Community 4875]]
+- [[_COMMUNITY_Community 4876|Community 4876]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `files` - 101 edges
@@ -4848,13 +4856,13 @@
 - `Leak panel` --semantically_similar_to--> `Platform role roster (13 roles)`  [INFERRED] [semantically similar]
   docs/CASE_STUDY.md → docs/PLATFORM_USER_STORIES.md
 - `Layout()` --calls--> `useCapabilities()`  [EXTRACTED]
-  routes/_layout.tsx → hooks/useCapabilities.ts
-- `Layout()` --calls--> `useUiStore`  [EXTRACTED]
-  routes/_layout.tsx → fieldbrix-frontend/src/store/ui.store.ts
+  fieldbrix-frontend/src/routes/_layout.tsx → hooks/useCapabilities.ts
 - `Log groups` --references--> `modules/monitoring`  [EXTRACTED]
   terraform/modules/monitoring/README.md → docs/terraform/modules/monitoring/README.md
 - `SSL strict mode` --references--> `modules/dns`  [EXTRACTED]
   terraform/modules/dns/README.md → docs/terraform/modules/dns/README.md
+- `Row-Level Security tenant isolation` --references--> `tenantId-from-JWT-only rule`  [EXTRACTED]
+  docs/fieldbrix-schema.sql → docs/ENGINEERING_HANDBOOK.md
 
 ## Hyperedges (group relationships)
 - **Layered tenant isolation: composite FK + RLS + JWT-only tenantId** — docs_fieldbrix_schema_tenant_isolation_composite_fk, docs_fieldbrix_schema_row_level_security, docs_engineering_handbook_tenant_isolation_jwt [INFERRED 0.85]
@@ -4864,7 +4872,7 @@
 - **Full Environment Bootstrap Flow** — terraform_local_setup_guide, scripts_readme_bootstrap_sh, scripts_readme_secrets_init_sh, scripts_readme_plan_sh, scripts_readme_apply_sh, python_readme_health_check_py [EXTRACTED 1.00]
 - **Shared Zod Schema Contract** — frontend_readme_react_hook_form_zod, frontend_readme_create_task_schema, backend_readme_create_task_dto [EXTRACTED 1.00]
 
-## Communities (4870 total, 113 thin omitted)
+## Communities (4877 total, 118 thin omitted)
 
 ### Community 1 - "AWS Infrastructure Stack"
 Cohesion: 0.18
@@ -4879,8 +4887,8 @@ Cohesion: 0.12
 Nodes (17): Async Layer, CDN + DNS, CI/CD, code:block2 (Service       : EC2 t4g.medium), code:block3 (Service       : RDS db.t3.micro), code:block4 (Service       : PgBouncer (on EC2, not a separate server)), code:block5 (Service       : S3 (ap-south-1)), code:block6 (Service       : Cloudflare (Free tier)) (+9 more)
 
 ### Community 4 - "AI Agent Development Rules"
-Cohesion: 0.06
-Nodes (7): AuditQueryDto, CompleteUploadDto, PlatformController, hashPassword(), PlatformService, verifyPassword(), UploadIntentDto
+Cohesion: 0.07
+Nodes (3): hashPassword(), PlatformService, verifyPassword()
 
 ### Community 6 - "Cost & Sync Infrastructure"
 Cohesion: 0.08
@@ -4979,8 +4987,8 @@ Cohesion: 0.18
 Nodes (12): code:bash (aws sts get-caller-identity --profile fieldbrix), code:bash (./scripts/plan.sh prod          # validate and save a Terraf), code:text (Internet -> Elastic IP -> nginx HTTPS on EC2 t4g.small), Current bootstrap architecture, DNS, FieldBrix AWS infrastructure, Fieldbrix Infrastructure, Folder map (+4 more)
 
 ### Community 35 - "API Response Envelope Pattern"
-Cohesion: 0.26
-Nodes (12): package:flutter/foundation.dart, package:flutter/material.dart, package:sentry_flutter/sentry_flutter.dart, build, FieldbrixApp, FoundationScreen, MaterialApp, Scaffold (+4 more)
+Cohesion: 0.06
+Nodes (29): ../models/duty_state.dart, ../models/task_model.dart, package:flutter/foundation.dart, package:flutter/material.dart, package:sentry_flutter/sentry_flutter.dart, src/screens/home_tasks_screen.dart, build, FieldbrixApp (+21 more)
 
 ### Community 36 - "DomainException Hierarchy"
 Cohesion: 0.15
@@ -5311,7 +5319,7 @@ Cohesion: 0.04
 Nodes (44): checkedAt, integrity, checkedAt, integrity, mode, size, mode, size (+36 more)
 
 ### Community 122 - "Community 122"
-Cohesion: 0.60
+Cohesion: 0.50
 Nodes (3): package:fieldbrix_app/main.dart, package:flutter_test/flutter_test.dart, main
 
 ### Community 123 - "Community 123"
@@ -5347,8 +5355,8 @@ Cohesion: 0.50
 Nodes (3): fieldbrix_app, fieldbrix-mobile, Getting Started
 
 ### Community 133 - "Community 133"
-Cohesion: 0.25
-Nodes (11): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:), code:dart (// Mirrors the server envelope exactly) (+3 more)
+Cohesion: 0.21
+Nodes (13): 11.1 Widget Rules, 11.2 Riverpod Providers, 11.3 Offline-First Rule, 11.4 Flutter API Client, 11.5 Naming Conventions — Flutter, code:dart (// Declare at file top-level — NEVER inside a widget or meth), code:dart (// Rule P0: Every user action that mutates data must:), code:dart (// Mirrors the server envelope exactly) (+5 more)
 
 ### Community 134 - "Community 134"
 Cohesion: 0.08
@@ -5360,7 +5368,7 @@ Nodes (16): dependencies, @aws-sdk/client-s3, @aws-sdk/client-sqs, @aws-sdk/s3-r
 
 ### Community 136 - "Community 136"
 Cohesion: 0.15
-Nodes (12): B1. Monorepo Layout, B2. Module Boundary Rules, code:block14 (fieldbrix/                          Root (Turborepo)), code:block15 (Rule P0: No file in modules/ may import from infrastructure/), code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:block55 (N1.  tenantId comes from JWT only. Never from request body, ), J1. Migration Rules (+4 more)
+Nodes (12): code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block48 (Unit tests (services, repositories)    : minimum 80% line co), code:block55 (N1.  tenantId comes from JWT only. Never from request body, ), J1. Migration Rules, J2. Query Rules, K1. Test Structure — AAA (Arrange, Act, Assert) (+4 more)
 
 ### Community 138 - "Community 138"
 Cohesion: 0.40
@@ -5384,15 +5392,15 @@ Nodes (3): modules/networking, Security Groups (EC2/RDS), VPC + Subnets
 
 ### Community 151 - "Community 151"
 Cohesion: 0.05
-Nodes (38): AdministrationModule, AdministrationModule, AuthModule, AuthModule, AuthorizationModule, AuthorizationModule, CorrelationIdMiddleware, DatabaseModule (+30 more)
+Nodes (40): AdministrationModule, AdministrationModule, AuthModule, AuthModule, AuthorizationModule, AuthorizationModule, CorrelationIdMiddleware, DatabaseModule (+32 more)
 
 ### Community 152 - "Community 152"
 Cohesion: 0.04
 Nodes (44): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (+36 more)
 
 ### Community 153 - "Community 153"
-Cohesion: 0.03
-Nodes (47): Row, CUSTOMER_COLUMNS, CustomerRecord, DatabaseService, Row, TaskHistoryService, ImportJobRow, ImportRowOutcome (+39 more)
+Cohesion: 0.04
+Nodes (43): Row, CUSTOMER_COLUMNS, CustomerRecord, DatabaseService, TaskRunRecord, Row, Row, TaskHistoryService (+35 more)
 
 ### Community 158 - "Community 158"
 Cohesion: 0.04
@@ -5402,29 +5410,29 @@ Nodes (44): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (
 Cohesion: 0.07
 Nodes (18): fieldKeys, fired, out, result, Row, WorkflowRuleRepository, WorkflowRuleService, compare() (+10 more)
 
-### Community 163 - "Community 163"
-Cohesion: 0.09
-Nodes (3): Row, WorkflowGovernanceRepository, WorkflowGovernanceService
-
 ### Community 164 - "Community 164"
-Cohesion: 0.08
-Nodes (21): adminRoute, capacityRoute, customersRoute, importsRoute, layoutRoute, loginRoute, overviewRoute, partsRoute (+13 more)
+Cohesion: 0.10
+Nodes (28): adminRoute, calendarRoute, capacityRoute, customersRoute, importsRoute, layoutRoute, LoginPage(), loginRoute (+20 more)
 
 ### Community 165 - "Community 165"
-Cohesion: 0.12
-Nodes (21): 13.1 Migration Rules, 13.2 Query Rules, 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, 16.1 Comment Style, 16.2 TSDoc on All Public Service Methods, code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:typescript (/**) (+13 more)
+Cohesion: 0.24
+Nodes (10): 13.1 Migration Rules, 13.2 Query Rules, 14.1 Test Structure — AAA (Arrange, Act, Assert), 14.2 Coverage Requirements, code:sql (-- Every migration:), code:typescript (// Rule P0: every Prisma query includes tenantId in WHERE), code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block97 (Unit tests (services, repositories)    : minimum 80% line co) (+2 more)
 
 ### Community 167 - "Community 167"
 Cohesion: 0.05
 Nodes (29): AssignRolesDto, CreateRoleDto, CustomersService, DestructiveExecutionDto, DestructiveRequestDto, CreateCustomerDto, UpdateCustomerDto, ListMasterQueryDto (+21 more)
 
 ### Community 186 - "Community 186"
-Cohesion: 0.12
-Nodes (13): api, ApiError, getToken(), request(), ENTITY_TYPES, ImportJob, ImportsPage(), OverviewPage() (+5 more)
+Cohesion: 0.09
+Nodes (18): api, ApiError, getToken(), request(), { result }, ENTITY_TYPES, ImportJob, ImportsPage() (+10 more)
 
 ### Community 195 - "Community 195"
-Cohesion: 0.06
-Nodes (14): TenantContextCleanupInterceptor, COMPANY_DATE_FORMATS, COMPANY_NUMBER_FORMATS, hash, PermissionScope, Role, SessionMetadata, Tenant (+6 more)
+Cohesion: 0.05
+Nodes (16): TenantContextCleanupInterceptor, NotificationsService, NotificationsService, COMPANY_DATE_FORMATS, COMPANY_NUMBER_FORMATS, hash, PermissionScope, Role (+8 more)
+
+### Community 212 - "Community 212"
+Cohesion: 0.07
+Nodes (13): RecordEvidenceDto, RecordPartUsedDto, RegisterTargetDto, StartTaskRunDto, SubmitAnswersDto, TaskRunRepository, TaskRunService, SyncController (+5 more)
 
 ### Community 238 - "Community 238"
 Cohesion: 0.06
@@ -5523,8 +5531,8 @@ Cohesion: 0.05
 Nodes (39): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (+31 more)
 
 ### Community 264 - "Community 264"
-Cohesion: 0.10
-Nodes (9): ALLOWED_MIME, buffer, corrupt, parser, platformRepository, rows, storage, SpreadsheetParserService (+1 more)
+Cohesion: 0.07
+Nodes (16): ALLOWED_MIME, buffer, corrupt, parser, platformRepository, rows, storage, SpreadsheetParserService (+8 more)
 
 ### Community 265 - "Community 265"
 Cohesion: 0.20
@@ -5535,12 +5543,12 @@ Cohesion: 0.18
 Nodes (11): 2.2 Controllers, 2.3 Services, 2.4 Repositories, 2.5 DTOs, 2.6 Naming Conventions — Backend, 2. BACKEND CODE STANDARDS, code:typescript (// Controllers ONLY:), code:typescript (@Injectable()) (+3 more)
 
 ### Community 267 - "Community 267"
-Cohesion: 0.31
-Nodes (9): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task), code:block99 (Format: <type>(<scope>): <description>) (+1 more)
+Cohesion: 0.27
+Nodes (10): 15.1 Branch Naming, 15.2 Commit Messages — Conventional Commits (mandatory), 15.3 PR Rules, 15.4 Code Review Checklist — Reviewer, code:block100 (Author self-review before opening:), code:block101 (Security), code:typescript (// Rule: comments explain WHY, not WHAT. The code shows what), code:block98 (feature/FOS-{ticket}-{description}      feature/FOS-142-task) (+2 more)
 
 ### Community 268 - "Community 268"
-Cohesion: 0.33
-Nodes (6): code:block1 (PART 1   Infrastructure (AWS ap-south-1) ............ Comput), Fieldbrix — Engineering Handbook, HOW TO USE THIS DOCUMENT, TABLE OF CONTENTS, Tech Stack Reference + Implementation Standards, combined, Verified August 2026 · Version 1.0 · Binding on all contributors
+Cohesion: 0.16
+Nodes (14): 16.1 Comment Style, 16.2 TSDoc on All Public Service Methods, code:block1 (PART 1   Infrastructure (AWS ap-south-1) ............ Comput), code:typescript (/**), code:block104 (N1.  tenantId comes from JWT only. Never from request body, ), code:block105 (INFRASTRUCTURE                          MONTHLY), Fieldbrix — Engineering Handbook, HOW TO USE THIS DOCUMENT (+6 more)
 
 ### Community 269 - "Community 269"
 Cohesion: 0.22
@@ -5656,7 +5664,7 @@ Nodes (9): Row, allowed, forbidden, TaskTransitionService, isAllowedTransition()
 
 ### Community 299 - "Community 299"
 Cohesion: 0.19
-Nodes (9): CapabilitiesResponse, Capability, { result }, useCapabilities(), Layout(), NAV_ITEMS, NavItem, UiState (+1 more)
+Nodes (11): NotificationBell(), NotificationItem, NotificationResponse, CapabilitiesResponse, Capability, useCapabilities(), Layout(), NAV_ITEMS (+3 more)
 
 ### Community 300 - "Community 300"
 Cohesion: 0.40
@@ -5928,7 +5936,7 @@ Nodes (15): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (
 
 ### Community 372 - "Community 372"
 Cohesion: 0.12
-Nodes (15): files, lib/converters/ensureBlock.js.map, lib/index.d.ts, lib/index.js.flow, checkedAt, integrity, mode, size (+7 more)
+Nodes (15): files, lib/constants/index.js.map, lib/index.d.ts, lib/index.js.flow, checkedAt, integrity, mode, size (+7 more)
 
 ### Community 373 - "Community 373"
 Cohesion: 0.12
@@ -5936,7 +5944,7 @@ Nodes (15): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (
 
 ### Community 374 - "Community 374"
 Cohesion: 0.12
-Nodes (15): files, lib/etc/roles/dpub/docTipRole.js, lib/etc/roles/literal/imgRole.js, lib/etc/roles/literal/mathRole.js, checkedAt, integrity, mode, size (+7 more)
+Nodes (15): files, lib/etc/roles/graphics/graphicsDocumentRole.js, lib/etc/roles/literal/insertionRole.js, lib/etc/roles/literal/mathRole.js, checkedAt, integrity, mode, size (+7 more)
 
 ### Community 375 - "Community 375"
 Cohesion: 0.12
@@ -5972,7 +5980,7 @@ Nodes (15): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (
 
 ### Community 383 - "Community 383"
 Cohesion: 0.12
-Nodes (15): files, lib/generated/idl/CloseEvent.js, lib/generated/idl/CSSGroupingRule.js, lib/jsdom/living/css/helpers/css-values.js, checkedAt, integrity, mode, size (+7 more)
+Nodes (15): files, lib/generated/idl/CSSGroupingRule.js, lib/jsdom/living/css/helpers/css-values.js, lib/jsdom/living/events/CloseEvent-impl.js, checkedAt, integrity, mode, size (+7 more)
 
 ### Community 384 - "Community 384"
 Cohesion: 0.12
@@ -5983,8 +5991,8 @@ Cohesion: 0.12
 Nodes (15): checkedAt, integrity, mode, size, checkedAt, integrity, mode, size (+7 more)
 
 ### Community 388 - "Community 388"
-Cohesion: 0.26
-Nodes (5): NOTIFICATION_DELIVERY, NotificationDeliveryPort, NotificationKind, NotificationsService, TemporaryEmailAdapter
+Cohesion: 0.09
+Nodes (10): RecurrenceController, CreateRecurrenceDto, RecurrenceExceptionDto, UpdateRecurrenceDto, RecurrenceRecord, RecurrenceRepository, RecurrenceService, dates (+2 more)
 
 ### Community 389 - "Community 389"
 Cohesion: 0.17
@@ -6000,7 +6008,7 @@ Nodes (9): Customer, SiteDetail, SiteForm(), SiteFormValues, siteSchema, columnH
 
 ### Community 392 - "Community 392"
 Cohesion: 0.18
-Nodes (10): files, v4/classic/compat.d.cts, v4/classic/parse.cjs, name, requiresBuild, checkedAt, integrity, mode (+2 more)
+Nodes (10): files, v4/classic/compat.d.cts, v4/core/api.cjs, name, requiresBuild, checkedAt, integrity, mode (+2 more)
 
 ### Community 393 - "Community 393"
 Cohesion: 0.18
@@ -6037,6 +6045,10 @@ Nodes (9): checkedAt, integrity, mode, size, files, build/npm/types/screenshot/c
 ### Community 402 - "Community 402"
 Cohesion: 0.20
 Nodes (9): checkedAt, integrity, mode, size, files, dist/accessible-description.mjs.map, name, requiresBuild (+1 more)
+
+### Community 404 - "Community 404"
+Cohesion: 0.11
+Nodes (8): ReviewController, CreateFollowUpDto, CustomerConfirmationDto, TaskReviewDecisionDto, CustomerConfirmationRecord, ReviewRepository, TaskReviewRecord, ReviewService
 
 ### Community 405 - "Community 405"
 Cohesion: 0.25
@@ -10019,8 +10031,8 @@ Cohesion: 0.40
 Nodes (5): helpers/esm/classNameTDZError.js, checkedAt, integrity, mode, size
 
 ### Community 1403 - "Community 1403"
-Cohesion: 0.40
-Nodes (5): v4/core/api.cjs, checkedAt, integrity, mode, size
+Cohesion: 0.10
+Nodes (4): NotificationsController, CreateNotificationDto, NotificationsRepository, NotificationsService
 
 ### Community 1404 - "Community 1404"
 Cohesion: 0.40
@@ -12075,8 +12087,8 @@ Cohesion: 0.40
 Nodes (5): lib/constants/index.js, checkedAt, integrity, mode, size
 
 ### Community 1917 - "Community 1917"
-Cohesion: 0.40
-Nodes (5): lib/constants/index.js.map, checkedAt, integrity, mode, size
+Cohesion: 0.22
+Nodes (4): AuditQueryDto, CompleteUploadDto, PlatformController, UploadIntentDto
 
 ### Community 1918 - "Community 1918"
 Cohesion: 0.40
@@ -13533,10 +13545,6 @@ Nodes (5): lib/constants/generated/index.js, checkedAt, integrity, mode, size
 ### Community 2283 - "Community 2283"
 Cohesion: 0.40
 Nodes (5): lib/etc/roles/dpub/docTocRole.js, checkedAt, integrity, mode, size
-
-### Community 2284 - "Community 2284"
-Cohesion: 0.40
-Nodes (5): lib/etc/roles/graphics/graphicsDocumentRole.js, checkedAt, integrity, mode, size
 
 ### Community 2285 - "Community 2285"
 Cohesion: 0.40
@@ -21334,10 +21342,6 @@ Nodes (5): lib/generated/idl/CDATASection.js, checkedAt, integrity, mode, size
 Cohesion: 0.40
 Nodes (5): lib/generated/idl/CharacterData.js, checkedAt, integrity, mode, size
 
-### Community 4234 - "Community 4234"
-Cohesion: 0.40
-Nodes (5): lib/etc/roles/literal/insertionRole.js, checkedAt, integrity, mode, size
-
 ### Community 4235 - "Community 4235"
 Cohesion: 0.40
 Nodes (5): lib/generated/idl/CloseEventInit.js, checkedAt, integrity, mode, size
@@ -21584,7 +21588,7 @@ Nodes (5): lib/jsdom/living/events/BlobEvent-impl.js, checkedAt, integrity, mode
 
 ### Community 4296 - "Community 4296"
 Cohesion: 0.40
-Nodes (5): code:typescript (// Test name format: 'should [expected behaviour] when [cond), code:block48 (Unit tests (services, repositories)    : minimum 80% line co), K1. Test Structure — AAA (Arrange, Act, Assert), K2. Coverage Requirements, PART K — TESTING STANDARDS
+Nodes (5): lib/converters/ensureBlock.js.map, checkedAt, integrity, mode, size
 
 ### Community 4298 - "Community 4298"
 Cohesion: 0.40
@@ -23664,7 +23668,7 @@ Nodes (5): lib/jsdom/living/css/properties/backgroundAttachment.js, checkedAt, i
 
 ### Community 4865 - "Community 4865"
 Cohesion: 0.40
-Nodes (5): lib/jsdom/living/events/CloseEvent-impl.js, checkedAt, integrity, mode, size
+Nodes (5): lib/etc/roles/dpub/docTipRole.js, checkedAt, integrity, mode, size
 
 ### Community 4866 - "Community 4866"
 Cohesion: 0.40
@@ -23678,25 +23682,41 @@ Nodes (5): typanion/dist/typanion.module.js, checkedAt, integrity, mode, size
 Cohesion: 0.40
 Nodes (4): FieldType, Workflow, WorkflowBuilderPage(), WorkflowSchema
 
+### Community 4870 - "Community 4870"
+Cohesion: 0.40
+Nodes (5): lib/etc/roles/literal/imgRole.js, checkedAt, integrity, mode, size
+
+### Community 4871 - "Community 4871"
+Cohesion: 0.40
+Nodes (5): v4/classic/parse.cjs, checkedAt, integrity, mode, size
+
+### Community 4872 - "Community 4872"
+Cohesion: 0.40
+Nodes (5): B1. Monorepo Layout, B2. Module Boundary Rules, code:block14 (fieldbrix/                          Root (Turborepo)), code:block15 (Rule P0: No file in modules/ may import from infrastructure/), PART B — PROJECT STRUCTURE
+
+### Community 4873 - "Community 4873"
+Cohesion: 0.40
+Nodes (5): lib/generated/idl/CloseEvent.js, checkedAt, integrity, mode, size
+
 ## Knowledge Gaps
-- **20764 isolated node(s):** `View`, `Tenant`, `Role`, `User`, `Item` (+20759 more)
+- **20794 isolated node(s):** `NotificationRecord`, `TaskRunRecord`, `today`, `plan`, `dates` (+20789 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **113 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **118 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `files` connect `Community 397` to `Community 640`, `Community 641`, `Community 642`, `Community 643`, `Community 644`, `Community 645`, `Community 646`, `Community 647`, `Community 648`, `Community 649`, `Community 650`, `Community 651`, `Community 652`, `Community 653`, `Community 654`, `Community 655`, `Community 656`, `Community 657`, `Community 658`, `Community 659`, `Community 660`, `Community 661`, `Community 662`, `Community 663`, `Community 664`, `Community 665`, `Community 666`, `Community 667`, `Community 668`, `Community 669`, `Community 670`, `Community 671`, `Community 672`, `Community 673`, `Community 674`, `Community 675`, `Community 676`, `Community 677`, `Community 678`, `Community 679`, `Community 680`, `Community 681`, `Community 682`, `Community 683`, `Community 684`, `Community 685`, `Community 686`, `Community 687`, `Community 688`, `Community 689`, `Community 690`, `Community 691`, `Community 692`, `Community 693`, `Community 694`, `Community 695`, `Community 696`, `Community 697`, `Community 698`, `Community 699`, `Community 700`, `Community 701`, `Community 702`, `Community 703`, `Community 630`, `Community 631`, `Community 632`, `Community 633`, `Community 634`, `Community 635`, `Community 636`, `Community 637`, `Community 638`, `Community 639`?**
+- **Why does `router` connect `Community 84` to `Community 164`?**
   _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **Why does `PlatformRepository` connect `Community 64` to `Community 195`, `Community 167`, `Community 264`, `Community 151`, `Community 153`?**
+- **Why does `files` connect `Community 377` to `Community 2855`, `Community 2856`, `Community 2857`, `Community 2858`, `Community 2859`, `Community 2860`, `Community 2861`, `Community 2862`, `Community 2863`, `Community 2864`, `Community 2865`, `Community 2866`, `Community 2867`, `Community 2868`, `Community 2869`, `Community 2870`, `Community 2871`, `Community 2872`, `Community 2873`, `Community 2874`, `Community 2875`, `Community 2876`, `Community 2877`, `Community 2878`, `Community 2879`, `Community 2880`, `Community 2881`, `Community 2882`, `Community 2883`, `Community 2884`, `Community 2885`, `Community 2886`, `Community 2887`, `Community 2888`, `Community 2889`, `Community 2890`, `Community 2891`, `Community 2892`, `Community 2893`, `Community 2894`, `Community 2895`, `Community 2896`, `Community 2897`, `Community 2898`, `Community 2899`, `Community 2900`, `Community 2901`, `Community 2902`, `Community 2903`, `Community 2904`, `Community 2905`, `Community 2906`, `Community 2907`, `Community 2908`, `Community 2909`, `Community 2910`, `Community 2911`, `Community 2912`, `Community 2913`, `Community 2914`, `Community 2915`, `Community 2916`, `Community 2917`, `Community 2918`, `Community 2919`, `Community 2920`, `Community 2921`, `Community 2922`, `Community 2923`, `Community 2924`, `Community 2925`, `Community 2926`, `Community 2927`, `Community 2928`, `Community 2929`, `Community 2930`, `Community 2931`, `Community 2932`, `Community 2933`, `Community 2934`, `Community 2935`, `Community 2936`, `Community 2937`, `Community 2938`, `Community 2939`, `Community 2940`, `Community 2941`, `Community 2942`, `Community 2943`, `Community 2944`, `Community 2945`, `Community 2946`, `Community 2947`, `Community 2948`, `Community 2949`, `Community 2950`, `Community 2951`?**
   _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **Why does `files` connect `Community 400` to `Community 4110`, `Community 4111`, `Community 4112`, `Community 4113`, `Community 4114`, `Community 4115`, `Community 4116`, `Community 4117`, `Community 4118`, `Community 4119`, `Community 4120`, `Community 4121`, `Community 4122`, `Community 4123`, `Community 4124`, `Community 4125`, `Community 4126`, `Community 4127`, `Community 4128`, `Community 4129`, `Community 4130`, `Community 4131`, `Community 4132`, `Community 4133`, `Community 4134`, `Community 4135`, `Community 4136`, `Community 4137`, `Community 4138`, `Community 4139`, `Community 4140`, `Community 4141`, `Community 4142`, `Community 4143`, `Community 4144`, `Community 4145`, `Community 4146`, `Community 4147`, `Community 4148`, `Community 4149`, `Community 4150`, `Community 4151`, `Community 4152`, `Community 4153`, `Community 4154`, `Community 4155`, `Community 4156`, `Community 4157`, `Community 4158`, `Community 4159`, `Community 4160`, `Community 4161`, `Community 4162`, `Community 4163`, `Community 4164`, `Community 4165`, `Community 4166`, `Community 4167`, `Community 4168`, `Community 4169`, `Community 4170`, `Community 4171`, `Community 4172`, `Community 4173`, `Community 4174`, `Community 4175`, `Community 4176`, `Community 4177`, `Community 4178`, `Community 4179`, `Community 4180`, `Community 4181`, `Community 4182`, `Community 4183`, `Community 4184`, `Community 4185`, `Community 4186`, `Community 4187`, `Community 4188`, `Community 4189`, `Community 4190`, `Community 4191`, `Community 4192`, `Community 4193`, `Community 4194`, `Community 4195`, `Community 4196`, `Community 4197`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **What connects `View`, `Tenant`, `Role` to the rest of the system?**
-  _20782 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `NotificationRecord`, `TaskRunRecord`, `today` to the rest of the system?**
+  _20812 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Backend Domain & Standards` be split into smaller, more focused modules?**
   _Cohesion score 0.05499735589635114 - nodes in this community are weakly interconnected._
 - **Should `NestJS Backend Architecture` be split into smaller, more focused modules?**
   _Cohesion score 0.12418300653594772 - nodes in this community are weakly interconnected._
 - **Should `Terraform Ops Scripts` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
+- **Should `AI Agent Development Rules` be split into smaller, more focused modules?**
+  _Cohesion score 0.07497387669801463 - nodes in this community are weakly interconnected._

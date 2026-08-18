@@ -44,6 +44,7 @@ describe('ReviewService', () => {
 
     expect(result.status).toBe('SIGNED');
     expect(result.summaryHash).toBe('abc123sha256hash');
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- jest.fn() mock
     expect(repo.saveConfirmation).toHaveBeenCalled();
   });
 
@@ -55,12 +56,12 @@ describe('ReviewService', () => {
       siteId: 'site-1',
       instructions: 'Original instructions',
       priority: 'NORMAL',
-    } as any);
+    });
 
     taskService.create.mockResolvedValue({
       id: 'task-followup-1',
       taskNumber: 'TSK-9901',
-    } as any);
+    });
 
     const followUp = await service.createFollowUp('task-1', 'rev-user-1', {
       description: 'Physical revisit required for leak check',
@@ -68,6 +69,7 @@ describe('ReviewService', () => {
     });
 
     expect(followUp.id).toBe('task-followup-1');
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- jest.fn() mock
     expect(repo.recordReview).toHaveBeenCalledWith('task-1', 'rev-user-1', {
       status: 'APPROVED',
       comments: 'Approved with follow-up task TSK-9901',

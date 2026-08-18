@@ -107,9 +107,7 @@ export class RecurrenceService {
           current.getUTCDate() + 7 * (plan.intervalCount || 1),
         );
       } else if (plan.frequency === 'MONTHLY') {
-        current.setUTCMonth(
-          current.getUTCMonth() + (plan.intervalCount || 1),
-        );
+        current.setUTCMonth(current.getUTCMonth() + (plan.intervalCount || 1));
       } else {
         current.setUTCDate(current.getUTCDate() + 7);
       }
