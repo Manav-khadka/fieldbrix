@@ -35,13 +35,23 @@ export function AssignmentDrawer({
 
   const { data: users } = useQuery({
     queryKey: ["users", "for-assignment-drawer"],
-    queryFn: () => api.get<{ data: UserOption[] }>("/users?limit=100"),
+    queryFn: () => api.get<UserOption[] | { data: UserOption[] }>("/users?limit=100"),
   });
   const { data: teams } = useQuery({
     queryKey: ["teams", "for-assignment-drawer"],
-    queryFn: () => api.get<{ data: TeamOption[] }>("/teams?limit=100"),
+    queryFn: () => api.get<TeamOption[] | { data: TeamOption[] }>("/teams?limit=100"),
   });
-  const activeTeams = (teams?.data ?? []).filter((t) => t.active);
+  const userList = Array.isArray(users)
+    ? users
+    : Array.isArray(users?.data)
+      ? users.data
+      : [];
+  const teamList = Array.isArray(teams)
+    ? teams
+    : Array.isArray(teams?.data)
+      ? teams.data
+      : [];
+  const activeTeams = teamList.filter((t) => t.active);
 
   const { data: current } = useQuery({
     queryKey: ["task-assignment", taskId],
@@ -107,7 +117,7 @@ export function AssignmentDrawer({
           onChange={(e) => setWorkerId(e.target.value)}
         >
           <option value="">No individual worker</option>
-          {users?.data.map((u) => (
+          {userList.map((u) => (
             <option key={u.id} value={u.id}>
               {u.name} ({u.email})
             </option>

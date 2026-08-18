@@ -77,11 +77,17 @@ export function WorkflowBuilderPage() {
     onSuccess: () => qc.invalidateQueries({ queryKey: ["workflow", id] }),
   });
 
-  const schema = (workflow?.schema ?? {
-    sections: [],
-    fields: [],
-    rules: [],
-  }) as WorkflowSchema;
+  const schema: WorkflowSchema = {
+    sections: Array.isArray(workflow?.schema?.sections)
+      ? workflow.schema.sections
+      : [],
+    fields: Array.isArray(workflow?.schema?.fields)
+      ? workflow.schema.fields
+      : [],
+    rules: Array.isArray(workflow?.schema?.rules)
+      ? workflow.schema.rules
+      : [],
+  };
 
   if (isLoading)
     return (

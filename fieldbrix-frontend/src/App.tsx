@@ -127,17 +127,25 @@ function App() {
         request("/audit-events"),
         request("/me/sessions"),
       ]);
+      const toArray = (v: any) =>
+        Array.isArray(v)
+          ? v
+          : Array.isArray(v?.items)
+            ? v.items
+            : Array.isArray(v?.data)
+              ? v.data
+              : [];
       setProfile(me);
-      setRoles(roleData ?? []);
-      setUsers(userData?.data ?? userData ?? []);
-      setBranches(branchData?.data ?? branchData ?? []);
-      setTeams(teamData?.data ?? teamData ?? []);
-      setAudit(auditData?.data ?? auditData ?? []);
-      setSessions(sessionData?.data ?? sessionData ?? []);
+      setRoles(toArray(roleData));
+      setUsers(toArray(userData));
+      setBranches(toArray(branchData));
+      setTeams(toArray(teamData));
+      setAudit(toArray(auditData));
+      setSessions(toArray(sessionData));
       const tenantData = await request("/platform/tenants", {}, true).catch(
         () => [],
       );
-      setTenants(tenantData?.data ?? tenantData ?? []);
+      setTenants(toArray(tenantData));
       setError("");
     } catch (reason) {
       setError(

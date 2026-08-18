@@ -120,8 +120,12 @@ export function WorkflowRulesPage() {
     queryFn: () => api.get<Workflow>(`/workflows/${id}`),
   });
 
-  const fields = workflow?.schema?.fields ?? [];
-  const rules = workflow?.schema?.rules ?? [];
+  const fields = Array.isArray(workflow?.schema?.fields)
+    ? workflow.schema.fields
+    : [];
+  const rules = Array.isArray(workflow?.schema?.rules)
+    ? workflow.schema.rules
+    : [];
 
   const [priority, setPriority] = useState(0);
   const [conditions, setConditions] = useState<Condition[]>([

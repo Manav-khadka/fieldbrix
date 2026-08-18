@@ -24,6 +24,13 @@ const tabs = [
   ["tasks", "Tasks", "Plan, assign and follow up"],
 ] as const;
 
+const toItemArray = (data: any): RecordItem[] => {
+  if (Array.isArray(data)) return data;
+  if (Array.isArray(data?.items)) return data.items;
+  if (Array.isArray(data?.data)) return data.data;
+  return [];
+};
+
 export function Operations({ request, notify }: Props) {
   const [tab, setTab] = useState<(typeof tabs)[number][0]>("customers");
   const [items, setItems] = useState<RecordItem[]>([]);
@@ -45,18 +52,22 @@ export function Operations({ request, notify }: Props) {
   const load = async () => {
     setBusy(true);
     try {
-      if (tab === "workflows") setItems((await request("/workflows")) ?? []);
+      if (tab === "workflows") setItems(toItemArray(await request("/workflows")));
       else if (tab === "tasks")
         setItems(
-          (await request(
-            `/tasks${search ? `?search=${encodeURIComponent(search)}` : ""}`,
-          )) ?? [],
+          toItemArray(
+            await request(
+              `/tasks${search ? `?search=${encodeURIComponent(search)}` : ""}`,
+            ),
+          ),
         );
       else
         setItems(
-          (await request(
-            `/${endpoint}${search ? `?search=${encodeURIComponent(search)}` : ""}`,
-          )) ?? [],
+          toItemArray(
+            await request(
+              `/${endpoint}${search ? `?search=${encodeURIComponent(search)}` : ""}`,
+            ),
+          ),
         );
     } catch (error) {
       notify(
@@ -86,11 +97,14 @@ export function Operations({ request, notify }: Props) {
           request("/customers"),
           request("/sites"),
         ]);
-        const workflow = (workflowData ?? []).find(
+        const workflows = toItemArray(workflowData);
+        const customers = toItemArray(customerData);
+        const sites = toItemArray(siteData);
+        const workflow = workflows.find(
           (item: RecordItem) => item.currentVersionId,
         );
-        const customer = (customerData ?? [])[0];
-        const site = (siteData ?? [])[0];
+        const customer = customers[0];
+        const site = sites[0];
         if (!workflow?.currentVersionId || !customer?.id || !site?.id)
           throw new Error(
             "Publish a workflow and add a customer/site before creating a task",
