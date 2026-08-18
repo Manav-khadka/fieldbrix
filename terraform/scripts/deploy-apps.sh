@@ -172,6 +172,17 @@ if ! aws ssm wait command-executed \
   exit 1
 fi
 
+echo "Verifying public endpoints..."
+for i in $(seq 1 15); do
+  if curl --fail --silent "${ADMIN_URL}" >/dev/null && \
+     curl --fail --silent "${API_URL}/health/ready" >/dev/null; then
+    echo "Public endpoints responding successfully."
+    break
+  fi
+  echo "Waiting for public endpoints to respond..."
+  sleep 3
+done
+
 curl --fail --silent "${ADMIN_URL}" >/dev/null
 curl --fail --silent "${API_URL}/health/ready" >/dev/null
 curl --fail --silent "${API_URL}/version" | \

@@ -1,10 +1,11 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { forwardRef, Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { PlatformService } from '../../platform/platform/platform.service';
 import { IdempotencyService } from '../../idempotency/idempotency/idempotency.service';
 
 @Injectable()
 export class AuthorizationService {
   constructor(
+    @Inject(forwardRef(() => PlatformService))
     private readonly platform: PlatformService,
     private readonly idempotency: IdempotencyService,
   ) {}

@@ -6,6 +6,8 @@ import {
   NotFoundException,
   HttpException,
   HttpStatus,
+  Inject,
+  forwardRef,
 } from '@nestjs/common';
 import { randomUUID, createHash, timingSafeEqual } from 'node:crypto';
 import * as bcrypt from 'bcryptjs';

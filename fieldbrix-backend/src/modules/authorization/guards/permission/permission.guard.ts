@@ -2,6 +2,8 @@ import {
   CanActivate,
   ExecutionContext,
   ForbiddenException,
+  forwardRef,
+  Inject,
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -17,6 +19,7 @@ import {
 export class PermissionGuard implements CanActivate {
   constructor(
     private readonly reflector: Reflector,
+    @Inject(forwardRef(() => PlatformService))
     private readonly platform: PlatformService,
   ) {}
   canActivate(context: ExecutionContext): boolean {
