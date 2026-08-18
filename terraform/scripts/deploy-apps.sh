@@ -169,7 +169,6 @@ if ! aws ssm wait command-executed \
   aws ssm get-command-invocation \
     --command-id "${COMMAND_ID}" \
     --instance-id "${INSTANCE_ID}" \
-    --details \
     "${AWS_OPTIONS[@]}" >&2 || true
   exit 1
 fi
