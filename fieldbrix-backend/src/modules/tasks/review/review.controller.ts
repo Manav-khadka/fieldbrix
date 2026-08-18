@@ -47,7 +47,7 @@ export class ReviewController {
     return this.reviewService.saveConfirmation(id, body);
   }
 
-  @Permission('tasks.review')
+  @Permission('tasks.edit')
   @Post(':id/review-decision')
   recordDecision(
     @Headers() headers: Record<string, string>,
@@ -58,7 +58,7 @@ export class ReviewController {
     return this.reviewService.recordDecision(id, reviewerId, body);
   }
 
-  @Permission('tasks.review')
+  @Permission('tasks.edit')
   @Post(':id/follow-up')
   createFollowUp(
     @Headers() headers: Record<string, string>,

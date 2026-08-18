@@ -36,18 +36,19 @@ export class ReviewRepository {
       `SELECT t.id::text AS id, t.task_number AS "taskNumber", t.description,
               t.status, t.priority, t.scheduled_at AS "scheduledAt",
               t.customer_id::text AS "customerId", t.site_id::text AS "siteId",
-              c.name AS "customerName", s.name AS "siteName",
+              COALESCE(c.name, 'Customer') AS "customerName",
+              COALESCE(s.name, 'Site') AS "siteName",
               cc.status AS "confirmationStatus", cc.signer_name AS "signerName",
               tr.status AS "reviewStatus"
        FROM tasks t
-       JOIN master_customers c ON c.id = t.customer_id
-       JOIN master_sites s ON s.id = t.site_id
+       LEFT JOIN master_customers c ON c.id = t.customer_id
+       LEFT JOIN master_sites s ON s.id = t.site_id
        LEFT JOIN customer_confirmations cc ON cc.task_id = t.id
        LEFT JOIN task_reviews tr ON tr.task_id = t.id
-       WHERE t.status IN ('COMPLETED', 'IN_PROGRESS', 'PAUSED')
+       WHERE t.archived_at IS NULL
        ORDER BY t.updated_at DESC`,
     );
-    return rows.map((r) => rowToCamelCase(r));
+    return rows;
   }
 
   async saveConfirmation(

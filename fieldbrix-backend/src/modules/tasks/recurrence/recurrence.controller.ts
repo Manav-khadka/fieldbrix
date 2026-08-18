@@ -26,19 +26,19 @@ export class RecurrenceController {
     private readonly idempotency: IdempotencyService,
   ) {}
 
-  @Permission('scheduling.recurrences.view')
+  @Permission('tasks.view')
   @Get()
   list() {
     return this.recurrenceService.list();
   }
 
-  @Permission('scheduling.recurrences.view')
+  @Permission('tasks.view')
   @Get(':id')
   get(@Param('id') id: string) {
     return this.recurrenceService.get(id);
   }
 
-  @Permission('scheduling.recurrences.create')
+  @Permission('tasks.create')
   @Post()
   create(
     @Headers() headers: Record<string, string>,
@@ -51,13 +51,13 @@ export class RecurrenceController {
       .then((res) => res.response);
   }
 
-  @Permission('scheduling.recurrences.edit')
+  @Permission('tasks.edit')
   @Patch(':id')
   update(@Param('id') id: string, @Body() body: UpdateRecurrenceDto) {
     return this.recurrenceService.update(id, body);
   }
 
-  @Permission('scheduling.recurrences.edit')
+  @Permission('tasks.edit')
   @Post(':id/exceptions')
   handleException(
     @Param('id') id: string,
