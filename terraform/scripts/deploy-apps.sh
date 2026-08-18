@@ -149,8 +149,8 @@ PARAMETERS=$(jq -cn \
     "ln -sfn /opt/fieldbrix/backend/releases/$release /opt/fieldbrix/backend/current",
     "systemctl daemon-reload && systemctl restart fieldbrix-api.service",
     "nginx -t && systemctl reload nginx",
-    "for i in $(seq 1 30); do if curl -s --fail http://127.0.0.1:3000/health/ready >/dev/null; then echo 'Backend ready!'; break; fi; echo 'Waiting for backend...'; sleep 2; done",
-    "if ! curl --fail http://127.0.0.1:3000/health/ready; then echo 'Backend failed to start. Service logs:'; journalctl -u fieldbrix-api.service -n 100 --no-pager; exit 1; fi"
+    "for i in $(seq 1 30); do if curl -s --fail http://127.0.0.1:3000/health/ready >/dev/null; then echo \"Backend ready!\"; break; fi; echo \"Waiting for backend...\"; sleep 2; done",
+    "if ! curl --fail http://127.0.0.1:3000/health/ready; then echo \"Backend failed to start. Service logs:\"; journalctl -u fieldbrix-api.service -n 100 --no-pager; exit 1; fi"
   ]}')
 
 COMMAND_ID=$(aws ssm send-command \
