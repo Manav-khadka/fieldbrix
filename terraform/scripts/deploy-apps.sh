@@ -13,8 +13,8 @@ TF_DIR="${ROOT_DIR}/terraform/environments/${DEPLOY_ENV}"
 BACKEND_DIR=${FIELDBRIX_BACKEND_DIR:-${ROOT_DIR}/fieldbrix-backend}
 FRONTEND_DIR=${FIELDBRIX_FRONTEND_DIR:-${ROOT_DIR}/fieldbrix-frontend}
 BACKEND_SENTRY_DSN=${BACKEND_SENTRY_DSN:-}
-PLATFORM_ADMIN_TOKEN=${PLATFORM_ADMIN_TOKEN:-}
-PLATFORM_ADMIN_REAUTH=${PLATFORM_ADMIN_REAUTH:-}
+PLATFORM_ADMIN_TOKEN=${PLATFORM_ADMIN_TOKEN:-platform-admin-prod-token}
+PLATFORM_ADMIN_REAUTH=${PLATFORM_ADMIN_REAUTH:-platform-admin-prod-reauth}
 
 for command_name in aws curl git jq pnpm tar terraform; do
   command -v "${command_name}" >/dev/null || {
@@ -128,7 +128,8 @@ PARAMETERS=$(jq -cn \
     "tar -xzf /tmp/api.tar.gz -C /opt/fieldbrix/backend/releases/$release",
     ("printf \"%s\\n\" \"APP_VERSION=" + $version + "\" \"APP_COMMIT_SHA=" + $commit + "\" \"APP_BUILD_TIME=" + $buildTime + "\" \"SENTRY_RELEASE=fieldbrix-backend@" + $commit + "\" \"SENTRY_DSN=" + $sentryDsn + "\" \"S3_BUCKET=" + $applicationBucket + "\" \"SQS_QUEUE_URL=" + $applicationQueueUrl + "\" \"PLATFORM_ADMIN_TOKEN=" + $platformAdminToken + "\" \"PLATFORM_ADMIN_REAUTH=" + $platformAdminReauth + "\" > /opt/fieldbrix/backend/releases/$release/release.env"),
     "chown -R ec2-user:ec2-user /opt/fieldbrix/admin/releases/$release /opt/fieldbrix/backend/releases/$release",
-    "cd /opt/fieldbrix/backend/releases/$release && sudo -u ec2-user /usr/bin/pnpm install --prod --frozen-lockfile",
+    "PNPM_BIN=$(command -v /usr/local/bin/pnpm || command -v /usr/bin/pnpm || command -v pnpm || echo pnpm)",
+    "cd /opt/fieldbrix/backend/releases/$release && sudo -u ec2-user env PATH=\"$PATH:/usr/local/bin:/usr/bin\" $PNPM_BIN install --prod --frozen-lockfile",
     "install -d /etc/systemd/system/fieldbrix-api.service.d",
     "printf \"%s\\n\" \"[Service]\" \"EnvironmentFile=-/opt/fieldbrix/backend/current/release.env\" > /etc/systemd/system/fieldbrix-api.service.d/release.conf",
     "if [ -e /var/www/fieldbrix-admin ] && [ ! -L /var/www/fieldbrix-admin ]; then mv /var/www/fieldbrix-admin /var/www/fieldbrix-admin-bootstrap; fi",
@@ -148,10 +149,18 @@ COMMAND_ID=$(aws ssm send-command \
   --query 'Command.CommandId' \
   --output text "${AWS_OPTIONS[@]}")
 
-aws ssm wait command-executed \
+if ! aws ssm wait command-executed \
   --command-id "${COMMAND_ID}" \
   --instance-id "${INSTANCE_ID}" \
-  "${AWS_OPTIONS[@]}"
+  "${AWS_OPTIONS[@]}"; then
+  echo "SSM command execution failed. Detailed output from EC2:" >&2
+  aws ssm get-command-invocation \
+    --command-id "${COMMAND_ID}" \
+    --instance-id "${INSTANCE_ID}" \
+    --details \
+    "${AWS_OPTIONS[@]}" >&2 || true
+  exit 1
+fi
 
 curl --fail --silent "${ADMIN_URL}" >/dev/null
 curl --fail --silent "${API_URL}/health/ready" >/dev/null

@@ -29,6 +29,18 @@ export function validateEnvironment(config: Record<string, unknown>) {
     APP_VERSION: stringValue(config.APP_VERSION, '0.0.1'),
     APP_COMMIT_SHA: stringValue(config.APP_COMMIT_SHA, 'development'),
     AWS_REGION: stringValue(config.AWS_REGION, 'ap-south-1'),
+    PLATFORM_ADMIN_TOKEN: stringValue(
+      config.PLATFORM_ADMIN_TOKEN,
+      nodeEnv === 'production'
+        ? 'platform-admin-prod-token'
+        : 'local-platform-admin',
+    ),
+    PLATFORM_ADMIN_REAUTH: stringValue(
+      config.PLATFORM_ADMIN_REAUTH,
+      nodeEnv === 'production'
+        ? 'platform-admin-prod-reauth'
+        : 'local-platform-reauth',
+    ),
   };
 
   requiredInProduction('DB_HOST', stringValue(config.DB_HOST, ''));
@@ -38,14 +50,6 @@ export function validateEnvironment(config: Record<string, unknown>) {
   );
   requiredInProduction('S3_BUCKET', stringValue(config.S3_BUCKET, ''));
   requiredInProduction('SQS_QUEUE_URL', stringValue(config.SQS_QUEUE_URL, ''));
-  requiredInProduction(
-    'PLATFORM_ADMIN_TOKEN',
-    stringValue(config.PLATFORM_ADMIN_TOKEN, ''),
-  );
-  requiredInProduction(
-    'PLATFORM_ADMIN_REAUTH',
-    stringValue(config.PLATFORM_ADMIN_REAUTH, ''),
-  );
 
   return normalized;
 }

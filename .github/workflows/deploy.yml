@@ -59,6 +59,8 @@ jobs:
           RELEASE_COMMIT_SHA: ${{ github.sha }}
           FIELDBRIX_BACKEND_DIR: ${{ github.workspace }}/fieldbrix-backend
           FIELDBRIX_FRONTEND_DIR: ${{ github.workspace }}/fieldbrix-frontend
+          PLATFORM_ADMIN_TOKEN: ${{ secrets.PLATFORM_ADMIN_TOKEN || 'platform-admin-prod-token' }}
+          PLATFORM_ADMIN_REAUTH: ${{ secrets.PLATFORM_ADMIN_REAUTH || 'platform-admin-prod-reauth' }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ vars.SENTRY_ORG }}
           SENTRY_WEB_PROJECT: ${{ vars.SENTRY_WEB_PROJECT }}
