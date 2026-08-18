@@ -4,9 +4,11 @@ import type { CreateTaskDto } from './task.dto';
 
 function makeService() {
   const repo = {
-    create: jest.fn().mockImplementation((payload: Record<string, unknown>) =>
-      Promise.resolve({ id: 'task-1', ...payload }),
-    ),
+    create: jest
+      .fn()
+      .mockImplementation((payload: Record<string, unknown>) =>
+        Promise.resolve({ id: 'task-1', ...payload }),
+      ),
   } as unknown as TaskRepository;
   return { service: new TaskService(repo), repo };
 }

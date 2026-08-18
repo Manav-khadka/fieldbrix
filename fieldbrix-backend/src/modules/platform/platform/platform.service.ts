@@ -15,7 +15,11 @@ import { StorageService } from '../../storage/storage/storage.service';
 import { QueueService } from '../../queue/queue/queue.service';
 import { NotificationsService } from '../../notifications/notifications/notifications.service';
 
-const COMPANY_DATE_FORMATS = ['YYYY-MM-DD', 'DD/MM/YYYY', 'MM/DD/YYYY'] as const;
+const COMPANY_DATE_FORMATS = [
+  'YYYY-MM-DD',
+  'DD/MM/YYYY',
+  'MM/DD/YYYY',
+] as const;
 const COMPANY_NUMBER_FORMATS = ['1,234.56', '1.234,56', '1 234,56'] as const;
 
 type Tenant = {

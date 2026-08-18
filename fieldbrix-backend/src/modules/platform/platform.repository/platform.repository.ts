@@ -1036,8 +1036,8 @@ export class PlatformRepository {
     syncHealth: 'healthy' | 'degraded' | 'inactive';
     lastActivityAt: string | null;
   }> {
-    const [activityRows, deadLetterRows, importFailureRows] =
-      await Promise.all([
+    const [activityRows, deadLetterRows, importFailureRows] = await Promise.all(
+      [
         this.database.query<{ lastActivityAt: string | null }>(
           'SELECT MAX(created_at) AS "lastActivityAt" FROM outbox_events WHERE tenant_id = $1::uuid',
           [tenantId],
@@ -1054,7 +1054,8 @@ export class PlatformRepository {
              AND updated_at > now() - interval '24 hours'`,
           [tenantId],
         ),
-      ]);
+      ],
+    );
     const lastActivityAt = activityRows[0]?.lastActivityAt ?? null;
     const recentFailures =
       Number(deadLetterRows[0]?.count ?? 0) +

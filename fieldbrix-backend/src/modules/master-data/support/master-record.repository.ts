@@ -112,10 +112,13 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
         values,
       );
       const record = rowToCamelCase<T>(result[0]);
-      await this.database.emitOutboxEvent(`master.${this.entityType}.created.v1`, {
-        id: record.id,
-        revision: record.revision,
-      });
+      await this.database.emitOutboxEvent(
+        `master.${this.entityType}.created.v1`,
+        {
+          id: record.id,
+          revision: record.revision,
+        },
+      );
       return record;
     } catch (error) {
       throw this.mapWriteError(error);
@@ -153,10 +156,13 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
         throw new ConflictException('STALE_REVISION');
       }
       const record = rowToCamelCase<T>(result[0]);
-      await this.database.emitOutboxEvent(`master.${this.entityType}.updated.v1`, {
-        id: record.id,
-        revision: record.revision,
-      });
+      await this.database.emitOutboxEvent(
+        `master.${this.entityType}.updated.v1`,
+        {
+          id: record.id,
+          revision: record.revision,
+        },
+      );
       return record;
     } catch (error) {
       if (
@@ -179,10 +185,13 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
       throw new ConflictException('STALE_REVISION');
     }
     const record = rowToCamelCase<T>(result[0]);
-    await this.database.emitOutboxEvent(`master.${this.entityType}.archived.v1`, {
-      id: record.id,
-      revision: record.revision,
-    });
+    await this.database.emitOutboxEvent(
+      `master.${this.entityType}.archived.v1`,
+      {
+        id: record.id,
+        revision: record.revision,
+      },
+    );
     return record;
   }
 

@@ -26,9 +26,7 @@ describe('TaskService — computed flags on read', () => {
 
   it('adds SYNC_PENDING for a task with a recent dead-lettered outbox event', async () => {
     const repo = makeRepo({
-      findDeadLetteredTaskIds: jest
-        .fn()
-        .mockResolvedValue(new Set(['task-1'])),
+      findDeadLetteredTaskIds: jest.fn().mockResolvedValue(new Set(['task-1'])),
       findById: jest.fn().mockResolvedValue({
         id: 'task-1',
         status: 'IN_PROGRESS',

@@ -123,7 +123,8 @@ export class ImportProcessorService {
       return {
         outcome: 'ERROR',
         errorCode: 'INVITE_FAILED',
-        message: error instanceof Error ? error.message : 'Unable to invite user',
+        message:
+          error instanceof Error ? error.message : 'Unable to invite user',
       };
     }
   }

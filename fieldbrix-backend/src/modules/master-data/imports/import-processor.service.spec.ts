@@ -146,8 +146,7 @@ describe('ImportProcessorService.validateRow', () => {
     });
     it('passes with a well-formed email', () => {
       expect(
-        processor.validateRow('users', { email: 'tech@fieldbrix.local' })
-          .valid,
+        processor.validateRow('users', { email: 'tech@fieldbrix.local' }).valid,
       ).toBe(true);
     });
   });

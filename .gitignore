@@ -54,5 +54,8 @@ pnpm-debug.log*
 
 # Generated analysis and Python bytecode
 graphify-out/cache/ast/
+graphify-out/.rebuild.lock
+.pnpm-store/
+**/.pnpm-store/
 __pycache__/
 *.py[cod]

@@ -158,7 +158,9 @@ export class TaskRepository {
           payload.estimatedMinutes ?? null,
           payload.priority ?? 'NORMAL',
           payload.workType ?? null,
-          payload.signaturePolicy ? JSON.stringify(payload.signaturePolicy) : null,
+          payload.signaturePolicy
+            ? JSON.stringify(payload.signaturePolicy)
+            : null,
         ],
       );
       const task = result.rows[0];

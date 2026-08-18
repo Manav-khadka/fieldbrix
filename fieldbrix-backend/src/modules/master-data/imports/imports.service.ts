@@ -62,11 +62,7 @@ export class ImportsService {
     for (const row of validRows) {
       const result = await this.processor.commitRow(
         job.entityType as
-          | 'customers'
-          | 'sites'
-          | 'service_targets'
-          | 'parts'
-          | 'users',
+          'customers' | 'sites' | 'service_targets' | 'parts' | 'users',
         row.rowData,
         job.duplicateMode,
         actorToken,

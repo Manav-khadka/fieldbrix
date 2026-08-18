@@ -8,7 +8,13 @@ type WidgetRecord = MasterRecord & { name: string; code: string };
 
 class WidgetsRepository extends MasterRecordRepository<WidgetRecord> {
   constructor(database: DatabaseService) {
-    super(database, 'master_widgets', ['name', 'code'], ['name', 'code'], 'widget');
+    super(
+      database,
+      'master_widgets',
+      ['name', 'code'],
+      ['name', 'code'],
+      'widget',
+    );
   }
 }
 
@@ -72,9 +78,7 @@ describe('MasterRecordRepository outbox events', () => {
     } as unknown as DatabaseService;
     const repo = new WidgetsRepository(database);
 
-    await expect(
-      repo.create({ name: 'Bolt', code: 'BLT' }),
-    ).rejects.toThrow();
+    await expect(repo.create({ name: 'Bolt', code: 'BLT' })).rejects.toThrow();
     // eslint-disable-next-line @typescript-eslint/unbound-method -- jest.fn() mock
     expect(database.emitOutboxEvent).not.toHaveBeenCalled();
   });
