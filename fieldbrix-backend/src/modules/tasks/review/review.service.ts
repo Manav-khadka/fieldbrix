@@ -1,4 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { ReviewRepository } from './review.repository';
 import {
   CreateFollowUpDto,
@@ -18,6 +23,10 @@ export class ReviewService {
     return this.repository.listReviewQueue();
   }
 
+  getConfirmation(taskId: string) {
+    return this.repository.getConfirmationByTaskId(taskId);
+  }
+
   saveConfirmation(taskId: string, dto: CustomerConfirmationDto) {
     return this.repository.saveConfirmation(taskId, {
       status: dto.status,
@@ -30,11 +39,20 @@ export class ReviewService {
     });
   }
 
-  recordDecision(
+  async recordDecision(
     taskId: string,
     reviewerId: string,
     dto: TaskReviewDecisionDto,
   ) {
+    const context = await this.repository.verificationContext(
+      taskId,
+      reviewerId,
+    );
+    if (!context) throw new NotFoundException('TASK_NOT_FOUND');
+    if (context.verificationMode === 'AUTO')
+      throw new BadRequestException('TASK_AUTO_VERIFIED');
+    if (!context.authorized)
+      throw new ForbiddenException('TASK_REVIEWER_NOT_ASSIGNED');
     return this.repository.recordReview(taskId, reviewerId, {
       status: dto.status,
       exceptionDecisions: dto.exceptionDecisions,

@@ -60,6 +60,10 @@ describe("AssignmentDrawer", () => {
     expect(screen.getByRole("button", { name: "Assign" })).toBeDisabled();
     expect(screen.queryByText("Retired Team")).not.toBeInTheDocument();
 
+    fireEvent.change(screen.getByLabelText("Verification after completion"), {
+      target: { value: "AUTO" },
+    });
+
     fireEvent.change(screen.getByLabelText("Team"), {
       target: { value: TEAM_ID },
     });
@@ -77,6 +81,9 @@ describe("AssignmentDrawer", () => {
     fireEvent.change(screen.getByLabelText("Worker"), {
       target: { value: WORKER_ID },
     });
+    fireEvent.change(screen.getByLabelText("Verification after completion"), {
+      target: { value: "AUTO" },
+    });
     fireEvent.click(
       screen.getByLabelText("Responsible lead (final submission authority)"),
     );
@@ -93,6 +100,10 @@ describe("AssignmentDrawer", () => {
         teamId: undefined,
         lead: true,
         reason: "primary technician",
+        supervisorIds: [],
+        verificationMode: "AUTO",
+        requiredApprovals: 1,
+        qualityTeamId: undefined,
       },
       expect.any(String),
     );
@@ -110,6 +121,9 @@ describe("AssignmentDrawer", () => {
     await screen.findByRole("option", { name: /Ada Worker/ });
     fireEvent.change(screen.getByLabelText("Worker"), {
       target: { value: WORKER_ID },
+    });
+    fireEvent.change(screen.getByLabelText("Verification after completion"), {
+      target: { value: "AUTO" },
     });
     fireEvent.click(screen.getByRole("button", { name: "Assign" }));
 

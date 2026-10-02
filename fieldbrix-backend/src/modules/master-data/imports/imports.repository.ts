@@ -27,6 +27,45 @@ export type ImportRowOutcome = {
 export class ImportsRepository {
   constructor(private readonly database: DatabaseService) {}
 
+  async list(
+    page = 1,
+    limit = 10,
+  ): Promise<{
+    items: ImportJobRow[];
+    total: number;
+    page: number;
+    limit: number;
+  }> {
+    const safePage = Math.max(page, 1);
+    const safeLimit = Math.min(Math.max(limit, 1), 100);
+    const offset = (safePage - 1) * safeLimit;
+    const tenantPredicate =
+      "tenant_id = current_setting('app.tenant_id', true)::uuid";
+    const [rows, countRows] = await Promise.all([
+      this.database.tenantQuery<Record<string, unknown>>(
+        `SELECT id::text AS id, entity_type, status, preview_revision,
+                total_rows, valid_rows, error_rows, duplicate_mode,
+                created_at, updated_at
+         FROM import_jobs
+         WHERE ${tenantPredicate}
+         ORDER BY created_at DESC
+         LIMIT $1 OFFSET $2`,
+        [safeLimit, offset],
+      ),
+      this.database.tenantQuery<{ count: string }>(
+        `SELECT count(*)::text AS count
+         FROM import_jobs
+         WHERE ${tenantPredicate}`,
+      ),
+    ]);
+    return {
+      items: rows.map((row) => rowToCamelCase<ImportJobRow>(row)),
+      total: Number(countRows[0]?.count ?? 0),
+      page: safePage,
+      limit: safeLimit,
+    };
+  }
+
   async createJob(
     entityType: string,
     duplicateMode: string,

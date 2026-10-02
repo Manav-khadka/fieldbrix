@@ -1,5 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { FormEvent } from "react";
+import { Pagination } from "./ui/Pagination";
+import { usePaginationState } from "./ui/pagination-state";
 
 type Request = (
   path: string,
@@ -34,12 +36,14 @@ const toItemArray = (data: any): RecordItem[] => {
 export function Operations({ request, notify }: Props) {
   const [tab, setTab] = useState<(typeof tabs)[number][0]>("customers");
   const [items, setItems] = useState<RecordItem[]>([]);
+  const [total, setTotal] = useState(0);
   const [busy, setBusy] = useState(false);
   const [search, setSearch] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
   const [code, setCode] = useState("");
   const [selected, setSelected] = useState<RecordItem | null>(null);
+  const pagination = usePaginationState(20);
   const mutation = (options: RequestInit): RequestInit => ({
     ...options,
     headers: {
@@ -49,26 +53,20 @@ export function Operations({ request, notify }: Props) {
   });
 
   const endpoint = tab === "targets" ? "service-targets" : tab;
-  const load = async () => {
+  const load = useCallback(async () => {
     setBusy(true);
     try {
-      if (tab === "workflows") setItems(toItemArray(await request("/workflows")));
-      else if (tab === "tasks")
-        setItems(
-          toItemArray(
-            await request(
-              `/tasks${search ? `?search=${encodeURIComponent(search)}` : ""}`,
-            ),
-          ),
-        );
-      else
-        setItems(
-          toItemArray(
-            await request(
-              `/${endpoint}${search ? `?search=${encodeURIComponent(search)}` : ""}`,
-            ),
-          ),
-        );
+      const params = new URLSearchParams({
+        page: String(pagination.page),
+        limit: String(pagination.pageSize),
+      });
+      if (search.trim()) params.set("search", search.trim());
+      const response = await request(`/${endpoint}?${params.toString()}`);
+      const nextItems = toItemArray(response);
+      setItems(nextItems);
+      setTotal(
+        typeof response?.total === "number" ? response.total : nextItems.length,
+      );
     } catch (error) {
       notify(
         error instanceof Error ? error.message : "Unable to load operations",
@@ -76,10 +74,11 @@ export function Operations({ request, notify }: Props) {
     } finally {
       setBusy(false);
     }
-  };
+  }, [endpoint, notify, pagination.page, pagination.pageSize, request, search]);
+
   useEffect(() => {
     void load();
-  }, [tab]);
+  }, [load]);
   const create = async (event: FormEvent) => {
     event.preventDefault();
     try {
@@ -207,6 +206,7 @@ export function Operations({ request, notify }: Props) {
                 setTab(key);
                 setSearch("");
                 setSelected(null);
+                pagination.resetPage();
               }}
             >
               <span>
@@ -252,13 +252,16 @@ export function Operations({ request, notify }: Props) {
             <input
               placeholder={`Search ${label.toLowerCase()}…`}
               value={search}
-              onChange={(event) => setSearch(event.target.value)}
+              onChange={(event) => {
+                setSearch(event.target.value);
+                pagination.resetPage();
+              }}
               onKeyDown={(event) => event.key === "Enter" && void load()}
             />
             <button className="secondary-button" onClick={() => void load()}>
               Search
             </button>
-            <span className="result-count">{items.length} records</span>
+            <span className="result-count">{total} records</span>
           </div>
           {showForm && (
             <form className="operations-form" onSubmit={create}>
@@ -337,6 +340,14 @@ export function Operations({ request, notify }: Props) {
                   <span className="row-arrow">→</span>
                 </button>
               ))}
+              <Pagination
+                page={pagination.page}
+                pageSize={pagination.pageSize}
+                total={total}
+                onPageChange={pagination.setPage}
+                onPageSizeChange={pagination.setPageSize}
+                label={`${label} pagination`}
+              />
             </div>
           ) : (
             <div className="empty-state">

@@ -99,7 +99,9 @@ describe("WorkflowRulesPage", () => {
 
     await waitFor(() => screen.getByText(/no rules yet/i));
 
-    const [fieldSelect] = screen.getAllByRole("combobox");
+    const fieldSelect = screen.getByRole("combobox", {
+      name: "Condition field 1",
+    });
     fireEvent.change(fieldSelect, { target: { value: "temperature" } });
     fireEvent.click(screen.getByRole("button", { name: /add rule/i }));
 

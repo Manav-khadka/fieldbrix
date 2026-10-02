@@ -1,56 +1,83 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import {
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
 import { api } from "../../api/client";
 import { CustomerForm } from "./customer-form";
+import {
+  OperationalRegister,
+  type RegisterColumn,
+  type RegisterRecord,
+} from "./operational-register";
+import "./operational-register.css";
+import { usePaginationState } from "../../components/ui/pagination-state";
 
-interface Customer {
-  id: string;
-  name: string;
-  code: string;
-  status: string;
-  revision: number;
-  createdAt: string;
+interface Customer extends RegisterRecord {
+  legalName?: string;
+  industry?: string;
+  serviceTier?: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
+  country?: string;
+  contactName?: string;
+  email?: string;
+  phone?: string;
+  alternatePhone?: string;
+  taxId?: string;
+  accountManager?: string;
+  contractStart?: string;
+  contractEnd?: string;
+  createdAt?: string;
 }
 
-const columnHelper = createColumnHelper<Customer>();
-const columns = [
-  columnHelper.accessor("name", { header: "Name" }),
-  columnHelper.accessor("code", {
-    header: "Code",
-    cell: (info) => <span className="fb-badge">{info.getValue()}</span>,
-  }),
-  columnHelper.accessor("status", {
-    header: "Status",
-    cell: (info) => {
-      const status = info.getValue() ?? "ACTIVE";
-      return (
-        <span className={`fb-status fb-status--${status.toLowerCase()}`}>
-          {status}
-        </span>
-      );
-    },
-  }),
-  columnHelper.accessor("createdAt", {
-    header: "Created",
-    cell: (info) =>
-      info.getValue() ? new Date(info.getValue()).toLocaleDateString() : "—",
-  }),
+const columns: RegisterColumn<Customer>[] = [
+  {
+    key: "name",
+    label: "Client name",
+    render: (value, row) => (
+      <div>
+        <strong>{String(value)}</strong>
+        {row.legalName ? (
+          <>
+            <br />
+            <small>{row.legalName}</small>
+          </>
+        ) : null}
+      </div>
+    ),
+  },
+  {
+    key: "code",
+    label: "Code",
+    render: (value) => <span className="fb-badge">{String(value)}</span>,
+  },
+  { key: "industry", label: "Industry" },
+  { key: "serviceTier", label: "Service tier" },
+  { key: "city", label: "City" },
+  { key: "state", label: "State" },
+  { key: "contactName", label: "Primary contact" },
+  { key: "email", label: "Email" },
+  { key: "phone", label: "Phone" },
+  { key: "alternatePhone", label: "Alternate phone" },
+  { key: "accountManager", label: "Account manager" },
+  { key: "contractStart", label: "Contract start" },
+  { key: "contractEnd", label: "Contract end" },
+  { key: "taxId", label: "GST / Tax ID" },
+  { key: "legalName", label: "Legal name" },
+  { key: "postalCode", label: "PIN code" },
+  { key: "country", label: "Country" },
+  { key: "createdAt", label: "Created" },
 ];
 
 export function CustomersPage() {
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
-  const [creating, setCreating] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
-
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["customers", { search, page }],
+  const [creating, setCreating] = useState(false);
+  const pagination = usePaginationState(20);
+  const query = useQuery({
+    queryKey: [
+      "customers",
+      { search, page: pagination.page, limit: pagination.pageSize },
+    ],
     queryFn: () =>
       api.get<{
         items: Customer[];
@@ -58,137 +85,83 @@ export function CustomersPage() {
         page: number;
         limit: number;
       }>(
-        `/customers?search=${encodeURIComponent(search)}&page=${page}&limit=20`,
+        `/customers?search=${encodeURIComponent(search)}&page=${pagination.page}&limit=${pagination.pageSize}`,
       ),
-    placeholderData: (prev) => prev,
+    placeholderData: (previous) => previous,
   });
-
-  const table = useReactTable({
-    data: data?.items ?? [],
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-    manualPagination: true,
-  });
-
+  const items = query.data?.items ?? [];
   return (
-    <div className="fb-page">
-      <div className="fb-page-header">
-        <div>
-          <h1 className="fb-page-title">Customers</h1>
-          <p className="fb-page-subtitle">{data?.total ?? 0} total records</p>
-        </div>
-        <button
-          id="customers-add"
-          className="fb-btn fb-btn--primary"
-          onClick={() => {
-            setEditingId(null);
-            setCreating((open) => !open);
-          }}
-        >
-          {creating ? "Cancel" : "+ Add customer"}
-        </button>
-      </div>
-
-      {creating && (
-        <CustomerForm onDone={() => setCreating(false)} />
-      )}
-      {editingId && (
+    <OperationalRegister
+      title="Clients"
+      subtitle="Customer accounts, commercial context and field-service contacts in one configurable register."
+      noun="client"
+      items={items}
+      total={query.data?.total ?? 0}
+      columns={columns}
+      defaultColumns={[
+        "name",
+        "code",
+        "industry",
+        "serviceTier",
+        "city",
+        "state",
+        "contactName",
+        "phone",
+        "accountManager",
+        "contractEnd",
+      ]}
+      stats={[
+        {
+          label: "Active clients",
+          value: query.data?.total ?? 0,
+          detail: "tenant-wide customer records",
+        },
+        {
+          label: "Premium service",
+          value: items.filter((item) =>
+            ["PREMIUM", "ENTERPRISE"].includes(item.serviceTier ?? ""),
+          ).length,
+          detail: "in this page",
+        },
+        {
+          label: "Industries",
+          value: new Set(items.map((item) => item.industry).filter(Boolean))
+            .size,
+          detail: "represented in this view",
+        },
+        {
+          label: "States covered",
+          value: new Set(items.map((item) => item.state).filter(Boolean)).size,
+          detail: "operational footprint",
+        },
+      ]}
+      search={search}
+      onSearch={(value) => {
+        setSearch(value);
+        pagination.resetPage();
+      }}
+      onAdd={() => {
+        setEditingId(null);
+        setCreating((value) => !value);
+      }}
+      onEdit={(id) => {
+        setCreating(false);
+        setEditingId(id);
+      }}
+      loading={query.isLoading}
+      error={Boolean(query.error)}
+      page={pagination.page}
+      limit={pagination.pageSize}
+      onPage={pagination.setPage}
+      onLimit={pagination.setPageSize}
+    >
+      {creating ? <CustomerForm onDone={() => setCreating(false)} /> : null}
+      {editingId ? (
         <CustomerForm
           customerId={editingId}
           onDone={() => setEditingId(null)}
         />
-      )}
-
-      <div className="fb-toolbar">
-        <input
-          id="customers-search"
-          type="search"
-          placeholder="Search by name or code…"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            setPage(1);
-          }}
-          className="fb-search-input"
-        />
-      </div>
-
-      {error && <div className="fb-error">Failed to load customers</div>}
-
-      <div className="fb-table-container">
-        <table className="fb-table" role="grid">
-          <thead>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <th key={header.id} scope="col">
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext(),
-                    )}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {isLoading && (
-              <tr>
-                <td colSpan={columns.length} className="fb-table-loading">
-                  Loading…
-                </td>
-              </tr>
-            )}
-            {!isLoading && data?.items.length === 0 && (
-              <tr>
-                <td colSpan={columns.length} className="fb-table-empty">
-                  No customers found
-                </td>
-              </tr>
-            )}
-            {table.getRowModel().rows.map((row) => (
-              <tr
-                key={row.id}
-                className="fb-table-row--clickable"
-                onClick={() => {
-                  setCreating(false);
-                  setEditingId(row.original.id);
-                }}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {data && data.total > data.limit && (
-        <div className="fb-pagination">
-          <button
-            id="customers-prev"
-            className="fb-btn fb-btn--ghost"
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
-            disabled={page === 1}
-          >
-            ← Prev
-          </button>
-          <span className="fb-pagination-info">
-            Page {data.page} of {Math.ceil(data.total / data.limit)}
-          </span>
-          <button
-            id="customers-next"
-            className="fb-btn fb-btn--ghost"
-            onClick={() => setPage((p) => p + 1)}
-            disabled={page * data.limit >= data.total}
-          >
-            Next →
-          </button>
-        </div>
-      )}
-    </div>
+      ) : null}
+    </OperationalRegister>
   );
 }

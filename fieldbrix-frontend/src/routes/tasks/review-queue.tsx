@@ -236,7 +236,7 @@ export function ReviewQueuePage() {
                 </h3>
                 {activeTask.confirmationStatus === "SIGNED" ? (
                   <div className="fb-signature-seal">
-                    <div style={{ fontSize: "2rem" }}>✍</div>
+                    <div style={{ fontSize: "1.5rem" }}>✓</div>
                     <div style={{ flex: 1 }}>
                       <div style={{ fontWeight: 700, fontSize: "14px" }}>
                         Confirmed by {activeTask.signerName ?? "Authorized Representative"}
@@ -251,7 +251,7 @@ export function ReviewQueuePage() {
                   </div>
                 ) : (
                   <div className="fb-signature-seal fb-signature-seal--refused">
-                    <div style={{ fontSize: "2rem" }}>⚠️</div>
+                    <div style={{ fontSize: "1.5rem" }}>!</div>
                     <div>
                       <div style={{ fontWeight: 700 }}>
                         {activeTask.confirmationStatus === "REFUSED"

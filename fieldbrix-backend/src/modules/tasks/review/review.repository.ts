@@ -39,16 +39,34 @@ export class ReviewRepository {
               COALESCE(c.name, 'Customer') AS "customerName",
               COALESCE(s.name, 'Site') AS "siteName",
               cc.status AS "confirmationStatus", cc.signer_name AS "signerName",
-              tr.status AS "reviewStatus"
+              CASE WHEN tvr.verification_mode = 'AUTO' THEN 'AUTO_VERIFIED'
+                WHEN COALESCE(rv.approved_count, 0) >= COALESCE(tvr.required_approvals, 1) THEN 'APPROVED'
+                WHEN COALESCE(rv.review_count, 0) > 0 THEN 'IN_REVIEW' ELSE 'PENDING' END AS "reviewStatus",
+              COALESCE(tvr.verification_mode, 'MANUAL_SUPERVISOR') AS "verificationMode",
+              COALESCE(tvr.required_approvals, 1) AS "requiredApprovals",
+              COALESCE(rv.approved_count, 0)::int AS "approvedCount"
        FROM tasks t
        LEFT JOIN master_customers c ON c.id = t.customer_id
        LEFT JOIN master_sites s ON s.id = t.site_id
        LEFT JOIN customer_confirmations cc ON cc.task_id = t.id
-       LEFT JOIN task_reviews tr ON tr.task_id = t.id
+       LEFT JOIN task_verification_requirements tvr ON tvr.task_id = t.id AND tvr.tenant_id = t.tenant_id
+       LEFT JOIN LATERAL (SELECT count(*) AS review_count,
+         count(DISTINCT reviewer_id) FILTER (WHERE status = 'APPROVED') AS approved_count
+         FROM task_reviews tr WHERE tr.task_id = t.id AND tr.tenant_id = t.tenant_id) rv ON true
        WHERE t.archived_at IS NULL
        ORDER BY t.updated_at DESC`,
     );
     return rows;
+  }
+
+  async getConfirmationByTaskId(
+    taskId: string,
+  ): Promise<CustomerConfirmationRecord | null> {
+    const rows = await this.database.tenantQuery<Record<string, unknown>>(
+      `SELECT *, id::text AS id FROM customer_confirmations WHERE task_id = $1::uuid`,
+      [taskId],
+    );
+    return rows[0] ? rowToCamelCase<CustomerConfirmationRecord>(rows[0]) : null;
   }
 
   async saveConfirmation(
@@ -121,5 +139,21 @@ export class ReviewRepository {
       ],
     );
     return rowToCamelCase<TaskReviewRecord>(result[0]);
+  }
+
+  async verificationContext(taskId: string, reviewerId: string) {
+    const rows = await this.database.tenantQuery<Record<string, unknown>>(
+      `SELECT COALESCE(tvr.verification_mode, 'MANUAL_SUPERVISOR') AS "verificationMode",
+              COALESCE(tvr.required_approvals, 1)::int AS "requiredApprovals",
+              (EXISTS (SELECT 1 FROM task_supervisors ts WHERE ts.tenant_id = t.tenant_id
+                AND ts.task_id = t.id AND ts.user_id = $2::uuid)
+               OR EXISTS (SELECT 1 FROM task_verification_requirements req
+                 JOIN team_memberships tm ON tm.tenant_id = req.tenant_id AND tm.team_id = req.quality_team_id
+                 WHERE req.tenant_id = t.tenant_id AND req.task_id = t.id AND tm.user_id = $2::uuid AND tm.ends_at IS NULL)) AS authorized
+       FROM tasks t LEFT JOIN task_verification_requirements tvr ON tvr.tenant_id = t.tenant_id AND tvr.task_id = t.id
+       WHERE t.id = $1::uuid`,
+      [taskId, reviewerId],
+    );
+    return rows[0] ?? null;
   }
 }

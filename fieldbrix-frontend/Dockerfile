@@ -11,4 +11,5 @@ CMD ["pnpm", "dev", "--host", "0.0.0.0"]
 FROM development AS production
 RUN pnpm build
 FROM nginx:1.27.3-alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=production /workspace/dist /usr/share/nginx/html

@@ -12,6 +12,8 @@ import { Permission } from '../../authorization/decorators/permission.decorator/
 import { PermissionGuard } from '../../authorization/guards/permission/permission.guard';
 import { IdempotencyService } from '../../idempotency/idempotency/idempotency.service';
 import { TaskAssignmentDto } from '../task/task.dto';
+import { PlatformService } from '../../platform/platform/platform.service';
+import { UnauthorizedException } from '@nestjs/common';
 
 @Controller()
 @UseGuards(PermissionGuard)
@@ -19,7 +21,14 @@ export class TaskAssignmentController {
   constructor(
     private readonly assignments: TaskAssignmentService,
     private readonly idempotency: IdempotencyService,
+    private readonly platform: PlatformService,
   ) {}
+
+  private actorId(headers: Record<string, string>) {
+    const token = headers.authorization?.replace(/^Bearer\s+/i, '');
+    if (!token) throw new UnauthorizedException('UNAUTHORIZED');
+    return this.platform.requireUser(token).id;
+  }
 
   @Permission('tasks.view')
   @Get('tasks/:id/assignments')
@@ -41,7 +50,9 @@ export class TaskAssignmentController {
       body,
     );
     return this.idempotency
-      .getOrCreateAsync(key, fp, () => this.assignments.assign(id, body))
+      .getOrCreateAsync(key, fp, () =>
+        this.assignments.assign(id, body, this.actorId(headers)),
+      )
       .then((r) => r.response);
   }
 
@@ -60,7 +71,11 @@ export class TaskAssignmentController {
     );
     return this.idempotency
       .getOrCreateAsync(key, fp, () =>
-        this.assignments.reassign(id, { ...body, reason: body.reason }),
+        this.assignments.reassign(
+          id,
+          { ...body, reason: body.reason },
+          this.actorId(headers),
+        ),
       )
       .then((r) => r.response);
   }

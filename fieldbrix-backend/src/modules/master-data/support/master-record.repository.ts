@@ -34,6 +34,7 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
     private readonly updateColumns: string[],
     /** e.g. 'customer', 'site' — used as `master.<entityType>.<action>.v1` outbox event types. */
     private readonly entityType: string,
+    private readonly searchColumns: string[] = ['name', 'code'],
   ) {}
 
   async list(
@@ -44,12 +45,19 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
     const limit =
       query.limit && query.limit > 0 ? Math.min(query.limit, 100) : 20;
     const values: unknown[] = [];
-    const where = ['archived_at IS NULL'];
+    const where = [
+      `tenant_id = current_setting('app.tenant_id', true)::uuid`,
+      'archived_at IS NULL',
+    ];
     if (query.search) {
       values.push(`%${query.search.trim().toLowerCase()}%`);
-      where.push(
-        `(lower(name) LIKE $${values.length} OR lower(code) LIKE $${values.length})`,
-      );
+      const search = this.searchColumns
+        .map(
+          (column) =>
+            `lower(COALESCE(${toSnakeCase(column)}::text, '')) LIKE $${values.length}`,
+        )
+        .join(' OR ');
+      where.push(`(${search})`);
     }
     for (const filter of filters) {
       values.push(filter.value);
@@ -78,7 +86,7 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
 
   async findById(id: string): Promise<T | undefined> {
     const result = await this.database.tenantQuery<Row>(
-      `SELECT *, id::text AS id FROM ${this.table} WHERE id = $1::uuid AND archived_at IS NULL`,
+      `SELECT *, id::text AS id FROM ${this.table} WHERE tenant_id = current_setting('app.tenant_id', true)::uuid AND id = $1::uuid AND archived_at IS NULL`,
       [id],
     );
     return result[0] ? rowToCamelCase<T>(result[0]) : undefined;
@@ -86,7 +94,7 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
 
   async findByCode(code: string): Promise<T | undefined> {
     const result = await this.database.tenantQuery<Row>(
-      `SELECT *, id::text AS id FROM ${this.table} WHERE lower(code) = lower($1) AND archived_at IS NULL`,
+      `SELECT *, id::text AS id FROM ${this.table} WHERE tenant_id = current_setting('app.tenant_id', true)::uuid AND lower(code) = lower($1) AND archived_at IS NULL`,
       [code],
     );
     return result[0] ? rowToCamelCase<T>(result[0]) : undefined;
@@ -140,7 +148,7 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
     );
     set.push('revision = revision + 1', 'updated_at = clock_timestamp()');
     values.push(id);
-    let where = `id = $${values.length}::uuid AND archived_at IS NULL`;
+    let where = `tenant_id = current_setting('app.tenant_id', true)::uuid AND id = $${values.length}::uuid AND archived_at IS NULL`;
     if (expectedRevision !== undefined) {
       values.push(expectedRevision);
       where += ` AND revision = $${values.length}`;
@@ -176,7 +184,7 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
 
   async archive(id: string, expectedRevision: number): Promise<T> {
     const result = await this.database.tenantQuery<Row>(
-      `UPDATE ${this.table} SET archived_at = clock_timestamp(), revision = revision + 1, updated_at = clock_timestamp() WHERE id = $1::uuid AND revision = $2 AND archived_at IS NULL RETURNING *, id::text AS id`,
+      `UPDATE ${this.table} SET archived_at = clock_timestamp(), revision = revision + 1, updated_at = clock_timestamp() WHERE tenant_id = current_setting('app.tenant_id', true)::uuid AND id = $1::uuid AND revision = $2 AND archived_at IS NULL RETURNING *, id::text AS id`,
       [id, expectedRevision],
     );
     if (!result[0]) {
@@ -201,7 +209,7 @@ export abstract class MasterRecordRepository<T extends MasterRecord> {
     id: string,
   ): Promise<boolean> {
     const result = await this.database.tenantQuery<{ exists: boolean }>(
-      `SELECT EXISTS (SELECT 1 FROM ${table} WHERE ${column} = $1::uuid AND archived_at IS NULL) AS exists`,
+      `SELECT EXISTS (SELECT 1 FROM ${table} WHERE tenant_id = current_setting('app.tenant_id', true)::uuid AND ${column} = $1::uuid AND archived_at IS NULL) AS exists`,
       [id],
     );
     return Boolean(result[0]?.exists);

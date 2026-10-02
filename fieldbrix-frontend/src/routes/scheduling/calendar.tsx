@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { api } from "../../api/client";
 import { RecurrenceForm } from "./recurrence-form";
+import { Pagination } from "../../components/ui/Pagination";
+import { useClientPagination } from "../../components/ui/pagination-state";
 
 interface RecurrencePlan {
   id: string;
@@ -46,12 +48,12 @@ export function SchedulingCalendarPage() {
 
   const { data: tasksData } = useQuery({
     queryKey: ["tasks", "for-calendar"],
-    queryFn: () =>
-      api.get<{ items: TaskItem[] }>("/tasks?limit=100"),
+    queryFn: () => api.get<{ items: TaskItem[] }>("/tasks?limit=100"),
   });
 
   const plans = Array.isArray(recurrences) ? recurrences : [];
   const tasks = tasksData?.items ?? [];
+  const seriesPagination = useClientPagination(plans, 10);
 
   const exceptionMutation = useMutation({
     mutationFn: (payload: {
@@ -84,10 +86,8 @@ export function SchedulingCalendarPage() {
   const startDayOfWeek = firstDayOfMonth.getDay(); // 0 = Sun
   const totalDays = lastDayOfMonth.getDate();
 
-  const prevMonth = () =>
-    setCurrentMonthDate(new Date(year, month - 1, 1));
-  const nextMonth = () =>
-    setCurrentMonthDate(new Date(year, month + 1, 1));
+  const prevMonth = () => setCurrentMonthDate(new Date(year, month - 1, 1));
+  const nextMonth = () => setCurrentMonthDate(new Date(year, month + 1, 1));
 
   const monthName = firstDayOfMonth.toLocaleString("default", {
     month: "long",
@@ -111,7 +111,8 @@ export function SchedulingCalendarPage() {
         <div>
           <h1 className="fb-page-title">Scheduling & Maintenance Dispatch</h1>
           <p className="fb-page-subtitle">
-            Manage enterprise recurring maintenance series, occurrence calendar, and SLA dispatch
+            Manage enterprise recurring maintenance series, occurrence calendar,
+            and SLA dispatch
           </p>
         </div>
         <div style={{ display: "flex", gap: "10px" }}>
@@ -152,12 +153,18 @@ export function SchedulingCalendarPage() {
       <div className="fb-stat-grid">
         <div className="fb-stat-card">
           <div className="fb-stat-label">Active Recurring Series</div>
-          <div className="fb-stat-value">{plans.filter((p) => p.active).length}</div>
+          <div className="fb-stat-value">
+            {plans.filter((p) => p.active).length}
+          </div>
         </div>
         <div className="fb-stat-card">
           <div className="fb-stat-label">Dispatched Tasks</div>
           <div className="fb-stat-value" style={{ color: "#0284c7" }}>
-            {tasks.filter((t) => t.status === "ASSIGNED" || t.status === "IN_PROGRESS").length}
+            {
+              tasks.filter(
+                (t) => t.status === "ASSIGNED" || t.status === "IN_PROGRESS",
+              ).length
+            }
           </div>
         </div>
         <div className="fb-stat-card">
@@ -322,7 +329,7 @@ export function SchedulingCalendarPage() {
                   </td>
                 </tr>
               )}
-              {plans.map((p) => (
+              {seriesPagination.pageItems.map((p) => (
                 <tr key={p.id}>
                   <td>
                     <strong>{p.name}</strong>
@@ -333,7 +340,9 @@ export function SchedulingCalendarPage() {
                     </span>
                   </td>
                   <td>
-                    <span className={`fb-badge fb-badge--${p.priority.toLowerCase()}`}>
+                    <span
+                      className={`fb-badge fb-badge--${p.priority.toLowerCase()}`}
+                    >
                       {p.priority}
                     </span>
                   </td>
@@ -351,6 +360,15 @@ export function SchedulingCalendarPage() {
               ))}
             </tbody>
           </table>
+          <Pagination
+            page={seriesPagination.page}
+            pageSize={seriesPagination.pageSize}
+            total={seriesPagination.total}
+            onPageChange={seriesPagination.setPage}
+            onPageSizeChange={seriesPagination.setPageSize}
+            disabled={loadingPlans}
+            label="Recurring series pagination"
+          />
         </div>
       )}
 

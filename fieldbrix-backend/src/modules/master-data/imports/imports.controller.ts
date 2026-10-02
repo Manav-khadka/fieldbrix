@@ -5,12 +5,18 @@ import {
   Headers,
   Param,
   Post,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { ImportsService } from './imports.service';
 import { Permission } from '../../authorization/decorators/permission.decorator/permission.decorator';
 import { PermissionGuard } from '../../authorization/guards/permission/permission.guard';
-import { ImportCommitDto, ImportPreviewDto } from '../dto/import.dto';
+import {
+  ImportCommitDto,
+  ImportPreviewDto,
+  ListImportsQueryDto,
+  TaskImportColumnsDto,
+} from '../dto/import.dto';
 import { IdempotencyService } from '../../idempotency/idempotency/idempotency.service';
 
 @Controller('imports')
@@ -20,6 +26,18 @@ export class ImportsController {
     private readonly imports: ImportsService,
     private readonly idempotency: IdempotencyService,
   ) {}
+
+  @Permission('master.imports.view')
+  @Get()
+  list(@Query() query: ListImportsQueryDto) {
+    return this.imports.list(query.page, query.limit);
+  }
+
+  @Permission('master.imports.create')
+  @Post('task-columns')
+  taskColumns(@Body() body: TaskImportColumnsDto) {
+    return this.imports.taskColumns(body.uploadId);
+  }
 
   @Permission('master.imports.create')
   @Post('preview')

@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "@tanstack/react-router";
 import { api } from "../../api/client";
+import { Pagination } from "../../components/ui/Pagination";
+import { useClientPagination } from "../../components/ui/pagination-state";
 
 interface WorkflowVersion {
   id: string;
@@ -16,6 +18,7 @@ export function WorkflowVersionsPage() {
     queryKey: ["workflow-versions", id],
     queryFn: () => api.get<WorkflowVersion[]>(`/workflows/${id}/versions`),
   });
+  const pagination = useClientPagination(versions ?? [], 10);
 
   return (
     <div className="fb-page">
@@ -31,7 +34,7 @@ export function WorkflowVersionsPage() {
             </tr>
           </thead>
           <tbody>
-            {versions?.map((v) => (
+            {pagination.pageItems.map((v) => (
               <tr key={v.id}>
                 <td>
                   <span className="fb-badge">v{v.version}</span>
@@ -55,6 +58,16 @@ export function WorkflowVersionsPage() {
             )}
           </tbody>
         </table>
+        <Pagination
+          page={pagination.page}
+          pageSize={pagination.pageSize}
+          total={pagination.total}
+          onPageChange={pagination.setPage}
+          onPageSizeChange={pagination.setPageSize}
+          pageSizeOptions={[5, 10, 20, 50]}
+          disabled={isLoading}
+          label="Workflow versions pagination"
+        />
       </div>
     </div>
   );

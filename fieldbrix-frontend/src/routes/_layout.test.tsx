@@ -1,10 +1,9 @@
 import type { ReactNode } from "react";
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
+import { render, screen, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Layout } from "./_layout";
 import { useCapabilities } from "../hooks/useCapabilities";
-import { useUiStore } from "../store/ui.store";
 
 vi.mock("../hooks/useCapabilities");
 
@@ -14,6 +13,8 @@ vi.mock("@tanstack/react-router", () => ({
     <a href={to}>{children}</a>
   ),
   useRouter: () => ({ state: { location: { pathname: "/" } } }),
+  useLocation: () => ({ pathname: "/" }),
+  useNavigate: () => vi.fn(),
 }));
 
 function renderWithQuery(ui: ReactNode) {
@@ -26,10 +27,6 @@ function renderWithQuery(ui: ReactNode) {
 }
 
 describe("Layout navigation", () => {
-  beforeEach(() => {
-    useUiStore.setState({ sidebarOpen: true });
-  });
-
   it("hides permission-gated items while capabilities are still loading", () => {
     vi.mocked(useCapabilities).mockReturnValue({
       capabilities: [],
@@ -37,12 +34,13 @@ describe("Layout navigation", () => {
       can: () => false,
     });
     renderWithQuery(<Layout />);
+    const nav = screen.getByRole("navigation", { name: "Main navigation" });
     // Overview has no permission requirement and is always visible.
-    expect(screen.getByText("Overview")).toBeInTheDocument();
+    expect(within(nav).getByText("Overview")).toBeInTheDocument();
     // isLoading:true shows every item optimistically per the component's
     // `!item.permission || isLoading || can(item.permission)` filter, so
-    // Customers is visible here too — this locks in that documented behavior.
-    expect(screen.getByText("Customers")).toBeInTheDocument();
+    // Client setup remains visible here too.
+    expect(within(nav).getByText("Clients")).toBeInTheDocument();
   });
 
   it("shows only items the resolved capabilities actually grant", () => {
@@ -57,13 +55,14 @@ describe("Layout navigation", () => {
     expect(screen.queryByText("Workflows")).not.toBeInTheDocument();
   });
 
-  it("always shows the unguarded Administration link regardless of capabilities", () => {
+  it("always shows unguarded administration items regardless of capabilities", () => {
     vi.mocked(useCapabilities).mockReturnValue({
       capabilities: [],
       isLoading: false,
       can: () => false,
     });
     renderWithQuery(<Layout />);
-    expect(screen.getByText("Administration")).toBeInTheDocument();
+    expect(screen.getByText("Company")).toBeInTheDocument();
+    expect(screen.getByText("People & Teams")).toBeInTheDocument();
   });
 });

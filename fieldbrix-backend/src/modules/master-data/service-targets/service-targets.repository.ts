@@ -18,6 +18,16 @@ export type ServiceTargetRecord = MasterRecord & {
   condition: string | null;
   nextDue: string | null;
   evidence: Record<string, unknown> | null;
+  assetCategory: string | null;
+  manufacturer: string | null;
+  model: string | null;
+  serialNumber: string | null;
+  installationDate: string | null;
+  warrantyEnd: string | null;
+  serviceFrequencyDays: number | null;
+  criticality: string;
+  assetStatus: string;
+  customFields: Record<string, unknown>;
 };
 
 const TARGET_CREATE_COLUMNS = [
@@ -32,6 +42,16 @@ const TARGET_CREATE_COLUMNS = [
   'condition',
   'nextDue',
   'evidence',
+  'assetCategory',
+  'manufacturer',
+  'model',
+  'serialNumber',
+  'installationDate',
+  'warrantyEnd',
+  'serviceFrequencyDays',
+  'criticality',
+  'assetStatus',
+  'customFields',
 ];
 const TARGET_UPDATE_COLUMNS = TARGET_CREATE_COLUMNS.filter(
   (key) => key !== 'siteId' && key !== 'qrIdentity',
@@ -46,12 +66,23 @@ export class ServiceTargetsRepository extends MasterRecordRepository<ServiceTarg
       TARGET_CREATE_COLUMNS,
       TARGET_UPDATE_COLUMNS,
       'service_target',
+      [
+        'name',
+        'code',
+        'equipmentType',
+        'assetCategory',
+        'manufacturer',
+        'model',
+        'serialNumber',
+        'location',
+        'customFields',
+      ],
     );
   }
 
   async siteExists(siteId: string): Promise<boolean> {
     const result = await this.database.tenantQuery<{ exists: boolean }>(
-      'SELECT EXISTS (SELECT 1 FROM master_sites WHERE id = $1::uuid AND archived_at IS NULL) AS exists',
+      `SELECT EXISTS (SELECT 1 FROM master_sites WHERE tenant_id = current_setting('app.tenant_id', true)::uuid AND id = $1::uuid AND archived_at IS NULL) AS exists`,
       [siteId],
     );
     return Boolean(result[0]?.exists);
@@ -66,7 +97,8 @@ export class ServiceTargetsRepository extends MasterRecordRepository<ServiceTarg
       `SELECT t.*, t.id::text AS id, s.name AS "siteName", s.customer_id::text AS "siteCustomerId"
        FROM master_service_targets t
        JOIN master_sites s ON s.id = t.site_id AND s.tenant_id = t.tenant_id
-       WHERE t.qr_identity = $1 AND t.archived_at IS NULL`,
+       WHERE t.tenant_id = current_setting('app.tenant_id', true)::uuid
+         AND t.qr_identity = $1 AND t.archived_at IS NULL`,
       [code],
     );
     if (!result[0]) throw new NotFoundException('QR_NOT_FOUND');

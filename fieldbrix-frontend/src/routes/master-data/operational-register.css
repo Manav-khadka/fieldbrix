@@ -1,0 +1,173 @@
+.fb-operational-register {
+  max-width: 1600px;
+}
+.fb-register-kicker {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #16837b;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.fb-register-header > div {
+  max-width: 780px;
+}
+.fb-register-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+.fb-register-stats article {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #e0e9e7;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 7px 24px rgba(20, 66, 62, 0.04);
+}
+.fb-register-stats span {
+  color: #748581;
+  font-size: 0.61rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+.fb-register-stats strong {
+  color: #203e39;
+  font-size: 1.25rem;
+}
+.fb-register-stats small {
+  color: #8c9997;
+  font-size: 0.61rem;
+}
+.fb-register-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+}
+.fb-register-toolbar > .fb-input {
+  flex: 1;
+  min-width: 240px;
+}
+.fb-register-table-card {
+  padding: 0;
+  overflow: hidden;
+}
+.fb-register-table-scroll {
+  overflow: auto;
+}
+.fb-register-table {
+  width: max-content;
+  min-width: 100%;
+}
+.fb-register-table th,
+.fb-register-table td {
+  min-width: 135px;
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fb-register-table th:first-child,
+.fb-register-table td:first-child {
+  position: sticky;
+  z-index: 1;
+  left: 0;
+  min-width: 210px;
+  background: #fff;
+  box-shadow: 1px 0 #e8eeee;
+}
+.fb-register-table th:first-child {
+  z-index: 2;
+  background: #f8faf9;
+}
+.fb-register-table tbody tr {
+  content-visibility: auto;
+  contain-intrinsic-size: 48px;
+}
+.fb-register-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1rem;
+  border-top: 1px solid #e8eeee;
+  color: #758581;
+  font-size: 0.68rem;
+}
+.fb-register-pagination > div {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+@media (max-width: 900px) {
+  .fb-register-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.fb-register-form {
+  margin-bottom: 1rem;
+  padding: 1.15rem;
+}
+.fb-register-form__heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.fb-register-form__heading h2 {
+  margin: 0;
+  color: #203e39;
+  font-size: 1.15rem;
+}
+.fb-register-form fieldset {
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border: 1px solid #e3ebe9;
+  border-radius: 12px;
+}
+.fb-register-form legend {
+  padding: 0 0.4rem;
+  color: #31534e;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+.fb-register-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.fb-register-form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: #536864;
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+.fb-register-form-grid label > small {
+  color: #b54b4b;
+  font-weight: 500;
+}
+.fb-register-form-span {
+  grid-column: span 2;
+}
+@media (max-width: 900px) {
+  .fb-register-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 620px) {
+  .fb-register-stats,
+  .fb-register-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .fb-register-form-span {
+    grid-column: auto;
+  }
+}

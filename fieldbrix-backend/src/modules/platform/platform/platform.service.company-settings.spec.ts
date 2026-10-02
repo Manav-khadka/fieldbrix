@@ -88,6 +88,28 @@ describe('PlatformService.updateCompany — policy field validation', () => {
     ).rejects.toThrow('BRANCH_TERMINOLOGY_NOT_ALLOWED');
   });
 
+  it('accepts the normal company terminology form as plain labels', async () => {
+    const result = await service.updateCompany(token, {
+      terminology: {
+        task: 'Work order',
+        taskPlural: 'Work orders',
+        customer: 'Account',
+        customerPlural: 'Accounts',
+        site: 'Building',
+        sitePlural: 'Buildings',
+        agent: 'Engineer',
+        agentPlural: 'Engineers',
+        supervisor: 'Dispatcher',
+        supervisorPlural: 'Dispatchers',
+        administrator: 'Company admin',
+        administratorPlural: 'Company admins',
+      },
+    });
+    expect(result.terminology).toEqual(
+      expect.objectContaining({ task: 'Work order', customer: 'Account' }),
+    );
+  });
+
   it('accepts a well-formed branding patch', async () => {
     const result = await service.updateCompany(token, {
       colorTheme: '#1A2B3C',

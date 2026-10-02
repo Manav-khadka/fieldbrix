@@ -13,6 +13,19 @@ export type CustomerRecord = MasterRecord & {
   phone: string | null;
   address: Record<string, unknown>;
   instructions: string;
+  legalName: string | null;
+  industry: string | null;
+  taxId: string | null;
+  alternatePhone: string | null;
+  city: string | null;
+  state: string | null;
+  postalCode: string | null;
+  country: string;
+  serviceTier: string;
+  accountManager: string | null;
+  contractStart: string | null;
+  contractEnd: string | null;
+  customFields: Record<string, unknown>;
   archivedAt: string | null;
 };
 
@@ -24,6 +37,19 @@ const CUSTOMER_COLUMNS = [
   'phone',
   'address',
   'instructions',
+  'legalName',
+  'industry',
+  'taxId',
+  'alternatePhone',
+  'city',
+  'state',
+  'postalCode',
+  'country',
+  'serviceTier',
+  'accountManager',
+  'contractStart',
+  'contractEnd',
+  'customFields',
 ];
 
 @Injectable()
@@ -35,6 +61,18 @@ export class CustomersRepository extends MasterRecordRepository<CustomerRecord> 
       CUSTOMER_COLUMNS,
       CUSTOMER_COLUMNS,
       'customer',
+      [
+        'name',
+        'code',
+        'legalName',
+        'industry',
+        'city',
+        'state',
+        'contactName',
+        'email',
+        'phone',
+        'customFields',
+      ],
     );
   }
 

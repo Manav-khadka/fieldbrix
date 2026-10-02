@@ -29,6 +29,12 @@ export class TaskController {
     return this.tasks.list(query);
   }
 
+  @Permission('tasks.view')
+  @Get('tasks-map')
+  map(@Query() query: ListTasksQueryDto) {
+    return this.tasks.map(query);
+  }
+
   @Permission('tasks.create')
   @Post('tasks')
   create(

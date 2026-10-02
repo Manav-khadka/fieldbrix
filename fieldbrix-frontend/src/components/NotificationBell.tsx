@@ -45,7 +45,7 @@ export function NotificationBell() {
         onClick={() => setOpen((prev) => !prev)}
         aria-label="Notifications"
       >
-        🔔
+        ◍
         {unreadCount > 0 && (
           <span
             style={{

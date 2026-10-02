@@ -52,7 +52,7 @@ describe("CustomersPage", () => {
       expect(screen.getByText("Al Noor Facilities")).toBeInTheDocument();
     });
     expect(screen.getByText("ALN-001")).toBeInTheDocument();
-    expect(screen.getByText("1 total records")).toBeInTheDocument();
+    expect(screen.getByText("Active clients")).toBeInTheDocument();
   });
 
   it("shows an empty state when there are no customers", async () => {
@@ -64,7 +64,9 @@ describe("CustomersPage", () => {
     });
     renderWithClient(<CustomersPage />);
     await waitFor(() => {
-      expect(screen.getByText(/no customers found/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/no clients match this view/i),
+      ).toBeInTheDocument();
     });
   });
 
@@ -76,25 +78,30 @@ describe("CustomersPage", () => {
     });
     renderWithClient(<CustomersPage />);
     await waitFor(() => {
-      expect(screen.getByText(/failed to load customers/i)).toBeInTheDocument();
+      expect(screen.getByText(/unable to load clients/i)).toBeInTheDocument();
     });
   });
 
   it("opens the add-customer form and submits a create payload", async () => {
-    vi.mocked(api.get).mockResolvedValue({ items: [], total: 0, page: 1, limit: 20 });
+    vi.mocked(api.get).mockResolvedValue({
+      items: [],
+      total: 0,
+      page: 1,
+      limit: 20,
+    });
     vi.mocked(api.post).mockResolvedValue({ id: "new-1" });
     renderWithClient(<CustomersPage />);
 
-    await waitFor(() => screen.getByText(/no customers found/i));
-    fireEvent.click(screen.getByRole("button", { name: /add customer/i }));
+    await waitFor(() => screen.getByText(/no clients match this view/i));
+    fireEvent.click(screen.getByRole("button", { name: /add client/i }));
 
-    fireEvent.change(screen.getByLabelText("Name"), {
+    fireEvent.change(screen.getByLabelText(/display name/i), {
       target: { value: "Al Noor Facilities" },
     });
-    fireEvent.change(screen.getByLabelText("Code"), {
+    fireEvent.change(screen.getByLabelText(/client code/i), {
       target: { value: "ALN-001" },
     });
-    fireEvent.click(screen.getByRole("button", { name: /create customer/i }));
+    fireEvent.click(screen.getByRole("button", { name: /save client/i }));
 
     await waitFor(() => expect(api.post).toHaveBeenCalled());
     expect(api.post).toHaveBeenCalledWith(
@@ -105,12 +112,17 @@ describe("CustomersPage", () => {
   });
 
   it("does not submit the create form when required fields are missing", async () => {
-    vi.mocked(api.get).mockResolvedValue({ items: [], total: 0, page: 1, limit: 20 });
+    vi.mocked(api.get).mockResolvedValue({
+      items: [],
+      total: 0,
+      page: 1,
+      limit: 20,
+    });
     renderWithClient(<CustomersPage />);
 
-    await waitFor(() => screen.getByText(/no customers found/i));
-    fireEvent.click(screen.getByRole("button", { name: /add customer/i }));
-    fireEvent.click(screen.getByRole("button", { name: /create customer/i }));
+    await waitFor(() => screen.getByText(/no clients match this view/i));
+    fireEvent.click(screen.getByRole("button", { name: /add client/i }));
+    fireEvent.click(screen.getByRole("button", { name: /save client/i }));
 
     await waitFor(() => {
       expect(screen.getByText("Name is required")).toBeInTheDocument();

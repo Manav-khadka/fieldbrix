@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useParams } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { api } from "../../api/client";
+import { Pagination } from "../../components/ui/Pagination";
+import { useClientPagination } from "../../components/ui/pagination-state";
 
 type RuleOperator =
   | "equals"
@@ -126,11 +128,11 @@ export function WorkflowRulesPage() {
   const rules = Array.isArray(workflow?.schema?.rules)
     ? workflow.schema.rules
     : [];
+  const sortedRules = [...rules].sort((a, b) => b.priority - a.priority);
+  const rulesPagination = useClientPagination(sortedRules, 10);
 
   const [priority, setPriority] = useState(0);
-  const [conditions, setConditions] = useState<Condition[]>([
-    emptyCondition(),
-  ]);
+  const [conditions, setConditions] = useState<Condition[]>([emptyCondition()]);
   const [actions, setActions] = useState<Action[]>([emptyAction()]);
   const [validation, setValidation] = useState<{
     valid: boolean;
@@ -286,34 +288,43 @@ export function WorkflowRulesPage() {
                 </td>
               </tr>
             )}
-            {[...rules]
-              .sort((a, b) => b.priority - a.priority)
-              .map((rule) => (
-                <tr key={rule.id}>
-                  <td>{rule.priority}</td>
-                  <td>
-                    {rule.conditions
-                      .map((c) => `${c.fieldKey} ${c.operator} ${c.value ?? ""}`)
-                      .join(" AND ") || "—"}
-                  </td>
-                  <td>
-                    {rule.actions
-                      .map((a) => a.fieldKey ? `${a.type}(${a.fieldKey})` : a.type)
-                      .join(", ")}
-                  </td>
-                  <td>
-                    <button
-                      className="fb-btn fb-btn--ghost"
-                      onClick={() => deleteRuleMutation.mutate(rule.id)}
-                      disabled={deleteRuleMutation.isPending}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
+            {rulesPagination.pageItems.map((rule) => (
+              <tr key={rule.id}>
+                <td>{rule.priority}</td>
+                <td>
+                  {rule.conditions
+                    .map((c) => `${c.fieldKey} ${c.operator} ${c.value ?? ""}`)
+                    .join(" AND ") || "—"}
+                </td>
+                <td>
+                  {rule.actions
+                    .map((a) =>
+                      a.fieldKey ? `${a.type}(${a.fieldKey})` : a.type,
+                    )
+                    .join(", ")}
+                </td>
+                <td>
+                  <button
+                    className="fb-btn fb-btn--ghost"
+                    onClick={() => deleteRuleMutation.mutate(rule.id)}
+                    disabled={deleteRuleMutation.isPending}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
+        <Pagination
+          page={rulesPagination.page}
+          pageSize={rulesPagination.pageSize}
+          total={rulesPagination.total}
+          onPageChange={rulesPagination.setPage}
+          onPageSizeChange={rulesPagination.setPageSize}
+          pageSizeOptions={[5, 10, 20, 50]}
+          label="Workflow rules pagination"
+        />
       </div>
 
       <div className="fb-card">
@@ -337,6 +348,7 @@ export function WorkflowRulesPage() {
           <div className="fb-form-row fb-inline-fields" key={index}>
             <select
               className="fb-select"
+              aria-label={`Condition field ${index + 1}`}
               value={condition.fieldKey}
               onChange={(e) =>
                 setConditions((prev) =>
@@ -355,6 +367,7 @@ export function WorkflowRulesPage() {
             </select>
             <select
               className="fb-select"
+              aria-label={`Condition operator ${index + 1}`}
               value={condition.operator}
               onChange={(e) =>
                 setConditions((prev) =>
@@ -527,8 +540,8 @@ export function WorkflowRulesPage() {
       <div className="fb-card">
         <h2 className="fb-card-title">Live preview</h2>
         <p className="fb-hint">
-          Enter sample answers as JSON and evaluate the current rule set
-          against them.
+          Enter sample answers as JSON and evaluate the current rule set against
+          them.
         </p>
         <div className="fb-form-row">
           <label htmlFor="preview-answers" className="fb-label">

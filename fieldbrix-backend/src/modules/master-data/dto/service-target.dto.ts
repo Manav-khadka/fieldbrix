@@ -20,6 +20,16 @@ export class CreateServiceTargetDto {
   @IsOptional() @IsString() condition?: string;
   @IsOptional() @IsDateString() nextDue?: string;
   @IsOptional() @IsObject() evidence?: Record<string, unknown>;
+  @IsOptional() @IsString() assetCategory?: string;
+  @IsOptional() @IsString() manufacturer?: string;
+  @IsOptional() @IsString() model?: string;
+  @IsOptional() @IsString() serialNumber?: string;
+  @IsOptional() @IsDateString() installationDate?: string;
+  @IsOptional() @IsDateString() warrantyEnd?: string;
+  @IsOptional() @IsInt() @Min(1) serviceFrequencyDays?: number;
+  @IsOptional() @IsString() criticality?: string;
+  @IsOptional() @IsString() assetStatus?: string;
+  @IsOptional() @IsObject() customFields?: Record<string, unknown>;
 }
 
 export class UpdateServiceTargetDto {
@@ -32,6 +42,16 @@ export class UpdateServiceTargetDto {
   @IsOptional() @IsString() condition?: string;
   @IsOptional() @IsDateString() nextDue?: string;
   @IsOptional() @IsObject() evidence?: Record<string, unknown>;
+  @IsOptional() @IsString() assetCategory?: string;
+  @IsOptional() @IsString() manufacturer?: string;
+  @IsOptional() @IsString() model?: string;
+  @IsOptional() @IsString() serialNumber?: string;
+  @IsOptional() @IsDateString() installationDate?: string;
+  @IsOptional() @IsDateString() warrantyEnd?: string;
+  @IsOptional() @IsInt() @Min(1) serviceFrequencyDays?: number;
+  @IsOptional() @IsString() criticality?: string;
+  @IsOptional() @IsString() assetStatus?: string;
+  @IsOptional() @IsObject() customFields?: Record<string, unknown>;
   @IsOptional() @IsInt() @Min(1) revision?: number;
   @IsOptional() @IsBoolean() archived?: boolean;
 }

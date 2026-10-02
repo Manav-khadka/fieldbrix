@@ -35,6 +35,9 @@ import { SyncRepository } from './sync/sync.repository';
 import { ReviewController } from './review/review.controller';
 import { ReviewService } from './review/review.service';
 import { ReviewRepository } from './review/review.repository';
+import { TaskFieldProfileController } from './task-field-profile/task-field-profile.controller';
+import { TaskFieldProfileService } from './task-field-profile/task-field-profile.service';
+import { TaskFieldProfileRepository } from './task-field-profile/task-field-profile.repository';
 
 @Module({
   imports: [
@@ -44,6 +47,7 @@ import { ReviewRepository } from './review/review.repository';
     PlatformModule,
   ],
   controllers: [
+    TaskFieldProfileController,
     ReviewController,
     RecurrenceController,
     TaskRunController,
@@ -55,6 +59,8 @@ import { ReviewRepository } from './review/review.repository';
     TaskController,
   ],
   providers: [
+    TaskFieldProfileService,
+    TaskFieldProfileRepository,
     TaskService,
     TaskRepository,
     TaskAssignmentService,
@@ -72,10 +78,12 @@ import { ReviewRepository } from './review/review.repository';
   ],
   exports: [
     TaskService,
+    TaskFieldProfileService,
     RecurrenceService,
     TaskRunService,
     SyncService,
     ReviewService,
+    TaskAssignmentService,
   ],
 })
 export class TasksModule {}

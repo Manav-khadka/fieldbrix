@@ -1,182 +1,167 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import {
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
 import { api } from "../../api/client";
 import { ServiceTargetForm } from "./service-target-form";
+import {
+  OperationalRegister,
+  type RegisterColumn,
+  type RegisterRecord,
+} from "./operational-register";
+import "./operational-register.css";
+import { usePaginationState } from "../../components/ui/pagination-state";
 
-interface ServiceTarget {
-  id: string;
-  name: string;
-  code: string;
+interface Asset extends RegisterRecord {
   siteId: string;
   qrIdentity?: string;
-  createdAt: string;
+  equipmentType?: string;
+  assetCategory?: string;
+  manufacturer?: string;
+  model?: string;
+  serialNumber?: string;
+  location?: string;
+  condition?: string;
+  criticality?: string;
+  assetStatus?: string;
+  installationDate?: string;
+  warrantyEnd?: string;
+  serviceFrequencyDays?: number;
+  nextDue?: string;
+  createdAt?: string;
 }
-
-const columnHelper = createColumnHelper<ServiceTarget>();
-const columns = [
-  columnHelper.accessor("name", { header: "Name" }),
-  columnHelper.accessor("code", {
-    header: "Code",
-    cell: (info) => <span className="fb-badge">{info.getValue()}</span>,
-  }),
-  columnHelper.accessor("qrIdentity", {
-    header: "QR Identity",
-    cell: (info) => <span className="fb-code">{info.getValue() ?? "—"}</span>,
-  }),
-  columnHelper.accessor("createdAt", {
-    header: "Created",
-    cell: (info) =>
-      info.getValue() ? new Date(info.getValue()).toLocaleDateString() : "—",
-  }),
+const columns: RegisterColumn<Asset>[] = [
+  {
+    key: "name",
+    label: "Asset / service point",
+    render: (value, row) => (
+      <div>
+        <strong>{String(value)}</strong>
+        <br />
+        <small>{row.assetCategory || row.equipmentType || row.code}</small>
+      </div>
+    ),
+  },
+  {
+    key: "code",
+    label: "Code",
+    render: (value) => <span className="fb-badge">{String(value)}</span>,
+  },
+  { key: "assetStatus", label: "Status" },
+  { key: "criticality", label: "Criticality" },
+  { key: "equipmentType", label: "Equipment type" },
+  { key: "assetCategory", label: "Category" },
+  { key: "manufacturer", label: "Manufacturer" },
+  { key: "model", label: "Model" },
+  { key: "serialNumber", label: "Serial number" },
+  { key: "location", label: "Installed at" },
+  { key: "condition", label: "Condition" },
+  { key: "installationDate", label: "Installed" },
+  { key: "warrantyEnd", label: "Warranty end" },
+  { key: "serviceFrequencyDays", label: "Service cycle" },
+  { key: "nextDue", label: "Next service" },
+  {
+    key: "qrIdentity",
+    label: "QR identity",
+    render: (value) => <span className="fb-code">{String(value || "—")}</span>,
+  },
+  { key: "siteId", label: "Location ID" },
+  { key: "createdAt", label: "Created" },
 ];
-
 export function ServiceTargetsPage() {
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
   const [creating, setCreating] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
-
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["service-targets", { search, page }],
+  const pagination = usePaginationState(20);
+  const query = useQuery({
+    queryKey: [
+      "service-targets",
+      { search, page: pagination.page, limit: pagination.pageSize },
+    ],
     queryFn: () =>
-      api.get<{
-        items: ServiceTarget[];
-        total: number;
-        page: number;
-        limit: number;
-      }>(
-        `/service-targets?search=${encodeURIComponent(search)}&page=${page}&limit=20`,
+      api.get<{ items: Asset[]; total: number; page: number; limit: number }>(
+        `/service-targets?search=${encodeURIComponent(search)}&page=${pagination.page}&limit=${pagination.pageSize}`,
       ),
-    placeholderData: (prev) => prev,
+    placeholderData: (previous) => previous,
   });
-
-  const table = useReactTable({
-    data: data?.items ?? [],
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-    manualPagination: true,
-  });
-
+  const items = query.data?.items ?? [];
   return (
-    <div className="fb-page">
-      <div className="fb-page-header">
-        <div>
-          <h1 className="fb-page-title">Service Targets</h1>
-          <p className="fb-page-subtitle">{data?.total ?? 0} total records</p>
-        </div>
-        <button
-          id="targets-add"
-          className="fb-btn fb-btn--primary"
-          onClick={() => {
-            setEditingId(null);
-            setCreating((open) => !open);
-          }}
-        >
-          {creating ? "Cancel" : "+ Add service target"}
-        </button>
-      </div>
-
-      {creating && <ServiceTargetForm onDone={() => setCreating(false)} />}
-      {editingId && (
+    <OperationalRegister
+      title="Assets & service points"
+      subtitle="Maintainable equipment, meters, rooms and service points tied to field workflows."
+      noun="asset"
+      items={items}
+      total={query.data?.total ?? 0}
+      columns={columns}
+      defaultColumns={[
+        "name",
+        "code",
+        "assetStatus",
+        "criticality",
+        "equipmentType",
+        "manufacturer",
+        "model",
+        "serialNumber",
+        "location",
+        "nextDue",
+      ]}
+      stats={[
+        {
+          label: "Active assets",
+          value: query.data?.total ?? 0,
+          detail: "available as task targets",
+        },
+        {
+          label: "Critical",
+          value: items.filter(
+            (item) =>
+              item.criticality === "CRITICAL" || item.criticality === "HIGH",
+          ).length,
+          detail: "high-priority equipment in this page",
+        },
+        {
+          label: "Service due",
+          value: items.filter(
+            (item) =>
+              item.nextDue &&
+              new Date(item.nextDue) <= new Date(Date.now() + 30 * 86400000),
+          ).length,
+          detail: "within the next 30 days",
+        },
+        {
+          label: "Manufacturers",
+          value: new Set(items.map((item) => item.manufacturer).filter(Boolean))
+            .size,
+          detail: "represented in this view",
+        },
+      ]}
+      search={search}
+      onSearch={(value) => {
+        setSearch(value);
+        pagination.resetPage();
+      }}
+      onAdd={() => {
+        setEditingId(null);
+        setCreating((value) => !value);
+      }}
+      onEdit={(id) => {
+        setCreating(false);
+        setEditingId(id);
+      }}
+      loading={query.isLoading}
+      error={Boolean(query.error)}
+      page={pagination.page}
+      limit={pagination.pageSize}
+      onPage={pagination.setPage}
+      onLimit={pagination.setPageSize}
+    >
+      {creating ? (
+        <ServiceTargetForm onDone={() => setCreating(false)} />
+      ) : null}
+      {editingId ? (
         <ServiceTargetForm
           targetId={editingId}
           onDone={() => setEditingId(null)}
         />
-      )}
-
-      <div className="fb-toolbar">
-        <input
-          id="targets-search"
-          type="search"
-          placeholder="Search by name or code…"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            setPage(1);
-          }}
-          className="fb-search-input"
-        />
-      </div>
-      {error && <div className="fb-error">Failed to load service targets</div>}
-      <div className="fb-table-container">
-        <table className="fb-table" role="grid">
-          <thead>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <th key={header.id} scope="col">
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext(),
-                    )}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {isLoading && (
-              <tr>
-                <td colSpan={columns.length} className="fb-table-loading">
-                  Loading…
-                </td>
-              </tr>
-            )}
-            {!isLoading && data?.items.length === 0 && (
-              <tr>
-                <td colSpan={columns.length} className="fb-table-empty">
-                  No service targets found
-                </td>
-              </tr>
-            )}
-            {table.getRowModel().rows.map((row) => (
-              <tr
-                key={row.id}
-                className="fb-table-row--clickable"
-                onClick={() => {
-                  setCreating(false);
-                  setEditingId(row.original.id);
-                }}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      {data && data.total > data.limit && (
-        <div className="fb-pagination">
-          <button
-            id="targets-prev"
-            className="fb-btn fb-btn--ghost"
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
-            disabled={page === 1}
-          >
-            ← Prev
-          </button>
-          <span className="fb-pagination-info">
-            Page {data.page} of {Math.ceil(data.total / data.limit)}
-          </span>
-          <button
-            id="targets-next"
-            className="fb-btn fb-btn--ghost"
-            onClick={() => setPage((p) => p + 1)}
-            disabled={page * data.limit >= data.total}
-          >
-            Next →
-          </button>
-        </div>
-      )}
-    </div>
+      ) : null}
+    </OperationalRegister>
   );
 }

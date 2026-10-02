@@ -6,6 +6,9 @@ import { PartsRepository } from '../parts/parts.repository';
 import { QrIdentityService } from '../service-targets/qr-identity.service';
 import { PlatformService } from '../../platform/platform/platform.service';
 import type { ImportableEntityType } from '../dto/import.dto';
+import { TaskService } from '../../tasks/task/task.service';
+import type { CreateTaskDto } from '../../tasks/task/task.dto';
+import { TaskAssignmentService } from '../../tasks/assignment/task-assignment.service';
 
 export type RowValidation = {
   valid: boolean;
@@ -23,6 +26,12 @@ const REQUIRED_FIELDS: Record<ImportableEntityType, string[]> = {
   service_targets: ['name', 'code'],
   parts: ['name', 'code', 'unit'],
   users: ['email'],
+  tasks: [
+    'externalReferenceId',
+    'contactPhone',
+    'workflowVersionId',
+    'customerId',
+  ],
 };
 
 const cellString = (value: unknown): string =>
@@ -45,6 +54,8 @@ export class ImportProcessorService {
     private readonly parts: PartsRepository,
     private readonly qrIdentity: QrIdentityService,
     private readonly platform: PlatformService,
+    private readonly tasks: TaskService,
+    private readonly assignments: TaskAssignmentService,
   ) {}
 
   validateRow(
@@ -78,6 +89,28 @@ export class ImportProcessorService {
         errorCode: 'INVALID_EMAIL',
         message: 'email must be a valid email address',
       };
+    if (entityType === 'tasks') {
+      if (!row.assignmentWorkerId && !row.assignmentTeamId)
+        return {
+          valid: false,
+          errorCode: 'ASSIGNEE_REQUIRED',
+          message: 'A worker or department must be assigned to this batch',
+        };
+      const latitude = Number(row.latitude);
+      const longitude = Number(row.longitude);
+      if (!Number.isFinite(latitude) || latitude < -90 || latitude > 90)
+        return {
+          valid: false,
+          errorCode: 'INVALID_LATITUDE',
+          message: 'latitude must be a number between -90 and 90',
+        };
+      if (!Number.isFinite(longitude) || longitude < -180 || longitude > 180)
+        return {
+          valid: false,
+          errorCode: 'INVALID_LONGITUDE',
+          message: 'longitude must be a number between -180 and 180',
+        };
+    }
     return { valid: true };
   }
 
@@ -93,7 +126,44 @@ export class ImportProcessorService {
     if (entityType === 'service_targets')
       return this.commitServiceTarget(row, duplicateMode);
     if (entityType === 'users') return this.commitUser(row, actorToken);
+    if (entityType === 'tasks') return this.commitTask(row, duplicateMode);
     return this.commitPart(row, duplicateMode);
+  }
+
+  private async commitTask(
+    row: Record<string, unknown>,
+    duplicateMode: 'reject' | 'skip' | 'update',
+  ): Promise<RowCommitResult> {
+    const result = await this.tasks.importTask(
+      row as unknown as CreateTaskDto & {
+        externalReferenceId: string;
+        customerId: string;
+      },
+      duplicateMode,
+    );
+    if (result.outcome === 'CREATED' || result.outcome === 'UPDATED') {
+      await this.assignments.assign(result.entityId, {
+        workerId:
+          typeof row.assignmentWorkerId === 'string'
+            ? row.assignmentWorkerId
+            : undefined,
+        teamId:
+          typeof row.assignmentTeamId === 'string'
+            ? row.assignmentTeamId
+            : undefined,
+        supervisorIds: Array.isArray(row.supervisorIds)
+          ? row.supervisorIds.map(String)
+          : [],
+        verificationMode: row.verificationMode as
+          'AUTO' | 'MANUAL_SUPERVISOR' | 'QUALITY_DEPARTMENT' | undefined,
+        requiredApprovals:
+          typeof row.requiredApprovals === 'number' ? row.requiredApprovals : 1,
+        qualityTeamId:
+          typeof row.qualityTeamId === 'string' ? row.qualityTeamId : undefined,
+        reason: 'Assigned during task import',
+      });
+    }
+    return result;
   }
 
   // Users import a differently-shaped commit: there's no "duplicate row"

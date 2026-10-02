@@ -9,6 +9,7 @@ import {
 } from 'class-validator';
 
 export class CompanySettingsDto {
+  @IsOptional() @IsString() name?: string;
   @IsOptional() @IsString() locale?: string;
   @IsOptional() @IsString() timezone?: string;
   @IsOptional() @IsObject() terminology?: Record<string, string>;

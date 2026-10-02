@@ -105,8 +105,8 @@ export function TaskDetailPage() {
 
   const { data: confirmation } = useQuery({
     queryKey: ["task-confirmation", id],
-    queryFn: () => api.get<CustomerConfirmation>(`/tasks/${id}/confirmation`),
-    retry: false,
+    queryFn: () =>
+      api.get<CustomerConfirmation | null>(`/tasks/${id}/confirmation`),
   });
 
   const transitionMutation = useMutation({
@@ -270,7 +270,7 @@ export function TaskDetailPage() {
             <h2 className="fb-card-title">Customer Sign-Off & Verification Seal</h2>
             {confirmation ? (
               <div className="fb-signature-seal">
-                <div style={{ fontSize: "2rem" }}>✍️</div>
+                <div style={{ fontSize: "1.5rem" }}>✓</div>
                 <div>
                   <div style={{ fontWeight: 700 }}>
                     Signed by {confirmation.signerName || "Authorized Representative"}
@@ -285,7 +285,6 @@ export function TaskDetailPage() {
               </div>
             ) : (
               <div style={{ padding: "1.25rem", background: "#f8fafc", borderRadius: "8px", border: "1px dashed var(--c-border)", textAlign: "center", color: "var(--c-text-muted)" }}>
-                <div style={{ fontSize: "1.5rem", marginBottom: "4px" }}>⏳</div>
                 <div style={{ fontWeight: 600 }}>Customer sign-off pending</div>
                 <div style={{ fontSize: "12px" }}>Will be captured upon field job completion.</div>
               </div>

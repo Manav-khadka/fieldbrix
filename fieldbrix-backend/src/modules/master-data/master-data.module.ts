@@ -5,6 +5,7 @@ import { PlatformModule } from '../platform/platform.module';
 import { IdempotencyModule } from '../idempotency/idempotency.module';
 import { StorageModule } from '../storage/storage.module';
 import { TenantContextModule } from '../tenant-context/tenant-context.module';
+import { TasksModule } from '../tasks/tasks.module';
 import { CustomersController } from './customers/customers.controller';
 import { CustomersService } from './customers/customers.service';
 import { CustomersRepository } from './customers/customers.repository';
@@ -32,6 +33,7 @@ import { SpreadsheetParserService } from './imports/spreadsheet-parser.service';
     IdempotencyModule,
     StorageModule,
     TenantContextModule,
+    TasksModule,
   ],
   controllers: [
     CustomersController,

@@ -8,6 +8,8 @@ import {
 } from "@tanstack/react-table";
 import { api } from "../../api/client";
 import { PartForm } from "./part-form";
+import { Pagination } from "../../components/ui/Pagination";
+import { usePaginationState } from "../../components/ui/pagination-state";
 
 interface Part {
   id: string;
@@ -34,15 +36,18 @@ const columns = [
 
 export function PartsPage() {
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
   const [creating, setCreating] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const pagination = usePaginationState(20);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["parts", { search, page }],
+    queryKey: [
+      "parts",
+      { search, page: pagination.page, limit: pagination.pageSize },
+    ],
     queryFn: () =>
       api.get<{ items: Part[]; total: number; page: number; limit: number }>(
-        `/parts?search=${encodeURIComponent(search)}&page=${page}&limit=20`,
+        `/parts?search=${encodeURIComponent(search)}&page=${pagination.page}&limit=${pagination.pageSize}`,
       ),
     placeholderData: (prev) => prev,
   });
@@ -86,7 +91,7 @@ export function PartsPage() {
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
-            setPage(1);
+            pagination.resetPage();
           }}
           className="fb-search-input"
         />
@@ -142,29 +147,15 @@ export function PartsPage() {
           </tbody>
         </table>
       </div>
-      {data && data.total > data.limit && (
-        <div className="fb-pagination">
-          <button
-            id="parts-prev"
-            className="fb-btn fb-btn--ghost"
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
-            disabled={page === 1}
-          >
-            ← Prev
-          </button>
-          <span className="fb-pagination-info">
-            Page {data.page} of {Math.ceil(data.total / data.limit)}
-          </span>
-          <button
-            id="parts-next"
-            className="fb-btn fb-btn--ghost"
-            onClick={() => setPage((p) => p + 1)}
-            disabled={page * data.limit >= data.total}
-          >
-            Next →
-          </button>
-        </div>
-      )}
+      <Pagination
+        page={pagination.page}
+        pageSize={pagination.pageSize}
+        total={data?.total ?? 0}
+        onPageChange={pagination.setPage}
+        onPageSizeChange={pagination.setPageSize}
+        disabled={isLoading}
+        label="Parts table pagination"
+      />
     </div>
   );
 }

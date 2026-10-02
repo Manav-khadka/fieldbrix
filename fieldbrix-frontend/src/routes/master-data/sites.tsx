@@ -1,170 +1,159 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import {
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
 import { api } from "../../api/client";
 import { SiteForm } from "./site-form";
+import {
+  OperationalRegister,
+  type RegisterColumn,
+  type RegisterRecord,
+} from "./operational-register";
+import "./operational-register.css";
+import { usePaginationState } from "../../components/ui/pagination-state";
 
-interface Site {
-  id: string;
-  name: string;
-  code: string;
+interface Site extends RegisterRecord {
   customerId: string;
-  revision: number;
-  createdAt: string;
+  siteType?: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
+  country?: string;
+  timezone?: string;
+  contactName?: string;
+  contactPhone?: string;
+  contactEmail?: string;
+  serviceZone?: string;
+  operatingHours?: string;
+  gps?: { lat: number; lng: number };
+  accessNotes?: string;
+  parkingNotes?: string;
+  safetyNotes?: string;
+  createdAt?: string;
 }
-
-const columnHelper = createColumnHelper<Site>();
-const columns = [
-  columnHelper.accessor("name", { header: "Name" }),
-  columnHelper.accessor("code", {
-    header: "Code",
-    cell: (info) => <span className="fb-badge">{info.getValue()}</span>,
-  }),
-  columnHelper.accessor("createdAt", {
-    header: "Created",
-    cell: (info) =>
-      info.getValue() ? new Date(info.getValue()).toLocaleDateString() : "—",
-  }),
+const columns: RegisterColumn<Site>[] = [
+  {
+    key: "name",
+    label: "Location",
+    render: (value, row) => (
+      <div>
+        <strong>{String(value)}</strong>
+        <br />
+        <small>{row.siteType || row.code}</small>
+      </div>
+    ),
+  },
+  {
+    key: "code",
+    label: "Code",
+    render: (value) => <span className="fb-badge">{String(value)}</span>,
+  },
+  { key: "siteType", label: "Location type" },
+  { key: "city", label: "City" },
+  { key: "state", label: "State" },
+  { key: "serviceZone", label: "Service zone" },
+  { key: "contactName", label: "Site contact" },
+  { key: "contactPhone", label: "Phone" },
+  { key: "contactEmail", label: "Email" },
+  { key: "operatingHours", label: "Operating hours" },
+  {
+    key: "gps",
+    label: "GPS",
+    render: (value) => {
+      const gps = value as Site["gps"];
+      return gps ? `${gps.lat.toFixed(4)}, ${gps.lng.toFixed(4)}` : "—";
+    },
+  },
+  { key: "timezone", label: "Timezone" },
+  { key: "postalCode", label: "PIN code" },
+  { key: "country", label: "Country" },
+  { key: "accessNotes", label: "Access notes" },
+  { key: "parkingNotes", label: "Parking" },
+  { key: "safetyNotes", label: "Safety" },
+  { key: "createdAt", label: "Created" },
 ];
-
 export function SitesPage() {
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
   const [creating, setCreating] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
-
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["sites", { search, page }],
+  const pagination = usePaginationState(20);
+  const query = useQuery({
+    queryKey: [
+      "sites",
+      { search, page: pagination.page, limit: pagination.pageSize },
+    ],
     queryFn: () =>
       api.get<{ items: Site[]; total: number; page: number; limit: number }>(
-        `/sites?search=${encodeURIComponent(search)}&page=${page}&limit=20`,
+        `/sites?search=${encodeURIComponent(search)}&page=${pagination.page}&limit=${pagination.pageSize}`,
       ),
-    placeholderData: (prev) => prev,
+    placeholderData: (previous) => previous,
   });
-
-  const table = useReactTable({
-    data: data?.items ?? [],
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-    manualPagination: true,
-  });
-
+  const items = query.data?.items ?? [];
   return (
-    <div className="fb-page">
-      <div className="fb-page-header">
-        <div>
-          <h1 className="fb-page-title">Sites</h1>
-          <p className="fb-page-subtitle">{data?.total ?? 0} total records</p>
-        </div>
-        <button
-          id="sites-add"
-          className="fb-btn fb-btn--primary"
-          onClick={() => {
-            setEditingId(null);
-            setCreating((open) => !open);
-          }}
-        >
-          {creating ? "Cancel" : "+ Add site"}
-        </button>
-      </div>
-
-      {creating && <SiteForm onDone={() => setCreating(false)} />}
-      {editingId && (
+    <OperationalRegister
+      title="Locations"
+      subtitle="Company branches, customer sites and service locations with dispatch-ready coordinates."
+      noun="location"
+      items={items}
+      total={query.data?.total ?? 0}
+      columns={columns}
+      defaultColumns={[
+        "name",
+        "code",
+        "siteType",
+        "city",
+        "state",
+        "serviceZone",
+        "contactName",
+        "contactPhone",
+        "operatingHours",
+        "gps",
+      ]}
+      stats={[
+        {
+          label: "Active locations",
+          value: query.data?.total ?? 0,
+          detail: "available for task dispatch",
+        },
+        {
+          label: "Mapped",
+          value: items.filter((item) => item.gps).length,
+          detail: "with usable coordinates in this page",
+        },
+        {
+          label: "Service zones",
+          value: new Set(items.map((item) => item.serviceZone).filter(Boolean))
+            .size,
+          detail: "represented in this view",
+        },
+        {
+          label: "States",
+          value: new Set(items.map((item) => item.state).filter(Boolean)).size,
+          detail: "covered by operations",
+        },
+      ]}
+      search={search}
+      onSearch={(value) => {
+        setSearch(value);
+        pagination.resetPage();
+      }}
+      onAdd={() => {
+        setEditingId(null);
+        setCreating((value) => !value);
+      }}
+      onEdit={(id) => {
+        setCreating(false);
+        setEditingId(id);
+      }}
+      loading={query.isLoading}
+      error={Boolean(query.error)}
+      page={pagination.page}
+      limit={pagination.pageSize}
+      onPage={pagination.setPage}
+      onLimit={pagination.setPageSize}
+    >
+      {creating ? <SiteForm onDone={() => setCreating(false)} /> : null}
+      {editingId ? (
         <SiteForm siteId={editingId} onDone={() => setEditingId(null)} />
-      )}
-
-      <div className="fb-toolbar">
-        <input
-          id="sites-search"
-          type="search"
-          placeholder="Search by name or code…"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            setPage(1);
-          }}
-          className="fb-search-input"
-        />
-      </div>
-      {error && <div className="fb-error">Failed to load sites</div>}
-      <div className="fb-table-container">
-        <table className="fb-table" role="grid">
-          <thead>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <th key={header.id} scope="col">
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext(),
-                    )}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {isLoading && (
-              <tr>
-                <td colSpan={columns.length} className="fb-table-loading">
-                  Loading…
-                </td>
-              </tr>
-            )}
-            {!isLoading && data?.items.length === 0 && (
-              <tr>
-                <td colSpan={columns.length} className="fb-table-empty">
-                  No sites found
-                </td>
-              </tr>
-            )}
-            {table.getRowModel().rows.map((row) => (
-              <tr
-                key={row.id}
-                className="fb-table-row--clickable"
-                onClick={() => {
-                  setCreating(false);
-                  setEditingId(row.original.id);
-                }}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      {data && data.total > data.limit && (
-        <div className="fb-pagination">
-          <button
-            id="sites-prev"
-            className="fb-btn fb-btn--ghost"
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
-            disabled={page === 1}
-          >
-            ← Prev
-          </button>
-          <span className="fb-pagination-info">
-            Page {data.page} of {Math.ceil(data.total / data.limit)}
-          </span>
-          <button
-            id="sites-next"
-            className="fb-btn fb-btn--ghost"
-            onClick={() => setPage((p) => p + 1)}
-            disabled={page * data.limit >= data.total}
-          >
-            Next →
-          </button>
-        </div>
-      )}
-    </div>
+      ) : null}
+    </OperationalRegister>
   );
 }

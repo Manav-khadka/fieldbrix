@@ -9,5 +9,6 @@ EXPOSE 3000
 CMD ["pnpm", "start:dev"]
 
 FROM development AS production
+ENV CI=true
 RUN pnpm build && pnpm prune --prod
 CMD ["node", "dist/main"]

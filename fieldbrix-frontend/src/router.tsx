@@ -4,105 +4,34 @@ import {
   createRouter,
   Outlet,
   redirect,
-  useNavigate,
 } from "@tanstack/react-router";
-import { useState } from "react";
 import { Layout } from "./routes/_layout";
 import { OverviewPage } from "./routes/index";
 import { CustomersPage } from "./routes/master-data/customers";
 import { SitesPage } from "./routes/master-data/sites";
 import { ServiceTargetsPage } from "./routes/master-data/service-targets";
 import { PartsPage } from "./routes/master-data/parts";
-import { ImportsPage } from "./routes/master-data/imports";
 import { WorkflowsListPage } from "./routes/workflows/list";
 import { WorkflowBuilderPage } from "./routes/workflows/builder";
 import { WorkflowRulesPage } from "./routes/workflows/rules";
 import { WorkflowVersionsPage } from "./routes/workflows/versions";
 import { TasksListPage } from "./routes/tasks/list";
+import { LegacyTaskImportsPage } from "./routes/tasks/legacy-imports";
 import { TaskDetailPage } from "./routes/tasks/detail";
 import { CapacityPage } from "./routes/tasks/capacity";
 import { SchedulingCalendarPage } from "./routes/scheduling/calendar";
 import { ReviewQueuePage } from "./routes/tasks/review-queue";
-import LegacyAdminApp, { Login } from "./App";
+import { LoginPage } from "./features/auth/LoginPage";
+import { ClientSetupPage } from "./routes/onboarding/client-setup";
 
-const API_BASE =
-  (import.meta.env.VITE_API_URL as string | undefined) ??
-  (import.meta.env.VITE_API_BASE_URL as string | undefined) ??
-  "http://localhost:3000";
-
-function LoginPage() {
-  const navigate = useNavigate();
-  const [identifier, setIdentifier] = useState("admin@fieldbrix.local");
-  const [password, setPassword] = useState("ChangeMe123!");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch(`${API_BASE}/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ identifier, password }),
-      });
-      if (!res.ok) {
-        const body = (await res.json().catch(() => ({}))) as {
-          message?: string;
-        };
-        throw new Error(body.message ?? "Login failed");
-      }
-      const body = (await res.json()) as {
-        data?: { accessToken?: string; refreshToken?: string; token?: string };
-        accessToken?: string;
-        token?: string;
-      };
-      const token =
-        body?.data?.accessToken ??
-        body?.data?.token ??
-        body?.accessToken ??
-        body?.token ??
-        "";
-      if (!token) {
-        throw new Error("No authentication token returned from server");
-      }
-      localStorage.setItem("fieldbrix_token", token);
-      if (body?.data?.refreshToken) {
-        localStorage.setItem("fieldbrix_refresh_token", body.data.refreshToken);
-      }
-      await navigate({ to: "/" });
-    } catch (err) {
-      setError((err as Error).message ?? "Login failed");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const forgotPassword = async (forgottenIdentifier: string) => {
-    await fetch(`${API_BASE}/auth/password/forgot`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "idempotency-key": crypto.randomUUID(),
-      },
-      body: JSON.stringify({ identifier: forgottenIdentifier }),
-    });
-  };
-
-  return (
-    <Login
-      identifier={identifier}
-      password={password}
-      setIdentifier={setIdentifier}
-      setPassword={setPassword}
-      onSubmit={(e) => void handleLogin(e)}
-      error={error}
-      busy={loading}
-      onForgot={forgotPassword}
-    />
-  );
-}
+// Admin Module Routes (Unified Under Layout)
+import { TenantsPage } from "./routes/admin/tenants";
+import { CompanyPage } from "./routes/admin/company";
+import { PeoplePage } from "./routes/admin/people";
+import { RolesPage } from "./routes/admin/roles";
+import { SecurityPage } from "./routes/admin/security";
+import { FilesPage } from "./routes/admin/files";
+import { SessionsPage } from "./routes/admin/sessions";
 
 // Root route
 const rootRoute = createRootRoute({ component: Outlet });
@@ -128,22 +57,16 @@ const loginRoute = createRoute({
   },
 });
 
-// Legacy platform/company administration console (tenants, company settings,
-// people, roles, security, files, sessions — sprints 01-05). Not yet ported
-// to the router/page architecture; mounted as-is so it stays reachable
-// instead of being orphaned by the sprint 06-10 router migration. It gates
-// its own login/session state, so it is intentionally NOT nested under
-// layoutRoute's guard.
-const adminRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/admin",
-  component: LegacyAdminApp,
-});
-
 const overviewRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/",
   component: OverviewPage,
+});
+
+const clientSetupRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/setup",
+  component: ClientSetupPage,
 });
 
 // Master Data
@@ -170,7 +93,7 @@ const partsRoute = createRoute({
 const importsRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/master-data/imports",
-  component: ImportsPage,
+  component: LegacyTaskImportsPage,
 });
 
 // Workflows
@@ -195,7 +118,7 @@ const workflowVersionsRoute = createRoute({
   component: WorkflowVersionsPage,
 });
 
-// Tasks
+// Tasks & Scheduling
 const tasksListRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/tasks",
@@ -229,11 +152,55 @@ const reviewQueueRoute = createRoute({
   component: ReviewQueuePage,
 });
 
+// Administration Routes (Unified in Dashboard)
+const adminIndexRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/admin",
+  beforeLoad: () => {
+    throw redirect({ to: "/admin/company" });
+  },
+});
+const adminTenantsRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/admin/tenants",
+  component: TenantsPage,
+});
+const adminCompanyRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/admin/company",
+  component: CompanyPage,
+});
+const adminPeopleRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/admin/people",
+  component: PeoplePage,
+});
+const adminRolesRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/admin/roles",
+  component: RolesPage,
+});
+const adminSecurityRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/admin/security",
+  component: SecurityPage,
+});
+const adminFilesRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/admin/files",
+  component: FilesPage,
+});
+const adminSessionsRoute = createRoute({
+  getParentRoute: () => layoutRoute,
+  path: "/admin/sessions",
+  component: SessionsPage,
+});
+
 const routeTree = rootRoute.addChildren([
   loginRoute,
-  adminRoute,
   layoutRoute.addChildren([
     overviewRoute,
+    clientSetupRoute,
     customersRoute,
     sitesRoute,
     serviceTargetsRoute,
@@ -249,6 +216,14 @@ const routeTree = rootRoute.addChildren([
     schedulingIndexRoute,
     calendarRoute,
     reviewQueueRoute,
+    adminIndexRoute,
+    adminTenantsRoute,
+    adminCompanyRoute,
+    adminPeopleRoute,
+    adminRolesRoute,
+    adminSecurityRoute,
+    adminFilesRoute,
+    adminSessionsRoute,
   ]),
 ]);
 

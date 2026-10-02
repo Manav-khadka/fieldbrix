@@ -18,12 +18,21 @@ const makePlatform = (overrides: Record<string, unknown> = {}) => ({
   ...overrides,
 });
 
+const makeTasks = (overrides: Record<string, unknown> = {}) => ({
+  importTask: jest.fn().mockResolvedValue({
+    outcome: 'CREATED',
+    entityId: 'task-1',
+  }),
+  ...overrides,
+});
+
 function makeProcessor(repoOverrides?: {
   customers?: Record<string, unknown>;
   sites?: Record<string, unknown>;
   serviceTargets?: Record<string, unknown>;
   parts?: Record<string, unknown>;
   platform?: Record<string, unknown>;
+  tasks?: Record<string, unknown>;
 }) {
   const customers = makeRepo(repoOverrides?.customers);
   const sites = makeRepo(repoOverrides?.sites);
@@ -31,6 +40,10 @@ function makeProcessor(repoOverrides?: {
   const parts = makeRepo(repoOverrides?.parts);
   const qr = makeQr();
   const platform = makePlatform(repoOverrides?.platform);
+  const tasks = makeTasks(repoOverrides?.tasks);
+  const assignments = {
+    assign: jest.fn().mockResolvedValue({ id: 'assignment-1' }),
+  };
   /* eslint-disable @typescript-eslint/no-unsafe-argument */
   const processor = new ImportProcessorService(
     customers as any,
@@ -39,9 +52,20 @@ function makeProcessor(repoOverrides?: {
     parts as any,
     qr as any,
     platform as any,
+    tasks as any,
+    assignments as any,
   );
   /* eslint-enable @typescript-eslint/no-unsafe-argument */
-  return { processor, customers, sites, serviceTargets, parts, qr, platform };
+  return {
+    processor,
+    customers,
+    sites,
+    serviceTargets,
+    parts,
+    qr,
+    platform,
+    tasks,
+  };
 }
 
 // ─── validateRow ──────────────────────────────────────────────────────────────
@@ -148,6 +172,40 @@ describe('ImportProcessorService.validateRow', () => {
       expect(
         processor.validateRow('users', { email: 'tech@fieldbrix.local' }).valid,
       ).toBe(true);
+    });
+  });
+
+  describe('tasks', () => {
+    const validTask = {
+      externalReferenceId: 'WO-1001',
+      contactPhone: '+968 9000 0000',
+      latitude: 23.588,
+      longitude: 58.3829,
+      workflowVersionId: 'workflow-version-1',
+      customerId: 'customer-1',
+      assignmentTeamId: 'team-1',
+      verificationMode: 'AUTO',
+    };
+
+    it('requires the core task import fields', () => {
+      expect(processor.validateRow('tasks', validTask).valid).toBe(true);
+      expect(
+        processor.validateRow('tasks', {
+          ...validTask,
+          externalReferenceId: '',
+        }).errorCode,
+      ).toBe('REQUIRED_FIELD');
+    });
+
+    it('validates latitude and longitude ranges', () => {
+      expect(
+        processor.validateRow('tasks', { ...validTask, latitude: 91 })
+          .errorCode,
+      ).toBe('INVALID_LATITUDE');
+      expect(
+        processor.validateRow('tasks', { ...validTask, longitude: 181 })
+          .errorCode,
+      ).toBe('INVALID_LONGITUDE');
     });
   });
 });
@@ -315,6 +373,24 @@ describe('ImportProcessorService.commitRow', () => {
       expect(result.outcome).toBe('ERROR');
       if (result.outcome === 'ERROR')
         expect(result.errorCode).toBe('INVITE_FAILED');
+    });
+  });
+
+  describe('tasks — workflow-aware import', () => {
+    it('delegates duplicate handling and creation to TaskService', async () => {
+      const { processor, tasks } = makeProcessor();
+      const row = {
+        externalReferenceId: 'WO-1001',
+        contactPhone: '+968 9000 0000',
+        latitude: 23.588,
+        longitude: 58.3829,
+        workflowVersionId: 'workflow-version-1',
+        customerId: 'customer-1',
+        customFields: { accessCode: 'A-12' },
+      };
+      const result = await processor.commitRow('tasks', row, 'update');
+      expect(result.outcome).toBe('CREATED');
+      expect(tasks.importTask).toHaveBeenCalledWith(row, 'update');
     });
   });
 });

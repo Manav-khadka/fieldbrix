@@ -39,6 +39,12 @@ export class ReviewController {
     return this.reviewService.listQueue();
   }
 
+  @Permission('tasks.view')
+  @Get(':id/confirmation')
+  getConfirmation(@Param('id') id: string) {
+    return this.reviewService.getConfirmation(id);
+  }
+
   @Post(':id/confirmation')
   saveConfirmation(
     @Param('id') id: string,
